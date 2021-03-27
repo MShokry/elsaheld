@@ -8,18 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* FoodDeliveryAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */; };
+		0F4E892440244029B12BBE79 /* category-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C37A816CDB04B168A07C522 /* category-8.png */; };
+		138FCA582BDA47B08241844F /* main-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B5B93CCA5CC4636A56A0191 /* main-photo.jpg */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		188ABFAA61024D089F0D4310 /* category-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EAC342BCB144EED804C7F50 /* category-1.png */; };
+		18A4B16C6649401FB371964A /* category-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 48A860EA8A57426E84B8FE9D /* category-2.png */; };
+		1A862032CA4B430F9343B2FD /* category-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 960E3CEF43694E268BB8D01A /* category-7.png */; };
 		2CEA03051BCA27F5EC7513A8 /* libPods-FoodDeliveryAppTemplate-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 189639590E29C8E85E7E5384 /* libPods-FoodDeliveryAppTemplate-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* FoodDeliveryAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */; };
+		2F1674EC51584BC2A688E85F /* category-6.png in Resources */ = {isa = PBXBuildFile; fileRef = B47956E3E49A479D8DA87072 /* category-6.png */; };
+		30E494CAEC87475E9E69433E /* campaign-4.png in Resources */ = {isa = PBXBuildFile; fileRef = EF36F64E829B46B599C003FE /* campaign-4.png */; };
+		38D7E2B604F9423A9F721E6B /* dish-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 070008486A0C401AA0028A3B /* dish-1.jpg */; };
+		391CA1FA5A094D0FB0618C33 /* dish-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2A75D0BE748402990B86D1C /* dish-2.jpg */; };
 		414D1F13D25C476D1EA5BC02 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 864F96DA867307CB7366CB33 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a */; };
+		44C7D5452506413CBA8C33B3 /* category-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8229E1668BF44E2CA41A6584 /* category-3.png */; };
+		46361A552CAD4E33A3355E39 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = D54311F3A74C4635A9439D71 /* avatar.png */; };
+		471451D798044950B6AD7BD0 /* dish-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40D1047B208943408F0C48CE /* dish-3.jpg */; };
+		547F681C8C5C42819658AF6F /* category-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 422247FFBF0A4F76A470435D /* category-5.png */; };
+		5E94975E97B74187AC14953D /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF3ECAF411B4574825DF9E1 /* location.png */; };
+		6DCB9324672348088F5646CA /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = E678920CFBCA4B34AEC2933D /* map.png */; };
+		7FBA7A7931944BF8B5523C50 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EF0B2B204291A75177E8 /* food.png */; };
+		A276627BC5DC4D8AB8EB6EA4 /* driver-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43BF2B8A38448E8134C769 /* driver-marker.png */; };
+		A61254C9ECB844F7825EE1DB /* promotion.png in Resources */ = {isa = PBXBuildFile; fileRef = 274F5C03BF714BBD8D92C4B2 /* promotion.png */; };
 		AAF426369F0847065554CA43 /* libPods-FoodDeliveryAppTemplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A040CB4FC3E171B819A365 /* libPods-FoodDeliveryAppTemplate.a */; };
 		B06C0BC433EE58C7716EB14F /* libPods-FoodDeliveryAppTemplate-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D47CB08DA6C074379E8EE8 /* libPods-FoodDeliveryAppTemplate-tvOSTests.a */; };
+		B6F8A74A2486493E8B8022BC /* category-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D61D01E96E2D4189BE86F2FA /* category-4.png */; };
+		B71CBD99F1C74C158EA9D20A /* cover-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E851D86C7F64B9293FD331C /* cover-photo.jpg */; };
+		B768F4772DD4485AAE3D57CF /* campaign-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ACB8D2CFC432E99031662 /* campaign-2.png */; };
 		B81EE1BB24E59E3F0058A10F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B81EE1BA24E59E3F0058A10F /* LaunchScreen.storyboard */; };
+		DE92E74430ED4117979B88CE /* campaign-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B896D1D89F34720A5069AA5 /* campaign-3.png */; };
+		DF784BC157184715B765DA8B /* campaign-1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3036A31FD343908762D5C4 /* campaign-1.png */; };
+		F265180C5D974157A9BB8E71 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 242B96BE180245C69458E7AA /* app_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +68,9 @@
 		00E356EE1AD99517003FC87E /* FoodDeliveryAppTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodDeliveryAppTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodDeliveryAppTemplateTests.m; sourceTree = "<group>"; };
+		03F2EF0B2B204291A75177E8 /* food.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = food.png; path = ../src/assets/common/food.png; sourceTree = "<group>"; };
+		070008486A0C401AA0028A3B /* dish-1.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "dish-1.jpg"; path = "../src/assets/dish-details/dish-1.jpg"; sourceTree = "<group>"; };
+		0EAC342BCB144EED804C7F50 /* category-1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-1.png"; path = "../src/assets/categories/category-1.png"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Food Star.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Star.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FoodDeliveryAppTemplate/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FoodDeliveryAppTemplate/AppDelegate.m; sourceTree = "<group>"; };
@@ -52,20 +79,41 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FoodDeliveryAppTemplate/main.m; sourceTree = "<group>"; };
 		189639590E29C8E85E7E5384 /* libPods-FoodDeliveryAppTemplate-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A3CBBEA51FFE894450429D1 /* Pods-FoodDeliveryAppTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate/Pods-FoodDeliveryAppTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		1B5B93CCA5CC4636A56A0191 /* main-photo.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "main-photo.jpg"; path = "../src/assets/place-details/main-photo.jpg"; sourceTree = "<group>"; };
+		242B96BE180245C69458E7AA /* app_icon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = app_icon.png; path = ../src/assets/app/app_icon.png; sourceTree = "<group>"; };
+		274F5C03BF714BBD8D92C4B2 /* promotion.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = promotion.png; path = ../src/assets/promotions/promotion.png; sourceTree = "<group>"; };
+		2B896D1D89F34720A5069AA5 /* campaign-3.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-3.png"; path = "../src/assets/campaigns/campaign-3.png"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FoodDeliveryAppTemplate-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FoodDeliveryAppTemplate-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CE57CB59C5C2B6CA09F3F3 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig"; sourceTree = "<group>"; };
 		3C7FD6AC47521735A33784B8 /* Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOS/Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		3E851D86C7F64B9293FD331C /* cover-photo.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "cover-photo.jpg"; path = "../src/assets/dish-details/cover-photo.jpg"; sourceTree = "<group>"; };
+		40D1047B208943408F0C48CE /* dish-3.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "dish-3.jpg"; path = "../src/assets/dish-details/dish-3.jpg"; sourceTree = "<group>"; };
+		422247FFBF0A4F76A470435D /* category-5.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-5.png"; path = "../src/assets/categories/category-5.png"; sourceTree = "<group>"; };
 		461F8EA4F45D55984FDC2DCC /* Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOSTests/Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		48A860EA8A57426E84B8FE9D /* category-2.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-2.png"; path = "../src/assets/categories/category-2.png"; sourceTree = "<group>"; };
+		5DF3ECAF411B4574825DF9E1 /* location.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = location.png; path = ../src/assets/drivers/location.png; sourceTree = "<group>"; };
+		6A43BF2B8A38448E8134C769 /* driver-marker.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "driver-marker.png"; path = "../src/assets/drivers/driver-marker.png"; sourceTree = "<group>"; };
+		6C37A816CDB04B168A07C522 /* category-8.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-8.png"; path = "../src/assets/categories/category-8.png"; sourceTree = "<group>"; };
+		7A8ACB8D2CFC432E99031662 /* campaign-2.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-2.png"; path = "../src/assets/campaigns/campaign-2.png"; sourceTree = "<group>"; };
+		8229E1668BF44E2CA41A6584 /* category-3.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-3.png"; path = "../src/assets/categories/category-3.png"; sourceTree = "<group>"; };
 		864F96DA867307CB7366CB33 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95919C58F3A93072D3513157 /* Pods-FoodDeliveryAppTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate/Pods-FoodDeliveryAppTemplate.release.xcconfig"; sourceTree = "<group>"; };
+		960E3CEF43694E268BB8D01A /* category-7.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-7.png"; path = "../src/assets/categories/category-7.png"; sourceTree = "<group>"; };
 		98D47CB08DA6C074379E8EE8 /* libPods-FoodDeliveryAppTemplate-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B47956E3E49A479D8DA87072 /* category-6.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-6.png"; path = "../src/assets/categories/category-6.png"; sourceTree = "<group>"; };
 		B81EE1BA24E59E3F0058A10F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD3036A31FD343908762D5C4 /* campaign-1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-1.png"; path = "../src/assets/campaigns/campaign-1.png"; sourceTree = "<group>"; };
+		D2A75D0BE748402990B86D1C /* dish-2.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "dish-2.jpg"; path = "../src/assets/dish-details/dish-2.jpg"; sourceTree = "<group>"; };
+		D54311F3A74C4635A9439D71 /* avatar.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = avatar.png; path = ../src/assets/drivers/avatar.png; sourceTree = "<group>"; };
+		D61D01E96E2D4189BE86F2FA /* category-4.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-4.png"; path = "../src/assets/categories/category-4.png"; sourceTree = "<group>"; };
 		D8A040CB4FC3E171B819A365 /* libPods-FoodDeliveryAppTemplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC71B387FA99681CC50B0EC6 /* Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOSTests/Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E678920CFBCA4B34AEC2933D /* map.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = map.png; path = ../src/assets/checkout/map.png; sourceTree = "<group>"; };
 		E93AA5E245E793D5CC00B836 /* Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOS/Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		EF36F64E829B46B599C003FE /* campaign-4.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-4.png"; path = "../src/assets/campaigns/campaign-4.png"; sourceTree = "<group>"; };
 		F78E43BEACDA14D70407A062 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +228,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				29481A277A31B5BB57C97D1B /* Pods */,
+				E3EAF14DB9BF417BBE678690 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -195,6 +244,37 @@
 				2D02E4901E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E3EAF14DB9BF417BBE678690 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				242B96BE180245C69458E7AA /* app_icon.png */,
+				CD3036A31FD343908762D5C4 /* campaign-1.png */,
+				7A8ACB8D2CFC432E99031662 /* campaign-2.png */,
+				2B896D1D89F34720A5069AA5 /* campaign-3.png */,
+				EF36F64E829B46B599C003FE /* campaign-4.png */,
+				0EAC342BCB144EED804C7F50 /* category-1.png */,
+				48A860EA8A57426E84B8FE9D /* category-2.png */,
+				8229E1668BF44E2CA41A6584 /* category-3.png */,
+				D61D01E96E2D4189BE86F2FA /* category-4.png */,
+				422247FFBF0A4F76A470435D /* category-5.png */,
+				B47956E3E49A479D8DA87072 /* category-6.png */,
+				960E3CEF43694E268BB8D01A /* category-7.png */,
+				6C37A816CDB04B168A07C522 /* category-8.png */,
+				E678920CFBCA4B34AEC2933D /* map.png */,
+				03F2EF0B2B204291A75177E8 /* food.png */,
+				3E851D86C7F64B9293FD331C /* cover-photo.jpg */,
+				070008486A0C401AA0028A3B /* dish-1.jpg */,
+				D2A75D0BE748402990B86D1C /* dish-2.jpg */,
+				40D1047B208943408F0C48CE /* dish-3.jpg */,
+				D54311F3A74C4635A9439D71 /* avatar.png */,
+				6A43BF2B8A38448E8134C769 /* driver-marker.png */,
+				5DF3ECAF411B4574825DF9E1 /* location.png */,
+				1B5B93CCA5CC4636A56A0191 /* main-photo.jpg */,
+				274F5C03BF714BBD8D92C4B2 /* promotion.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +422,30 @@
 			files = (
 				B81EE1BB24E59E3F0058A10F /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F265180C5D974157A9BB8E71 /* app_icon.png in Resources */,
+				DF784BC157184715B765DA8B /* campaign-1.png in Resources */,
+				B768F4772DD4485AAE3D57CF /* campaign-2.png in Resources */,
+				DE92E74430ED4117979B88CE /* campaign-3.png in Resources */,
+				30E494CAEC87475E9E69433E /* campaign-4.png in Resources */,
+				188ABFAA61024D089F0D4310 /* category-1.png in Resources */,
+				18A4B16C6649401FB371964A /* category-2.png in Resources */,
+				44C7D5452506413CBA8C33B3 /* category-3.png in Resources */,
+				B6F8A74A2486493E8B8022BC /* category-4.png in Resources */,
+				547F681C8C5C42819658AF6F /* category-5.png in Resources */,
+				2F1674EC51584BC2A688E85F /* category-6.png in Resources */,
+				1A862032CA4B430F9343B2FD /* category-7.png in Resources */,
+				0F4E892440244029B12BBE79 /* category-8.png in Resources */,
+				6DCB9324672348088F5646CA /* map.png in Resources */,
+				7FBA7A7931944BF8B5523C50 /* food.png in Resources */,
+				B71CBD99F1C74C158EA9D20A /* cover-photo.jpg in Resources */,
+				38D7E2B604F9423A9F721E6B /* dish-1.jpg in Resources */,
+				391CA1FA5A094D0FB0618C33 /* dish-2.jpg in Resources */,
+				471451D798044950B6AD7BD0 /* dish-3.jpg in Resources */,
+				46361A552CAD4E33A3355E39 /* avatar.png in Resources */,
+				A276627BC5DC4D8AB8EB6EA4 /* driver-marker.png in Resources */,
+				5E94975E97B74187AC14953D /* location.png in Resources */,
+				138FCA582BDA47B08241844F /* main-photo.jpg in Resources */,
+				A61254C9ECB844F7825EE1DB /* promotion.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

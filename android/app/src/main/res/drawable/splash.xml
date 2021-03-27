@@ -4,6 +4,7 @@
     tools:ignore="MissingDefaultResource">
     <item android:drawable="@color/colorPrimary" />
     <item android:width="300dp"
-        android:height="300dp" android:drawable="@drawable/logo"
+        android:scaleType="fitXY"
+        android:height="161dp" android:drawable="@drawable/logo"
         android:gravity="center" />
 </layer-list>
