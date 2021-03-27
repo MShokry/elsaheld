@@ -8,7 +8,7 @@ import MerchantCampaigns from './MerchantCampaigns';
 import PopularCategories from './PopularCategories';
 import HotDeals from './HotDeals';
 import RemarkablePlaces from './RemarkablePlaces';
-import AppReviewModal from '@src/components/common/AppReviewModal';
+// import AppReviewModal from '@src/components/common/AppReviewModal';
 
 type HomeProps = {};
 
@@ -47,7 +47,7 @@ const Home: React.FC<HomeProps> = () => {
           <LoadingIndicator size="large" hasMargin />
         )}
       </ScrollView>
-      <AppReviewModal daysBeforeReminding={1} />
+      {/* <AppReviewModal daysBeforeReminding={1} /> */}
     </SafeAreaView>
   );
 };

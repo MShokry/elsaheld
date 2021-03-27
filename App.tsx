@@ -10,7 +10,7 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import {AppState, AppStateStatus} from 'react-native';
+import { AppState, AppStateStatus, I18nManager, View } from 'react-native';
 import {
   AppearanceProvider,
   useColorScheme,
@@ -19,20 +19,22 @@ import {
 import RootNavigation from '@src/components/routes/RootNavigation';
 import CartProvider from '@src/components/common/CartProvider';
 import ThemeContext from '@src/context/theme-context';
-import AuthProvider from '@src/components/common/AuthProvider/AuthProvider';
-import AsyncStorage from '@react-native-community/async-storage';
-import {AppReviewConfig} from '@src/constants';
+import AuthProvider, { mainReducer } from '@src/components/common/AuthProvider/AuthProvider';
+import * as DataBase from '@src/utils/AsyncStorage';
 
-const {USES_UNTIL_SHOW} = AppReviewConfig;
+import { AppReviewConfig } from '@src/constants';
+
+const { USES_UNTIL_SHOW } = AppReviewConfig;
 
 const App = () => {
+  // const [contextState, contextDispatch] = React.useContext(AuthContext);
   const appState = React.useRef(AppState.currentState);
   const [appStateVisible, setAppStateVisible] = React.useState(
     appState.current,
   );
   const scheme = useColorScheme();
-  const [currentTheme, setCurrentTheme] = React.useState('dark');
-  const [useSystemTheme, setUseSystemTheme] = React.useState(true);
+  const [currentTheme, setCurrentTheme] = React.useState('light');
+  const [useSystemTheme, setUseSystemTheme] = React.useState(false);
 
   React.useEffect(() => {
     AppState.addEventListener('change', _handleAppStateChange);
@@ -52,15 +54,15 @@ const App = () => {
       return;
     }
     const handleGetUsesUntilShowAppReview = async () => {
-      const usesUntilShowAppReview = await AsyncStorage.getItem(
+      const usesUntilShowAppReview = await DataBase.getItem(
         USES_UNTIL_SHOW,
       );
       if (!usesUntilShowAppReview) {
-        AsyncStorage.setItem(USES_UNTIL_SHOW, '1');
+        DataBase.setItem(USES_UNTIL_SHOW, '1');
         return;
       }
       const totalUses = parseInt(usesUntilShowAppReview, 10) + 1;
-      AsyncStorage.setItem(USES_UNTIL_SHOW, totalUses.toString());
+      // AsyncStorage.setItem(USES_UNTIL_SHOW, totalUses.toString());
     };
     handleGetUsesUntilShowAppReview();
   }, [appStateVisible]);
@@ -87,6 +89,7 @@ const App = () => {
         <AuthProvider>
           <CartProvider>
             <RootNavigation />
+            {/* <View /> */}
           </CartProvider>
         </AuthProvider>
       </ThemeContext.Provider>

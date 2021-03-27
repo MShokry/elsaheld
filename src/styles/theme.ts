@@ -3,17 +3,17 @@ export const lightTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#FC6A57',
-    secondary: '#9b9b9b',
-    text: '#333333',
-    border: '#ededed',
+    primary: '#022873',
+    secondary: '#106FA4',
+    text: '#022873',
+    border: '#8edaea',
   },
 };
 export const darkTheme = {
   ...DarkTheme,
   colors: {
     ...DarkTheme.colors,
-    primary: '#FC6A57',
+    primary: '#022873',
     secondary: '#ccc',
     card: '#282828',
     background: '#121212',

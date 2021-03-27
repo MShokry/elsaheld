@@ -11,13 +11,16 @@ type AuthenticationProps = {};
 const Authentication: React.FC<AuthenticationProps> = () => {
   const navigation = useNavigation();
   const {primary} = useThemeColors();
-  const {signIn} = React.useContext(AuthContext);
+  // const {signIn} = React.useContext(AuthContext);
+  const [contextState, contextDispatch] = React.useContext(AuthContext);
+  const {userToken} = contextState;
 
   const _onConnectWithPhoneNumberButtonPressed = () => {
     navigation.navigate('AuthWithPhoneNumberScreen');
   };
   const _onSocialNetworkConnectButtonPressed = () => {
-    signIn();
+    // signIn();
+    // navigation.navigate('')
   };
 
   return (
@@ -25,13 +28,14 @@ const Authentication: React.FC<AuthenticationProps> = () => {
       style={[
         styles.container,
         {
-          backgroundColor: primary,
+          // backgroundColor: primary,
         },
       ]}>
       <View style={styles.appIconContainer}>
         <Image
           source={require('../../../assets/app/app_icon.png')}
           style={styles.appIcon}
+          resizeMode='contain'
         />
       </View>
       <Container style={styles.loginMethodContainer}>

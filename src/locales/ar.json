@@ -1,0 +1,340 @@
+{
+  "loginOrRegister": {
+    "login_button": "تسجيل الدخول",
+    "signup_button": "إنشاء حساب جديد",
+    "forget_password": "نسيت كلمة المرور ؟",
+    "skip_button": "تسجيل الدخول كزائر"
+  },
+  "sliderScreen": {
+    "skip_button": "تخطي",
+    "rights": "جميع الحقوق محفوظة",
+    "download": "تحميل...",
+    "next": "التالي"
+  },
+  "loginScreen": {
+    "title": "تسجيل الدخول",
+    "welcome": "هلا بيك مرة تانية",
+    "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "or": "أو",
+    "login_button": "تسجيل الدخول",
+    "signup_button": "تسجيل الحساب",
+    "facebook_button": "تسجيل باستخدام فيس بوك",
+    "twitter_button": "تسجيل باستخدام تويتر",
+    "google_button": "تسجيل باستخدام جوجل",
+    "forget_password": "نسيت كلمة المرور ؟",
+    "spinner": "جاري تسجيل الدخول...",
+    "server": "عذرا حدث خطأ في الاتصال في السيرفر",
+    "emailPass": "الرجاء ادخال كلمة مرور وايميل صحيحين",
+    "emailPass2": "البريد الإلكتروني و / أو كلمة المرور غير صحيحة",
+    "emailPassName": "الرجاء إدخال بريد إلكتروني وكلمة مرور واسم مستخدم صالحين !",
+    "confirmcode": "قم بإدخال رمز التأكيد !",
+    "searchTwice": "البحث مرة أخرى",
+    "no_account": "لا يوجد لديك حساب ؟!",
+    "new_account": "تسجيل حساب جديد",
+    "lets_go": " هيا بنا لنبدأ !"
+  },
+  "registerScreen": {
+    "title": "تسجيل حساب جديد",
+    "sub_title": "وفر وقتك واحجز مكانك اونلاين",
+    "username": "اسم المستخدم",
+    "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "password_confirm": "اعادة كلمة المرور",
+    "signup_button": "تسجيل حساب جديد",
+    "rights": "جميع الحقوق محفوظة",
+    "spinner": "جاري التسجيل...",
+    "close": "إغلاق",
+    "or": "أو",
+    "registered": "مسجّل مسبقًا؟",
+    "sign_in": "عودة الي تسجيل الدخول ",
+    "accept": "قبول ",
+    "terms": "الشروط والاحكام"
+  },
+  "forgetPassword": {
+    "title": "نسيت كلمة المرور ! ",
+    "sub_title": "لا تقلق سنحل لك المشكلة",
+    "email": "البريد الالكتروني",
+    "forget_button": "استرجاع كلمة المرور",
+    "sign_in": "تسجيل الدخول",
+    "spinner": "جاري ارسال الكود الى البريد الخاص بك.."
+  },
+  "sendVerificationScreen": {
+    "title": "رمز التأكيد",
+    "sub_title": "من فضلك تفقد البريد الإلكتروني",
+    "verification_button": "ارسال",
+    "confirmation_message": "لم تصل رسالة التأكيد ؟",
+    "resend": "إعادة الإرسال",
+    "spinner": "جاري ارسال الكود..",
+    "next": "التالي"
+  },
+  "changePasswordScreen": {
+    "title": "تعديل كلمة المرور",
+    "sub_title": "الرجاء ادخال كلمة المرور الجديدة",
+    "old_password": "كلمة المرور القديمة",
+    "new_password": "كلمة المرور الجديدة",
+    "confirm_new_password": "تأكيد كلمة المرور الجديدة",
+    "change": "تغير كلمة المرور",
+    "spinner": "جاري تغيير كلمة المرور..",
+    "match": "الرجاء التحقق من تطابق كلمة المرور",
+    "info": "يجب أن يكون طول كلمة المرور على الأقل 6 حروف/أرقام",
+    "must": "الرجاء إدخال كلمة المرور الجديدة/تأكيد كلمة المرور",
+    "changePass": "الرجاء ادخال ايميل صحيح"
+  },
+  "HomeScreen": {
+    "title": "الرئيسية",
+    "New": "الأحدث",
+    "showAll": "عرض الكل",
+    "stores": "المتاجر",
+    "intrest": "المقاربة لاهتماماتك",
+    "moreSells": "الأكثر تقيماً",
+    "most_Watched": "الأكثر مشاهدة",
+    "coupons": "الكوبونات",
+    "country": "الدولة",
+    "language": "اللغة",
+    "chooseCountry": "الرجاء القيام باختيار الدولة",
+    "searchCountry": "البحث عن الدولة",
+    "searchProduct": "البحث عن المنتجات",
+    "chooseCategory": "الرجاء القيام باختيار التصنيف الاقرب لاهتماماتك",
+    "NoInternet": "عذراً لا يوجد اتصال بالانترنت",
+    "userDefaultName": "زائر",
+    "savebutton": "حفظ",
+    "oneCategoryAtLeast": "قم باختيار تصنيف واحد على الأقل !",
+    "showStyle": "طريقة العرض",
+    "compare": "قارن الأسعار",
+    "news": "آخر الأخبار",
+    "importCompare": "أهم المقارنات",
+    "search": "ابحث هنا",
+    "welcome": "هلا بيك!",
+    "header_content": "نساعدك على اختيار أفضل الأسعار من أشهر المتاجر",
+    "noCate": "لا يوجد تصنيفات مدرجة حاليا",
+    "back": "الرجوع الى الرئيسية",
+    "noProducts": "لا يوجد منتجات في هذا القسم حاليا",
+    "show_current_products": "عرض المنتجات الحالية"
+  },
+  "AddRatingScreen": {
+    "title": "التقييمات",
+    "chooseStore": "يرجى اختيار المتجر الذي تريد تقييمه",
+    "no": "لا",
+    "yes": "نعم",
+    "notReach": "لم يصل",
+    "didorderRecive": "هل وصل الطلب في الوقت المحدد ؟",
+    "contactWithYou": " هل تم التواصل معك بشكل مستمر عن حالة الطلب ؟",
+    "asDescribed": "هل تلقيت الطلب مطابقا لما تم وصفه ؟",
+    "buyAgain": "هل ستشتري مرة اخرى من المتجر ؟",
+    "rate": "قيم تجربتك بشكل عام عن المتجر",
+    "send": "ارسال",
+    "chooseProduct": "يرجى اختيار المنتج",
+    "mobile": "قم بإدخال رقم الجوال الخاص بك",
+    "orderNumber": "قم بإدخال رقم الطلب",
+    "comment": "قم بكتابة تعليقك",
+    "mustAnswer": "يجب الاجابة على جميع الأسئلة في التقييم",
+    "chooseStoreFirst": "يجب اختيار المتجر اولاً",
+    "rateApp": "قيم تجربتك بشكل عام عن التطبيق",
+    "done": "تم",
+    "sendDone": "تم ارسال تقييم التطبيق بنجاح",
+    "noStores": "لا يوجد متاجر حاليا",
+    "close": "إغلاق"
+  },
+  "BarCodeScanScreen": {
+    "title": "الباركود",
+    "empty": "عذراً لم نتمكن من إيجاد ما تبحث عنه, حاول البحث مرة أخرى",
+    "button": "البحث مرة أخرى"
+  },
+  "FavoriteScreen": {
+    "title": "المفضلة",
+    "remove": "إزالة",
+    "removeAll": "إزالة الجميع",
+    "emptyFAV": "عذراً المفضلة الخاصة بك فارغة.."
+  },
+  "NotificationScreen": {
+    "title": "الإشعارات",
+    "removeAll": "إزالة الجميع",
+    "emptyNotif": "الإشعارات الخاصة بك فارغة",
+    "delete_btn": "إزالة"
+  },
+  "OffersScreen": {
+    "title": "العروض",
+    "discount": "خصم",
+    "store": "المتجر",
+    "noOffers": "لا يوجد عروض حاليا !"
+  },
+  "PriceNotificationScreen": {
+    "title": "تنبيه",
+    "email": "ادخل البريد الإلكتروني",
+    "sendToMe": "نبهني عندما يقل السعر عن",
+    "save": "حفظ",
+    "enter": "الرجاء قم بادخال السعر الذي تريده"
+  },
+  "ProductDetailScreen": {
+    "title": "التفاصيل",
+    "store": "المتجر",
+    "storeLink": "رابط المتجر",
+    "specification": "المواصفات",
+    "stores": "المتاجر",
+    "rating": "التقييمات",
+    "priceAnalysis": "تحليل أسعار",
+    "nearyou": "بالقرب منك",
+    "NoRates": "لا يوجد تقييمات لهذا المنتج حاليا",
+    "NoSpecification": "لا يوجد مواصفات لهذا المنتج حاليا",
+    "NopriceAnalysis": "لا يوجد تحليل أسعار لهذا المنتج حاليا",
+    "product_link": "رابط المنتج"
+  },
+  "ProfileScreen": {
+    "username": "اسم المستخدم",
+    "title": "الملف الشخصي",
+    "email": "الايميل",
+    "phone": "رقم الجوال",
+    "noDev": "عدد الاجهزة",
+    "Bio": "نبذة قصيرة ...",
+    "edit": "تعديل الملف الشخصي",
+    "save": "حفظ البيانات",
+    "favorite": "المفضلة",
+    "rating": "التقييمات",
+    "barcode": "الباركود",
+    "stores": "المتاجر",
+    "country": "الدولة"
+  },
+  "SettingScreen": {
+    "title": "الإعدادات",
+    "notification": "الإشعارات",
+    "editProfile": "تعديل الملف الشخصي",
+    "editPassword": "تعديل كلمة المرور",
+    "language": "تعديل اللغة",
+    "country": "الدولة",
+    "change": "تغيير",
+    "contactUs": "تواصل معنا",
+    "privacy": "سياسة الخصوصية",
+    "share": "شارك التطبيق",
+    "rate": "قيم التطبيق",
+    "errorS": "عذرا حدث خطأ في تحميل الصفحة",
+    "sign_out": "تسجيل الخروج",
+    "signout_content": "هل تريد تسجيل الخروج؟",
+    "cancel": "إلغاء"
+  },
+  "RatingScreen": {
+    "title": "التقييمات",
+    "write": "اكتب تقييماً",
+    "noRating": "لم تكتب أي تقييمات !"
+  },
+  "StoresScreen": {
+    "removeAll": "إزالة الجميع",
+    "store": "تصفح المتجر",
+    "searchStore": "البحث عن المتاجر",
+    "noStore": "لا يوجد متاجر الآن !",
+    "title": "المتاجر"
+  },
+  "SideBar": {
+    "home": "الرئيسية",
+    "profile": "حسابي",
+    "favorit": "المفضلة",
+    "notification": "الإشعارات",
+    "rating": "التقييمات",
+    "offers": "العروض",
+    "stores": "المتاجر",
+    "sections": "التصنيفات",
+    "barcode": "الباركود",
+    "language": "اللغة",
+    "country": "الدولة",
+    "category": "الاهتمامات",
+    "logout": "تسجيل الخروج",
+    "news": "الأخبار",
+    "signup": "تسجيل",
+    "login": "تسجيل الدخول",
+    "setting": "الإعدادات"
+  },
+  "CouponsProductScreen": {
+    "emptyCo": "لا يوجد منتجات ! "
+  },
+  "StoreProduct": {
+    "title": "تصنيف النتائج حسب",
+    "newest": "الأحدث",
+    "oldest": "الأقدم",
+    "highestPrice": "الأعلى سعراً",
+    "lowestPrice": "الأقل سعراً",
+    "empty": "عذراً لا يوجد منتجات تابعة لهذا المتجر حالياً.."
+  },
+  "NewsScreen": {
+    "title": "الأخبار",
+    "noNews": "قائمة الاخبار الخاصة بك فارغة",
+    "more": "قراءة المزيد"
+  },
+  "CouponDetailList": {
+    "detail": "تفاصيل",
+    "currency": "ريال",
+    "product": "المنتجات"
+  },
+  "footer": {
+    "home": "الرئيسية",
+    "category": "التصنيفات",
+    "profile": "حسابي",
+    "menu": "القوائم",
+    "notification": "الإشعارات"
+  },
+  "searchScreen": {
+    "title": "البحث",
+    "search_input": "ابحث هنا",
+    "search_history": "سجل البحث",
+    "delete_history": "مسح السجل",
+    "no_result": "لا يوجد نتائج!"
+  },
+  "categoryScreen": {
+    "title": "التصنيفات",
+    "display_method": "طريقة العرض"
+  },
+  "Button": {
+    "save": "حفظ",
+    "send": "إرسال",
+    "sendData": "إرسال البيانات",
+    "go_to_store": "اذهب إلى المتجر",
+    "add_Rating": "أضف تقييم",
+    "rating": "تقييم",
+    "filter": "فلترة",
+    "edit": "تعديل"
+  },
+  "Buttom": {
+    "device": "اجهزتي",
+    "profile": "ملف",
+    "contact": "تواصل معنا"
+  },
+  "Screens": {
+    "filter": "فلترة",
+    "device": "اجهزتي",
+    "deviceEdit": "تعديل الجهاز",
+    "profile": "Profile",
+    "contact": "Contact us"
+  },
+  "Filter": {
+    "type": "النوع",
+    "connection": "الاتصال",
+    "warning": "تحذير",
+    "error": "خطئ",
+  },
+  "deviceinfo": {
+    "info": "معلومات الجهاز",
+    "signal": "قوة الاشارة",
+    "online": "متصل",
+    "serial": "الرقم التسلسلي",
+    "type": "نوع الجهاز",
+    "tank": "معلومات التانك",
+    "status": "الحالة",
+    "height": "ارتغاع المياة",
+    "mType": "نوع القياس",
+    "mHistory": "القياسات",
+  },
+  "ContactScreen": {
+    "title": "اترك رسالة",
+    "username": "Full Name",
+    "message": "الرسالة",
+    "send": "ارسال",
+  },
+  "api": {
+    "tamam": "تمام ",
+    "level_meter": "مقياس عمق",
+    "UnderFlow": "UnderFlow",
+    "dev": {
+      "status": "الحالة",
+      "lastUpdate": "اخر تحديث",
+    },
+  },
+}

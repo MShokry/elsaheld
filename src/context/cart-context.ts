@@ -8,7 +8,7 @@ export type CartItem = {
 
 export type CartState = {
   cartItems: CartItem[];
-  updateCartItems: (items: CartItem[], totlaPrice: number) => void;
+  updateCartItems: (items: CartItem[],qty: number,message: String, totlaPrice: number) => void;
   totalPrice: number;
   clearCart: () => void;
 };

@@ -6,40 +6,45 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import {useTheme, useNavigation} from '@react-navigation/native';
-import {Text, Button} from '@src/components/elements';
-import {mockDishDetails, Dish} from '@src/data/mock-places';
+import { useTheme, useNavigation } from '@react-navigation/native';
+import { Text, Button } from '@src/components/elements';
+import { mockDishDetails, Dish } from '@src/data/mock-places';
 import CartContext from '@src/context/cart-context';
 import HeadingInformation from './HeadingInformation';
 import SideDishes from './SideDishes';
 import AddToBasketForm from './AddToBasketForm';
-import {formatCurrency} from '@src/utils/number-formatter';
+import { formatCurrency } from '@src/utils/number-formatter';
 import styles from './styles';
 
 type DishDetailsProps = {};
 
-export const DishDetails: React.FC<DishDetailsProps> = () => {
+export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
+  const DishData = route.params
+  console.log(DishData);
+
   const [totalPrice, setTotalPrice] = React.useState(
-    parseFloat(mockDishDetails.price),
+    parseFloat(DishData.price),
   );
   const [selectedSideDishes, setSelectedSideDishes] = React.useState<Dish[]>(
     [],
   );
+  const [totalAmount, setTotalAmount] = React.useState(1);
+  const [message, setMessage] = React.useState('');
   const [scrollY] = React.useState(new Animated.Value(0));
   const {
-    colors: {background},
+    colors: { background },
   } = useTheme();
-  const {goBack} = useNavigation();
-  const {updateCartItems} = React.useContext(CartContext);
+  const { goBack } = useNavigation();
+  const { updateCartItems, cartItems } = React.useContext(CartContext);
 
   const addSideDishToBasket = React.useCallback(
     (dish: Dish) => {
       const existedDishIndex = selectedSideDishes.find(
-        (item: Dish) => item.id === dish.id,
+        (item: Dish) => item.ID === dish.ID,
       );
       if (existedDishIndex) {
         setSelectedSideDishes(
-          selectedSideDishes.filter((item: Dish) => item.id !== dish.id),
+          selectedSideDishes.filter((item: Dish) => item.ID !== dish.ID),
         );
         setTotalPrice(totalPrice - parseFloat(existedDishIndex.price));
       } else {
@@ -57,17 +62,19 @@ export const DishDetails: React.FC<DishDetailsProps> = () => {
         0,
       );
       setTotalPrice(
-        parseFloat(mockDishDetails.price) * amount + totalSelectedDishPrice,
+        parseFloat(DishData.price) * amount + totalSelectedDishPrice,
       );
     },
     [selectedSideDishes],
   );
-
+  console.log("cartItems", cartItems);
   const onAddToBasketButtonPressed = () => {
     updateCartItems(
       [
         {
-          dish: mockDishDetails,
+          dish: DishData,
+          qty: totalAmount,
+          message,
           sideDishes: selectedSideDishes,
         },
       ],
@@ -127,7 +134,7 @@ export const DishDetails: React.FC<DishDetailsProps> = () => {
                 },
               ]}>
               <Animated.Image
-                source={mockDishDetails.coverImage || {}}
+                source={DishData.photo ? { uri: `https://www.ebda3-eg.com/arrivo/uploads/${DishData.photo}` } : {}}
                 style={[
                   styles.coverPhoto,
                   {
@@ -140,12 +147,17 @@ export const DishDetails: React.FC<DishDetailsProps> = () => {
                 ]}
               />
             </Animated.View>
-            <HeadingInformation data={mockDishDetails} />
+            <HeadingInformation data={DishData} />
             <SideDishes
-              data={mockDishDetails}
+              data={DishData}
               addSideDishToBasket={addSideDishToBasket}
             />
-            <AddToBasketForm updateTotalDishAmount={updateTotalDishAmount} />
+            <AddToBasketForm
+              message={message}
+              setMessage={setMessage}
+              totalAmount={totalAmount}
+              setTotalAmount={setTotalAmount}
+              updateTotalDishAmount={updateTotalDishAmount} />
           </Animated.ScrollView>
         </KeyboardAvoidingView>
         <View style={styles.addToBasketButtonContainer}>
@@ -153,7 +165,7 @@ export const DishDetails: React.FC<DishDetailsProps> = () => {
             childrenContainerStyle={styles.addToBasketButton}
             onPress={onAddToBasketButtonPressed}>
             <Text style={styles.addToBasketButtonText}>
-              Add to Basket - {formatCurrency(totalPrice)}
+              اضف للسلة - {formatCurrency(totalPrice)}
             </Text>
           </Button>
         </View>
@@ -165,7 +177,7 @@ export const DishDetails: React.FC<DishDetailsProps> = () => {
               backgroundColor: background,
             },
           ]}>
-          <Text style={styles.headerTitle}>{mockDishDetails.title}</Text>
+          <Text style={styles.headerTitle}>{DishData.name}</Text>
         </Animated.View>
       </View>
     </SafeAreaView>

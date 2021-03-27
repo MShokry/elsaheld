@@ -4,10 +4,10 @@ const faker = require('faker');
 
 export type Dish = {
   id: string;
-  title: string;
+  name: string;
   description: string;
   price: string;
-  image?: ImageSourcePropType;
+  photo?: ImageSourcePropType;
   coverImage?: ImageSourcePropType;
   sideDishes?: DishSection[];
 };
@@ -19,13 +19,31 @@ export type DishSection = {
 
 export type Place = {
   id: string;
-  title: string;
+  name: string;
+  description: string;
+  Working_hours_from: string;
+  Working_hours_to: string;
+  address: string;
   coverImage?: ImageSourcePropType;
   image: ImageSourcePropType;
   subTitle: string;
   distance: number;
   time: number;
   rating: number;
+  dishSection?: DishSection[];
+};
+
+export type Resturant = {
+  id: string;
+  name: string;
+  coverImage?: ImageSourcePropType;
+  photo: ImageSourcePropType;
+  details: string;
+  Opened: string;
+  distance_: number;
+  time: number;
+  rating: number;
+
   dishSection?: DishSection[];
 };
 

@@ -9,42 +9,42 @@ type Category = {
 export const mockCategories: Category[] = [
   {
     id: '1',
-    name: 'Lunch Box',
+    name: 'Food',
     image: require('@src/assets/categories/category-1.png'),
   },
   {
     id: '2',
-    name: 'Drink',
+    name: 'SeaFood',
     image: require('@src/assets/categories/category-2.png'),
   },
   {
     id: '3',
-    name: 'Salad',
+    name: 'Pharmacy',
     image: require('@src/assets/categories/category-3.png'),
   },
   {
     id: '4',
-    name: 'Hamburger',
+    name: 'Maintenance',
     image: require('@src/assets/categories/category-4.png'),
   },
   {
     id: '5',
-    name: 'Pizza',
+    name: 'property',
     image: require('@src/assets/categories/category-5.png'),
   },
   {
     id: '6',
-    name: 'Sushi',
+    name: 'Dessert',
     image: require('@src/assets/categories/category-6.png'),
   },
   {
     id: '7',
-    name: 'Icecream',
+    name: 'Ride',
     image: require('@src/assets/categories/category-7.png'),
   },
   {
     id: '8',
-    name: 'Donuts',
+    name: 'property',
     image: require('@src/assets/categories/category-8.png'),
   },
 ];

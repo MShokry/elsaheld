@@ -6,7 +6,7 @@ import {
   TextStyle,
   ImageSourcePropType,
 } from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import { useTheme } from '@react-navigation/native';
 import Touchable from '../Touchable';
 import Container from '../Container';
 import Text from '../Text';
@@ -43,13 +43,14 @@ const Card: React.FC<CardProps> = ({
   ...rest
 }) => {
   const {
-    colors: {card},
+    colors: { card },
   } = useTheme();
+  // console.log(children,title,subTitle);
 
   const _renderCard = () => {
     return (
       <Container
-        style={[{backgroundColor: card}, styles.card, style]}
+        style={[{ backgroundColor: card }, styles.card, style]}
         {...rest}>
         {coverImage && (
           <Container

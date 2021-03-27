@@ -6,11 +6,28 @@ export default StyleSheet.create({
   contentContainer: {
     padding: 15,
   },
+  loginMethodContainer: {
+    padding: 25,
+    paddingBottom: 35,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+  },
   formContainer: {
     paddingTop: '20%',
     marginBottom: 30,
   },
+  appIconContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  appIcon: {
+    width: '70%',
+    height: '70%',
+  },
   passwordTextField: {
+    marginTop: 30,
+  },
+  phoneNumberTextField: {
     marginTop: 30,
   },
   modalContainer: {

@@ -25,7 +25,9 @@ type AccountProps = {};
 
 const Account: React.FC<AccountProps> = () => {
   const navigation = useNavigation();
-  const {signOut} = React.useContext(AuthContext);
+  // const {signOut} = React.useContext(AuthContext);
+  const [contextState, contextDispatch] = React.useContext(AuthContext);
+  const {userToken} = contextState;
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
 
   const alertButtons: AlertButton[] = [

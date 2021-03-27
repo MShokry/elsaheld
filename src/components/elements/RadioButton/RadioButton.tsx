@@ -37,6 +37,8 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   return (
     <>
       {data.map((item) => {
+        console.log(item);
+        
         const {value, label, rightElement} = item;
         let isChecked = value === defaultValue;
         if (selectedValue) {

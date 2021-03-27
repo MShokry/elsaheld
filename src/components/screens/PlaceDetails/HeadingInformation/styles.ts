@@ -13,6 +13,7 @@ export default StyleSheet.create({
   },
   label: {
     marginRight: 20,
+    width: 70,
   },
   coupon: {
     flexDirection: 'row',

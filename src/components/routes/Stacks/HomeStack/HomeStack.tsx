@@ -8,6 +8,7 @@ import PlaceList from '@src/components/screens/PlaceList';
 import Checkout from '@src/components/routes/Stacks/CheckoutStack';
 import styles from './styles';
 import {ScreenNavigationProps} from '../types';
+import cartContext from '@src/context/cart-context';
 
 type HomeStackProps = {} & ScreenNavigationProps;
 type HomeStackParamList = {
@@ -21,6 +22,8 @@ type HomeStackParamList = {
 const Stack = createStackNavigator<HomeStackParamList>();
 
 const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
+  const {updateCartItems,cartItems} = React.useContext(cartContext);
+ 
   const _renderExploreHeaderTitle = () => {
     return (
       <View style={styles.headerLeftContainer}>
@@ -30,13 +33,14 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
           style={styles.locationIcon}
           isPrimary
         />
-        <Text style={styles.headerTitle}>588 Blanda Square - Virginia</Text>
+        <Text style={styles.headerTitle}>567 Blanda Square - Virginia</Text>
       </View>
     );
   };
+console.log("cartItems",cartItems);
 
   const _renderExploreHeaderRight = () => {
-    return (
+    return (<View style={styles.headerLeftContainer}>
       <Icon
         name="notifications"
         size={22}
@@ -44,6 +48,16 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
         useIonicons
         onPress={() => navigation.navigate('Notifications')}
       />
+      {!!cartItems?.length ? (
+      <Icon
+        name="cart"
+        size={22}
+        isPrimary
+        style={styles.headerRightContainer}
+        useIonicons
+        onPress={() => navigation.navigate('CheckoutScreen')}
+      />): null}
+      </View>
     );
   };
 
@@ -73,9 +87,9 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
         component={Home}
       />
       <Stack.Screen
-        options={() => {
+        options={({route}) => {          
           return {
-            headerTitle: 'Neapolitan Pizza',
+            headerTitle: route.params?.name || 'Neapolitan Pizza',
             headerRight: _renderPlaceDetailHeaderRight,
             headerRightContainerStyle: styles.headerRightContainer,
           };

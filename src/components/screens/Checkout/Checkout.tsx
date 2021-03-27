@@ -26,8 +26,8 @@ const Basket: React.FC<BasketProps> = () => {
           totalPrice={totalPrice}
           shippingFee={shippingFee}
         />
-        <DishesAlsoOrdered />
-        <PaymentMethod />
+        {/* <DishesAlsoOrdered /> */}
+        {/* <PaymentMethod /> */}
       </ScrollView>
       <PlaceOrder totalPrice={totalPrice} shippingFee={shippingFee} />
     </View>

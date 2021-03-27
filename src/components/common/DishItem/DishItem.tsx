@@ -1,32 +1,32 @@
 import * as React from 'react';
-import {Image, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {Container, Text, Touchable} from '@src/components/elements';
-import {Dish} from '@src/data/mock-places';
+import { Image, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Container, Text, Touchable } from '@src/components/elements';
+import { Dish } from '@src/data/mock-places';
 import styles from './styles';
 
 type DishItemProps = {
   data: Dish;
 };
 
-const DishItem: React.FC<DishItemProps> = ({data}) => {
-  const {price, title, description, image} = data;
+const DishItem: React.FC<DishItemProps> = ({ data }) => {
+  const { price, name, description, photo } = data;
   const navigation = useNavigation();
 
-  const _onPlaceItemPressed = () => {
-    navigation.navigate('DishDetailsModal');
+  const _onPlaceItemPressed = (DishData) => {
+    navigation.navigate('DishDetailsModal',DishData);
   };
 
   return (
-    <Touchable onPress={_onPlaceItemPressed}>
+    <Touchable onPress={()=>_onPlaceItemPressed(data)}>
       <Container style={styles.container}>
-        {image && <Image style={styles.image} source={image} />}
+        {photo && <Image style={styles.image} source={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` }} />}
         <View style={styles.placeInfoContainer}>
           <View style={styles.placeInfo}>
-            <Text style={styles.placeTitle}>{title}</Text>
+            <Text style={styles.placeTitle}>{name}</Text>
             <Text style={styles.placeSubTitle}>{description}</Text>
             <Text isPrimary isBold>
-              ${price}
+               {price} EGP
             </Text>
           </View>
         </View>

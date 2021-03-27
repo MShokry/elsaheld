@@ -19,7 +19,7 @@ type SettingsProps = {};
 
 const Settings: React.FC<SettingsProps> = () => {
   const {theme, useSystemTheme} = React.useContext(themeContext);
-  const [enableRTL, setEnableRTL] = React.useState(false);
+  const [enableRTL, setEnableRTL] = React.useState(true);
   const [
     isAppearanceModalVisible,
     setIsAppearanceModalVisible,

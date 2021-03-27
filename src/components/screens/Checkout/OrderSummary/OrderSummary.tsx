@@ -35,11 +35,11 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
             {cartItems.map((cartItem, cartItemIndex) => (
               <View key={cartItemIndex}>
                 <Text style={styles.mainDishText} isBold>
-                  {cartItem.dish.title}
+                  {cartItem.dish.name}
                 </Text>
                 {cartItem.sideDishes.map((dish, dishIndex) => (
                   <Text isSecondary key={dishIndex} style={styles.sideDishText}>
-                    {dish.title}
+                    {dish.name}
                   </Text>
                 ))}
               </View>

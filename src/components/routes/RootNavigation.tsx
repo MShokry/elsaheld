@@ -25,7 +25,9 @@ const RootStack = createStackNavigator();
 
 const RootNavigation = () => {
   const {theme} = useContext(ThemeContext);
-  const {userToken} = useContext(AuthContext);
+  // const {userToken} = useContext(AuthContext);
+  const [contextState, contextDispatch] = React.useContext(AuthContext);
+  const {userToken} = contextState;
   const flex = 1;
   const rootContainerBackgroundColor =
     theme === 'light'
@@ -39,6 +41,7 @@ const RootNavigation = () => {
       : {
           ...TransitionPresets.FadeFromBottomAndroid,
         };
+          {/* {userToken ? ( */}
 
   return (
     <NavigationContainer theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -52,13 +55,11 @@ const RootNavigation = () => {
           barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
         />
         <RootStack.Navigator mode="modal" screenOptions={screenOptions}>
-          {userToken ? (
             <RootStack.Screen
               name="Main"
               options={{headerShown: false}}
               component={TabNavigation}
             />
-          ) : (
             <RootStack.Screen
               options={{
                 headerTransparent: true,
@@ -69,7 +70,7 @@ const RootNavigation = () => {
               name="Auth"
               component={AuthenticationStack}
             />
-          )}
+          
           <RootStack.Screen
             options={{
               headerTransparent: true,

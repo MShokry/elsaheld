@@ -11,8 +11,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   appIcon: {
-    width: '60%',
-    height: '60%',
+    width: '40%',
+    height: '40%',
   },
   loginMethodContainer: {
     padding: 25,

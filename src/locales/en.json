@@ -1,0 +1,351 @@
+{
+    "loginOrRegister": {
+        "login_button": "Login",
+        "signup_button": "Sign Up",
+        "forget_password": "Forgot your password ?",
+        "skip_button": "Log in as a visitor"
+    },
+    "sliderScreen": {
+        "skip_button": "Skip",
+        "rights": "All rights are save",
+        "download": "Loading...",
+        "next": "Next"
+    },
+    "loginScreen": {
+        "title": "Login to your account",
+        "welcome": "welcome for you again",
+        "email": "Email",
+        "password": "Password",
+        "or": "Or",
+        "login_button": "Login",
+        "signup_button": "Login",
+        "facebook_button": "Login by Facebook",
+        "twitter_button": "Login by Twitter",
+        "google_button": "Login by Google",
+        "forget_password_text": "Forgot your password?",
+        "forget_password": "Reset Password!",
+        "spinner": "Signing in...",
+        "server": "Sorry, a server error occurred",
+        "emailPass": "Please, enter a valid email and password !",
+        "emailPass2": "The email and / or password are incorrect",
+        "emailPassName": "Please, enter a valid email, password and user name !",
+        "confirmcode": "Enter the confirmation code!",
+        "searchTwice": "Search again",
+        "no_account": "you don't have account?!",
+        "new_account": "create new account"
+    },
+    "registerScreen": {
+        "title": "Create new account",
+        "sub_title": "Save your time and book your spot  online ",
+        "username": "Your Name",
+        "email": "Email",
+        "password": "Password",
+        "password_confirm": "password confirmation",
+        "signup_button": "Sign Up",
+        "rights": "All rights are save",
+        "spinner": "Signing Up...",
+        "close": "Close",
+        "or": "Or",
+        "registered": "Already registered?",
+        "sign_in": "Back to login",
+        "accept": "Accept ",
+        "terms": "terms and conditions"
+    },
+    "forgetPassword": {
+        "title": "Forgot password",
+        "sub_title": "Don't worry we will solve your problem",
+        "email": "Email",
+        "forget_button": "Get OTP",
+        "sign_in": "Sign In",
+        "spinner": "Sending the code to your email.."
+    },
+    "OTP": {
+        "title": "Phone verification",
+        "sub_title": "Enter the 4 digit pin that we sent to:",
+        "email": "Email",
+        "button": "Verify number",
+        "button2": "Send",
+        "resend_text": "Didn’t get code? ",
+        "resend": "Resend OTP"
+    },
+    "sendVerificationScreen": {
+        "title": "Enter the confirmation code",
+        "sub_title": "Please check your email",
+        "verification_button": "Send",
+        "confirmation_message": "Did the confirmation message arrive ?",
+        "resend": "Resend",
+        "spinner": "Send the code..",
+        "next": "Next"
+    },
+    "changePasswordScreen": {
+        "title": "Reset Password",
+        "sub_title": "Please enter the new password",
+        "old_password": "old password",
+        "new_password": "New Password",
+        "confirm_new_password": "Confirm the new password",
+        "change": "Change Password",
+        "spinner": "change Password..",
+        "match": "Please check your password match",
+        "info": "Password length must be at least 6 letters",
+        "must": "Please enter the new password / confirm the password",
+        "changePass": "Please, enter a valid email !"
+    },
+    "HomeScreen": {
+        "title": "Main Screen",
+        "New": "Most recent",
+        "showAll": "Show All",
+        "stores": "Stores",
+        "intrest": "Approach to your interests",
+        "moreSells": "Most rated",
+        "most_Watched": "Most watched",
+        "coupons": "coupons",
+        "country": "Country",
+        "language": "Language",
+        "chooseCountry": "Please choose a country",
+        "searchCountry": "Search about Country",
+        "searchProduct": "Search about Product",
+        "chooseCategory": "Please choose the classification that most closely matches your interests",
+        "NoInternet": "Sorry, there is no internet connection",
+        "userDefaultName": "Guest",
+        "savebutton": "Save",
+        "oneCategoryAtLeast": "Choose at least one classification!",
+        "showStyle": "Show Style",
+        "compare": "Compare prices",
+        "news": "Latest news",
+        "importCompare": "Important Comparisons",
+        "header_content": "We help you choose the best prices from the most famous stores",
+        "search": "Search here",
+        "welcome": "Welcome!",
+        "noCate": "There are currently no categories listed",
+        "back": "Go to Main Screen",
+        "noProducts": "There are currently no products in this section",
+        "show_current_products": "show current products",
+        "lets_go": "Let's get started!"
+    },
+    "AddRatingScreen": {
+        "title": "Ratings",
+        "chooseStore": "Please choose the store you want to rate",
+        "no": "No",
+        "yes": "Yes",
+        "notReach": "Did not arrive",
+        "didorderRecive": "Did the request arrive on time ?",
+        "contactWithYou": "Have you been contacted continuously about the status of the request ?",
+        "asDescribed": "Did you receive the request in accordance with what was described ?",
+        "buyAgain": "Would you buy again from the store ?",
+        "rate": "Rate your experience on the store",
+        "send": "Send",
+        "chooseProduct": "Choose the Product",
+        "mobile": "Enter your mobile number",
+        "orderNumber": "Enter Order Number",
+        "comment": "Write your comment",
+        "mustAnswer": "All questions must be answered in the evaluation",
+        "chooseStoreFirst": "Choose store first",
+        "rateApp": "Rate your experience with the app",
+        "done": "Done",
+        "sendDone": "Your app rating has been sent successfully",
+        "noStores": "There are currently no stores",
+        "close": "Close"
+    },
+    "BarCodeScanScreen": {
+        "title": "Barcode",
+        "empty": "Sorry, we could not find what you were looking for. Try searching again",
+        "button": "Search again"
+    },
+    "FavoriteScreen": {
+        "title": "Favorite",
+        "remove": "Remove",
+        "removeAll": "Remove All",
+        "emptyFAV": "sorry, your Favorite is Empty !"
+    },
+    "NotificationScreen": {
+        "title": "Notification",
+        "removeAll": "Remove All",
+        "emptyNotif": "Your notification list is empty",
+        "delete_btn": "delete"
+    },
+    "OffersScreen": {
+        "title": "Offers",
+        "discount": "Discount",
+        "store": "Store",
+        "noOffers": "There are no offers now !"
+    },
+    "PriceNotificationScreen": {
+        "title": "Attention",
+        "email": "Enter your email",
+        "sendToMe": "Send me an alert when the price is less than",
+        "save": "Save",
+        "enter": "Please enter the price you want"
+    },
+    "ProductDetailScreen": {
+        "title": "Details",
+        "store": "Store",
+        "storeLink": "Store Link",
+        "specification": "Specifications",
+        "stores": "Stores",
+        "rating": "Ratings",
+        "priceAnalysis": "Price Analysis",
+        "nearyou": "Near You",
+        "NoRates": "There are currently no reviews for this product",
+        "NoSpecification": "There are currently no product specifications",
+        "NopriceAnalysis": "There is currently no price analysis for this product",
+        "product_link": "link product"
+    },
+    "ProfileScreen": {
+        "username": "username",
+        "email": "Email",
+        "phone": "Phone no.",
+        "noDev": "No. of devices",
+        "title": "Profile",
+        "edit": "Edit profile",
+        "Bio": "Bio ...",
+        "save": "Save data",
+        "favorite": "Favorite",
+        "rating": "Ratings",
+        "barcode": "Barcode",
+        "stores": "Stores",
+        "country": "Country"
+    },
+    "SettingScreen": {
+        "title": "Setting",
+        "notification": "Push Notifications",
+        "editProfile": "Edit Profile",
+        "editPassword": "Change Password",
+        "language": "Cange Language",
+        "country": "Country",
+        "contactUs": "Contact Us",
+        "privacy": "Privacy",
+        "share": "Share App",
+        "change": "Change",
+        "rate": "Rate App",
+        "errorS": "Sorry an error occurred while loading the page",
+        "sign_out": "Log out",
+        "signout_content": "Do you want to log out?",
+        "cancel": "cancel"
+    },
+    "RatingScreen": {
+        "title": "Ratings",
+        "write": "Write an review",
+        "noRating": "No reviews were written !"
+    },
+    "StoresScreen": {
+        "removeAll": "Remove All",
+        "store": "Visit Store",
+        "searchStore": "Search about stores",
+        "noStore": "There are no stores now",
+        "title": "Stores"
+    },
+    "SideBar": {
+        "home": "Home",
+        "profile": "Profile",
+        "favorit": "Favorite",
+        "notification": "Notifications",
+        "rating": "Ratings",
+        "offers": "Offers",
+        "stores": "Stores",
+        "sections": "Sections",
+        "barcode": "Barcode",
+        "language": "Language",
+        "country": "Country",
+        "category": "Categories",
+        "logout": "Logout",
+        "news": "News",
+        "signup": "Sign Up",
+        "login": "Login",
+        "setting": "Settings"
+    },
+    "CouponsProductScreen": {
+        "emptyCo": "There are no products !"
+    },
+    "StoreProduct": {
+        "title": "Sort results by",
+        "newest": "The most recent",
+        "oldest": "The oldest",
+        "highestPrice": "The most expensive",
+        "lowestPrice": "The least expensive",
+        "empty": "Sorry, there are no products for this store at this time."
+    },
+    "NewsScreen": {
+        "title": "News",
+        "noNews": "Your news list is empty",
+        "more": "Read more"
+    },
+    "CouponDetailList": {
+        "detail": "Details",
+        "currency": "Sar",
+        "product": "Products"
+    },
+    "footer": {
+        "home": "Home",
+        "category": "Categories",
+        "profile": "My Profile",
+        "menu": "Menu",
+        "notification": "Notification"
+    },
+    "searchScreen": {
+        "title": "search",
+        "search_input": "search here",
+        "search_history": "search history",
+        "delete_history": "clear",
+        "no_result": "No result!"
+    },
+    "categoryScreen": {
+        "title": "Categories",
+        "display_method": "Method display"
+    },
+    "Button": {
+        "save": "Save",
+        "send": "Send",
+        "sendData": "Send data",
+        "go_to_store": "Go to store",
+        "add_Rating": "Add Rating",
+        "rating": "Rating",
+        "filter": "Filter",
+        "filterRst": "Reset filter",
+        "edit": "Edit"
+    },
+    "Buttom": {
+        "device": "My device",
+        "profile": "Profile",
+        "contact": "Contact us",
+    },
+    "Screens": {
+        "filter": "Filter",
+        "device": "My device",
+        "deviceEdit": "Device Edit",
+        "profile": "Profile",
+        "contact": "Contact us"
+    },
+    "Filter": {
+        "type": "Type",
+        "connection": "Connection",
+        "warning": "Warning",
+        "error": "Profile",
+    },
+    "deviceinfo": {
+        "info": "Device info",
+        "signal": "Signal strignth",
+        "online": "Online",
+        "serial": "Serial Number",
+        "type": "Device type",
+        "tank": "Tank info",
+        "status": "Status",
+        "height": "Water Hight",
+        "mType": "Measurment type",
+        "mHistory": "Measurement history",
+    },
+    "ContactScreen": {
+        "title": "Leave a Message",
+        "username": "Full Name",
+        "message": "Message",
+        "send": "Send",
+    },
+    "api": {
+        "tamam": "tamam",
+        "level_meter": "Level Meter",
+        "UnderFlow": "UnderFlow",
+        "dev": {
+            "status": "Status",
+            "lastUpdate": "Last update",
+        }
+    },
+}

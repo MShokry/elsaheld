@@ -5,5 +5,5 @@ export const getStoreName = () => {
 };
 
 export const getStoreURL = () => {
-  return 'https://codecanyon.net/item/food-star-react-native-food-delivery-template/28398069';
+  return 'https://www.ebda3-eg.com';
 };

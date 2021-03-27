@@ -2,11 +2,11 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {Rating, Button, Icon, Text} from '@src/components/elements';
-import {Place} from '@src/data/mock-places';
+import {Resturant} from '@src/data/mock-places';
 import styles from './styles';
 
 type PlaceCardInfoProps = {
-  data: Place;
+  data: Resturant;
   ratingStarBackgroundColor?: string;
 };
 
@@ -14,7 +14,7 @@ const PlaceCardInfo: React.FC<PlaceCardInfoProps> = ({
   data,
   ratingStarBackgroundColor,
 }) => {
-  const {distance, rating, time} = data;
+  const {distance_, rating, Opened} = data;
   const {
     colors: {border},
   } = useTheme();
@@ -32,12 +32,12 @@ const PlaceCardInfo: React.FC<PlaceCardInfoProps> = ({
         <Button
           style={[styles.button, {backgroundColor: border}]}
           icon={<Icon isPrimary name="map-marker-alt" size={10} />}>
-          <Text isPrimary style={styles.buttonText}>{`${distance}m`}</Text>
+          <Text isPrimary style={styles.buttonText}>{`${distance_}m`}</Text>
         </Button>
         <Button
           style={[styles.button, {backgroundColor: border}]}
           icon={<Icon isPrimary name="clock" size={10} />}>
-          <Text isPrimary style={styles.buttonText}>{`${time}'`}</Text>
+          <Text isPrimary style={styles.buttonText}>{`${data.deliveryTimeFrom} : ${data.deliveryTimeTo}'`}</Text>
         </Button>
       </View>
     </View>

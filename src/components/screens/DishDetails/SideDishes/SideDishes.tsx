@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {View} from 'react-native';
-import {useTheme} from '@react-navigation/native';
-import {Container, Text, CheckBox} from '@src/components/elements';
-import {Dish} from '@src/data/mock-places';
+import { View } from 'react-native';
+import { useTheme } from '@react-navigation/native';
+import { Container, Text, CheckBox, RadioButton } from '@src/components/elements';
+import { Dish } from '@src/data/mock-places';
 import styles from './styles';
 
 type SideDishesProps = {
@@ -11,34 +11,43 @@ type SideDishesProps = {
 };
 
 const SideDishes: React.FC<SideDishesProps> = ({
-  data: {sideDishes},
+  data: { MenuListOptions },
   addSideDishToBasket,
 }) => {
   const {
-    colors: {border},
+    colors: { border },
   } = useTheme();
   const onCheckBoxPress = (selectedDish: Dish) => {
     return () => {
       addSideDishToBasket(selectedDish);
     };
   };
+  console.log(MenuListOptions);
 
+  // const sideDetailsData = SideData||[];
+  // // sideDetailsData.data = sideDetailsData.Menu;
+  // sideDetailsData.data = sideDetailsData.MenuListOptions?.map((item) => {
+  //   return { ...item,  data: item.MenuListOptions }
+  // });
   return (
     <View>
-      {sideDishes?.map((section, sectionIndex) => (
+      {MenuListOptions?.map((section, sectionIndex) => (
         <View key={sectionIndex}>
-          <Text style={styles.sectionTitle}>{section.title}</Text>
-          {section.data.map((dish, dishIndex) => (
+          <Text style={styles.sectionTitle}>{section.name}</Text>
+          {section?.OptionsList?.map((dish, dishIndex) => (
             <Container
               key={dishIndex}
-              style={[styles.dishItemContainer, {borderBottomColor: border}]}>
+              style={[styles.dishItemContainer, { borderBottomColor: border }]}>
               <Container style={styles.checkBoxContainer}>
+
                 <CheckBox
-                  label={dish.title}
+                  label={dish.name}
                   onPress={onCheckBoxPress(dish)}
                   rightElement={<Text>+ ${dish.price}</Text>}
                 />
+
               </Container>
+
             </Container>
           ))}
         </View>

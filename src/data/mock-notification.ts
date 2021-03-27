@@ -1,4 +1,5 @@
 const faker = require('faker');
+// faker.locales = 'en';
 
 export type Notification = {
   id: string;

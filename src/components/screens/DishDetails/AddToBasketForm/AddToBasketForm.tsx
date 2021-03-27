@@ -14,8 +14,12 @@ type AddToBasketFormProps = {
 
 const AddToBasketForm: React.FC<AddToBasketFormProps> = ({
   updateTotalDishAmount,
+  message,
+  setMessage,
+  totalAmount,
+  setTotalAmount
 }) => {
-  const [totalAmount, setTotalAmount] = React.useState(1);
+  // const [totalAmount, setTotalAmount] = React.useState(1);
 
   const onButtonPressed = (amount: number) => {
     return () => {
@@ -33,6 +37,8 @@ const AddToBasketForm: React.FC<AddToBasketFormProps> = ({
       <Text style={styles.title}>Special Instruction</Text>
       <TextField
         containerStyle={styles.textField}
+        value={message}
+        onChangeText={(t: string) => setMessage(t)}
         placeholder="E.g. No onions, please"
       />
       <Container style={styles.buttonGroupSection}>
