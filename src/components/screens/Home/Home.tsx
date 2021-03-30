@@ -10,6 +10,7 @@ import HotDeals from './HotDeals';
 import RemarkablePlaces from './RemarkablePlaces';
 import { getHome } from '@src/utils/CartAPI';
 // import AppReviewModal from '@src/components/common/AppReviewModal';
+import { translate as T } from '@src/utils/LangHelper';
 
 type HomeProps = {};
 
@@ -40,7 +41,7 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <SafeAreaView>
       <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
-        <SearchBar placeholder="Find places, dishes, restaurants..." />
+        <SearchBar placeholder={T('HomeScreen.search')} />
         <PopularCategories />
         {isNavigationTransitionFinished ? (
           <>

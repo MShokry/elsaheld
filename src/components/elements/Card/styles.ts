@@ -18,19 +18,23 @@ export default StyleSheet.create({
     elevation: 1,
   },
   coverImageContainer: {
-    height: 180,
+    height: 170,
+    padding: 10,
+    
     backgroundColor: 'transparent',
   },
   coverImageSmallContainer: {
     height: 120,
+    padding: 10,
     backgroundColor: 'transparent',
   },
   coverImage: {
     ...StyleSheet.absoluteFillObject,
     width: '100%',
-    height: '100%',
-    borderRadius: 10,
-    resizeMode: 'cover',
+    height: '95%',
+    // borderRadius: 10,
+    marginTop:15,
+    resizeMode: 'contain',
   },
   parallaxImageContainer: {
     flex: 1,

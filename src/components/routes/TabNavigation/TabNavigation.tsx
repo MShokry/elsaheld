@@ -31,6 +31,9 @@ const renderTabBarIcon = (routeName: string) => {
       case 'Notifications':
         iconName = 'bell';
         break;
+      case 'MyOrders':
+          iconName = 'shopping-cart';
+          break;
       case 'Account':
         iconName = 'user';
         break;
@@ -40,7 +43,7 @@ const renderTabBarIcon = (routeName: string) => {
       default:
         break;
     }
-    return <Icon name={iconName} solid size={24} color={color} />;
+    return <Icon name={iconName} solid size={20} color={color} />;
   };
 };
 
@@ -61,8 +64,8 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
       }} name="Explore" component={HomeStack} />
       {/* <Tab.Screen name="Activity" component={ActivityHistoryStack} /> */}
       <Tab.Screen options={{
-        tabBarLabel: 'اوردرات',
-      }} name="Notifications" component={OrderHistory} />
+        tabBarLabel: 'طلباتي',
+      }} name="MyOrders" component={OrderHistory} />
       {/* <Tab.Screen name="Notifications" component={NotificationStack} /> */}
       <Tab.Screen options={{
         tabBarLabel: 'الحساب',

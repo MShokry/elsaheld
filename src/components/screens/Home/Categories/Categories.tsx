@@ -39,13 +39,14 @@ const Categories: React.FC<CategoriesProps> = ({place}) => {
   return (
     <Section
       title={place?.Name ||"Popular Near You"}
-      actionButtonText="View more"
-      onButtonActionPressed={_onButtonActionPressed}>
+      // actionButtonText="View more"
+      // onButtonActionPressed={_onButtonActionPressed}
+      >
 
         <Carousel
           data={Places.results}
           hasParallaxImages
-          itemWidth={Dimensions.get('window').width - 50}
+          itemWidth={Dimensions.get('window').width - 100}
           renderContent={(item: Resturant, index, parallaxProps) => {
             const { photo, name, details } = item;
             return (

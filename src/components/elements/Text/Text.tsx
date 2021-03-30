@@ -56,20 +56,31 @@ const Text: React.FC<TextProps> = ({
     marginTop = 10;
   }
 
-  const fontWeight = isBold ? 'bold' : 'normal';
+  // const fontWeight = isBold ? 'bold' : 'normal';
+  const isfontWeight = !!style?.fontWeight;
+  let styles;
+  if (style) {
+    styles = Object.keys(style).reduce((object, key) => {
+      if (key !== 'fontWeight') {
+        object[key] = style[key]
+      }
+      return object
+    }, {});
+  }
+
   return (
     <BaseText
       {...rest}
       style={[
         {
           color,
-          fontFamily: (style?.fontWeight || isBold) ? 'Cairo-Regular' : 'Cairo-Light',
-          fontWeight,
+          fontFamily: (isfontWeight || isBold) ? 'Cairo-Bold' : 'Cairo-Regular',
+          // fontWeight,
           fontSize,
           textAlign,
           marginTop,
         },
-        style,
+        styles,
       ]}>
       {children}
     </BaseText>
