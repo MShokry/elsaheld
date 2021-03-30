@@ -7,6 +7,7 @@ import {
   Icon,
 } from '@src/components/elements';
 import styles from './styles';
+import { translate as T } from '@src/utils/LangHelper';
 
 type AddToBasketFormProps = {
   updateTotalDishAmount: (amount: number) => void;
@@ -34,12 +35,12 @@ const AddToBasketForm: React.FC<AddToBasketFormProps> = ({
 
   return (
     <Container style={styles.formContainer}>
-      <Text style={styles.title}>Special Instruction</Text>
+      <Text style={styles.title}>{T('Cart.Instruction')}</Text>
       <TextField
         containerStyle={styles.textField}
         value={message}
         onChangeText={(t: string) => setMessage(t)}
-        placeholder="E.g. No onions, please"
+        placeholder={T('Cart.note')}
       />
       <Container style={styles.buttonGroupSection}>
         <Container style={styles.buttonGroupContainer}>

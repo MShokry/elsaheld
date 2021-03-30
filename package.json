@@ -8,7 +8,9 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "storybook": "(adb reverse tcp:8081 tcp:8081 || true) && start-storybook"
+    "storybook": "(adb reverse tcp:8081 tcp:8081 || true) && start-storybook",
+    "build": "ORG_GRADLE_PROJECT_bundleInArRelease=true npx react-native run-android --variant Release",
+    "release": "cd android && ./gradlew bundleRelease && cd .."
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.0",

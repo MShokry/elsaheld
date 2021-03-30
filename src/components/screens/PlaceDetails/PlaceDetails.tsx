@@ -24,6 +24,8 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
   const [contextState, contextDispatch] = React.useContext(AuthContext);
 
   const Resturant = route.params || {};
+  console.log("PlaceDetails Resturant",Resturant);
+  
   const [scrollY] = React.useState(new Animated.Value(0));
 
   const coverTranslateY = scrollY.interpolate({
@@ -51,8 +53,8 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
   }
   const placeDetailsData = Places.results;
   // placeDetailsData.data = placeDetailsData.Menu;
-  placeDetailsData.data = placeDetailsData.Menu?.map((item) => {
-    return { ...item, data: item.MenuList }
+  placeDetailsData.data = placeDetailsData?.Menu?.map((item) => {
+    return { ...item, data: item?.MenuList||[] }
   });
   console.log("placeDetailsData", placeDetailsData.data?.length);
   return (

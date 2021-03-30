@@ -3,7 +3,7 @@ import accounting from 'accounting';
 export const formatCurrency = (
   amount: number,
   minimumFractionDigits = 2,
-  symbol = 'جم',
+  symbol = 'EGP',
 ) => {
   try {
     return accounting.formatMoney(amount, symbol, minimumFractionDigits);

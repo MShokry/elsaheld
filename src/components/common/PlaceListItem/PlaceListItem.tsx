@@ -11,7 +11,7 @@ type PlaceListItemProps = {
 };
 
 const PlaceListItem: React.FC<PlaceListItemProps> = ({data}) => {
-  const {image, title, subTitle} = data;
+  const {photo, name, details} = data;
   const navigation = useNavigation();
 
   const _onPlaceItemPressed = () => {
@@ -21,11 +21,11 @@ const PlaceListItem: React.FC<PlaceListItemProps> = ({data}) => {
   return (
     <Touchable onPress={_onPlaceItemPressed}>
       <Container style={styles.container}>
-        <Image style={styles.image} source={image} />
+        <Image style={styles.image} source={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` }} />
         <View style={styles.placeInfoContainer}>
           <View style={styles.placeInfo}>
-            <Text style={styles.placeTitle}>{title}</Text>
-            <Text style={styles.placeSubTitle}>{subTitle}</Text>
+            <Text style={styles.placeTitle}>{name}</Text>
+            <Text style={styles.placeSubTitle}>{details}</Text>
           </View>
           <PlaceCardInfo data={data} />
         </View>

@@ -26,8 +26,14 @@ const handeResponse = (response) => {
   return [error, results];
 };
 
-export const getRestaurants = async ( setState) => {
-  POST('webService.php?do=getRestaurants', {Location:"33.232,32.322"}, setState);
+export const getRestaurants = async ( id,setState) => {
+  POST('webService.php?do=getRestaurants', {Location:"33.232,32.322",estoreType: id}, setState);
+};
+export const getHome = async ( setState) => {
+  POST('webService.php?do=getHomeRestaurants', {Location:"33.232,32.322"}, setState);
+};
+export const getStoreTypes = async ( setState) => {
+  POST('webService.php?do=getStoreTypes', {Location:"33.232,32.322"}, setState);
 };
 export const getMenu = async (id, setState) => {
   POST('webService.php?do=getMenu', {RestaurantID:id}, setState);
@@ -35,4 +41,7 @@ export const getMenu = async (id, setState) => {
 
 export const createOrder = async (order, setState) => {
   POST('siteAPI.php?json=true&do=PlaceOrder', order, setState);
+};
+export const GetOrders = async (order, setState) => {
+  POST('webService.php?do=GetOrders&json=true&start=0&end=10', order, setState);
 };

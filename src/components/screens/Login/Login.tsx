@@ -4,7 +4,7 @@ import { Text, TextField, Button, Container } from '@src/components/elements';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import styles from './styles';
 import AuthContext from '@src/context/auth-context';
-import { useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation } from '@react-navigation/native';
 import { logUser } from '@src/utils/UsersAPI';
 import api from '@src/utils/APICONST';
 import * as DataBase from '@src/utils/AsyncStorage';
@@ -36,7 +36,7 @@ const Login: React.FC<LoginProps> = () => {
       Alert.alert('Error', 'Please enter your password!');
       return;
     }
-    logUser({ username: phoneNumber, password }, setUser);
+    logUser({ username: phoneNumber, password, do: "SignIn" }, setUser);
   };
   const _onForgotPasswordButtonPressed = () => {
     navigation.navigate('ForgotPasswordScreen');
@@ -45,12 +45,13 @@ const Login: React.FC<LoginProps> = () => {
     contextDispatch({ type: 'skipLogUser', payload: 'Test' });
   };
 
+console.log(User);
 
   const loggedUser = async () => {
     const { results } = User;
     console.log('User is Logging');
     const fcmToken = null;
-    if ('token' in results) {
+    if (results.Status==1) {
       console.log(results);
       const token = results.token;
       api.setHeaders({
@@ -60,12 +61,22 @@ const Login: React.FC<LoginProps> = () => {
         'Cache-Control': 'no-cache',
         Connection: 'keep-alive',
         'Accept-Language': lang,
+        json_email: results.Result?.username,
+        json_password: results.Result?.password,
         fcmToken: fcmToken ? fcmToken : undefined,
       });
-      const U = { user: results, token };
+      const U = { user: results.Result };
       DataBase.setItem('userToken', JSON.stringify(U));
       console.log('Welcome USER');
-      await contextDispatch({ type: 'LogUser', payload: results });
+      await contextDispatch({ type: 'LogUser', payload: results.Result });
+      // navigation.navigate('Main');
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [
+            { name:'Main' },
+          ],
+        }));
       // await contextDispatch({type: 'LogUser', payload: results});
     }
     return null;
@@ -78,10 +89,10 @@ const Login: React.FC<LoginProps> = () => {
   }, [User.results]);
 
   React.useEffect(() => {
-    console.log('language', lang);
+    console.log('language change', lang);
     const saveLang = async () => {
       await DataBase.setItem('language', lang);
-      // contextDispatch({ type: 'SetLang', payload: lang });
+      contextDispatch({ type: 'SetLang', payload: lang });
     }
     saveLang();
   }, [lang]);
@@ -96,15 +107,10 @@ const Login: React.FC<LoginProps> = () => {
     })
     .indexOf(contextState.Lang);
   return (
-    <SafeAreaView style={styles.root}>
+    <View style={styles.root}>
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View
-          style={{
-            width: 73,
-            alignSelf: 'flex-end',
-            marginBottom: 15,
-            marginTop: 20,
-          }}>
+          style={styles.row}>
           <SwitchSelector
             options={options}
             value={pos}
@@ -119,21 +125,19 @@ const Login: React.FC<LoginProps> = () => {
         <View style={styles.appIconContainer}>
 
           <Image
-            source={require('../../../assets/app/app_icon.png')}
+            source={require('@src/assets/app/app_icon.png')}
             style={styles.appIcon}
             resizeMode='contain'
           />
-        </View>
-        {/* <Container style={styles.loginMethodContainer}> */}
-        <View style={styles.formContainer}>
-
-
+          {/* </View> */}
+          {/* <Container style={styles.loginMethodContainer}> */}
+          {/* <View style={styles.formContainer}> */}
           <TextField
             style={[{ backgroundColor: card }, styles.phoneNumberTextField]}
             value={phoneNumber}
             onChangeText={(t: string) => setPhoneNumber(t)}
             hasMargin
-            placeholder="Enter your phone number"
+            placeholder={T('loginScreen.phone')}
             keyboardType="phone-pad"
             autoFocus
           />
@@ -147,12 +151,12 @@ const Login: React.FC<LoginProps> = () => {
             secureTextEntry={true}
           />
         </View>
-        {User.error ? <Text isPrimary>SignIn</Text> : null}
+        {User.error ? <Text isPrimary>{User.error}</Text> : null}
         <Button isFullWidth
           onPress={_onNextButtonPressed}
           isLoading={User.loading}
         >
-          <Text isBold isWhite>SignIn</Text>
+          <Text isBold isWhite>{T('loginScreen.login_button')}</Text>
         </Button>
         <Button
           isFullWidth
@@ -170,7 +174,7 @@ const Login: React.FC<LoginProps> = () => {
         </Button>
         {/* </Container> */}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 

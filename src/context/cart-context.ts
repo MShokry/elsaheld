@@ -4,11 +4,13 @@ import {Dish} from '@src/data/mock-places';
 export type CartItem = {
   dish: Dish;
   sideDishes: Dish[];
+  qty: number;
+  note: String;
 };
 
 export type CartState = {
   cartItems: CartItem[];
-  updateCartItems: (items: CartItem[],qty: number,message: String, totlaPrice: number) => void;
+  updateCartItems: (items: CartItem[], totlaPrice: number) => void;
   totalPrice: number;
   clearCart: () => void;
 };

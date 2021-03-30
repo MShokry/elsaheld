@@ -10,7 +10,7 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import { AppState, AppStateStatus, I18nManager, View } from 'react-native';
+import { AppState, AppStateStatus, I18nManager, Text } from 'react-native';
 import {
   AppearanceProvider,
   useColorScheme,
@@ -21,6 +21,10 @@ import CartProvider from '@src/components/common/CartProvider';
 import ThemeContext from '@src/context/theme-context';
 import AuthProvider, { mainReducer } from '@src/components/common/AuthProvider/AuthProvider';
 import * as DataBase from '@src/utils/AsyncStorage';
+import * as Lang from './src/utils/LangHelper';
+
+Text.defaultProps = Text.defaultProps || {}
+Text.defaultProps.style =  { fontFamily: 'Cairo-Light' }
 
 import { AppReviewConfig } from '@src/constants';
 

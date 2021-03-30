@@ -18,8 +18,11 @@ import {
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import {profile} from '@src/data/mock-profile';
 import styles from './styles';
-import {useNavigation} from '@react-navigation/native';
+import {CommonActions, useNavigation} from '@react-navigation/native';
 import AuthContext from '@src/context/auth-context';
+import * as DataBase from '@src/utils/AsyncStorage';
+import api from '@src/utils/APICONST';
+import { translate as T } from '@src/utils/LangHelper';
 
 type AccountProps = {};
 
@@ -30,12 +33,33 @@ const Account: React.FC<AccountProps> = () => {
   const {userToken} = contextState;
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
 
+  const _signOutAsync = async () => {
+    // await logoutUser(fcmToken, setUser);
+    try {
+      DataBase.removeItem('language');
+      DataBase.removeItem('walkThrough');
+      DataBase.removeItem('userToken');
+    } catch (e) {
+      console.log('Error Clearing Sorage', e);
+    }
+    api.setHeaders({});
+    // navigation.navigate('Auth');
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 0,
+        routes: [
+          { name:'Auth' },
+        ],
+      }));
+    contextDispatch({ type: 'LogOutUser' });
+  };
+
   const alertButtons: AlertButton[] = [
     {
       text: 'Cancel',
       style: 'cancel',
     },
-    {text: 'OK', onPress: () => signOut()},
+    {text: 'OK', onPress: () => _signOutAsync()},
   ];
 
   const onLogoutButtonPressed = () => {
@@ -93,7 +117,7 @@ const Account: React.FC<AccountProps> = () => {
       <View style={styles.buttonContainer}>
         <Button isFullWidth isTransparent onPress={onLogoutButtonPressed}>
           <Text isBold isPrimary>
-            Logout
+          {T('SideBar.logout')}
           </Text>
         </Button>
       </View>

@@ -1,4 +1,4 @@
-import {ImageSourcePropType} from 'react-native';
+import { ImageSourcePropType } from 'react-native';
 
 const faker = require('faker');
 
@@ -10,6 +10,7 @@ export type Dish = {
   photo?: ImageSourcePropType;
   coverImage?: ImageSourcePropType;
   sideDishes?: DishSection[];
+  data?: DishSection[];
 };
 
 export type DishSection = {
@@ -25,12 +26,15 @@ export type Place = {
   Working_hours_to: string;
   address: string;
   coverImage?: ImageSourcePropType;
-  image: ImageSourcePropType;
+  photo: ImageSourcePropType;
   subTitle: string;
   distance: number;
   time: number;
+  deliveryTimeFrom?: string;
+  deliveryTimeTo?: string;
   rating: number;
   dishSection?: DishSection[];
+  data?: DishSection[];
 };
 
 export type Resturant = {

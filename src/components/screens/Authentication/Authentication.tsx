@@ -56,7 +56,7 @@ const Authentication: React.FC<AuthenticationProps> = () => {
               Connect with Phone Number
             </Text>
           </Button>
-          <Button
+          {/* <Button
             style={styles.button}
             backgroundColor="#4267b2"
             isFullWidth
@@ -64,8 +64,8 @@ const Authentication: React.FC<AuthenticationProps> = () => {
             <Text isBold isWhite>
               Connect with Facebook
             </Text>
-          </Button>
-          <Button
+          </Button> */}
+          {/* <Button
             style={styles.button}
             backgroundColor="#4285F3"
             isFullWidth
@@ -73,7 +73,7 @@ const Authentication: React.FC<AuthenticationProps> = () => {
             <Text isBold isWhite>
               Connect with Google
             </Text>
-          </Button>
+          </Button> */}
         </View>
       </Container>
     </View>

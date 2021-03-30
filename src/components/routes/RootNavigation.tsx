@@ -9,25 +9,26 @@
  */
 
 import 'react-native-gesture-handler';
-import React, {useContext} from 'react';
-import {StatusBar, View, Platform} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import React, { useContext } from 'react';
+import { StatusBar, View, Platform } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 import ThemeContext from '@src/context/theme-context';
 import TabNavigation from '@src/components/routes/TabNavigation';
 import DishDetails from '@src/components/screens/DishDetails';
 import SearchDishes from '@src/components/screens/SearchDishes';
 import AuthenticationStack from '@src/components/routes/Stacks/AuthenticationStack';
-import {lightTheme, darkTheme} from '@src/styles/theme';
+import { lightTheme, darkTheme } from '@src/styles/theme';
 import AuthContext from '@src/context/auth-context';
+import AuthLoading from '../common/AuthProvider/AuthLoading';
 
 const RootStack = createStackNavigator();
 
 const RootNavigation = () => {
-  const {theme} = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   // const {userToken} = useContext(AuthContext);
   const [contextState, contextDispatch] = React.useContext(AuthContext);
-  const {userToken} = contextState;
+  const { userToken } = contextState;
   const flex = 1;
   const rootContainerBackgroundColor =
     theme === 'light'
@@ -36,16 +37,16 @@ const RootNavigation = () => {
   const screenOptions =
     Platform.OS === 'ios'
       ? {
-          ...TransitionPresets.ModalSlideFromBottomIOS,
-        }
+        ...TransitionPresets.ModalSlideFromBottomIOS,
+      }
       : {
-          ...TransitionPresets.FadeFromBottomAndroid,
-        };
-          {/* {userToken ? ( */}
+        ...TransitionPresets.FadeFromBottomAndroid,
+      };
+  {/* {userToken ? ( */ }
 
   return (
     <NavigationContainer theme={theme === 'light' ? lightTheme : darkTheme}>
-      <View style={{flex, backgroundColor: rootContainerBackgroundColor}}>
+      <View style={{ flex, backgroundColor: rootContainerBackgroundColor }}>
         <StatusBar
           backgroundColor={
             theme === 'light'
@@ -55,22 +56,39 @@ const RootNavigation = () => {
           barStyle={theme === 'light' ? 'dark-content' : 'light-content'}
         />
         <RootStack.Navigator mode="modal" screenOptions={screenOptions}>
-            <RootStack.Screen
-              name="Main"
-              options={{headerShown: false}}
-              component={TabNavigation}
-            />
-            <RootStack.Screen
-              options={{
-                headerTransparent: true,
-                headerStatusBarHeight: 0,
-                title: '',
-                headerBackTitleVisible: false,
-              }}
-              name="Auth"
-              component={AuthenticationStack}
-            />
-          
+          <RootStack.Screen
+            options={{
+              headerTransparent: true,
+              headerStatusBarHeight: 0,
+              title: '',
+              headerBackTitleVisible: false,
+            }}
+            name="AuthLoading"
+            component={AuthLoading}
+          />
+          <RootStack.Screen
+            options={{
+              headerTransparent: true,
+              headerStatusBarHeight: 0,
+              title: '',
+              headerBackTitleVisible: false,
+            }}
+            name="Auth"
+            component={AuthenticationStack}
+          />
+
+          <RootStack.Screen
+            name="Main"
+            options={{
+              headerShown: false,
+              headerTitleStyle: {
+                fontFamily: 'Cairo-Light',
+                fontWeight: "200"
+              }
+            }}
+            component={TabNavigation}
+          />
+
           <RootStack.Screen
             options={{
               headerTransparent: true,
@@ -84,7 +102,7 @@ const RootNavigation = () => {
             options={{
               headerShown: false,
               cardOverlayEnabled: true,
-              cardStyleInterpolator: ({current: {progress}}) => ({
+              cardStyleInterpolator: ({ current: { progress } }) => ({
                 cardStyle: {
                   opacity: progress.interpolate({
                     inputRange: [0, 0.5, 0.9, 1],

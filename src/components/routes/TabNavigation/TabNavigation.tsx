@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HomeStack from '../Stacks/HomeStack';
 import AccountStack from '../Stacks/AccountStack';
 import NotificationStack from '../Stacks/NotificationStack';
 import ActivityHistoryStack from '../Stacks/ActivityHistoryStack';
 import Documentation from '@src/components/screens/Documentation';
+import OrderHistory from '@src/components/screens/OrderHistory';
 
 type TabNavigationProps = {};
 type TabBarIconProps = {
@@ -14,11 +15,11 @@ type TabBarIconProps = {
   size: number;
 };
 const Tab = createBottomTabNavigator();
-const {Navigator} = Tab;
+const { Navigator } = Tab;
 
 const renderTabBarIcon = (routeName: string) => {
   return (props: TabBarIconProps) => {
-    const {color} = props;
+    const { color } = props;
     let iconName = 'home';
     switch (routeName) {
       case 'Explore':
@@ -49,17 +50,24 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
       initialRouteName="Home"
       screenOptions={(props) => {
         const {
-          route: {name: routeName},
+          route: { name: routeName },
         } = props;
         return {
           tabBarIcon: renderTabBarIcon(routeName),
         };
       }}>
-      <Tab.Screen name="Explore" component={HomeStack} />
-      <Tab.Screen name="Activity" component={ActivityHistoryStack} />
-      <Tab.Screen name="Notifications" component={NotificationStack} />
-      <Tab.Screen name="Account" component={AccountStack} />
-      <Tab.Screen name="Documentation" component={Documentation} />
+      <Tab.Screen options={{
+        tabBarLabel: 'تصفح',
+      }} name="Explore" component={HomeStack} />
+      {/* <Tab.Screen name="Activity" component={ActivityHistoryStack} /> */}
+      <Tab.Screen options={{
+        tabBarLabel: 'اوردرات',
+      }} name="Notifications" component={OrderHistory} />
+      {/* <Tab.Screen name="Notifications" component={NotificationStack} /> */}
+      <Tab.Screen options={{
+        tabBarLabel: 'الحساب',
+      }} name="Account" component={AccountStack} />
+      {/* <Tab.Screen name="Documentation" component={Documentation} /> */}
     </Navigator>
   );
 };

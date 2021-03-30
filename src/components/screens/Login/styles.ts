@@ -5,6 +5,13 @@ export default StyleSheet.create({
   },
   contentContainer: {
     padding: 15,
+    flex: 1,
+  },
+  row:{
+    width: 73,
+    alignSelf: 'flex-end',
+    marginBottom: 15,
+    marginTop: 20,
   },
   loginMethodContainer: {
     padding: 25,
@@ -21,11 +28,12 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   appIcon: {
-    width: '70%',
-    height: '70%',
+    width: '50%',
+    height: '50%',
   },
   passwordTextField: {
-    marginTop: 30,
+    marginTop: 10,
+    marginBottom: 30,
   },
   phoneNumberTextField: {
     marginTop: 30,

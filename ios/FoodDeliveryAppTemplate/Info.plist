@@ -57,6 +57,12 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>A Jannat Lt.ttf</string>
+		<string>A-Jannat-Lt.ttf</string>
+		<string>Cairo-Light.ttf</string>
+		<string>Cairo-Regular.ttf</string>
+		<string>CairoL.ttf</string>
+		<string>CairoR.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

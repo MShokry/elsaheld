@@ -13,6 +13,7 @@
     },
     "loginScreen": {
         "title": "Login to your account",
+        "phone": "Enter Phone no.",
         "welcome": "welcome for you again",
         "email": "Email",
         "password": "Password",
@@ -121,6 +122,10 @@
         "noProducts": "There are currently no products in this section",
         "show_current_products": "show current products",
         "lets_go": "Let's get started!"
+    },
+    "Cart": {
+        "Instruction": "Special Instruction",
+        "note": "E.g. No onions, please",
     },
     "AddRatingScreen": {
         "title": "Ratings",

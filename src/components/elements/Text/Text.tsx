@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Text as BaseText, TextProps as BaseTextProps} from 'react-native';
+import { Text as BaseText, TextProps as BaseTextProps } from 'react-native';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 
 interface TextProps extends BaseTextProps {
@@ -25,7 +25,7 @@ const Text: React.FC<TextProps> = ({
   style,
   ...rest
 }) => {
-  const {primary, secondary, text} = useThemeColors();
+  const { primary, secondary, text } = useThemeColors();
   let color = text;
   let fontSize = 14;
   let marginTop = 0;
@@ -63,6 +63,7 @@ const Text: React.FC<TextProps> = ({
       style={[
         {
           color,
+          fontFamily: (style?.fontWeight || isBold) ? 'Cairo-Regular' : 'Cairo-Light',
           fontWeight,
           fontSize,
           textAlign,

@@ -7,9 +7,10 @@ import RNRestart from 'react-native-restart';
 
 export const translationGetters = {
   // lazy requires (metro bundler does not support symlinks)
-  ar: () => require('../locales/ar.json'),
-  en: () => require('../locales/en.json'),
+  ar: () => require('@src/locales/ar.json'),
+  en: () => require('@src/locales/en.json'),
 };
+
 const isRTL_ = ['ar'];
 export const isRTL_Lang = (l) => { return isRTL_.includes(l) }
 export const translate = memoize(

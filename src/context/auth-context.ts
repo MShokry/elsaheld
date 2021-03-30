@@ -17,7 +17,7 @@ const initialAutthState: AuthState = {
   userToken: null,
   user: { error: '', user: [], loading: false },
   updated: 0,
-  Lang: 'en',
+  Lang: 'ar',
   theme: 'dark',
   walkThrough: true,
   loading: true,

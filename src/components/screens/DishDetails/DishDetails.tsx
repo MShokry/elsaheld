@@ -23,7 +23,7 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
   console.log(DishData);
 
   const [totalPrice, setTotalPrice] = React.useState(
-    parseFloat(DishData.price),
+    parseFloat(DishData?.price),
   );
   const [selectedSideDishes, setSelectedSideDishes] = React.useState<Dish[]>(
     [],
@@ -71,10 +71,11 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
   const onAddToBasketButtonPressed = () => {
     updateCartItems(
       [
+        ...cartItems,
         {
           dish: DishData,
           qty: totalAmount,
-          message,
+          note:message,
           sideDishes: selectedSideDishes,
         },
       ],

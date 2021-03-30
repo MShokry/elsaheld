@@ -13,9 +13,11 @@ import LottieView from 'lottie-react-native';
 
 type PopularPlacesProps = {};
 
-const PopularPlaces: React.FC<PopularPlacesProps> = () => {
+const PopularPlaces: React.FC<PopularPlacesProps> = ({place}) => {
+  console.log(place);
+  
   const { card, primary, background } = useThemeColors();
-  const [Places, setPlaces] = React.useState({ error: '', results: [], loading: false });
+  const [Places, setPlaces] = React.useState({ error: '', results: place?.Restaurants||[], loading: false });
   // const [contextState, contextDispatch] = React.useContext(AuthContext);
 
   const navigation = useNavigation();
@@ -29,14 +31,14 @@ const PopularPlaces: React.FC<PopularPlacesProps> = () => {
   };
 
   React.useEffect(() => {
-    getRestaurants(setPlaces);
+    // getRestaurants(setPlaces);
   }, []);
   if (Places.loading) {
     return (<LoadingIndicator size="large" hasMargin />)
   }
   return (
     <Section
-      title="Popular Near You"
+      title={place?.Name ||"Popular Near You"}
       actionButtonText="View more"
       onButtonActionPressed={_onButtonActionPressed}>
 

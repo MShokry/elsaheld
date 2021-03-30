@@ -99,7 +99,7 @@ export const updateUser = async ([user, state, setState]) => {
 
 
 export const logUser = async (user, setState) => {
-  POST('SignIn', user, setState);
+  POST('siteAPI.php?json=true', user, setState);
 };
 
 export const logoutUser = async (setState) => {

@@ -27,7 +27,7 @@ const initialAuthState: AuthState = {
   userToken: '',
   user: { error: '', user: {}, loading: false },
   updated: 0,
-  Lang: 'ar',
+  Lang: '',
   theme: 'dark',
   walkThrough: true,
   loading: true,
@@ -130,24 +130,25 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     dispatch({ type: 'StopLoading' });
   };
 
-  React.useEffect(() => {
-    try {
-      // setTimeout(_bootstrapAsync(), 500);
-      // setTimeout(_bootstrapAsync, 500);
-      _bootstrapAsync();
-    } catch (error) {
-      dispatch({ type: 'StopLoading' });
-      console.log('Error', error);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   try {
+  //     // setTimeout(_bootstrapAsync(), 500);
+  //     // setTimeout(_bootstrapAsync, 500);
+  //     // _bootstrapAsync();
+  //   } catch (error) {
+  //     dispatch({ type: 'StopLoading' });
+  //     console.log('Error', error);
+  //   }
+  // }, []);
 
   React.useEffect(() => {
     if (state.Lang) {
-      console.log(state.Lang);
+      console.log("state.Lang", state.Lang);
       Lang.setI18nConfig(state.Lang);
     }
     // return () => { }
   }, [state.Lang]);
+
   return (
     <AuthContext.Provider value={[state, dispatch]}>{children}</AuthContext.Provider>
   );

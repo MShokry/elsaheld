@@ -46,7 +46,7 @@ const TextField: React.FC<TextFieldProps> = ({
         <Icon style={styles.leftIcon} name={leftIcon} size={leftIconSize} />
       )}
       <TextInput
-        style={[{color: text}, styles.textField, style]}
+        style={[{color: text,fontFamily: 'Cairo-Light',}, styles.textField, style]}
         placeholderTextColor={text}
         underlineColorAndroid="transparent"
         {...rest}
