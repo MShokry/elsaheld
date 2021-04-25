@@ -101,6 +101,9 @@ export const updateUser = async ([user, state, setState]) => {
 export const logUser = async (user, setState) => {
   POST('siteAPI.php?json=true', user, setState);
 };
+export const registerUser = async (user, setState) => {
+  POST('siteAPI.php?json=true', user, setState);
+};
 
 export const logoutUser = async (setState) => {
   POST('/auth/logout',{}, setState);
@@ -114,9 +117,6 @@ export const getTerms = async (setState) => {
   GET('/sign-up/term-&-condition',{}, setState);
 };
 
-export const registerUser = async (user, setState) => {
-  POST('/sign-up/new', user, setState);
-};
 export const confirmOTP = async (user, setState) => {
   POST(`/sign-up/verify-otp?key=${user.key}`, user, setState);
 };

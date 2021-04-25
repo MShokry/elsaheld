@@ -5,6 +5,7 @@ import {
   View,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from 'react-native';
 import { useTheme, useNavigation } from '@react-navigation/native';
 import { Text, Button } from '@src/components/elements';
@@ -20,7 +21,7 @@ type DishDetailsProps = {};
 
 export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
   const DishData = route.params
-  console.log(DishData);
+  // console.log(DishData,resturant);
 
   const [totalPrice, setTotalPrice] = React.useState(
     parseFloat(DishData?.price),
@@ -35,25 +36,37 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
     colors: { background },
   } = useTheme();
   const { goBack } = useNavigation();
-  const { updateCartItems, cartItems } = React.useContext(CartContext);
+  const { updateCartItems, cartItems, resturant } = React.useContext(CartContext);
 
   const addSideDishToBasket = React.useCallback(
     (dish: Dish) => {
-      const existedDishIndex = selectedSideDishes.find(
-        (item: Dish) => item.ID === dish.ID,
-      );
-      if (existedDishIndex) {
-        setSelectedSideDishes(
-          selectedSideDishes.filter((item: Dish) => item.ID !== dish.ID),
-        );
-        setTotalPrice(totalPrice - parseFloat(existedDishIndex.price));
-      } else {
-        setSelectedSideDishes([...selectedSideDishes, dish]);
-        setTotalPrice(totalPrice + parseFloat(dish.price));
-      }
+      setSelectedSideDishes(dish);
     },
     [selectedSideDishes, totalPrice],
   );
+  // const addSideDishToBasket = React.useCallback(
+  //   (dish: Dish) => {
+  //     const existedDishIndex = selectedSideDishes.find(
+  //       (item: Dish) => item.ID === dish.ID,
+  //     );
+  //     if (existedDishIndex) {
+  //       setSelectedSideDishes(
+  //         selectedSideDishes.filter((item: Dish) => item.ID !== dish.ID),
+  //       );
+  //       // setTotalPrice(totalPrice - parseFloat(existedDishIndex.price));
+  //       // updateTotalDishAmount(totalAmount);
+  //     } else {
+  //       setSelectedSideDishes([...selectedSideDishes, dish]);
+  //       // setTotalPrice(totalPrice + parseFloat(dish.price));
+  //     }
+  //   },
+  //   [selectedSideDishes, totalPrice],
+  // );
+
+
+  React.useEffect(() => {
+    updateTotalDishAmount(totalAmount);
+  }, [selectedSideDishes])
 
   const updateTotalDishAmount = React.useCallback(
     (amount: number) => {
@@ -61,27 +74,48 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
         (prevValue, currentValue) => prevValue + parseFloat(currentValue.price),
         0,
       );
-      setTotalPrice(
-        parseFloat(DishData.price) * amount + totalSelectedDishPrice,
-      );
+      console.log("selectedSideDishes==", selectedSideDishes, DishData);
+      if (DishData.DefaultPrice == 1) {
+        setTotalPrice(
+          parseFloat(totalSelectedDishPrice) * amount,
+        );
+      } else {
+        setTotalPrice(
+          parseFloat(DishData.price) * amount + parseFloat(totalSelectedDishPrice) * amount,
+        );
+      }
     },
     [selectedSideDishes],
   );
+
+  const totalCart = cartItems.reduce(
+    (prevValue, currentValue) => prevValue + parseFloat(currentValue.subtotalPrice),
+    0,
+  );
+  console.log("totalCart", totalCart);
+
   console.log("cartItems", cartItems);
   const onAddToBasketButtonPressed = () => {
-    updateCartItems(
-      [
-        ...cartItems,
-        {
-          dish: DishData,
-          qty: totalAmount,
-          note:message,
-          sideDishes: selectedSideDishes,
-        },
-      ],
-      totalPrice,
-    );
-    goBack();
+    console.log(resturant);
+    if (resturant?.ID && DishData.Resturant?.ID !== resturant.ID && cartItems.length) {
+      Alert.alert('خطئ', 'برجاء مسح المنتجات من السلة او انهاء الطلب اولا ');
+    } else {
+      updateCartItems(
+        [
+          ...cartItems,
+          {
+            dish: DishData,
+            qty: totalAmount,
+            note: message,
+            sideDishes: selectedSideDishes,
+            subtotalPrice: totalPrice,
+          },
+        ],
+        totalPrice,
+        DishData.Resturant,
+      );
+      goBack();
+    }
   };
 
   const coverTranslateY = scrollY.interpolate({

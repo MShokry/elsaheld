@@ -7,4 +7,8 @@ export default StyleSheet.create({
   rightItemContainerStyle: {
     flex: 3,
   },
+  profileAvatar: {
+    width: 80,
+    height: 80,
+  },
 });

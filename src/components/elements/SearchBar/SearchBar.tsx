@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   return (
     <View>
       <Container style={[styles.searchContainer, {backgroundColor: card}]}>
-        <TextField leftIcon={leftIconName} placeholder={placeholder} />
+        <TextField leftIcon={leftIconName} placeholder={placeholder}  />
       </Container>
     </View>
   );

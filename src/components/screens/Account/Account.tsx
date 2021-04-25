@@ -32,7 +32,9 @@ const Account: React.FC<AccountProps> = () => {
   const [contextState, contextDispatch] = React.useContext(AuthContext);
   const {userToken} = contextState;
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
-
+  const user = contextState.user?.user||{};
+  console.log(user);
+  
   const _signOutAsync = async () => {
     // await logoutUser(fcmToken, setUser);
     try {
@@ -68,16 +70,16 @@ const Account: React.FC<AccountProps> = () => {
 
   return (
     <ScrollView>
-      <SearchBar />
-      <Divider />
+      {/* <SearchBar /> */}
+      {/* <Divider /> */}
       <Container>
         <ListRowItem
-          title={profile.name}
-          subTitle="Edit Profile"
+          title={`مرحبا ${user?.name?user?.name:'' }`}
+          subTitle={user?.phone?user?.phone:'٠١' }
           onPress={() => navigation.navigate('EditProfileScreen')}
-          leftIcon={
-            <Image source={profile.avatar} style={styles.profileAvatar} />
-          }
+          // leftIcon={
+          //   <Image source={profile.avatar} style={styles.profileAvatar} />
+          // }
           rightIcon={<Icon name={chevronIconName} />}
         />
       </Container>
@@ -85,34 +87,34 @@ const Account: React.FC<AccountProps> = () => {
         <Divider />
         <Divider />
         <ListRowItem
-          title="Order History"
+          title="اورداتي"
           onPress={() => navigation.navigate('OrderHistoryScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
-          title="Delivery Address"
-          onPress={() => navigation.navigate('SavedAddressesScreen')}
+          title="العناوين"
+          // onPress={() => navigation.navigate('SavedAddressesScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
-          title="Settings"
-          onPress={() => navigation.navigate('SettingsScreen')}
+          title="الاعدادات"
+          // onPress={() => navigation.navigate('SettingsScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
 
         <ListRowItem
-          title="Support Center"
-          onPress={() => navigation.navigate('SupportCenterScreen')}
+          title="تواصل معنا"
+          // onPress={() => navigation.navigate('SupportCenterScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
-        <ListRowItem
-          title="Share Feedback"
+        {/* <ListRowItem
+          title="تواصل معنا"
           rightIcon={<Icon name={chevronIconName} />}
-        />
+        /> */}
       </Container>
       <View style={styles.buttonContainer}>
         <Button isFullWidth isTransparent onPress={onLogoutButtonPressed}>

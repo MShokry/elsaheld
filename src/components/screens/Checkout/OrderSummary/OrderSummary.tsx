@@ -1,40 +1,45 @@
 import * as React from 'react';
-import {View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import {Container, Text, Section, Divider} from '@src/components/elements';
+import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Container, Text, Section, Divider, Button, Icon } from '@src/components/elements';
 import styles from './styles';
-import {CartItem} from '@src/context/cart-context';
-import {formatCurrency} from '@src/utils/number-formatter';
+import { CartItem } from '@src/context/cart-context';
+import { formatCurrency } from '@src/utils/number-formatter';
+import { translate as T } from '@src/utils/LangHelper';
+import { Place } from '@src/data/mock-places';
 
 type OrderSummaryProps = {
   cartItems: CartItem[];
   totalPrice: number;
   shippingFee: number;
+  resturant: Place;
 };
 
 const OrderSummary: React.FC<OrderSummaryProps> = ({
   cartItems,
   totalPrice,
   shippingFee,
+  resturant,
+  removeIdx
 }) => {
   const navigation = useNavigation();
 
   const _onAddItemButtonPressed = () => {
     navigation.navigate('DishDetailsModal');
   };
-
+  
   return (
     <Section
-      title="Order Summary"
-      actionButtonText="Add Items"
-      onButtonActionPressed={_onAddItemButtonPressed}>
+      title={T('Cart.OrderSummary')}
+      // actionButtonText="Add Items"
+      onButtonActionPressed={() => { }}>
       <Container>
-        <View style={styles.menuContainer}>
-          <View style={styles.menuInfo}>
-            <Text style={styles.quantityText}>{`${cartItems.length}`}</Text>
-            {cartItems.map((cartItem, cartItemIndex) => (
+        {cartItems.map((cartItem, cartItemIndex) => (<>
+          <View style={styles.menuContainer}>
+            <View style={styles.menuInfo}>
+              <Text style={styles.quantityText}>{`${cartItem.qty}`}</Text>
               <View key={cartItemIndex}>
-                <Text style={styles.mainDishText} isBold>
+                <Text style={styles.mainDishText}  isBold>
                   {cartItem.dish.name}
                 </Text>
                 {cartItem.sideDishes.map((dish, dishIndex) => (
@@ -43,18 +48,22 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                   </Text>
                 ))}
               </View>
-            ))}
+            </View>
+            <Text isBold>{formatCurrency(cartItem.subtotalPrice)}</Text>
+            <Button onPress={()=>removeIdx(cartItemIndex)}>
+              <Icon name='trash-alt' />
+              {/* <Text style={styles.sideDishText} isBold>x</Text> */}
+            </Button>
           </View>
-          <Text isBold>{formatCurrency(totalPrice)}</Text>
-        </View>
-        <Divider />
+          <Divider />
+        </>))}
         <View style={styles.priceContainer}>
           <View style={styles.subTotalContainer}>
-            <Text>Subtotal</Text>
+            <Text>{T('Cart.Subtotal')}</Text>
             <Text>{formatCurrency(totalPrice)}</Text>
           </View>
           <View style={styles.deliveryFee}>
-            <Text>Delivery: 6.1km</Text>
+            <Text>{T('Cart.delivery')}: {resturant.distance_} km</Text>
             <Text>{formatCurrency(shippingFee)}</Text>
           </View>
         </View>

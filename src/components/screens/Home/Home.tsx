@@ -11,6 +11,7 @@ import RemarkablePlaces from './RemarkablePlaces';
 import { getHome } from '@src/utils/CartAPI';
 // import AppReviewModal from '@src/components/common/AppReviewModal';
 import { translate as T } from '@src/utils/LangHelper';
+import MainContext from '@src/context/auth-context';
 
 type HomeProps = {};
 
@@ -20,6 +21,7 @@ const Home: React.FC<HomeProps> = () => {
     setIsNavigationTransitionFinished,
   ] = React.useState(false);
   const [Places, setPlaces] = React.useState({ error: '', results: [], loading: false });
+  const [contextState, contextDispatch] = React.useContext(MainContext);
 
   const scrollViewRef = React.useRef(null);
 
@@ -35,7 +37,15 @@ const Home: React.FC<HomeProps> = () => {
   );
 
   React.useEffect(() => {
-    getHome(setPlaces);
+    const rest = {
+      lat: contextState.location?.latitude
+        ? contextState.location?.latitude
+        : 0,
+      long: contextState.location?.longitude
+        ? contextState.location?.longitude
+        : 0
+    }
+    getHome(rest,setPlaces);
   }, []);
   const Cats = Places.results || [];
   return (

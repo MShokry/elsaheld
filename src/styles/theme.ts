@@ -3,10 +3,10 @@ export const lightTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#022873',
+    primary: '#e42f44',
     secondary: '#106FA4',
-    text: '#022873',
-    border: '#8edaea',
+    text: '#000',
+    border: '#333333',
   },
 };
 export const darkTheme = {

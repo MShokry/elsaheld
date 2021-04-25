@@ -24,8 +24,8 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
   const [contextState, contextDispatch] = React.useContext(AuthContext);
 
   const Resturant = route.params || {};
-  console.log("PlaceDetails Resturant",Resturant);
-  
+  console.log("PlaceDetails Resturant", Resturant);
+
   const [scrollY] = React.useState(new Animated.Value(0));
 
   const coverTranslateY = scrollY.interpolate({
@@ -54,7 +54,7 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
   const placeDetailsData = Places.results;
   // placeDetailsData.data = placeDetailsData.Menu;
   placeDetailsData.data = placeDetailsData?.Menu?.map((item) => {
-    return { ...item, data: item?.MenuList||[] }
+    return { ...item, data: item?.MenuList || [] }
   });
   console.log("placeDetailsData", placeDetailsData.data?.length);
   return (
@@ -123,22 +123,22 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
               <Text style={styles.sectionHeaderText}>{section.name}</Text>
             )}
             renderItem={({ item }) => {
-              return <DishItem data={item} />;
+              return <DishItem data={{...item, Resturant:Resturant}} />;
             }}
             onScroll={Animated.event(
-              [
-                {
-                  nativeEvent: {
-                    contentOffset: {
-                      y: scrollY,
+                [
+                  {
+                    nativeEvent: {
+                      contentOffset: {
+                        y: scrollY,
+                      },
                     },
                   },
+                ],
+                {
+                  useNativeDriver: true,
                 },
-              ],
-              {
-                useNativeDriver: true,
-              },
-            )}
+              )}
           />
         }
       </View>

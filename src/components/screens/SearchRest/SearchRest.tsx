@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container, List } from '@src/components/elements';
+import { Button, Container, Icon, List, SearchBar, } from '@src/components/elements';
 import { mockPlaceList } from '@src/data/mock-places';
 import { getRestaurants } from '@src/utils/CartAPI';
 
@@ -7,6 +7,7 @@ import PlaceListItem from '@src/components/common/PlaceListItem';
 import styles from './styles';
 import { useRoute } from '@react-navigation/core';
 import MainContext from '@src/context/auth-context';
+import { View } from 'react-native';
 
 type PlaceListProps = {};
 
@@ -17,7 +18,7 @@ const PlaceList: React.FC<PlaceListProps> = () => {
 
   React.useEffect(() => {
     const rest = {
-      id: route.params.estoreType,
+      word:contextState.word,
       lat: contextState.location?.latitude
         ? contextState.location?.latitude
         : 0,
@@ -30,6 +31,16 @@ const PlaceList: React.FC<PlaceListProps> = () => {
 
   return (
     <Container style={styles.root}>
+      <Container style={styles.searchBarContainer}>
+        <View style={styles.closeIconContainer}>
+          <Button isTransparent onPress={()=>{}}>
+            <Icon useIonicons name="close" size={20} />
+          </Button>
+        </View>
+        <View style={styles.searchBarIconContainer}>
+          <SearchBar placeholder="Search a dish سسس" />
+        </View>
+      </Container>
       <List
         data={Places.results}
         renderItem={({ item }) => {

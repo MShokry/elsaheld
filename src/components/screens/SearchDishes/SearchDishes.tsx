@@ -33,7 +33,7 @@ const SearchDishes: React.FC<SearchDishesProps> = () => {
           </Button>
         </View>
         <View style={styles.searchBarIconContainer}>
-          <SearchBar placeholder="Search a dish name" />
+          <SearchBar placeholder="Search a dish سسس" />
         </View>
       </Container>
       <SectionList

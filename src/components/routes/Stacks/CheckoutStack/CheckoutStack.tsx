@@ -12,11 +12,14 @@ import {Icon, Button} from '@src/components/elements';
 import styles from './styles';
 import {ScreenNavigationProps} from '../types';
 import {I18nManager} from 'react-native';
+import CartContext from '@src/context/cart-context';
 
 type CheckoutStackProps = {} & ScreenNavigationProps;
 const Stack = createStackNavigator();
 
 const CheckoutStack: React.FC<CheckoutStackProps> = (props) => {
+  const { resturant } = React.useContext(CartContext);
+
   const {navigation} = props;
   const chevronIconName = I18nManager.isRTL ? 'chevron-right' : 'chevron-left';
 
@@ -43,8 +46,7 @@ const CheckoutStack: React.FC<CheckoutStackProps> = (props) => {
         onPress={() => navigation.navigate('SelectLocationScreen')}
       />
     );
-  };
-
+  };  
   return (
     <Stack.Navigator initialRouteName="CheckoutScreen">
       <Stack.Screen
@@ -52,7 +54,7 @@ const CheckoutStack: React.FC<CheckoutStackProps> = (props) => {
         options={{
           headerLeftContainerStyle: styles.headerLeftContainer,
           headerLeft: _renderHeaderLeft,
-          headerTitle: 'Neapolitan Pizza',
+          headerTitle: resturant?.name,
         }}
         component={Checkout}
       />

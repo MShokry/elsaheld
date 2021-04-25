@@ -7,12 +7,12 @@ import RNRestart from 'react-native-restart';
 
 export const translationGetters = {
   // lazy requires (metro bundler does not support symlinks)
-  ar: () => require('@src/locales/ar.json'),
-  en: () => require('@src/locales/en.json'),
+  ar: () => require('../locales/ar.json'),
+  en: () => require('../locales/en.json'),
 };
-
 const isRTL_ = ['ar'];
-export const isRTL_Lang = (l) => { return isRTL_.includes(l) }
+export const isRTL_Lang = I18nManager.isRTL;
+export const isRTL_Selected = (l) => { return isRTL_.includes(l) }
 export const translate = memoize(
   (key, config) => i18n.t(key, config),
   (key, config) => (config ? key + JSON.stringify(config) : key),
@@ -46,7 +46,7 @@ export const setI18nConfig = async (languageTag_inp) => {
   const force = languageTag_inp
     ? {
       languageTag: languageTag_inp,
-      isRTL: isRTL_Lang(languageTag_inp),
+      isRTL: isRTL_Selected(languageTag_inp),
     }
     : false;
   const { languageTag, isRTL } =

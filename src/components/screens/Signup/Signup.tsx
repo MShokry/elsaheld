@@ -1,26 +1,28 @@
 import * as React from 'react';
 import { SafeAreaView, View, ScrollView, Alert, Image } from 'react-native';
-import { Text, TextField, Button, Touchable, Icon } from '@src/components/elements';
+import { Text, TextField, Button, Container } from '@src/components/elements';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import styles from './styles';
 import AuthContext from '@src/context/auth-context';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { logUser } from '@src/utils/UsersAPI';
+import { registerUser } from '@src/utils/UsersAPI';
 import api from '@src/utils/APICONST';
 import * as DataBase from '@src/utils/AsyncStorage';
 import SwitchSelector from 'react-native-switch-selector';
 import { translate as T } from '@src/utils/LangHelper';
 // import { log } from 'react-native-reanimated';
 
-type LoginProps = {};
+type SignupProps = {};
 
-const Login: React.FC<LoginProps> = () => {
+const Signup: React.FC<SignupProps> = () => {
   const navigation = useNavigation();
   // const {signIn} = React.useContext(AuthContext);
   const { card, primary, background } = useThemeColors();
   const [password, setPassword] = React.useState('');
-  const [show, setShow] = React.useState(true);
+  const [confirmPass, setconfirmPass] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
+  const [name, setname] = React.useState('');
+  const [email, setemail] = React.useState('');
   const [User, setUser] = React.useState({ error: '', results: [], loading: false });
   const [contextState, contextDispatch] = React.useContext(AuthContext);
   const [lang, setlang] = React.useState(contextState.Lang);
@@ -37,17 +39,11 @@ const Login: React.FC<LoginProps> = () => {
       Alert.alert('Error', 'Please enter your password!');
       return;
     }
-    logUser({ username: phoneNumber, password, do: "SignIn" }, setUser);
+    const USER = { name,username: phoneNumber,email, password,confirmPass, do: "SignUp" }
+    registerUser(USER, setUser);
   };
   const _onForgotPasswordButtonPressed = () => {
-    navigation.navigate('ForgotPasswordScreen');
-  };
-  const _onSignUpButtonPressed = () => {
-    navigation.navigate('SignupScreen');
-  };
-  const _skip = () => {
-    contextDispatch({ type: 'skipLogUser', payload: 'Test' });
-    navigation.navigate('Main');
+    navigation.navigate('LoginScreen');
   };
 
   console.log(User);
@@ -67,7 +63,7 @@ const Login: React.FC<LoginProps> = () => {
         Connection: 'keep-alive',
         'Accept-Language': lang,
         json_email: results.Result?.username,
-        json_password: results.Result?.password,
+        json_password: results.Result?.EncodedPassword,
         fcmToken: fcmToken ? fcmToken : undefined,
       });
       const U = { user: results.Result };
@@ -113,99 +109,93 @@ const Login: React.FC<LoginProps> = () => {
     .indexOf(contextState.Lang);
   return (
     <View style={styles.root}>
-      <View
-        style={styles.row}>
-        <SwitchSelector
-          options={options}
-          value={pos}
-          initial={pos}
-          height={32}
-          borderRadius={15}
-          buttonColor={primary}
-          backgroundColor={background}
-          onPress={(value) => setlang(value)}
-        />
-      </View>
-      <Button
-        isTransparent
-        style={{ position: 'absolute', left: 0, top: 0, width: 100 }}
-        onPress={_skip}
-      >
-        <Text >{T('sliderScreen.skip_button')}</Text>
-      </Button>
       <ScrollView contentContainerStyle={styles.contentContainer}>
-
         <View style={styles.appIconContainer}>
-
           <Image
             source={require('@src/assets/app/app_icon.png')}
             style={styles.appIcon}
             resizeMode='contain'
           />
+        </View>
 
-          {/* <Container style={styles.loginMethodContainer}> */}
-          <View >
-            <TextField
-              style={[{ backgroundColor: card }, styles.phoneNumberTextField]}
-              value={phoneNumber}
-              onChangeText={(t: string) => setPhoneNumber(t)}
-              hasMargin
-              placeholder={T('loginScreen.phone')}
-              keyboardType="phone-pad"
-              autoFocus
-            />
-            <View style={{height:10}} />
-            <TextField
-              style={[{ backgroundColor: card,  marginTop: 10 }, styles.passwordTextField, { width: '90%' }]}
-              leftIcon={show ? "eye" : "eye-slash"}
-              hasMargin
-              leftIconSize={16}
-              value={password}
-              onChangeText={_onPasswordFieldChange}
-              secureTextEntry={show}
-              onButtonPressed={() => { setShow(!show) }}
-              placeholder={T('loginScreen.password')} />
+        <View style={{ flex: 1 }}>
 
-            {/* <View style={{ flexDirection: 'row' }}>
-              <Touchable onPress={() => { setShow(!show) }}>
-                <Icon style={{ marginLeft: 20, marginTop: 10 }} size={30} name={show ? "eye" : "eye-close"} size={16} />
-              </Touchable>
-              <TextField
-                style={[{ backgroundColor: card }, styles.passwordTextField, { width: '80%' }]}
-                value={password}
-                onChangeText={_onPasswordFieldChange}
-                hasMargin
-                placeholder={T('loginScreen.password')}
-                secureTextEntry={show}
-              />
-            </View> */}
-          </View>
-          {User.error ? <Text isPrimary>{User.error}</Text> : null}
+          <TextField
+            hasMargin
+            style={[{ backgroundColor: card }, styles.phoneNumberTextField]}
+            value={name}
+            onChangeText={(t: string) => setname(t)}
+            placeholder={T('registerScreen.username')}
+            textContentType="name"
+            autoFocus
+          />
+          <TextField
+            hasMargin
+            style={[{ backgroundColor: card }, styles.passwordTextField]}
+            value={phoneNumber}
+            onChangeText={(t: string) => setPhoneNumber(t)}
+            placeholder={T('registerScreen.phone')}
+            keyboardType="phone-pad"
+            textContentType="telephoneNumber"
+            autoFocus
+          />
+          <TextField
+            hasMargin
+            style={[{ backgroundColor: card }, styles.passwordTextField]}
+            value={email}
+            onChangeText={(t: string) => setemail(t)}
+            placeholder={T('registerScreen.email')}
+            textContentType="emailAddress"
+            keyboardType="email-address"
+            autoFocus
+          />
+          {/* <Text isSecondary style={styles.note}>
+            Communications and transaction history will be sent to this email
+            address
+      </Text> */}
+          <TextField
+            hasMargin
+            style={[{ backgroundColor: card }, styles.passwordTextField]}
+            value={password}
+            onChangeText={(t: string) => setPassword(t)}
+            placeholder={T('registerScreen.password')}
+            secureTextEntry={true}
+          />
+          <TextField
+            hasMargin
+            containerStyle={{marginBottom:20}}
+            style={[{ backgroundColor: card }, styles.passwordTextField]}
+            value={confirmPass}
+            error={confirmPass!=password && confirmPass.length>1}
+            onChangeText={(t: string) => setconfirmPass(t)}
+            placeholder={T('registerScreen.password_confirm')}
+            secureTextEntry={true}
+          />
+          {User.error ? <Text isPrimary hasMargin
+          style={{marginVertical:10}}
+          >{User.error}</Text> : null}
           <Button isFullWidth
             onPress={_onNextButtonPressed}
-            isLoading={User.loading}
             style={styles.forgotPasswordButton}
+            isLoading={User.loading}
           >
-            <Text isBold isWhite>{T('loginScreen.login_button')}</Text>
+            <Text isBold isWhite>{T('registerScreen.signup_button')}</Text>
           </Button>
-          {/* <Button
-          isFullWidth
-          isTransparent
-          onPress={_onForgotPasswordButtonPressed}
-          style={styles.forgotPasswordButton}>
-          <Text >{T('loginScreen.forget_password')}</Text>
-        </Button> */}
+
           <Button
             isFullWidth
+
             isTransparent
-            onPress={_onSignUpButtonPressed}
+            onPress={_onForgotPasswordButtonPressed}
             style={styles.forgotPasswordButton}>
-            <Text >{T('loginScreen.no_account')}</Text>
+            <Text >{T('registerScreen.sign_in')}</Text>
           </Button>
         </View>
+        {/* </Container> */}
       </ScrollView>
+
     </View>
   );
 };
 
-export default Login;
+export default Signup;

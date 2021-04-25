@@ -16,11 +16,12 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 import ThemeContext from '@src/context/theme-context';
 import TabNavigation from '@src/components/routes/TabNavigation';
 import DishDetails from '@src/components/screens/DishDetails';
-import SearchDishes from '@src/components/screens/SearchDishes';
+import SearchRest from '@src/components/screens/SearchRest';
 import AuthenticationStack from '@src/components/routes/Stacks/AuthenticationStack';
 import { lightTheme, darkTheme } from '@src/styles/theme';
 import AuthContext from '@src/context/auth-context';
 import AuthLoading from '../common/AuthProvider/AuthLoading';
+import CartContext from '@src/context/cart-context';
 
 const RootStack = createStackNavigator();
 
@@ -28,6 +29,7 @@ const RootNavigation = () => {
   const { theme } = useContext(ThemeContext);
   // const {userToken} = useContext(AuthContext);
   const [contextState, contextDispatch] = React.useContext(AuthContext);
+  const { updateCartItems, cartItems, resturant } = React.useContext(CartContext);
   const { userToken } = contextState;
   const flex = 1;
   const rootContainerBackgroundColor =
@@ -118,8 +120,8 @@ const RootNavigation = () => {
                 },
               }),
             }}
-            name="SearchDishesModal"
-            component={SearchDishes}
+            name="SearchRestModal"
+            component={SearchRest}
           />
         </RootStack.Navigator>
       </View>

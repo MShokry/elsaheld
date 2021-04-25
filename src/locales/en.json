@@ -40,6 +40,7 @@
         "sub_title": "Save your time and book your spot  online ",
         "username": "Your Name",
         "email": "Email",
+        "phone": "Phone No",
         "password": "Password",
         "password_confirm": "password confirmation",
         "signup_button": "Sign Up",
@@ -126,6 +127,9 @@
     "Cart": {
         "Instruction": "Special Instruction",
         "note": "E.g. No onions, please",
+        "ViewBasket":"View Basket",
+        "item":"item",
+        "items":"items",
     },
     "AddRatingScreen": {
         "title": "Ratings",

@@ -3,12 +3,20 @@ export default StyleSheet.create({
   root: {
     flex: 1,
     height: '100%',
-    marginTop: 20,
+
+  },
+  container: {
+    padding: 10,
+    marginTop: 10,
   },
   contentContainer: {
     padding: 15,
     flex: 1,
-    height: '100%',
+    // height: '100%',
+  },
+  note: {
+    marginTop: 5,
+    marginBottom: 10,
   },
   row: {
     width: 100,
@@ -22,6 +30,7 @@ export default StyleSheet.create({
     paddingBottom: 35,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
+    flex: 1,
   },
   formContainer: {
     paddingTop: '20%',
@@ -30,17 +39,19 @@ export default StyleSheet.create({
   appIconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    height: '20%',
   },
   appIcon: {
-    width: '50%',
-    height: '50%',
+    width: '35%',
+    height: '35%',
   },
   passwordTextField: {
     marginTop: 10,
-    marginBottom: 30,
+    // marginBottom: 30,
   },
   phoneNumberTextField: {
     // marginTop: 30,
+    // marginBottom: 20,
   },
   modalContainer: {
     padding: 20,

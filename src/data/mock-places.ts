@@ -29,6 +29,7 @@ export type Place = {
   photo: ImageSourcePropType;
   subTitle: string;
   distance: number;
+  distance_: number;
   time: number;
   deliveryTimeFrom?: string;
   deliveryTimeTo?: string;

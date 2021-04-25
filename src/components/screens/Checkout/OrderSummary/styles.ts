@@ -7,9 +7,11 @@ export default StyleSheet.create({
   },
   menuInfo: {
     flexDirection: 'row',
+    width:'60%',
   },
   mainDishText: {
     marginBottom: 5,
+    flexWrap:'nowrap',
   },
   sideDishText: {
     marginBottom: 2,

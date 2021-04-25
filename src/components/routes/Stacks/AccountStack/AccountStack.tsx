@@ -33,7 +33,7 @@ const AccountStack: React.FC<AccountStackProps> = (props) => {
       <Stack.Screen
         options={() => {
           return {
-            title: 'Account',
+            title: 'حسابي',
           };
         }}
         name="AccountScreen"
@@ -42,7 +42,7 @@ const AccountStack: React.FC<AccountStackProps> = (props) => {
       <Stack.Screen
         options={() => {
           return {
-            title: 'Edit Profile',
+            title: 'تعديل الحساب',
           };
         }}
         name="EditProfileScreen"
@@ -51,7 +51,7 @@ const AccountStack: React.FC<AccountStackProps> = (props) => {
       <Stack.Screen
         options={() => {
           return {
-            title: 'Order History',
+            title: 'طلباتي',
           };
         }}
         name="OrderHistoryScreen"
@@ -60,7 +60,7 @@ const AccountStack: React.FC<AccountStackProps> = (props) => {
       <Stack.Screen
         name="SavedAddressesScreen"
         options={{
-          headerTitle: 'Saved Address',
+          headerTitle: 'عناويني',
         }}
         component={SavedAddresses}
       />

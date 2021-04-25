@@ -27,10 +27,10 @@ const handeResponse = (response) => {
     error = 'No Internet Connection, Please Check';
   } else if (response.status >= 200 && response.status < 400) {
     results = response.data;
-    if (results.status >= 200 && results.status < 400 && results.Status == 1) {
+    if (response.status >= 200 && response.status < 400 && response.Status == 1) {
       results = response.data.results;
     } else {
-      error = results.Errors;
+      error = results?.Errors;
     }
   } else if (response.status >= 400 && response.status < 500) {
     // if (response.status === 400) {
@@ -63,7 +63,7 @@ export const POST = async (
   setState = () => {},
   showLoading = false,
 ) => {
-  // console.log(api.headers);
+  console.log(api.headers);
 
   let data = new FormData();
   try {
@@ -73,8 +73,11 @@ export const POST = async (
       data.append(keyName, body[keyName]);
     });
   } catch (error) {console.log("Form",error);}
-
-  REQUESTING(
+  if(api.headers.json_email){
+    data.append("json_email", api.headers.json_email);
+    data.append("json_password", api.headers.json_password);
+  }
+  await REQUESTING(
     'POST',
     url,
     data,
@@ -139,6 +142,7 @@ export const REQUESTING = async ( method = 'POST', url = '', body = null, setSta
     }
     console.log(url, response);
     const [error, results] = handeResponse(response);
+    Promise.resolve([results,error])
     setState({results, error, loading: false});
   } catch (err) {
     console.log(err);

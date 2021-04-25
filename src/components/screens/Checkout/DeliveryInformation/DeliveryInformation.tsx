@@ -11,6 +11,7 @@ import {
   DateTimePicker,
 } from '@src/components/elements';
 import styles from './styles';
+import { translate as T } from '@src/utils/LangHelper';
 
 type DeliveryInformationProps = {};
 
@@ -35,9 +36,9 @@ const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
 
   return (
     <Section
-      title="Deliver to"
-      actionButtonText="Change address"
-      onButtonActionPressed={onChangeAddressButtonPressed}>
+      title={T('Cart.deliveryTo')}
+      // actionButtonText="Change address"
+      onButtonActionPressed={() => {}}>
       <Container>
         <View style={styles.deliveryContainer}>
           <View style={styles.locationContainer}>
@@ -48,16 +49,16 @@ const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
           </View>
           <View>
             <Text isBold style={styles.locationInfo}>
-              588 Blanda Square - Virginia
+              الهرم - المريوطية برج بدر
             </Text>
             <Text
               isSecondary
               accessibilityRole="link"
               style={styles.locationInfo}>
-              Add floor / unit number
+              الدور الثاني
             </Text>
             <Text isSecondary style={styles.locationInfo}>
-              Add a note to driver
+              التوصيل قبل الساعه ٦
             </Text>
           </View>
         </View>
@@ -65,14 +66,14 @@ const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
         <View style={styles.deliveryTimeContainer}>
           <View>
             <Text isSecondary style={styles.deliveryTime}>
-              Delivery time
+            {T('Cart.deliveryTime')}
             </Text>
-            <Text>Deliver now (15 mins)</Text>
+            <Text>{T('Cart.now')} (15 mins)</Text>
           </View>
           <View style={styles.changeTimeContainer}>
             <Button isTransparent onPress={_onChangeTimeButtonPressed}>
               <Text isPrimary>
-                {showDateTimePicker ? 'Done' : 'Change time'}
+                {showDateTimePicker ? T('Cart.Done') : T('Cart.changeTime')}
               </Text>
             </Button>
           </View>

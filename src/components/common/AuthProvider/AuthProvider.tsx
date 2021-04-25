@@ -1,6 +1,8 @@
 import * as React from 'react';
 import AuthContext from '@src/context/auth-context';
 import * as DataBase from '@src/utils/AsyncStorage';
+import Geolocation from '@react-native-community/geolocation';
+import Geocoder from 'react-native-geocoding';
 
 type AuthProviderProps = {};
 
@@ -8,12 +10,14 @@ type AuthState = {
   isLoading: boolean;
   isSignOut: boolean;
   userToken: string | null;
+  locationName: string | null;
   user: object,
   updated: any,
   Lang: string | null;
   theme: string | null;
   walkThrough: boolean | null,
   loading: boolean | null,
+
 };
 
 type AuthAction =
@@ -31,6 +35,7 @@ const initialAuthState: AuthState = {
   theme: 'dark',
   walkThrough: true,
   loading: true,
+  locationName: '',
 };
 
 const AuthReducer = (state: AuthState, action: AuthAction): AuthState => {
@@ -74,12 +79,16 @@ export const mainReducer = (state: any, action: any) => {
       };
     case 'StopLoading':
       return { ...state, loading: false };
+    case 'setLocation':
+      return { ...state, location: action.payload };
     case 'LogOutUser':
       return { ...state, user: { error: '', user: [], loading: false }, userToken: null };
     case 'SetLang':
       return { ...state, Lang: action.payload };
     case 'SetCity':
       return { ...state, City: action.payload };
+    case 'SetLocationName':
+      return { ...state, locationName: action.payload };
     case 'walkThrough':
       return { ...state, walkThrough: action.payload };
     default:
@@ -91,6 +100,10 @@ import api from '@src/utils/APICONST';
 
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [state, dispatch] = React.useReducer(mainReducer, initialAuthState);
+  const [position, setPosition] = React.useState({
+    latitude: 0.0,
+    longitude: 0.0,
+  });
   const _bootstrapAsync = async () => {
     let T = '';
     console.log('Loading Storage');
@@ -148,6 +161,66 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
     // return () => { }
   }, [state.Lang]);
+
+  React.useEffect(() => {
+    // if (Platform.OS === 'ios') {
+    //   reqLocationIos();
+    // } else {
+    //   reqLocation();
+    // }
+    try {
+      Geolocation.getCurrentPosition(({ coords }) => {
+        console.log(coords);
+        if (coords) {
+          setPosition({
+            latitude: coords.latitude,
+            longitude: coords.longitude,
+          });
+        }
+      });
+    } catch (error) { }
+    try {
+      Geolocation.watchPosition(
+        ({coords}) => {
+          if (coords) {
+            setPosition({
+              latitude: coords.latitude,
+              longitude: coords.longitude,
+            });
+          }
+        },
+        (error) => console.log('Location Error', error),
+        {
+          enableHighAccuracy: true,
+          timeout: 20000,
+          maximumAge: 5000,
+          distanceFilter: 100,
+          useSignificantChanges: true,
+        },
+      );
+    } catch (error) { }
+
+    return () => Geolocation.stopObserving();
+  }, []);
+
+  // Refresh App
+  React.useEffect(() => {
+    if (position.latitude) {
+      const { latitude, longitude } = position;
+      console.log('setLocation', position);
+      if (latitude && longitude) {
+        dispatch({ type: 'setLocation', payload: position });
+        Geocoder.from([latitude, longitude]).then(json => {
+          console.log(json);
+          var addressComponent = json.results[0].address_components[0];
+          console.log(addressComponent);
+          dispatch({ type: 'SetLocationName', payload: addressComponent.short_name });
+        })
+          .catch(error => console.warn(error));;
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [position]);
 
   return (
     <AuthContext.Provider value={[state, dispatch]}>{children}</AuthContext.Provider>

@@ -52,7 +52,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
   const _onTrackOrderButtonPressed = () => {
     clearCart();
     setIsVisble(false);
-    navigation.dispatch(StackActions.replace('TrackOrderScreen'));
+    // navigation.dispatch(StackActions.replace('TrackOrderScreen'));
   };
 
   return (
@@ -75,10 +75,10 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
           <Animated.View
             style={[styles.successMessageContainer, {opacity: fadeIn}]}>
             <Text isHeadingTitle isBold isPrimary>
-              Thank you for your order.
+              شكرا علي طلبك تم التاكيد
             </Text>
             <Text isCenter style={styles.successMessage}>
-              You can track the delivery in the "Orders" section.
+              يمكنك تتبع الطلب من قسم "طلباتي"
             </Text>
           </Animated.View>
         </View>
@@ -86,7 +86,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
           style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
           <Button isFullWidth onPress={_onTrackOrderButtonPressed}>
             <Text isWhite isBold>
-              Track My Order
+            تتبع الطلب
             </Text>
           </Button>
           <Button
@@ -94,7 +94,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
             isTransparent
             style={styles.orderSomethingButton}
             onPress={_onOrderSomethingElseButtonPressed}>
-            <Text>Order Something Else</Text>
+            <Text>اطلب شئ اخر</Text>
           </Button>
         </Animated.View>
       </Container>

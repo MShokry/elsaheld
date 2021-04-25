@@ -15,7 +15,7 @@ const PlaceListItem: React.FC<PlaceListItemProps> = ({data}) => {
   const navigation = useNavigation();
 
   const _onPlaceItemPressed = () => {
-    navigation.navigate('PlaceDetailsScreen');
+    navigation.navigate('PlaceDetailsScreen',data);
   };
 
   return (

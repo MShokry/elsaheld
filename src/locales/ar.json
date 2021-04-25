@@ -40,6 +40,7 @@
     "sub_title": "وفر وقتك واحجز مكانك اونلاين",
     "username": "اسم المستخدم",
     "email": "البريد الالكتروني",
+    "phone": "رقم الهاتف",
     "password": "كلمة المرور",
     "password_confirm": "اعادة كلمة المرور",
     "signup_button": "تسجيل حساب جديد",
@@ -116,7 +117,21 @@
   "Cart": {
     "Instruction": "تعليمات خاصة",
     "note": "مثلا : بدون اضافة بصل",
-},
+    "ViewBasket":"اظهار السلة",
+    "item":"منتج",
+    "items":"منتجات",
+    "OrderSummary":"ملخص الطلب",
+    "Subtotal":"اجمالي فرعي",
+    "delivery":"التوصيل",
+    "deliveryTime":"وقت التوصيل",
+    "deliveryTo":"توصيل الي",
+    "total":"الاجمالي",
+    "PlaceOrder":"اتمام الطلب",
+    "Done":"تم ",
+    "now":"التوصيل الان ",
+    "changeTime":"وقت التوصيل ",
+
+  },
   "AddRatingScreen": {
     "title": "التقييمات",
     "chooseStore": "يرجى اختيار المتجر الذي تريد تقييمه",
@@ -313,7 +328,7 @@
     "type": "النوع",
     "connection": "الاتصال",
     "warning": "تحذير",
-    "error": "خطئ",
+    "error": "خطئ"
   },
   "deviceinfo": {
     "info": "معلومات الجهاز",
@@ -325,13 +340,13 @@
     "status": "الحالة",
     "height": "ارتغاع المياة",
     "mType": "نوع القياس",
-    "mHistory": "القياسات",
+    "mHistory": "القياسات"
   },
   "ContactScreen": {
     "title": "اترك رسالة",
     "username": "Full Name",
     "message": "الرسالة",
-    "send": "ارسال",
+    "send": "ارسال"
   },
   "api": {
     "tamam": "تمام ",
@@ -339,7 +354,7 @@
     "UnderFlow": "UnderFlow",
     "dev": {
       "status": "الحالة",
-      "lastUpdate": "اخر تحديث",
-    },
-  },
+      "lastUpdate": "اخر تحديث"
+    }
+  }
 }

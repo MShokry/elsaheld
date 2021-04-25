@@ -111,7 +111,7 @@ const AuthLoading = ({ navigation }) => {
 
   useEffect(() => {
     try {
-      // setTimeout(_bootstrapAsync, 500);
+      setTimeout(_bootstrapAsync, 500);
       // setTimeout(_bootstrapAsync, 500);
     } catch (error) {
       contextDispatch({ type: 'StopLoading' });
@@ -124,19 +124,19 @@ const AuthLoading = ({ navigation }) => {
         style={{ flex: 1, alignItems: 'center', alignContent: 'center' }}
         colors={['#eadccf', '#526b7d']}
       >
-        {/* <Image
+        <Image
           style={{ width: width * .5 }}
           resizeMode="contain"
           source={require('@src/assets/app/app_icon.png')}
-        /> */}
-        <LottieView
+        />
+        {/* <LottieView
           source={require('@src/assets/animations/elsahel1.json')}
           autoPlay
           loop={false}
           onAnimationFinish={_bootstrapAsync}
           // onAnimationFinish={()=>{}}
           style={{ width: '100%', height: '100%' }}
-        />
+        /> */}
         <ActivityIndicator />
       </View>
     </>

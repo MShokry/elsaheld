@@ -12,13 +12,13 @@ type CheckBoxProps = {
   rightElement?: React.ReactElement;
 };
 
-const CheckBox: React.FC<CheckBoxProps> = ({label, onPress, rightElement}) => {
+const CheckBox: React.FC<CheckBoxProps> = ({label, onPress, rightElement,value,boxType, ...restProps}) => {
   const {
     colors: {primary, text},
   } = useTheme();
   const [checked, setChecked] = React.useState<boolean>(false);
   const _onPress = () => {
-    setChecked(!checked);
+    // setChecked(!checked);
     onPress(!checked);
   };
 
@@ -28,10 +28,14 @@ const CheckBox: React.FC<CheckBoxProps> = ({label, onPress, rightElement}) => {
         <View>
           <RNCheckBox
             style={styles.checkBox}
-            value={checked}
+            value={value}
             onCheckColor="transparent"
             onTintColor={primary}
             onFillColor={primary}
+            boxType={boxType?boxType:'square'}
+            onValueChange={_onPress}
+            {...restProps}
+            disabled={true}
             tintColors={{
               true: primary,
               false: text,

@@ -5,6 +5,7 @@ import { Text, Container, Touchable } from '@src/components/elements';
 import { mockCategories } from '@src/data/mock-categories';
 import styles from './styles';
 import { getStoreTypes } from '@src/utils/CartAPI';
+import MainContext from '@src/context/auth-context';
 
 type PopularCategoriesProps = {};
 
@@ -13,6 +14,7 @@ const PopularCategories: React.FC<PopularCategoriesProps> = () => {
   const {
     colors: { border },
   } = useTheme();
+  const [contextState, contextDispatch] = React.useContext(MainContext);
   const [Cat, setCat] = React.useState({ error: '', results: [], loading: false });
   const placholder = require('@src/assets/categories/category-3.png');
   const _onButtonCategoryItemPressed = (name: string, ID: number) => {
@@ -21,7 +23,15 @@ const PopularCategories: React.FC<PopularCategoriesProps> = () => {
     };
   };
   React.useEffect(() => {
-    getStoreTypes(setCat);
+    const rest = {
+      lat: contextState.location?.latitude
+        ? contextState.location?.latitude
+        : 0,
+      long: contextState.location?.longitude
+        ? contextState.location?.longitude
+        : 0
+    }
+    getStoreTypes(rest, setCat);
   }, []);
   if (Cat.results.length == 0) {
     return null

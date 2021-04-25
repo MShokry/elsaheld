@@ -7,10 +7,17 @@ import AuthVerificationCode from '@src/components/screens/AuthVerificationCode';
 import Login from '@src/components/screens/Login';
 import ForgotPassword from '@src/components/screens/ForgotPassword';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
+import Signup from '@src/components/screens/Signup';
 
 type AuthenticationStackProps = {};
 const Stack = createStackNavigator();
-
+const options={
+  headerTransparent: true,
+  headerStatusBarHeight: 0,
+  title: '',
+  headerBackTitleVisible: false,
+  headerShown: false,
+}
 const AuthenticationStack: React.FC<AuthenticationStackProps> = () => {
   const insets = useSafeAreaInsets();
   const {background} = useThemeColors();
@@ -38,7 +45,8 @@ const AuthenticationStack: React.FC<AuthenticationStackProps> = () => {
         name="AuthVerificationCodeScreen"
         component={AuthVerificationCode}
       />
-      <Stack.Screen name="LoginScreen" component={Login} />
+      <Stack.Screen options={options} name="LoginScreen" component={Login} />
+      <Stack.Screen options={options} name="SignupScreen" component={Signup} />
       <Stack.Screen name="ForgotPasswordScreen" component={ForgotPassword} />
     </Stack.Navigator>
   );

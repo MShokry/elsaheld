@@ -20,10 +20,12 @@ type HomeStackParamList = {
   };
 };
 const Stack = createStackNavigator<HomeStackParamList>();
+import MainContext from '@src/context/auth-context';
 
 const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
   const {updateCartItems,cartItems} = React.useContext(cartContext);
- 
+  const [contextState, contextDispatch] = React.useContext(MainContext);
+
   const _renderExploreHeaderTitle = () => {
     return (
       <View style={styles.headerLeftContainer}>
@@ -33,11 +35,11 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
           style={styles.locationIcon}
           isPrimary
         />
-        <Text style={styles.headerTitle}>567 Blanda Square - Virginia</Text>
+        <Text style={styles.headerTitle}>{contextState.locationName || '...'}</Text>
       </View>
     );
   };
-console.log("cartItems",cartItems);
+console.log("HomeStack cartItems",cartItems.length, cartItems);
 
   const _renderExploreHeaderRight = () => {
     return (<View style={styles.headerLeftContainer}>
@@ -65,7 +67,7 @@ console.log("cartItems",cartItems);
     return (
       <Button
         isTransparent
-        onPress={() => navigation.navigate('SearchDishesModal')}>
+        onPress={() => navigation.navigate('SearchRestModal')}>
         <Icon name="md-search" size={22} isPrimary useIonicons />
       </Button>
     );

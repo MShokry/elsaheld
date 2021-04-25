@@ -5,6 +5,7 @@ import {Container, Button, Text} from '@src/components/elements';
 import CartContext from '@src/context/cart-context';
 import {formatCurrency} from '@src/utils/number-formatter';
 import styles from './styles';
+import { translate as T } from '@src/utils/LangHelper';
 
 type BasketSummaryProps = {};
 
@@ -25,10 +26,10 @@ const BasketSummary: React.FC<BasketSummaryProps> = () => {
             onPress={_onViewBasketButtonPressed}>
             <View style={styles.viewBasketButtonTextContainer}>
               <Text isBold style={styles.viewBasketButtonText}>
-                View Basket
+              {T('Cart.ViewBasket')}
               </Text>
               <Text style={styles.cardItemText}>{`${cartItems.length} ${
-                cartItems.length > 1 ? 'items' : 'item'
+                cartItems.length > 1 ? T('Cart.items') : T('Cart.item')
               }`}</Text>
             </View>
             <Text style={styles.totalPriceText} isBold>
