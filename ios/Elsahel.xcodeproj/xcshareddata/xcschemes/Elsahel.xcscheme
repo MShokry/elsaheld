@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
                BuildableName = "Food Star.app"
-               BlueprintName = "FoodDeliveryAppTemplate"
-               ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+               BlueprintName = "Elsahel"
+               ReferencedContainer = "container:Elsahel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "FoodDeliveryAppTemplateTests.xctest"
-               BlueprintName = "FoodDeliveryAppTemplateTests"
-               ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+               BuildableName = "ElsahelTests.xctest"
+               BlueprintName = "ElsahelTests"
+               ReferencedContainer = "container:Elsahel.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -56,8 +56,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "Food Star.app"
-            BlueprintName = "FoodDeliveryAppTemplate"
-            ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+            BlueprintName = "Elsahel"
+            ReferencedContainer = "container:Elsahel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
             BuildableName = "Food Star.app"
-            BlueprintName = "FoodDeliveryAppTemplate"
-            ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+            BlueprintName = "Elsahel"
+            ReferencedContainer = "container:Elsahel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

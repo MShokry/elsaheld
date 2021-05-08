@@ -1,4 +1,4 @@
-package com.fooddeliveryapptemplate;
+package com.dasstack.elsahel;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -24,6 +24,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "FoodDeliveryAppTemplate";
+    return "Elsahel";
   }
 }

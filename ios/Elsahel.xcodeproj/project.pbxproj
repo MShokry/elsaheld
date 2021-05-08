@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* FoodDeliveryAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */; };
+		00E356F31AD99517003FC87E /* ElsahelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ElsahelTests.m */; };
 		0F4E892440244029B12BBE79 /* category-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C37A816CDB04B168A07C522 /* category-8.png */; };
 		138FCA582BDA47B08241844F /* main-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B5B93CCA5CC4636A56A0191 /* main-photo.jpg */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -16,58 +16,43 @@
 		188ABFAA61024D089F0D4310 /* category-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0EAC342BCB144EED804C7F50 /* category-1.png */; };
 		18A4B16C6649401FB371964A /* category-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 48A860EA8A57426E84B8FE9D /* category-2.png */; };
 		1A862032CA4B430F9343B2FD /* category-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 960E3CEF43694E268BB8D01A /* category-7.png */; };
-		2CEA03051BCA27F5EC7513A8 /* libPods-FoodDeliveryAppTemplate-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 189639590E29C8E85E7E5384 /* libPods-FoodDeliveryAppTemplate-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* FoodDeliveryAppTemplateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */; };
+		2DCD954D1E0B4F2C00145EB5 /* ElsahelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ElsahelTests.m */; };
 		2F1674EC51584BC2A688E85F /* category-6.png in Resources */ = {isa = PBXBuildFile; fileRef = B47956E3E49A479D8DA87072 /* category-6.png */; };
 		30E494CAEC87475E9E69433E /* campaign-4.png in Resources */ = {isa = PBXBuildFile; fileRef = EF36F64E829B46B599C003FE /* campaign-4.png */; };
+		37A4BA4EC33F6115D7521B11 /* libPods-Elsahel-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D768D527A504A49782AF9523 /* libPods-Elsahel-tvOSTests.a */; };
 		38D7E2B604F9423A9F721E6B /* dish-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 070008486A0C401AA0028A3B /* dish-1.jpg */; };
 		391CA1FA5A094D0FB0618C33 /* dish-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2A75D0BE748402990B86D1C /* dish-2.jpg */; };
-		414D1F13D25C476D1EA5BC02 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 864F96DA867307CB7366CB33 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a */; };
 		44C7D5452506413CBA8C33B3 /* category-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8229E1668BF44E2CA41A6584 /* category-3.png */; };
 		46361A552CAD4E33A3355E39 /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = D54311F3A74C4635A9439D71 /* avatar.png */; };
 		471451D798044950B6AD7BD0 /* dish-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40D1047B208943408F0C48CE /* dish-3.jpg */; };
 		547F681C8C5C42819658AF6F /* category-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 422247FFBF0A4F76A470435D /* category-5.png */; };
 		5E94975E97B74187AC14953D /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 5DF3ECAF411B4574825DF9E1 /* location.png */; };
 		6DCB9324672348088F5646CA /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = E678920CFBCA4B34AEC2933D /* map.png */; };
+		7EFF5711B22B46839166C075 /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4BE6C75545F4BB4A4493521 /* Cairo-Bold.ttf */; };
 		7FBA7A7931944BF8B5523C50 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F2EF0B2B204291A75177E8 /* food.png */; };
+		87F5FDBBF20548969B046CEB /* CairoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1E273FA47A49188317A1BF /* CairoR.ttf */; };
+		8857CDADFF624BF8AAEE1F31 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE08083EDB423E888E45EE /* Cairo-Regular.ttf */; };
 		A276627BC5DC4D8AB8EB6EA4 /* driver-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A43BF2B8A38448E8134C769 /* driver-marker.png */; };
 		A61254C9ECB844F7825EE1DB /* promotion.png in Resources */ = {isa = PBXBuildFile; fileRef = 274F5C03BF714BBD8D92C4B2 /* promotion.png */; };
-		AAF426369F0847065554CA43 /* libPods-FoodDeliveryAppTemplate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A040CB4FC3E171B819A365 /* libPods-FoodDeliveryAppTemplate.a */; };
-		B06C0BC433EE58C7716EB14F /* libPods-FoodDeliveryAppTemplate-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D47CB08DA6C074379E8EE8 /* libPods-FoodDeliveryAppTemplate-tvOSTests.a */; };
+		AB05C9D9CA783D87C150104B /* libPods-Elsahel-ElsahelTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 60F76746968463508FAE4D4F /* libPods-Elsahel-ElsahelTests.a */; };
+		B1D1F51049EF42FDAD9BB3F5 /* A-Jannat-Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72E3D8D3D74E4D42BC52B176 /* A-Jannat-Lt.ttf */; };
 		B6F8A74A2486493E8B8022BC /* category-4.png in Resources */ = {isa = PBXBuildFile; fileRef = D61D01E96E2D4189BE86F2FA /* category-4.png */; };
 		B71CBD99F1C74C158EA9D20A /* cover-photo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E851D86C7F64B9293FD331C /* cover-photo.jpg */; };
 		B768F4772DD4485AAE3D57CF /* campaign-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A8ACB8D2CFC432E99031662 /* campaign-2.png */; };
+		B7851B0C24D74D929B82D950 /* CairoL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F744043558BB4A19A26AC81B /* CairoL.ttf */; };
 		B81EE1BB24E59E3F0058A10F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B81EE1BA24E59E3F0058A10F /* LaunchScreen.storyboard */; };
+		D14D453A2646A3310067EB0A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D45392646A3310067EB0A /* File.swift */; };
+		D925716F8E934188A47D226E /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10AA6DEF955E4322AA0F2406 /* Cairo-Light.ttf */; };
+		D967270CBBCC434C8EA10AE1 /* A Jannat Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FD850DFCEB54323BFABF926 /* A Jannat Lt.ttf */; };
+		DD11A22898638F158A67D9E5 /* libPods-Elsahel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5980BDFA3A043AE592FD27 /* libPods-Elsahel.a */; };
 		DE92E74430ED4117979B88CE /* campaign-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B896D1D89F34720A5069AA5 /* campaign-3.png */; };
 		DF784BC157184715B765DA8B /* campaign-1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3036A31FD343908762D5C4 /* campaign-1.png */; };
+		F0B3740307207693F923111A /* libPods-Elsahel-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3655A76C31B0D7F26DAC461 /* libPods-Elsahel-tvOS.a */; };
 		F265180C5D974157A9BB8E71 /* app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 242B96BE180245C69458E7AA /* app_icon.png */; };
 		F516B85D6DC041CCAB69EAE9 /* Elsahel logo Branding.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DBFC0D9DB764D0A99A082C4 /* Elsahel logo Branding.png */; };
-		D967270CBBCC434C8EA10AE1 /* A Jannat Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FD850DFCEB54323BFABF926 /* A Jannat Lt.ttf */; };
-		B1D1F51049EF42FDAD9BB3F5 /* A-Jannat-Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72E3D8D3D74E4D42BC52B176 /* A-Jannat-Lt.ttf */; };
-		D925716F8E934188A47D226E /* Cairo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 10AA6DEF955E4322AA0F2406 /* Cairo-Light.ttf */; };
-		8857CDADFF624BF8AAEE1F31 /* Cairo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FAE08083EDB423E888E45EE /* Cairo-Regular.ttf */; };
-		B7851B0C24D74D929B82D950 /* CairoL.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F744043558BB4A19A26AC81B /* CairoL.ttf */; };
-		87F5FDBBF20548969B046CEB /* CairoR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1E273FA47A49188317A1BF /* CairoR.ttf */; };
-		F395D9DFEA004985B2778CF2 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85F91B94CB384ED8B2320FEA /* AntDesign.ttf */; };
-		F4BA2A03017D4B65B8BA5563 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D226C31F010B440F8B9BDA93 /* Entypo.ttf */; };
-		17CEEDACFE69427EB0C4FA0B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A35A41DFB444313A2BE4321 /* EvilIcons.ttf */; };
-		D485E6C565704914AB8109B9 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44AF996055EF47D0A854ABF2 /* Feather.ttf */; };
-		5B4DC4339F854C6B8DE108D0 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5471527095C46BBAEF18DAC /* FontAwesome.ttf */; };
-		161CDFFE7F1E4677974DD693 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F94DDF1701942CBAAA4543B /* FontAwesome5_Brands.ttf */; };
-		5D568A79981440668180E521 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6290FF68E4B4D009B71FC6A /* FontAwesome5_Regular.ttf */; };
-		1EBACD8880944E58BDA02602 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75730DBBDF1845CAA880C5B1 /* FontAwesome5_Solid.ttf */; };
-		892447EBD6554F59BA3E009F /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1B8E1997D24BEB87F3EADC /* Fontisto.ttf */; };
-		D6FC7670E3A04595809F7BB5 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77572DDCE34849DFA39BC2C6 /* Foundation.ttf */; };
-		954AA9FB697D4AF1BAB3FEC7 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9005A98CDF9A4391BBE7704D /* Ionicons.ttf */; };
-		1E1765E53C364C7A96D36988 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C8737C885AA413686285B7D /* MaterialCommunityIcons.ttf */; };
-		DA8C6AFAD5D049B28CC18ACE /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51689E93FEB445279AD5597D /* MaterialIcons.ttf */; };
-		4F891B1646FB42259F244B45 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900247BF58E04D9D9607E163 /* Octicons.ttf */; };
-		9C42E25242214C719B0E666A /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75EFF56C4BC24EDB8CD81EAD /* SimpleLineIcons.ttf */; };
-		3A91F66328674C1C9E6FB7FE /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E1C781A61FE14010994CF25A /* Zocial.ttf */; };
-		300D345AB077461BBD7FE0CE /* Cairo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D04E7B36810D4A47B8B5A13B /* Cairo-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,93 +61,79 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = FoodDeliveryAppTemplate;
+			remoteInfo = Elsahel;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "FoodDeliveryAppTemplate-tvOS";
+			remoteInfo = "Elsahel-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* FoodDeliveryAppTemplateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodDeliveryAppTemplateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ElsahelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElsahelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodDeliveryAppTemplateTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* ElsahelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElsahelTests.m; sourceTree = "<group>"; };
 		03F2EF0B2B204291A75177E8 /* food.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = food.png; path = ../src/assets/common/food.png; sourceTree = "<group>"; };
 		070008486A0C401AA0028A3B /* dish-1.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "dish-1.jpg"; path = "../src/assets/dish-details/dish-1.jpg"; sourceTree = "<group>"; };
+		0B5980BDFA3A043AE592FD27 /* libPods-Elsahel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Elsahel.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DBFC0D9DB764D0A99A082C4 /* Elsahel logo Branding.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Elsahel logo Branding.png"; path = "../src/assets/app/Elsahel logo Branding.png"; sourceTree = "<group>"; };
 		0EAC342BCB144EED804C7F50 /* category-1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-1.png"; path = "../src/assets/categories/category-1.png"; sourceTree = "<group>"; };
+		0FD850DFCEB54323BFABF926 /* A Jannat Lt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "A Jannat Lt.ttf"; path = "../src/assets/font/A Jannat Lt.ttf"; sourceTree = "<group>"; };
+		10AA6DEF955E4322AA0F2406 /* Cairo-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cairo-Light.ttf"; path = "../src/assets/font/Cairo-Light.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Food Star.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Star.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FoodDeliveryAppTemplate/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = FoodDeliveryAppTemplate/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FoodDeliveryAppTemplate/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FoodDeliveryAppTemplate/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FoodDeliveryAppTemplate/main.m; sourceTree = "<group>"; };
-		189639590E29C8E85E7E5384 /* libPods-FoodDeliveryAppTemplate-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A3CBBEA51FFE894450429D1 /* Pods-FoodDeliveryAppTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate/Pods-FoodDeliveryAppTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Elsahel/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Elsahel/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Elsahel/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Elsahel/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Elsahel/main.m; sourceTree = "<group>"; };
 		1B5B93CCA5CC4636A56A0191 /* main-photo.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "main-photo.jpg"; path = "../src/assets/place-details/main-photo.jpg"; sourceTree = "<group>"; };
 		242B96BE180245C69458E7AA /* app_icon.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = app_icon.png; path = ../src/assets/app/app_icon.png; sourceTree = "<group>"; };
 		274F5C03BF714BBD8D92C4B2 /* promotion.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = promotion.png; path = ../src/assets/promotions/promotion.png; sourceTree = "<group>"; };
 		2B896D1D89F34720A5069AA5 /* campaign-3.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-3.png"; path = "../src/assets/campaigns/campaign-3.png"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FoodDeliveryAppTemplate-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FoodDeliveryAppTemplate-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		38CE57CB59C5C2B6CA09F3F3 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig"; sourceTree = "<group>"; };
-		3C7FD6AC47521735A33784B8 /* Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOS/Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		2CCC1363D2EE6AABC8176246 /* Pods-Elsahel-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Elsahel-tvOS/Pods-Elsahel-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* Elsahel-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elsahel-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* Elsahel-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elsahel-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FAE08083EDB423E888E45EE /* Cairo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cairo-Regular.ttf"; path = "../src/assets/font/Cairo-Regular.ttf"; sourceTree = "<group>"; };
+		3882C2DEB5CBE363CEB34DBC /* Pods-Elsahel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel.release.xcconfig"; path = "Target Support Files/Pods-Elsahel/Pods-Elsahel.release.xcconfig"; sourceTree = "<group>"; };
 		3E851D86C7F64B9293FD331C /* cover-photo.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "cover-photo.jpg"; path = "../src/assets/dish-details/cover-photo.jpg"; sourceTree = "<group>"; };
 		40D1047B208943408F0C48CE /* dish-3.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "dish-3.jpg"; path = "../src/assets/dish-details/dish-3.jpg"; sourceTree = "<group>"; };
 		422247FFBF0A4F76A470435D /* category-5.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-5.png"; path = "../src/assets/categories/category-5.png"; sourceTree = "<group>"; };
-		461F8EA4F45D55984FDC2DCC /* Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOSTests/Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		46FBDC8781CFE9C015E8A8CE /* Pods-Elsahel-ElsahelTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel-ElsahelTests.debug.xcconfig"; path = "Target Support Files/Pods-Elsahel-ElsahelTests/Pods-Elsahel-ElsahelTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48A860EA8A57426E84B8FE9D /* category-2.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-2.png"; path = "../src/assets/categories/category-2.png"; sourceTree = "<group>"; };
 		5DF3ECAF411B4574825DF9E1 /* location.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = location.png; path = ../src/assets/drivers/location.png; sourceTree = "<group>"; };
+		60F76746968463508FAE4D4F /* libPods-Elsahel-ElsahelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Elsahel-ElsahelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A43BF2B8A38448E8134C769 /* driver-marker.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "driver-marker.png"; path = "../src/assets/drivers/driver-marker.png"; sourceTree = "<group>"; };
 		6C37A816CDB04B168A07C522 /* category-8.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-8.png"; path = "../src/assets/categories/category-8.png"; sourceTree = "<group>"; };
+		72E3D8D3D74E4D42BC52B176 /* A-Jannat-Lt.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "A-Jannat-Lt.ttf"; path = "../src/assets/font/A-Jannat-Lt.ttf"; sourceTree = "<group>"; };
 		7A8ACB8D2CFC432E99031662 /* campaign-2.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-2.png"; path = "../src/assets/campaigns/campaign-2.png"; sourceTree = "<group>"; };
 		8229E1668BF44E2CA41A6584 /* category-3.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-3.png"; path = "../src/assets/categories/category-3.png"; sourceTree = "<group>"; };
-		864F96DA867307CB7366CB33 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		95919C58F3A93072D3513157 /* Pods-FoodDeliveryAppTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate/Pods-FoodDeliveryAppTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		960E3CEF43694E268BB8D01A /* category-7.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-7.png"; path = "../src/assets/categories/category-7.png"; sourceTree = "<group>"; };
-		98D47CB08DA6C074379E8EE8 /* libPods-FoodDeliveryAppTemplate-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B01404FCC493EA4B7C01A03 /* Pods-Elsahel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel.debug.xcconfig"; path = "Target Support Files/Pods-Elsahel/Pods-Elsahel.debug.xcconfig"; sourceTree = "<group>"; };
+		AEDF8F0742B46C4B9D64CD68 /* Pods-Elsahel-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Elsahel-tvOSTests/Pods-Elsahel-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B47956E3E49A479D8DA87072 /* category-6.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-6.png"; path = "../src/assets/categories/category-6.png"; sourceTree = "<group>"; };
 		B81EE1BA24E59E3F0058A10F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BE0C0D6D952B0B60639E8D5B /* Pods-Elsahel-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-Elsahel-tvOS/Pods-Elsahel-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		BEE499A12DAC821B2D113744 /* Pods-Elsahel-ElsahelTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel-ElsahelTests.release.xcconfig"; path = "Target Support Files/Pods-Elsahel-ElsahelTests/Pods-Elsahel-ElsahelTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD3036A31FD343908762D5C4 /* campaign-1.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-1.png"; path = "../src/assets/campaigns/campaign-1.png"; sourceTree = "<group>"; };
+		CE1E273FA47A49188317A1BF /* CairoR.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = CairoR.ttf; path = ../src/assets/font/CairoR.ttf; sourceTree = "<group>"; };
+		D14D45382646A3300067EB0A /* Elsahel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Elsahel-Bridging-Header.h"; sourceTree = "<group>"; };
+		D14D45392646A3310067EB0A /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		D2A75D0BE748402990B86D1C /* dish-2.jpg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "dish-2.jpg"; path = "../src/assets/dish-details/dish-2.jpg"; sourceTree = "<group>"; };
+		D4BE6C75545F4BB4A4493521 /* Cairo-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Cairo-Bold.ttf"; path = "../src/assets/font/Cairo-Bold.ttf"; sourceTree = "<group>"; };
 		D54311F3A74C4635A9439D71 /* avatar.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = avatar.png; path = ../src/assets/drivers/avatar.png; sourceTree = "<group>"; };
 		D61D01E96E2D4189BE86F2FA /* category-4.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "category-4.png"; path = "../src/assets/categories/category-4.png"; sourceTree = "<group>"; };
-		D8A040CB4FC3E171B819A365 /* libPods-FoodDeliveryAppTemplate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FoodDeliveryAppTemplate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC71B387FA99681CC50B0EC6 /* Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOSTests/Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		D768D527A504A49782AF9523 /* libPods-Elsahel-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Elsahel-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E678920CFBCA4B34AEC2933D /* map.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = map.png; path = ../src/assets/checkout/map.png; sourceTree = "<group>"; };
-		E93AA5E245E793D5CC00B836 /* Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-tvOS/Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		ED1EDF994B4A3F65D1DB5B4B /* Pods-Elsahel-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Elsahel-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Elsahel-tvOSTests/Pods-Elsahel-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		EF36F64E829B46B599C003FE /* campaign-4.png */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "campaign-4.png"; path = "../src/assets/campaigns/campaign-4.png"; sourceTree = "<group>"; };
-		F78E43BEACDA14D70407A062 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0DBFC0D9DB764D0A99A082C4 /* Elsahel logo Branding.png */ = {isa = PBXFileReference; name = "Elsahel logo Branding.png"; path = "../src/assets/app/Elsahel logo Branding.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0FD850DFCEB54323BFABF926 /* A Jannat Lt.ttf */ = {isa = PBXFileReference; name = "A Jannat Lt.ttf"; path = "../src/assets/font/A Jannat Lt.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		72E3D8D3D74E4D42BC52B176 /* A-Jannat-Lt.ttf */ = {isa = PBXFileReference; name = "A-Jannat-Lt.ttf"; path = "../src/assets/font/A-Jannat-Lt.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		10AA6DEF955E4322AA0F2406 /* Cairo-Light.ttf */ = {isa = PBXFileReference; name = "Cairo-Light.ttf"; path = "../src/assets/font/Cairo-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2FAE08083EDB423E888E45EE /* Cairo-Regular.ttf */ = {isa = PBXFileReference; name = "Cairo-Regular.ttf"; path = "../src/assets/font/Cairo-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F744043558BB4A19A26AC81B /* CairoL.ttf */ = {isa = PBXFileReference; name = "CairoL.ttf"; path = "../src/assets/font/CairoL.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		CE1E273FA47A49188317A1BF /* CairoR.ttf */ = {isa = PBXFileReference; name = "CairoR.ttf"; path = "../src/assets/font/CairoR.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		85F91B94CB384ED8B2320FEA /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D226C31F010B440F8B9BDA93 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6A35A41DFB444313A2BE4321 /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		44AF996055EF47D0A854ABF2 /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E5471527095C46BBAEF18DAC /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4F94DDF1701942CBAAA4543B /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D6290FF68E4B4D009B71FC6A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		75730DBBDF1845CAA880C5B1 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7A1B8E1997D24BEB87F3EADC /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		77572DDCE34849DFA39BC2C6 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9005A98CDF9A4391BBE7704D /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		2C8737C885AA413686285B7D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		51689E93FEB445279AD5597D /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		900247BF58E04D9D9607E163 /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		75EFF56C4BC24EDB8CD81EAD /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E1C781A61FE14010994CF25A /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D04E7B36810D4A47B8B5A13B /* Cairo-Bold.ttf */ = {isa = PBXFileReference; name = "Cairo-Bold.ttf"; path = "../src/assets/font/Cairo-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F3655A76C31B0D7F26DAC461 /* libPods-Elsahel-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Elsahel-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F744043558BB4A19A26AC81B /* CairoL.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = CairoL.ttf; path = ../src/assets/font/CairoL.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				414D1F13D25C476D1EA5BC02 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a in Frameworks */,
+				AB05C9D9CA783D87C150104B /* libPods-Elsahel-ElsahelTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAF426369F0847065554CA43 /* libPods-FoodDeliveryAppTemplate.a in Frameworks */,
+				DD11A22898638F158A67D9E5 /* libPods-Elsahel.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CEA03051BCA27F5EC7513A8 /* libPods-FoodDeliveryAppTemplate-tvOS.a in Frameworks */,
+				F0B3740307207693F923111A /* libPods-Elsahel-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,20 +165,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B06C0BC433EE58C7716EB14F /* libPods-FoodDeliveryAppTemplate-tvOSTests.a in Frameworks */,
+				37A4BA4EC33F6115D7521B11 /* libPods-Elsahel-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* FoodDeliveryAppTemplateTests */ = {
+		00E356EF1AD99517003FC87E /* ElsahelTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* FoodDeliveryAppTemplateTests.m */,
+				00E356F21AD99517003FC87E /* ElsahelTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = FoodDeliveryAppTemplateTests;
+			path = ElsahelTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -218,7 +189,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* FoodDeliveryAppTemplate */ = {
+		13B07FAE1A68108700A75B9A /* Elsahel */ = {
 			isa = PBXGroup;
 			children = (
 				B81EE1BA24E59E3F0058A10F /* LaunchScreen.storyboard */,
@@ -228,21 +199,23 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				D14D45392646A3310067EB0A /* File.swift */,
+				D14D45382646A3300067EB0A /* Elsahel-Bridging-Header.h */,
 			);
-			name = FoodDeliveryAppTemplate;
+			name = Elsahel;
 			sourceTree = "<group>";
 		};
 		29481A277A31B5BB57C97D1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1A3CBBEA51FFE894450429D1 /* Pods-FoodDeliveryAppTemplate.debug.xcconfig */,
-				95919C58F3A93072D3513157 /* Pods-FoodDeliveryAppTemplate.release.xcconfig */,
-				F78E43BEACDA14D70407A062 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig */,
-				38CE57CB59C5C2B6CA09F3F3 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig */,
-				3C7FD6AC47521735A33784B8 /* Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig */,
-				E93AA5E245E793D5CC00B836 /* Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig */,
-				461F8EA4F45D55984FDC2DCC /* Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig */,
-				DC71B387FA99681CC50B0EC6 /* Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig */,
+				9B01404FCC493EA4B7C01A03 /* Pods-Elsahel.debug.xcconfig */,
+				3882C2DEB5CBE363CEB34DBC /* Pods-Elsahel.release.xcconfig */,
+				46FBDC8781CFE9C015E8A8CE /* Pods-Elsahel-ElsahelTests.debug.xcconfig */,
+				BEE499A12DAC821B2D113744 /* Pods-Elsahel-ElsahelTests.release.xcconfig */,
+				BE0C0D6D952B0B60639E8D5B /* Pods-Elsahel-tvOS.debug.xcconfig */,
+				2CCC1363D2EE6AABC8176246 /* Pods-Elsahel-tvOS.release.xcconfig */,
+				ED1EDF994B4A3F65D1DB5B4B /* Pods-Elsahel-tvOSTests.debug.xcconfig */,
+				AEDF8F0742B46C4B9D64CD68 /* Pods-Elsahel-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -252,10 +225,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				D8A040CB4FC3E171B819A365 /* libPods-FoodDeliveryAppTemplate.a */,
-				864F96DA867307CB7366CB33 /* libPods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.a */,
-				189639590E29C8E85E7E5384 /* libPods-FoodDeliveryAppTemplate-tvOS.a */,
-				98D47CB08DA6C074379E8EE8 /* libPods-FoodDeliveryAppTemplate-tvOSTests.a */,
+				0B5980BDFA3A043AE592FD27 /* libPods-Elsahel.a */,
+				60F76746968463508FAE4D4F /* libPods-Elsahel-ElsahelTests.a */,
+				F3655A76C31B0D7F26DAC461 /* libPods-Elsahel-tvOS.a */,
+				D768D527A504A49782AF9523 /* libPods-Elsahel-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,9 +243,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* FoodDeliveryAppTemplate */,
+				13B07FAE1A68108700A75B9A /* Elsahel */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* FoodDeliveryAppTemplateTests */,
+				00E356EF1AD99517003FC87E /* ElsahelTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				29481A277A31B5BB57C97D1B /* Pods */,
@@ -287,9 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* Food Star.app */,
-				00E356EE1AD99517003FC87E /* FoodDeliveryAppTemplateTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests.xctest */,
+				00E356EE1AD99517003FC87E /* ElsahelTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* Elsahel-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* Elsahel-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,23 +301,7 @@
 				2FAE08083EDB423E888E45EE /* Cairo-Regular.ttf */,
 				F744043558BB4A19A26AC81B /* CairoL.ttf */,
 				CE1E273FA47A49188317A1BF /* CairoR.ttf */,
-				85F91B94CB384ED8B2320FEA /* AntDesign.ttf */,
-				D226C31F010B440F8B9BDA93 /* Entypo.ttf */,
-				6A35A41DFB444313A2BE4321 /* EvilIcons.ttf */,
-				44AF996055EF47D0A854ABF2 /* Feather.ttf */,
-				E5471527095C46BBAEF18DAC /* FontAwesome.ttf */,
-				4F94DDF1701942CBAAA4543B /* FontAwesome5_Brands.ttf */,
-				D6290FF68E4B4D009B71FC6A /* FontAwesome5_Regular.ttf */,
-				75730DBBDF1845CAA880C5B1 /* FontAwesome5_Solid.ttf */,
-				7A1B8E1997D24BEB87F3EADC /* Fontisto.ttf */,
-				77572DDCE34849DFA39BC2C6 /* Foundation.ttf */,
-				9005A98CDF9A4391BBE7704D /* Ionicons.ttf */,
-				2C8737C885AA413686285B7D /* MaterialCommunityIcons.ttf */,
-				51689E93FEB445279AD5597D /* MaterialIcons.ttf */,
-				900247BF58E04D9D9607E163 /* Octicons.ttf */,
-				75EFF56C4BC24EDB8CD81EAD /* SimpleLineIcons.ttf */,
-				E1C781A61FE14010994CF25A /* Zocial.ttf */,
-				D04E7B36810D4A47B8B5A13B /* Cairo-Bold.ttf */,
+				D4BE6C75545F4BB4A4493521 /* Cairo-Bold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -352,52 +309,54 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* FoodDeliveryAppTemplateTests */ = {
+		00E356ED1AD99517003FC87E /* ElsahelTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplateTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ElsahelTests" */;
 			buildPhases = (
-				A3D18BA2066BC1BC18EF05AA /* [CP] Check Pods Manifest.lock */,
+				93ED5EC20BD56006B1270D88 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				55058F6ABD3AB0197519DBF8 /* [CP] Copy Pods Resources */,
+				1EDDFFCDABB415D36ED4117D /* [CP] Embed Pods Frameworks */,
+				CEF086222974B95413DC054C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = FoodDeliveryAppTemplateTests;
-			productName = FoodDeliveryAppTemplateTests;
-			productReference = 00E356EE1AD99517003FC87E /* FoodDeliveryAppTemplateTests.xctest */;
+			name = ElsahelTests;
+			productName = ElsahelTests;
+			productReference = 00E356EE1AD99517003FC87E /* ElsahelTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* FoodDeliveryAppTemplate */ = {
+		13B07F861A680F5B00A75B9A /* Elsahel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplate" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Elsahel" */;
 			buildPhases = (
-				CEA23A29E9F95017C8ECD23D /* [CP] Check Pods Manifest.lock */,
+				C750970EF6F876F69471146E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				79745ECA9DD0A989C117980D /* [CP] Copy Pods Resources */,
+				14047E53B0FB1A17887EE2F6 /* [CP] Embed Pods Frameworks */,
+				15A6407638F9061BD5617320 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FoodDeliveryAppTemplate;
-			productName = FoodDeliveryAppTemplate;
+			name = Elsahel;
+			productName = Elsahel;
 			productReference = 13B07F961A680F5B00A75B9A /* Food Star.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* Elsahel-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplate-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Elsahel-tvOS" */;
 			buildPhases = (
-				A9DD599324E9A7CE0792AC64 /* [CP] Check Pods Manifest.lock */,
+				F6AA4287B9C7D9E8D02D37C4 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -408,16 +367,16 @@
 			);
 			dependencies = (
 			);
-			name = "FoodDeliveryAppTemplate-tvOS";
-			productName = "FoodDeliveryAppTemplate-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS.app */;
+			name = "Elsahel-tvOS";
+			productName = "Elsahel-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* Elsahel-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* Elsahel-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplate-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Elsahel-tvOSTests" */;
 			buildPhases = (
-				DD0336D75A92EBF347DAEA26 /* [CP] Check Pods Manifest.lock */,
+				3FE7605B028F738A1C75E60D /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -427,9 +386,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "FoodDeliveryAppTemplate-tvOSTests";
-			productName = "FoodDeliveryAppTemplate-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests.xctest */;
+			name = "Elsahel-tvOSTests";
+			productName = "Elsahel-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* Elsahel-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -446,7 +405,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = MNKSZ4L5GG;
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1250;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -459,7 +418,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FoodDeliveryAppTemplate" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Elsahel" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -472,10 +431,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* FoodDeliveryAppTemplate */,
-				00E356ED1AD99517003FC87E /* FoodDeliveryAppTemplateTests */,
-				2D02E47A1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* Elsahel */,
+				00E356ED1AD99517003FC87E /* ElsahelTests */,
+				2D02E47A1E0B4A5D006451C7 /* Elsahel-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* Elsahel-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -525,23 +484,7 @@
 				8857CDADFF624BF8AAEE1F31 /* Cairo-Regular.ttf in Resources */,
 				B7851B0C24D74D929B82D950 /* CairoL.ttf in Resources */,
 				87F5FDBBF20548969B046CEB /* CairoR.ttf in Resources */,
-				F395D9DFEA004985B2778CF2 /* AntDesign.ttf in Resources */,
-				F4BA2A03017D4B65B8BA5563 /* Entypo.ttf in Resources */,
-				17CEEDACFE69427EB0C4FA0B /* EvilIcons.ttf in Resources */,
-				D485E6C565704914AB8109B9 /* Feather.ttf in Resources */,
-				5B4DC4339F854C6B8DE108D0 /* FontAwesome.ttf in Resources */,
-				161CDFFE7F1E4677974DD693 /* FontAwesome5_Brands.ttf in Resources */,
-				5D568A79981440668180E521 /* FontAwesome5_Regular.ttf in Resources */,
-				1EBACD8880944E58BDA02602 /* FontAwesome5_Solid.ttf in Resources */,
-				892447EBD6554F59BA3E009F /* Fontisto.ttf in Resources */,
-				D6FC7670E3A04595809F7BB5 /* Foundation.ttf in Resources */,
-				954AA9FB697D4AF1BAB3FEC7 /* Ionicons.ttf in Resources */,
-				1E1765E53C364C7A96D36988 /* MaterialCommunityIcons.ttf in Resources */,
-				DA8C6AFAD5D049B28CC18ACE /* MaterialIcons.ttf in Resources */,
-				4F891B1646FB42259F244B45 /* Octicons.ttf in Resources */,
-				9C42E25242214C719B0E666A /* SimpleLineIcons.ttf in Resources */,
-				3A91F66328674C1C9E6FB7FE /* Zocial.ttf in Resources */,
-				300D345AB077461BBD7FE0CE /* Cairo-Bold.ttf in Resources */,
+				7EFF5711B22B46839166C075 /* Cairo-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +520,94 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		14047E53B0FB1A17887EE2F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elsahel/Pods-Elsahel-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elsahel/Pods-Elsahel-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		15A6407638F9061BD5617320 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elsahel/Pods-Elsahel-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elsahel/Pods-Elsahel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EDDFFCDABB415D36ED4117D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Elsahel-ElsahelTests/Pods-Elsahel-ElsahelTests-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/OpenSSL/OpenSSL.framework/OpenSSL",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OpenSSL.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elsahel-ElsahelTests/Pods-Elsahel-ElsahelTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -591,13 +622,79 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		55058F6ABD3AB0197519DBF8 /* [CP] Copy Pods Resources */ = {
+		3FE7605B028F738A1C75E60D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Elsahel-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93ED5EC20BD56006B1270D88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Elsahel-ElsahelTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C750970EF6F876F69471146E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Elsahel-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEF086222974B95413DC054C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Elsahel-ElsahelTests/Pods-Elsahel-ElsahelTests-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -640,62 +737,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Elsahel-ElsahelTests/Pods-Elsahel-ElsahelTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		79745ECA9DD0A989C117980D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryAppTemplate/Pods-FoodDeliveryAppTemplate-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryAppTemplate/Pods-FoodDeliveryAppTemplate-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A3D18BA2066BC1BC18EF05AA /* [CP] Check Pods Manifest.lock */ = {
+		F6AA4287B9C7D9E8D02D37C4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -710,73 +755,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9DD599324E9A7CE0792AC64 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodDeliveryAppTemplate-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CEA23A29E9F95017C8ECD23D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodDeliveryAppTemplate-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD0336D75A92EBF347DAEA26 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FoodDeliveryAppTemplate-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Elsahel-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -828,7 +807,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* FoodDeliveryAppTemplateTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ElsahelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,6 +816,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				D14D453A2646A3310067EB0A /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -854,7 +834,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* FoodDeliveryAppTemplateTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* ElsahelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,12 +843,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* FoodDeliveryAppTemplate */;
+			target = 13B07F861A680F5B00A75B9A /* Elsahel */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* FoodDeliveryAppTemplate-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* Elsahel-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -876,14 +856,15 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F78E43BEACDA14D70407A062 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.debug.xcconfig */;
+			baseConfigurationReference = 46FBDC8781CFE9C015E8A8CE /* Pods-Elsahel-ElsahelTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = FoodDeliveryAppTemplateTests/Info.plist;
+				INFOPLIST_FILE = ElsahelTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -893,17 +874,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodDeliveryAppTemplate.app/FoodDeliveryAppTemplate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elsahel.app/Elsahel";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38CE57CB59C5C2B6CA09F3F3 /* Pods-FoodDeliveryAppTemplate-FoodDeliveryAppTemplateTests.release.xcconfig */;
+			baseConfigurationReference = BEE499A12DAC821B2D113744 /* Pods-Elsahel-ElsahelTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = FoodDeliveryAppTemplateTests/Info.plist;
+				INFOPLIST_FILE = ElsahelTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -913,13 +895,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodDeliveryAppTemplate.app/FoodDeliveryAppTemplate";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elsahel.app/Elsahel";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A3CBBEA51FFE894450429D1 /* Pods-FoodDeliveryAppTemplate.debug.xcconfig */;
+			baseConfigurationReference = 9B01404FCC493EA4B7C01A03 /* Pods-Elsahel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -930,8 +912,8 @@
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = FoodDeliveryAppTemplate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = Elsahel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
@@ -939,8 +921,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jcstudio.FoodDeliveryAppTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dasstack.Elsahel;
 				PRODUCT_NAME = "Food Star";
+				SWIFT_OBJC_BRIDGING_HEADER = "Elsahel-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -950,14 +933,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95919C58F3A93072D3513157 /* Pods-FoodDeliveryAppTemplate.release.xcconfig */;
+			baseConfigurationReference = 3882C2DEB5CBE363CEB34DBC /* Pods-Elsahel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = MNKSZ4L5GG;
-				INFOPLIST_FILE = FoodDeliveryAppTemplate/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				INFOPLIST_FILE = Elsahel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0.3;
 				OTHER_LDFLAGS = (
@@ -965,8 +948,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jcstudio.FoodDeliveryAppTemplate;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dasstack.Elsahel;
 				PRODUCT_NAME = "Food Star";
+				SWIFT_OBJC_BRIDGING_HEADER = "Elsahel-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -975,7 +959,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C7FD6AC47521735A33784B8 /* Pods-FoodDeliveryAppTemplate-tvOS.debug.xcconfig */;
+			baseConfigurationReference = BE0C0D6D952B0B60639E8D5B /* Pods-Elsahel-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -986,14 +970,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "FoodDeliveryAppTemplate-tvOS/Info.plist";
+				INFOPLIST_FILE = "Elsahel-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FoodDeliveryAppTemplate-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Elsahel-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1003,7 +987,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E93AA5E245E793D5CC00B836 /* Pods-FoodDeliveryAppTemplate-tvOS.release.xcconfig */;
+			baseConfigurationReference = 2CCC1363D2EE6AABC8176246 /* Pods-Elsahel-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1014,14 +998,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "FoodDeliveryAppTemplate-tvOS/Info.plist";
+				INFOPLIST_FILE = "Elsahel-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FoodDeliveryAppTemplate-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Elsahel-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1031,7 +1015,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 461F8EA4F45D55984FDC2DCC /* Pods-FoodDeliveryAppTemplate-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = ED1EDF994B4A3F65D1DB5B4B /* Pods-Elsahel-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1041,24 +1025,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "FoodDeliveryAppTemplate-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Elsahel-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FoodDeliveryAppTemplate-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Elsahel-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodDeliveryAppTemplate-tvOS.app/FoodDeliveryAppTemplate-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elsahel-tvOS.app/Elsahel-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC71B387FA99681CC50B0EC6 /* Pods-FoodDeliveryAppTemplate-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = AEDF8F0742B46C4B9D64CD68 /* Pods-Elsahel-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1068,17 +1052,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "FoodDeliveryAppTemplate-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Elsahel-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.FoodDeliveryAppTemplate-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.Elsahel-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodDeliveryAppTemplate-tvOS.app/FoodDeliveryAppTemplate-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Elsahel-tvOS.app/Elsahel-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -1199,7 +1183,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplateTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ElsahelTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1208,7 +1192,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplate" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Elsahel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1217,7 +1201,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplate-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Elsahel-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1226,7 +1210,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "FoodDeliveryAppTemplate-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Elsahel-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1235,7 +1219,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FoodDeliveryAppTemplate" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Elsahel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -1,5 +1,5 @@
 {
-  "name": "FoodDeliveryAppTemplate",
+  "name": "Elsahel",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -28,7 +28,7 @@
     "i18n-js": "^3.8.0",
     "lodash.memoize": "^4.1.2",
     "lottie-ios": "3.1.8",
-    "lottie-react-native": "^3.5.0",
+    "lottie-react-native": "^4.0.2",
     "react": "17.0.1",
     "react-native": "0.63.4",
     "react-native-appearance": "^0.3.4",
@@ -54,6 +54,7 @@
   "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/runtime": "^7.8.4",
+    "@bam.tech/react-native-make": "^3.0.0",
     "@react-native-community/eslint-config": "^1.1.0",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-knobs": "^5.3.18",

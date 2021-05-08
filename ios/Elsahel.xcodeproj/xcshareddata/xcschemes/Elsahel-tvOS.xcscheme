@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "FoodDeliveryAppTemplate-tvOS.app"
-               BlueprintName = "FoodDeliveryAppTemplate-tvOS"
-               ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+               BuildableName = "Elsahel-tvOS.app"
+               BlueprintName = "Elsahel-tvOS"
+               ReferencedContainer = "container:Elsahel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "FoodDeliveryAppTemplate-tvOSTests.xctest"
-               BlueprintName = "FoodDeliveryAppTemplate-tvOSTests"
-               ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+               BuildableName = "Elsahel-tvOSTests.xctest"
+               BlueprintName = "Elsahel-tvOSTests"
+               ReferencedContainer = "container:Elsahel.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "FoodDeliveryAppTemplate-tvOS.app"
-            BlueprintName = "FoodDeliveryAppTemplate-tvOS"
-            ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+            BuildableName = "Elsahel-tvOS.app"
+            BlueprintName = "Elsahel-tvOS"
+            ReferencedContainer = "container:Elsahel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "FoodDeliveryAppTemplate-tvOS.app"
-            BlueprintName = "FoodDeliveryAppTemplate-tvOS"
-            ReferencedContainer = "container:FoodDeliveryAppTemplate.xcodeproj">
+            BuildableName = "Elsahel-tvOS.app"
+            BlueprintName = "Elsahel-tvOS"
+            ReferencedContainer = "container:Elsahel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
