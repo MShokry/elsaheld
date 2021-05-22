@@ -45,14 +45,14 @@ const Home: React.FC<HomeProps> = () => {
         ? contextState.location?.longitude
         : 0
     }
-    getHome(rest,setPlaces);
+    getHome(rest, setPlaces);
   }, []);
   const Cats = Places.results || [];
   return (
     <SafeAreaView>
       <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
         <SearchBar placeholder={T('HomeScreen.search')} />
-        <PopularCategories />
+        <PopularCategories list />
         {isNavigationTransitionFinished ? (
           <>
             {Cats.map((place) => {

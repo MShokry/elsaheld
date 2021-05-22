@@ -14,8 +14,8 @@ export default StyleSheet.create({
   },
   leftIcon: {
     paddingLeft: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 0,
+    paddingBottom: 20,
     paddingRight: I18nManager.isRTL ? 10 : 0,
   },
   textField: {

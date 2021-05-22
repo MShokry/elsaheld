@@ -11,6 +11,12 @@ export default StyleSheet.create({
     padding: 10,
     borderWidth: 0.3,
   },
+  categoryItemList: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 10,
+    borderWidth: 0.3,
+  },
   categoryImage: {
     height: 50,
     width: 50,

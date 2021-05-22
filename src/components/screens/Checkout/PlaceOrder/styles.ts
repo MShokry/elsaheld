@@ -11,6 +11,10 @@ export default StyleSheet.create({
   totalPriceText: {
     fontSize: 16,
   },
+  totalPriceDiscount: {
+    fontSize: 16,
+    textDecorationLine: 'line-through',
+  },
   placeOrderText: {
     fontSize: 16,
     color: 'white',

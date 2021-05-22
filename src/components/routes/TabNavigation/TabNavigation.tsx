@@ -60,7 +60,7 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
         };
       }}>
       <Tab.Screen options={{
-        tabBarLabel: 'تصفح',
+        tabBarLabel: 'القائمة',
       }} name="Explore" component={HomeStack} />
       {/* <Tab.Screen name="Activity" component={ActivityHistoryStack} /> */}
       <Tab.Screen options={{

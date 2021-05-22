@@ -16,6 +16,7 @@ import SideDishes from './SideDishes';
 import AddToBasketForm from './AddToBasketForm';
 import { formatCurrency } from '@src/utils/number-formatter';
 import styles from './styles';
+import { baseImages } from '@src/utils/APICONST';
 
 type DishDetailsProps = {};
 
@@ -169,7 +170,7 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
                 },
               ]}>
               <Animated.Image
-                source={DishData.photo ? { uri: `https://www.ebda3-eg.com/arrivo/uploads/${DishData.photo}` } : {}}
+                source={DishData.photo ? { uri: `${baseImages}${DishData.photo}` } : {}}
                 style={[
                   styles.coverPhoto,
                   {

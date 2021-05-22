@@ -3,7 +3,10 @@ import {create} from 'apisauce';
 import AuthContext from '@src/context/auth-context';
 
 // export const baseURL = 'https://www.ebda3-eg.com/Elsahel/include/';
+// export const baseImages = 'https://www.ebda3-eg.com/Elsahel/uploads/';
+
 export const baseURL = 'https://www.ebda3-eg.com/arrivo/include/';
+export const baseImages = 'https://www.ebda3-eg.com/arrivo/uploads/';
 
 // 'Content-type': 'application/json',
 export const headers = {

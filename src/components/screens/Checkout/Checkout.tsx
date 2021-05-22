@@ -1,19 +1,23 @@
+import { useNavigation } from '@react-navigation/core';
+import { Button, Text, TextField } from '@src/components/elements';
+import CartContext from '@src/context/cart-context';
+import { getCoupon } from '@src/utils/CartAPI';
 import * as React from 'react';
 import { ScrollView, View } from 'react-native';
 import DeliveryInformation from './DeliveryInformation';
 import OrderSummary from './OrderSummary';
-import PaymentMethod from './PaymentMethod';
-import styles from './styles';
 import PlaceOrder from './PlaceOrder';
-import DishesAlsoOrdered from './DishesAlsoOrdered';
-import CartContext from '@src/context/cart-context';
-import { useNavigation } from '@react-navigation/core';
+import styles from './styles';
 
 type BasketProps = {};
 
 
 const Basket: React.FC<BasketProps> = () => {
   const { cartItems, clearCart, updateCartItems, resturant } = React.useContext(CartContext);
+  const [Promo, setPromo] = React.useState('');
+  const [PromoCode, setPromoCode] = React.useState({ error: '', results: [], loading: false });
+  console.log(PromoCode);
+
   const navigation = useNavigation();
   const totalCart = cartItems.reduce(
     (prevValue, currentValue) => prevValue + parseFloat(currentValue.subtotalPrice),
@@ -30,7 +34,7 @@ const Basket: React.FC<BasketProps> = () => {
     // removeCartItem(idx);
   };
   React.useEffect(() => {
-    if(cartItems.length == 0 && resturant.ID){
+    if (cartItems.length == 0 && resturant.ID) {
       console.log("Clear");
       clearCart();
     }
@@ -53,8 +57,34 @@ const Basket: React.FC<BasketProps> = () => {
         {/* <DishesAlsoOrdered /> */}
         {/* <PaymentMethod /> */}
       </ScrollView>
-      <PlaceOrder totalPrice={totalCart} shippingFee={shippingFee} />
-    </View>
+      <View style={{ flexDirection: 'row', marginBottom: 10, paddingHorizontal: 10 }} >
+        <TextField
+          value={Promo}
+          editable={!PromoCode.results.percentage}
+          containerStyle={{ width: '70%', backgroundColor: '#fff' }}
+          onChangeText={(t: string) => setPromo(t)}
+          placeholder='برومو كود'
+        />
+        <Button
+          disabled={cartItems.length == 0}
+          style={{ width: '20%', marginHorizontal: 10 }}
+          isLoading={PromoCode.loading}
+          onPress={() => {
+            if (PromoCode.results.percentage) {
+              setPromoCode({ error: '', results: [], loading: false })
+              setPromo('');
+            } else { getCoupon(Promo, setPromoCode) }
+          }
+          }>
+          {PromoCode.results.percentage ?
+            <Text isBold >حذف</Text>
+            : <Text isBold >تاكيد</Text>}
+        </Button>
+      </View>
+      {PromoCode.results?.error ? <Text isPrimary>{PromoCode.results?.error}</Text> : null}
+
+      <PlaceOrder discount={PromoCode.results} totalPrice={totalCart} shippingFee={shippingFee} />
+    </View >
   );
 };
 

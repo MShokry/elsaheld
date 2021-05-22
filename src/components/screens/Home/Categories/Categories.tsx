@@ -10,14 +10,18 @@ import { translate as T } from '@src/utils/LangHelper';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import { getRestaurants } from '@src/utils/CartAPI';
 import LottieView from 'lottie-react-native';
+import { baseImages } from '@src/utils/APICONST';
 
-type CategoriesProps = {};
+type CategoriesProps = {
+  place: {}
+  list: boolean
+};
 
-const Categories: React.FC<CategoriesProps> = ({place}) => {
+const Categories: React.FC<CategoriesProps> = ({ place, list }) => {
   console.log(place);
-  
+
   const { card, primary, background } = useThemeColors();
-  const [Places, setPlaces] = React.useState({ error: '', results: place?.Restaurants||[], loading: false });
+  const [Places, setPlaces] = React.useState({ error: '', results: place?.Restaurants || [], loading: false });
   // const [contextState, contextDispatch] = React.useContext(AuthContext);
 
   const navigation = useNavigation();
@@ -38,30 +42,30 @@ const Categories: React.FC<CategoriesProps> = ({place}) => {
   }
   return (
     <Section
-      title={place?.Name ||"Popular Near You"}
-      // actionButtonText="View more"
-      // onButtonActionPressed={_onButtonActionPressed}
-      >
+      title={place?.Name || "Popular Near You"}
+    // actionButtonText="View more"
+    // onButtonActionPressed={_onButtonActionPressed}
+    >
 
-        <Carousel
-          data={Places.results}
-          hasParallaxImages
-          itemWidth={Dimensions.get('window').width - 100}
-          renderContent={(item: Resturant, index, parallaxProps) => {
-            const { photo, name, details } = item;
-            return (
-              <Card
-                coverImage={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` }}
-                title={name || ' '}
-                subTitle={details || ' '}
-                parallaxProps={parallaxProps}
-                onPress={() => _onPlaceItemPressed(item)}>
-                <PlaceCardInfo data={item} />
-              </Card>
-            );
-          }}
-        />
-      
+      <Carousel
+        data={Places.results}
+        hasParallaxImages
+        itemWidth={Dimensions.get('window').width - 100}
+        renderContent={(item: Resturant, index, parallaxProps) => {
+          const { photo, name, details } = item;
+          return (
+            <Card
+              coverImage={{ uri: `${baseImages}${photo}` }}
+              title={name || ' '}
+              subTitle={details || ' '}
+              parallaxProps={parallaxProps}
+              onPress={() => _onPlaceItemPressed(item)}>
+              <PlaceCardInfo data={item} />
+            </Card>
+          );
+        }}
+      />
+
     </Section>
   );
 };

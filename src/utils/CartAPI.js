@@ -42,10 +42,39 @@ export const getStoreTypes = async (rest, setState) => {
 export const getMenu = async (id, setState) => {
   POST('webService.php?do=getMenu', {RestaurantID:id}, setState);
 };
-
+export const RateRestaurant = async (order, setState) => {
+  POST('webService.php?do=RateRestaurant&json=true', order, setState);
+};
+export const GetComments = async (id, setState) => {
+  POST('webService.php?do=GetComments&json=true', {RestaurantID: id}, setState);
+};
+//Orders
 export const createOrder = async (order, setState) => {
   await POST('siteAPI.php?json=true&do=PlaceOrder', order, setState);
 };
+export const getCoupon = async (Coupon, setState) => {
+  await POST('webService.php?do=getCoupon&json=true', {Coupon}, setState);
+};
 export const GetOrders = async (order, setState) => {
   POST('webService.php?do=GetOrders&json=true&start=0&end=10', order, setState);
+};
+export const ReOrders = async (OrderID, setState) => {
+  POST('webService.php?do=UserEditOrder&json=true', {type:'reorder', OrderID}, setState);
+};
+export const CancelOrders = async (OrderID, setState) => {
+  POST('webService.php?do=UserCancelOrder&json=true', {OrderID}, setState);
+};
+
+//Adress
+export const getAddresses = async (setState) => {
+  POST('siteAPI.php?json=true', {do:'getAddresses'}, setState);
+};
+export const addAddresses = async (adress, setState) => {
+  POST('siteAPI.php?json=true', {...adress, do:'addAddress'}, setState);
+};
+export const updateAddresses = async (adress, setState) => {
+  POST('siteAPI.php?json=true', {...adress, do:'updateAddress'}, setState);
+};
+export const deleteAddresses = async (id, setState) => {
+  POST('siteAPI.php?json=true', {id: id, do:'deleteAddress'}, setState);
 };

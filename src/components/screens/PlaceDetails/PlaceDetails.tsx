@@ -13,6 +13,7 @@ import AuthContext from '@src/context/auth-context';
 import * as DataBase from '@src/utils/AsyncStorage';
 import { translate as T } from '@src/utils/LangHelper';
 import { getMenu } from '@src/utils/CartAPI';
+import { baseImages } from '@src/utils/APICONST';
 
 type PlaceDetailsProps = {};
 
@@ -77,7 +78,7 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
                   ]}>
                   {Resturant.photo && (
                     <Animated.Image
-                      source={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${Resturant.photo}` }}
+                      source={{ uri: `${baseImages}${Resturant.photo}` }}
                       style={[
                         styles.coverPhoto,
                         {

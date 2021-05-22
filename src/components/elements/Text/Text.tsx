@@ -60,12 +60,25 @@ const Text: React.FC<TextProps> = ({
   const isfontWeight = !!style?.fontWeight;
   let styles;
   if (style) {
-    styles = Object.keys(style).reduce((object, key) => {
-      if (key !== 'fontWeight') {
-        object[key] = style[key]
-      }
-      return object
-    }, {});
+    if (Array.isArray(style)) {
+      styles = [];
+      style.map(item => {
+        const styles1 = Object.keys(style).reduce((object, key) => {
+          if (key !== 'fontWeight') {
+            object[key] = style[key]
+          }
+          return object
+        }, {});
+        style.concat(styles1);
+      });
+    } else {
+      styles = Object.keys(style).reduce((object, key) => {
+        if (key !== 'fontWeight') {
+          object[key] = style[key]
+        }
+        return object
+      }, {});
+    }
   }
 
   return (

@@ -35,7 +35,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
       onButtonActionPressed={() => { }}>
       <Container>
         {cartItems.map((cartItem, cartItemIndex) => (<>
-          <View style={styles.menuContainer}>
+          <View key={cartItemIndex} style={styles.menuContainer}>
             <View style={styles.menuInfo}>
               <Text style={styles.quantityText}>{`${cartItem.qty}`}</Text>
               <View key={cartItemIndex}>

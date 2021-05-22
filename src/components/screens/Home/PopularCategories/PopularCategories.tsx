@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { useTheme, useNavigation } from '@react-navigation/native';
-import { Image, View } from 'react-native';
-import { Text, Container, Touchable } from '@src/components/elements';
+import { Image, View, Dimensions } from 'react-native';
+import { Text, Container, Touchable, List, Carousel } from '@src/components/elements';
 import { mockCategories } from '@src/data/mock-categories';
 import styles from './styles';
 import { getStoreTypes } from '@src/utils/CartAPI';
 import MainContext from '@src/context/auth-context';
+import { baseImages } from '@src/utils/APICONST';
 
-type PopularCategoriesProps = {};
+type PopularCategoriesProps = { list: boolean };
 
-const PopularCategories: React.FC<PopularCategoriesProps> = () => {
+const PopularCategories: React.FC<PopularCategoriesProps> = ({ list }) => {
   const navigation = useNavigation();
   const {
     colors: { border },
@@ -33,26 +34,48 @@ const PopularCategories: React.FC<PopularCategoriesProps> = () => {
     }
     getStoreTypes(rest, setCat);
   }, []);
-  if (Cat.results.length == 0) {
+  if (Cat.results?.length == 0) {
     return null
   }
   return (
     <Container style={styles.categoryContainer}>
-      {Cat.results?.map((category) => {
-        const { ID, photo, name } = category;
-        return (
-          <Touchable key={ID} onPress={_onButtonCategoryItemPressed(name, ID)}>
-            <View style={[styles.categoryItem, { borderColor: border }]}>
-              <Container>
-                <Image style={styles.categoryImage} source={photo ? { uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` } : placholder} />
-              </Container>
-              <Container>
-                <Text style={styles.categoryTitle}>{name}</Text>
-              </Container>
-            </View>
-          </Touchable>
-        );
-      })}
+      {list ?
+        <Carousel
+          data={Cat.results || []}
+          itemWidth={ Dimensions.get('window').width / 3.5}
+          renderContent={(item, index, parallaxProps) => {
+            const { ID, photo, name } = item;
+            return (
+              <Touchable key={ID} onPress={_onButtonCategoryItemPressed(name, ID)}>
+                <View style={[styles.categoryItemList, { borderColor: border }]}>
+                  <Container>
+                    <Image style={styles.categoryImage} source={photo ? { uri: `${baseImages}${photo}` } : placholder} />
+                  </Container>
+                  <Container>
+                    <Text style={styles.categoryTitle}>{name}</Text>
+                  </Container>
+                </View>
+              </Touchable>
+            );
+          }}
+        />
+        :
+        Cat.results?.map((category) => {
+          const { ID, photo, name } = category;
+          return (
+            <Touchable key={ID} onPress={_onButtonCategoryItemPressed(name, ID)}>
+              <View style={[styles.categoryItem, { borderColor: border }]}>
+                <Container>
+                  <Image style={styles.categoryImage} source={photo ? { uri: `${baseImages}${photo}` } : placholder} />
+                </Container>
+                <Container>
+                  <Text style={styles.categoryTitle}>{name}</Text>
+                </Container>
+              </View>
+            </Touchable>
+          );
+        })
+      }
     </Container >
   );
 };

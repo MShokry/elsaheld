@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Container, Text, Touchable } from '@src/components/elements';
 import { Dish } from '@src/data/mock-places';
 import styles from './styles';
+import { baseImages } from '@src/utils/APICONST';
 
 type DishItemProps = {
   data: Dish;
@@ -20,7 +21,7 @@ const DishItem: React.FC<DishItemProps> = ({ data }) => {
   return (
     <Touchable onPress={()=>_onPlaceItemPressed(data)}>
       <Container style={styles.container}>
-        {photo && <Image style={styles.image} source={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` }} />}
+        {photo && <Image style={styles.image} source={{ uri: `${baseImages}${photo}` }} />}
         <View style={styles.placeInfoContainer}>
           <View style={styles.placeInfo}>
             <Text style={styles.placeTitle}>{name}</Text>

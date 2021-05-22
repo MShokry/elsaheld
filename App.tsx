@@ -22,6 +22,8 @@ import ThemeContext from '@src/context/theme-context';
 import AuthProvider, { mainReducer } from '@src/components/common/AuthProvider/AuthProvider';
 import * as DataBase from '@src/utils/AsyncStorage';
 import * as Lang from './src/utils/LangHelper';
+import Geocoder from 'react-native-geocoding';
+Geocoder.init("AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA", {language : "ar"}); // use a valid API key
 
 Text.defaultProps = Text.defaultProps || {}
 Text.defaultProps.style =  { fontFamily: 'Cairo-Light' }

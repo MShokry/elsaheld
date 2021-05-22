@@ -10,6 +10,7 @@ import { translate as T } from '@src/utils/LangHelper';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import { getRestaurants } from '@src/utils/CartAPI';
 import LottieView from 'lottie-react-native';
+import { baseImages } from '@src/utils/APICONST';
 
 type PopularPlacesProps = {};
 
@@ -50,7 +51,7 @@ const PopularPlaces: React.FC<PopularPlacesProps> = ({place}) => {
             const { photo, name, details } = item;
             return (
               <Card
-                coverImage={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` }}
+                coverImage={{ uri: `${baseImages}${photo}` }}
                 title={name || ' '}
                 subTitle={details || ' '}
                 parallaxProps={parallaxProps}

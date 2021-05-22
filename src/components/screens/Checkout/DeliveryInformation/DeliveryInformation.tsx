@@ -37,8 +37,8 @@ const DeliveryInformation: React.FC<DeliveryInformationProps> = () => {
   return (
     <Section
       title={T('Cart.deliveryTo')}
-      // actionButtonText="Change address"
-      onButtonActionPressed={() => {}}>
+      actionButtonText="تغيير العنوان"
+      onButtonActionPressed={() => {onChangeAddressButtonPressed()}}>
       <Container>
         <View style={styles.deliveryContainer}>
           <View style={styles.locationContainer}>

@@ -5,6 +5,7 @@ import {Container, Text, Touchable} from '@src/components/elements';
 import {Place} from '@src/data/mock-places';
 import styles from './styles';
 import PlaceCardInfo from '../PlaceCardInfo';
+import { baseImages } from '@src/utils/APICONST';
 
 type PlaceListItemProps = {
   data: Place;
@@ -21,7 +22,7 @@ const PlaceListItem: React.FC<PlaceListItemProps> = ({data}) => {
   return (
     <Touchable onPress={_onPlaceItemPressed}>
       <Container style={styles.container}>
-        <Image style={styles.image} source={{ uri: `https://www.ebda3-eg.com/arrivo/uploads/${photo}` }} />
+        <Image style={styles.image} source={{ uri: `${baseImages}${photo}` }} />
         <View style={styles.placeInfoContainer}>
           <View style={styles.placeInfo}>
             <Text style={styles.placeTitle}>{name}</Text>

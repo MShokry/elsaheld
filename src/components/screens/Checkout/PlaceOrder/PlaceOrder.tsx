@@ -11,9 +11,10 @@ import { translate as T } from '@src/utils/LangHelper';
 type PlaceOrderProps = {
   totalPrice: number;
   shippingFee: number;
+  discount: {};
 };
 
-const PlaceOrder: React.FC<PlaceOrderProps> = ({ totalPrice, shippingFee }) => {
+const PlaceOrder: React.FC<PlaceOrderProps> = ({ discount, totalPrice, shippingFee }) => {
   const { cartItems } = React.useContext(cartContext);
   const [
     isSuccessOrderModalVisible,
@@ -50,9 +51,9 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({ totalPrice, shippingFee }) => {
           const r = `${JSON.stringify(side).replace(/name/g, "Name").replace(/price/g, "Price")}`
           sd = sd + r + (i + 1 == rowLen ? '' : ',');
           items.push(r)
-        })        
+        })
         let key = cb(dish);
-        console.log(dish,key,items);
+        console.log(dish, key, items);
         groups[key] = groups[key] || [];
         groups[key].push(items);
       });
@@ -67,6 +68,7 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({ totalPrice, shippingFee }) => {
       // json_email: "emadelkomy7@gmail.com",
       // json_password: "d320b3c9217fc14d1ac35557481b8dd919",
       notes: "",
+      CouponID: discount?.ID || undefined,
       orders: JSON.stringify(g)
     }
     console.log(order);
@@ -84,13 +86,19 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({ totalPrice, shippingFee }) => {
     <Container style={styles.placeOrderContainer}>
       <View style={styles.totalPriceContainer}>
         <Text style={styles.totalPriceText}>{T('Cart.total')}</Text>
-        <Text isBold style={styles.totalPriceText}>
+        {discount?.percentage ? <Text isBold style={styles.totalPriceDiscount}>
           {formatCurrency(totalPrice + shippingFee)}
+        </Text> : null}
+        <Text isBold style={styles.totalPriceText}>
+          {discount?.percentage ?
+            formatCurrency((totalPrice * (1 - discount?.percentage / 100) + shippingFee))
+            : formatCurrency((totalPrice + shippingFee))
+          }
         </Text>
       </View>
-      <Button 
-      disabled={cartItems.length==0}
-      isFullWidth onPress={_onPlaceOrderButtonPressed}>
+      <Button
+        disabled={cartItems.length == 0}
+        isFullWidth onPress={_onPlaceOrderButtonPressed}>
         <Text isBold style={styles.placeOrderText}>
           {T('Cart.PlaceOrder')}
         </Text>

@@ -94,7 +94,7 @@ const Account: React.FC<AccountProps> = () => {
         <Divider />
         <ListRowItem
           title="العناوين"
-          // onPress={() => navigation.navigate('SavedAddressesScreen')}
+          onPress={() => navigation.navigate('SavedAddressesScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
