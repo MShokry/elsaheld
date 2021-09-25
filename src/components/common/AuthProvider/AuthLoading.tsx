@@ -4,6 +4,7 @@ import {
   View,
   Image,
   Dimensions,
+  I18nManager,
 } from 'react-native';
 
 import api from '@src/utils/APICONST.js';
@@ -59,6 +60,7 @@ const AuthLoading = ({ navigation }) => {
     let T = '';
     console.log('Loading Storage');
     const langSymbol = (await DataBase.getItem('language')) || 'ar';
+    I18nManager.forceRTL(langSymbol === 'ar');
     contextDispatch({ type: 'SetLang', payload: langSymbol });
     console.log('langSymbol', langSymbol);
     const walkThrough = await DataBase.getItem('walkThrough');
@@ -91,7 +93,11 @@ const AuthLoading = ({ navigation }) => {
           console.log('Auth NAvigate');
           contextDispatch({ type: 'StopLoading' });
           // navigation.navigate('Main')
-          _navAuth('Main');
+          if (user.active == 'no') {
+            navigation.navigate('Auth', { screen: 'AuthVerificationCodeScreen' });
+          } else {
+            _navAuth('Main');
+          }
         } else {
           // navigation.navigate('Auth')
           _navAuth('Auth');
@@ -100,19 +106,17 @@ const AuthLoading = ({ navigation }) => {
         console.log('user', e);
         // navigation.navigate('Auth')
         _navAuth('Auth');
-
       }
     } else {
       // navigation.navigate('Auth')
       _navAuth('Auth');
     }
-
   };
 
   useEffect(() => {
     try {
       __DEV__ ?
-        setTimeout(_bootstrapAsync, 500) : null;
+        setTimeout(_bootstrapAsync, 500) : setTimeout(_bootstrapAsync, 3000);
       // setTimeout(_bootstrapAsync, 500);
     } catch (error) {
       contextDispatch({ type: 'StopLoading' });
@@ -125,19 +129,19 @@ const AuthLoading = ({ navigation }) => {
         style={{ flex: 1, alignItems: 'center', alignContent: 'center' }}
         colors={['#eadccf', '#526b7d']}
       >
-        {/* <Image
+        <Image
           style={{ width: width * .5 }}
           resizeMode="contain"
           source={require('@src/assets/app/app_icon.png')}
-        /> */}
-        <LottieView
+        />
+        {/* <LottieView
           source={require('@src/assets/animations/elsahel1.json')}
           autoPlay
           loop={false}
           onAnimationFinish={_bootstrapAsync}
           // onAnimationFinish={()=>{}}
           style={{ width: '100%', height: '100%' }}
-        />
+        /> */}
         <ActivityIndicator />
       </View>
     </>

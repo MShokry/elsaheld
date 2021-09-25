@@ -101,6 +101,16 @@ export const updateUser = async ([user, state, setState]) => {
 export const logUser = async (user, setState) => {
   POST('siteAPI.php?json=true', user, setState);
 };
+export const verifyUserPhone = async (user, setState) => {
+  return POST('webService.php?do=activation_code', user, setState);
+  // return POST('siteAPI.php?json=true&do=activation_code', user, setState);
+};
+
+export const verifyUserPhoneResend = async (user, setState) => {
+  return POST('webService.php?do=resendActivationCode', user, setState);
+  // return POST('siteAPI.php?json=true&do=activation_code', user, setState);
+};
+
 export const registerUser = async (user, setState) => {
   POST('siteAPI.php?json=true', user, setState);
 };

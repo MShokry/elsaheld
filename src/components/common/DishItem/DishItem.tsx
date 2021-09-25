@@ -15,19 +15,19 @@ const DishItem: React.FC<DishItemProps> = ({ data }) => {
   const navigation = useNavigation();
 
   const _onPlaceItemPressed = (DishData) => {
-    navigation.navigate('DishDetailsModal',DishData);
+    navigation.navigate('DishDetailsModal', DishData);
   };
 
   return (
-    <Touchable onPress={()=>_onPlaceItemPressed(data)}>
+    <Touchable onPress={() => _onPlaceItemPressed(data)}>
       <Container style={styles.container}>
-        {photo && <Image style={styles.image} source={{ uri: `${baseImages}${photo}` }} />}
+        {photo ? <Image style={styles.image} source={{ uri: `${baseImages}${photo}` }} /> : null}
         <View style={styles.placeInfoContainer}>
           <View style={styles.placeInfo}>
-            <Text style={styles.placeTitle}>{name}</Text>
-            <Text style={styles.placeSubTitle}>{description}</Text>
+            <Text style={styles.placeTitle}>{`${name}`}</Text>
+            <Text style={styles.placeSubTitle}>{`${description}`}</Text>
             <Text isPrimary isBold>
-               {price} EGP
+              {`${price}`} EGP
             </Text>
           </View>
         </View>

@@ -65,18 +65,18 @@ const Text: React.FC<TextProps> = ({
       style.map(item => {
         const styles1 = Object.keys(style).reduce((object, key) => {
           if (key !== 'fontWeight') {
-            object[key] = style[key]
+            object[key] = style[key];
           }
-          return object
+          return object;
         }, {});
         style.concat(styles1);
       });
     } else {
       styles = Object.keys(style).reduce((object, key) => {
         if (key !== 'fontWeight') {
-          object[key] = style[key]
+          object[key] = style[key];
         }
-        return object
+        return object;
       }, {});
     }
   }
@@ -90,7 +90,7 @@ const Text: React.FC<TextProps> = ({
           fontFamily: (isfontWeight || isBold) ? 'Cairo-Bold' : 'Cairo-Regular',
           // fontWeight,
           fontSize,
-          textAlign,
+          textAlign: textAlign?textAlign : 'left',
           marginTop,
         },
         styles,

@@ -29,6 +29,9 @@ const handeResponse = (response) => {
 export const getRestaurants = async ( rest,setState) => {
   POST('webService.php?do=getRestaurants', {Location:`${rest.lat},${rest.long}`,estoreType: rest.id}, setState);
 };
+export const getOffers = async (setState) => {
+  POST('/webService.php?do=getOffers', {}, setState);
+};
 
 export const searchRestaurants = async ( rest,setState) => {
   POST('webService.php?do=getRestaurants&keyword=${rest.word}', {Location:`${rest.lat},${rest.long}`,keyword:rest.word}, setState);

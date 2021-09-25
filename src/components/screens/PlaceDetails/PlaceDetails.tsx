@@ -124,22 +124,26 @@ const PlaceDetails: React.FC<PlaceDetailsProps> = ({ route }) => {
               <Text style={styles.sectionHeaderText}>{section.name}</Text>
             )}
             renderItem={({ item }) => {
-              return <DishItem data={{...item, Resturant:Resturant}} />;
+              if (item) {
+                return <DishItem data={{ ...item, Resturant: Resturant }} />;
+              } else {
+                return <View />;
+              }
             }}
             onScroll={Animated.event(
-                [
-                  {
-                    nativeEvent: {
-                      contentOffset: {
-                        y: scrollY,
-                      },
+              [
+                {
+                  nativeEvent: {
+                    contentOffset: {
+                      y: scrollY,
                     },
                   },
-                ],
-                {
-                  useNativeDriver: true,
                 },
-              )}
+              ],
+              {
+                useNativeDriver: true,
+              },
+            )}
           />
         }
       </View>

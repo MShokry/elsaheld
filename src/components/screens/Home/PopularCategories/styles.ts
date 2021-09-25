@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 export default StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
@@ -15,11 +15,12 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     padding: 10,
-    borderWidth: 0.3,
+    // borderWidth: 0.3,
   },
   categoryImage: {
     height: 50,
     width: 50,
+    borderRadius: 50,
   },
   categoryTitle: {
     fontSize: 12,

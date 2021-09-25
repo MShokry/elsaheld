@@ -27,14 +27,14 @@ export const mockMerchantCaimpaigns: MerchantCampaign[] = [
     id: '3',
     title: 'Enter FREEBREAKFAST',
     subTitle: 'FREE | 6:00AM - 10:00AM',
-    image: require('@src/assets/campaigns/campaign-3.png'),
+    image: require('@src/assets/campaigns/campaign-2.png'),
     backgroundColor: '#FB6930',
   },
   {
     id: '4',
     title: 'Enter HAPPYMEAL',
     subTitle: '70% Off | 1:00PM - 3:00PM',
-    image: require('@src/assets/campaigns/campaign-4.png'),
+    image: require('@src/assets/campaigns/campaign-1.png'),
     backgroundColor: '#28BBC7',
   },
 ];

@@ -7,18 +7,18 @@ import {
   I18nManager,
   Alert,
 } from 'react-native';
-import {Text, Icon, Divider, Section} from '@src/components/elements';
+import { Text, Icon, Divider, Section } from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import styles from './styles';
 import ChangeAppearanceModal from './ChangeAppearanceModal';
 import ChangeLanguageModal from './ChangeLanguageModal';
 import themeContext from '@src/context/theme-context';
-import {getStoreURL} from '@src/utils/store-info';
+import { getStoreURL } from '@src/utils/store-info';
 
 type SettingsProps = {};
 
 const Settings: React.FC<SettingsProps> = () => {
-  const {theme, useSystemTheme} = React.useContext(themeContext);
+  const { theme, useSystemTheme } = React.useContext(themeContext);
   const [enableRTL, setEnableRTL] = React.useState(true);
   const [
     isAppearanceModalVisible,

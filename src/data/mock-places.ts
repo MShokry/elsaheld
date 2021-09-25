@@ -3,7 +3,8 @@ import { ImageSourcePropType } from 'react-native';
 const faker = require('faker');
 
 export type Dish = {
-  id: string;
+  id?: string;
+  ID?: string;
   name: string;
   description: string;
   price: string;
@@ -48,7 +49,7 @@ export type Resturant = {
   distance_: number;
   time: number;
   rating: number;
-
+  ShippingCost?: number;
   dishSection?: DishSection[];
 };
 

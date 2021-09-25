@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -17,6 +17,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     marginTop: -5,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    width: '100%',
   },
   button: {
     padding: 8,

@@ -1,16 +1,15 @@
+import { useTheme } from '@react-navigation/native';
+import { CheckBox, Container, Text } from '@src/components/elements';
+import { Dish } from '@src/data/mock-places';
 import * as React from 'react';
 import { View } from 'react-native';
-import { useTheme } from '@react-navigation/native';
-import { Container, Text, CheckBox, RadioButton } from '@src/components/elements';
-import { Dish } from '@src/data/mock-places';
-import RadioGroup from 'react-native-radio-buttons-group';
 import styles from './styles';
 
 type SideDishesProps = {
   data: Dish;
   addSideDishToBasket: (dish: Dish) => void;
 };
-
+// [x] + - in sub items
 const SideDishes: React.FC<SideDishesProps> = ({
   data: { MenuListOptions },
   addSideDishToBasket,
@@ -22,35 +21,78 @@ const SideDishes: React.FC<SideDishesProps> = ({
     [],
   );
 
-  const onCheckBoxPress = (selectedDish: Dish, group) => {
-    let selected = selectedSideDishes;
-    if (group.length) {
-      console.log("groups", group);
-      group.map((dish) => {
-        const existedDishIndex = selected.find(
-          (item: Dish) => item.ID === dish.ID,
+  const onCheckBoxPress = (checked: bool, selectedDish: Dish, group) => {
+    if (checked) {
+      let selected = selectedSideDishes;
+      if (group.length) {
+        console.log('groups', group);
+        group.map(dish => {
+          const existedDishIndex = selected.find(
+            (item: Dish) => item.ID === dish.ID,
+          );
+          if (existedDishIndex) {
+            selected = selected.filter((item: Dish) => item.ID !== dish.ID);
+          }
+        });
+        selected = [...selected, selectedDish];
+      } else {
+        const existedDishIndex = selectedSideDishes.find(
+          (item: Dish) => item.ID === selectedDish.ID,
         );
         if (existedDishIndex) {
-          selected = selected.filter((item: Dish) => item.ID !== dish.ID)
+          selected = selected.filter((item: Dish) => item.ID !== selectedDish.ID);
+          selected = [...selected, selectedDish];
+        } else {
+          selected = [...selectedSideDishes, selectedDish];
         }
-      })
-      selected = [...selected, selectedDish];
-    } else {
-      const existedDishIndex = selectedSideDishes.find(
-        (item: Dish) => item.ID === selectedDish.ID,
-      );
-      if (existedDishIndex) {
-        selected = selected.filter((item: Dish) => item.ID !== selectedDish.ID)
-      } else {
-        selected = [...selectedSideDishes, selectedDish];
       }
+      console.log('selected', selected);
+      setSelectedSideDishes(selected);
+      addSideDishToBasket(selected);
+    } else {
+      let selected = selectedSideDishes;
+      if (group.length) {
+        console.log('groups', group);
+        group.map(dish => {
+          const existedDishIndex = selected.find(
+            (item: Dish) => item.ID === dish.ID,
+          );
+          if (existedDishIndex) {
+            selected = selected.filter((item: Dish) => item.ID !== dish.ID);
+          }
+        });
+        selected = [...selected, selectedDish];
+      } else {
+        const existedDishIndex = selectedSideDishes.find(
+          (item: Dish) => item.ID === selectedDish.ID,
+        );
+        if (existedDishIndex) {
+          selected = selected.filter((item: Dish) => item.ID !== selectedDish.ID);
+        } else {
+          selected = [...selectedSideDishes, selectedDish];
+        }
+      }
+      console.log('selected', selected);
+      setSelectedSideDishes(selected);
+      addSideDishToBasket(selected);
     }
-    console.log("selected", selected);
-    setSelectedSideDishes(selected);
-    addSideDishToBasket(selected);
   };
-  console.log("selectedSideDishes", selectedSideDishes);
 
+  console.log('selectedSideDishes', MenuListOptions, selectedSideDishes);
+  React.useEffect(() => {
+    MenuListOptions?.map((section, sectionIndex) => {
+      section?.OptionsList?.map((dish, dishIndex) => {
+        if (dish.default_choice) {
+          onCheckBoxPress(true, { ...dish, 'Amount': 1 }, section?.type == 1 ? section?.OptionsList : []);
+        }
+      });
+    });
+  }, [MenuListOptions]);
+
+  // React.useEffect(() => {
+  //   onCheckBoxPress(checked, { ...dish, 'Amount': qty }, section?.type == 1 ? section?.OptionsList : [])
+  // }, []);
+  // [ ] ToDo default_choice
   return (
     <View>
       {MenuListOptions?.map((section, sectionIndex) => (
@@ -67,10 +109,13 @@ const SideDishes: React.FC<SideDishesProps> = ({
                   value={!!selectedSideDishes.find((item) => item.ID === dish.ID)}
                   boxType={section?.type == 1 ? 'circle' : null}
                   // onPress={()=>{}}
-                  onPress={() => onCheckBoxPress(dish, section?.type == 1 ? section?.OptionsList : [])}
-                  rightElement={<Text>{section?.type == 1?'':'+'} EGP{dish.price}</Text>}
+                  onPress={(checked, qty) => onCheckBoxPress(checked, { ...dish, 'Amount': qty }, section?.type == 1 ? section?.OptionsList : [])}
+                  rightElement={
+                    <Text>
+                      {section?.type === 1 ? '' : '+'} EGP {dish.price}
+                    </Text>
+                  }
                 />
-
               </Container>
             </Container>
           ))}

@@ -38,6 +38,7 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
   } = useTheme();
   const { goBack } = useNavigation();
   const { updateCartItems, cartItems, resturant } = React.useContext(CartContext);
+  console.log('cartItems', cartItems);
 
   const addSideDishToBasket = React.useCallback(
     (dish: Dish) => {
@@ -72,14 +73,12 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
   const updateTotalDishAmount = React.useCallback(
     (amount: number) => {
       const totalSelectedDishPrice = selectedSideDishes.reduce(
-        (prevValue, currentValue) => prevValue + parseFloat(currentValue.price),
+        (prevValue, currentValue) => prevValue + parseFloat(currentValue.price) * (currentValue.Amount || 1),
         0,
       );
-      console.log("selectedSideDishes==", selectedSideDishes, DishData);
-      if (DishData.DefaultPrice == 1) {
-        setTotalPrice(
-          parseFloat(totalSelectedDishPrice) * amount,
-        );
+      console.log("selectedSideDishes==", selectedSideDishes, 'DishData', DishData);
+      if (DishData.DefaultPrice === 1) {
+        setTotalPrice(parseFloat(totalSelectedDishPrice) * amount);
       } else {
         setTotalPrice(
           parseFloat(DishData.price) * amount + parseFloat(totalSelectedDishPrice) * amount,

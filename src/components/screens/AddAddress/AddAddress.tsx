@@ -4,13 +4,15 @@ import { Alert, View } from 'react-native';
 import { savedAddresses, Address } from '@src/data/mock-address';
 import styles from './styles';
 import Geocoder from 'react-native-geocoding';
-import { addAddresses } from '@src/utils/CartAPI';
+import { addAddresses, updateAddresses } from '@src/utils/CartAPI';
+import { useRoute } from '@react-navigation/core';
 
 type AddAddressProps = {};
 
 const AddAddress: React.FC<AddAddressProps> = () => {
   const [form, setform] = React.useState([]);
   const [Adrress, setAdrress] = React.useState({ error: '', results: [], loading: false });
+  const route = useRoute();
 
   const _prepareListData = (addresses: Address[]) => {
     return addresses.map((item) => {
@@ -23,10 +25,10 @@ const AddAddress: React.FC<AddAddressProps> = () => {
     });
   };
   const [SearchText, setSearchText] = React.useState('');
-  
+
   React.useEffect(() => {
     if (Adrress.results.Status) {
-      Alert.alert('اضافة العنوان','تم اضافة العنوان بنجاح')
+      Alert.alert('اضافة العنوان', 'تم اضافة العنوان بنجاح')
     }
   }, [Adrress.results]);
 
@@ -103,31 +105,43 @@ const AddAddress: React.FC<AddAddressProps> = () => {
     },
   ]
   console.log(form);
+  React.useEffect(() => {
+    console.log('route', route);
+    setform(route?.params || {});
+  }, []);
 
   return (
     <>
       <List
         data={userInfo}
-        ListHeaderComponent={_renderListHeader()}
+        // ListHeaderComponent={_renderListHeader()}
         renderItem={({ item }) => {
-          return <TextField
-            defaultValue={form[item.type]}
-            // textContentType={"emailAddress"}
-            hasMargin
-            placeholder={`${item.field}`}
-            onChangeText={(t: string) => setform({ ...form, [item.type]: t })}
-          />;
+          return <>
+            <TextField
+              defaultValue={form[item.type]}
+              hasMargin
+              placeholder={`${item.field}`}
+              onChangeText={(t: string) => setform({ ...form, [item.type]: t })}
+            />
+            <Text isSecondary style={{ alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10 }} >
+              {item.field}
+            </Text>
+          </>;
         }}
       />
       {AddAddress.error ? <Text isPrimary hasMargin
         style={{ marginVertical: 10 }}
       >{AddAddress.error}</Text> : null}
       <Button isFullWidth
-      disabled={form.length<5}
-        onPress={() => { addAddresses(form, setAdrress) }}
+        disabled={form.length < 5}
+        onPress={() => { route?.params?.ID ? updateAddresses(form, setAdrress) : addAddresses(form, setAdrress) }}
         isLoading={AddAddress.loading}
       >
-        <Text isBold isWhite>اضافاة العنوان</Text>
+        <Text isBold isWhite>
+          {route?.params?.ID ?
+            'تعديل العنوان'
+            : 'اضافاة العنوان'
+          }</Text>
       </Button></>
   );
 };

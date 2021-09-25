@@ -1,10 +1,10 @@
-import {StyleSheet, Platform} from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
   card: {
     // backgroundColor: 'white',
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 5,
+    marginRight: 5,
     marginBottom: 10,
     padding: 10,
     borderRadius: 10,
@@ -20,7 +20,6 @@ export default StyleSheet.create({
   coverImageContainer: {
     height: 170,
     padding: 10,
-    
     backgroundColor: 'transparent',
   },
   coverImageSmallContainer: {
@@ -33,12 +32,12 @@ export default StyleSheet.create({
     width: '100%',
     height: '95%',
     // borderRadius: 10,
-    marginTop:15,
+    marginTop: 15,
     resizeMode: 'contain',
   },
   parallaxImageContainer: {
     flex: 1,
-    marginBottom: Platform.select({ios: 0, android: 1}), // Prevent a random Android rendering issue
+    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
     backgroundColor: 'white',
     borderRadius: 8,
   },

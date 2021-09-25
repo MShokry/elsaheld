@@ -39,7 +39,7 @@ const Signup: React.FC<SignupProps> = () => {
       Alert.alert('Error', 'Please enter your password!');
       return;
     }
-    const USER = { name,username: phoneNumber,email, password,confirmPass, do: "SignUp" }
+    const USER = { name, username: phoneNumber, email, password, confirmPass, do: "SignUp" }
     registerUser(USER, setUser);
   };
   const _onForgotPasswordButtonPressed = () => {
@@ -70,14 +70,14 @@ const Signup: React.FC<SignupProps> = () => {
       DataBase.setItem('userToken', JSON.stringify(U));
       console.log('Welcome USER');
       await contextDispatch({ type: 'LogUser', payload: results.Result });
-      // navigation.navigate('Main');
-      navigation.dispatch(
-        CommonActions.reset({
-          index: 0,
-          routes: [
-            { name: 'Main' },
-          ],
-        }));
+      navigation.navigate('AuthVerificationCodeScreen');
+      // navigation.dispatch(
+      //   CommonActions.reset({
+      //     index: 0,
+      //     routes: [
+      //       { name: 'Main' },
+      //     ],
+      //   }));
       // await contextDispatch({type: 'LogUser', payload: results});
     }
     return null;
@@ -163,17 +163,19 @@ const Signup: React.FC<SignupProps> = () => {
           />
           <TextField
             hasMargin
-            containerStyle={{marginBottom:20}}
+            containerStyle={{ marginBottom: 20 }}
             style={[{ backgroundColor: card }, styles.passwordTextField]}
             value={confirmPass}
-            error={confirmPass!=password && confirmPass.length>1}
+            error={confirmPass != password && confirmPass.length > 1}
             onChangeText={(t: string) => setconfirmPass(t)}
             placeholder={T('registerScreen.password_confirm')}
             secureTextEntry={true}
           />
-          {User.error ? <Text isPrimary hasMargin
-          style={{marginVertical:10}}
-          >{User.error}</Text> : null}
+          {User.error ? (
+              <Text isPrimary hasMargin style={{ marginVertical: 10 }}>
+              {User.error}
+            </Text>
+            ) : null}
           <Button isFullWidth
             onPress={_onNextButtonPressed}
             style={styles.forgotPasswordButton}

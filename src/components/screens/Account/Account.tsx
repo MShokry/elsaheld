@@ -41,6 +41,7 @@ const Account: React.FC<AccountProps> = () => {
       DataBase.removeItem('language');
       DataBase.removeItem('walkThrough');
       DataBase.removeItem('userToken');
+      DataBase.removeItem('userToken');
     } catch (e) {
       console.log('Error Clearing Sorage', e);
     }

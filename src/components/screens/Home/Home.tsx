@@ -12,20 +12,24 @@ import { getHome } from '@src/utils/CartAPI';
 // import AppReviewModal from '@src/components/common/AppReviewModal';
 import { translate as T } from '@src/utils/LangHelper';
 import MainContext from '@src/context/auth-context';
+import { baseImages } from '@src/utils/APICONST';
 
 type HomeProps = {};
 
 const Home: React.FC<HomeProps> = () => {
-  const [
-    isNavigationTransitionFinished,
-    setIsNavigationTransitionFinished,
-  ] = React.useState(false);
-  const [Places, setPlaces] = React.useState({ error: '', results: [], loading: false });
+  const [isNavigationTransitionFinished, setIsNavigationTransitionFinished] =
+    React.useState(false);
+  const [Places, setPlaces] = React.useState({
+    error: '',
+    results: [],
+    loading: false,
+  });
   const [contextState, contextDispatch] = React.useContext(MainContext);
 
   const scrollViewRef = React.useRef(null);
 
   useScrollToTop(scrollViewRef);
+  console.log(contextState);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -43,8 +47,8 @@ const Home: React.FC<HomeProps> = () => {
         : 0,
       long: contextState.location?.longitude
         ? contextState.location?.longitude
-        : 0
-    }
+        : 0,
+    };
     getHome(rest, setPlaces);
   }, []);
   const Cats = Places.results || [];
@@ -52,13 +56,14 @@ const Home: React.FC<HomeProps> = () => {
     <SafeAreaView>
       <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
         <SearchBar placeholder={T('HomeScreen.search')} />
-        <PopularCategories list />
+        <PopularCategories />
+        <MerchantCampaigns />
+
         {isNavigationTransitionFinished ? (
           <>
-            {Cats.map((place) => {
-              return <Categories key={place.Name} place={place} />
-            })
-            }
+            {Cats.map(place => {
+              return <Categories place={place} />;
+            })}
             {/* <PopularPlaces /> */}
             {/* <MerchantCampaigns /> */}
             {/* <RecommendedPlaces /> */}

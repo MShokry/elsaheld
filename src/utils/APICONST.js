@@ -23,14 +23,18 @@ const api = create({
   timeout: 80 * 1000,
 });
 
-const handeResponse = (response) => {
+const handeResponse = response => {
   let error = '';
   let results = [];
   if (response.problem === 'NETWORK_ERROR') {
     error = 'No Internet Connection, Please Check';
   } else if (response.status >= 200 && response.status < 400) {
     results = response.data;
-    if (response.status >= 200 && response.status < 400 && response.Status == 1) {
+    if (
+      response.status >= 200 &&
+      response.status < 400 &&
+      response.Status == 1
+    ) {
       results = response.data.results;
     } else {
       error = results?.Errors;
@@ -66,7 +70,7 @@ export const POST = async (
   setState = () => {},
   showLoading = false,
 ) => {
-  console.log(api.headers);
+  // console.log(api.headers);
 
   let data = new FormData();
   try {
@@ -75,18 +79,14 @@ export const POST = async (
       // and a[keyName] to get its value
       data.append(keyName, body[keyName]);
     });
-  } catch (error) {console.log("Form",error);}
-  if(api.headers.json_email){
-    data.append("json_email", api.headers.json_email);
-    data.append("json_password", api.headers.json_password);
+  } catch (error) {
+    console.log('Form', error);
   }
-  await REQUESTING(
-    'POST',
-    url,
-    data,
-    setState,
-    showLoading,
-  );
+  if (api.headers.json_email) {
+    data.append('json_email', api.headers.json_email);
+    data.append('json_password', api.headers.json_password);
+  }
+  return REQUESTING('POST', url, data, setState, showLoading);
 };
 
 export const GET = async (
@@ -103,17 +103,13 @@ export const GET = async (
         // and a[keyName] to get its value
         data.append(keyName, body[keyName]);
       });
-    } catch (error) {console.log("Form",error);}
+    } catch (error) {
+      console.log('Form', error);
+    }
   }
   // REQUESTING('GET', url, body, setState, showLoading);
   console.log(api);
-  REQUESTING(
-    'GET',
-    `webService.php?do=${url}`,
-    data,
-    setState,
-    showLoading,
-  );
+  return REQUESTING('GET', `webService.php?do=${url}`, data, setState, showLoading);
 };
 
 export const PUT = async (
@@ -122,34 +118,71 @@ export const PUT = async (
   setState = () => {},
   showLoading = false,
 ) => {
-  REQUESTING('PUT', url, body, setState, showLoading);
+  return REQUESTING('PUT', url, body, setState, showLoading);
 };
 
-export const REQUESTING = async ( method = 'POST', url = '', body = null, setState = () => {}, showLoading,) => {
-  try {
-    if (!showLoading) {
-      setState((state) => ({error: '', results: state.results, loading: true}));
-    } else {
-      setState((state) => ({error: '',results: state.results,loading: false}));
-    }
-    let response;
-    switch (method) {
-      case 'POST':
-        response = await api.post(url, body);
-        break;
-      case 'PUT':
-        response = await api.put(url, body);
-        break;
-      default:
-        response = await api.get(url, body);
-    }
-    console.log(url, response);
-    const [error, results] = handeResponse(response);
-    Promise.resolve([results,error])
-    setState({results, error, loading: false});
-  } catch (err) {
-    console.log(err);
-    setState({error: 'Some Thing went Wrong', results: [], loading: false});
-  }
+export const REQUESTING = async (method = 'POST', url = '', body = null, setState = () => {}, params) => {
+  const {showLoading, usePagination, Append, forceData} = params;
+  return new Promise((resolve, reject) => {
+    (async () => {
+      try {
+        if (showLoading) {
+          setState(state => ({...state, error: '', loading: true, isRequesting: true, ...forceData}));
+        } else {
+          setState(state => ({...state, error: '', loading: false, isRequesting: true, ...forceData}));
+        }
+        let response;
+        switch (method) {
+          case 'POST':
+            response = await api.post(url, body);
+            break;
+          case 'PUT':
+            response = await api.put(url, body);
+            break;
+          case 'DELETE':
+            response = await api.delete(url, body);
+            break;
+          default:
+            response = await api.get(url, body);
+        }
+        console.log('URL=======', url, response);
+        const [error, results] = handeResponse(response);
+        if (usePagination && !!results.current_page && Array.isArray(results.data)) {
+          const {data, ...rest} = results;
+          if (Append) {
+            setState(state => ({
+              ...state,
+              results: [...state.results, ...data],
+              error,
+              loading: false,
+              isRequesting: false,
+              pagination: rest,
+            }));
+          } else {
+            setState(state => ({
+              ...state,
+              results: data,
+              error,
+              loading: false,
+              isRequesting: false,
+              pagination: rest,
+            }));
+          }
+        } else {
+          setState(state => ({...state, results, error, loading: false, isRequesting: false}));
+        }
+        if (error) {
+          reject(response);
+        } else {
+          resolve(results);
+        }
+      } catch (err) {
+        console.log('APIerr ', err);
+        setState(state => ({...state, error: 'Some Thing went Wrong', loading: false, isRequesting: false}));
+        reject(err);
+      }
+    })();
+  });
 };
+
 export default api;

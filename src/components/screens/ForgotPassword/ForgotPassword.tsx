@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {SafeAreaView, View, ScrollView, Alert} from 'react-native';
-import {Text, TextField, Button} from '@src/components/elements';
+import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
+import { Text, TextField, Button } from '@src/components/elements';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import styles from './styles';
 import EmailSentModal from './EmailSentModal';
@@ -8,7 +8,7 @@ import EmailSentModal from './EmailSentModal';
 type ForgotPasswordProps = {};
 
 const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
-  const {card} = useThemeColors();
+  const { card } = useThemeColors();
   const [email, setEmail] = React.useState('');
   const [sentEmailModalVisible, setSentEmailModalVisible] = React.useState(
     false,
@@ -31,20 +31,19 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.formContainer}>
           <Text isBold isHeadingTitle>
-            Forgot your password?
+            نسيت كلمة المرور؟
           </Text>
           <Text isSecondary hasMargin>
-            Please enter your email address and we'll send you a link to reset
-            your password
+            سيتم ارسال كلمة المرور الجديده الي هاتفك
           </Text>
           <TextField
             autoFocus
-            style={[{backgroundColor: card}, styles.emailTextField]}
+            style={[{ backgroundColor: card }, styles.emailTextField]}
             value={email}
             onChangeText={_onPasswordFieldChange}
             hasMargin
-            placeholder="Enter your email"
-            keyboardType="email-address"
+            placeholder="ادخل رقم الهاتف"
+            keyboardType='number-pad'
           />
         </View>
         <Button isFullWidth onPress={_onConfirmButtonPressed}>

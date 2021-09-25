@@ -10,6 +10,7 @@ type HeadingInformationProps = {
 
 const HeadingInformation: React.FC<HeadingInformationProps> = ({ data }) => {
   const { name, description } = data;
+
   return (
     <Card
       isSmallCover
@@ -29,6 +30,12 @@ const HeadingInformation: React.FC<HeadingInformationProps> = ({ data }) => {
         </Container>
       </Container>
       <Container style={styles.infoSection}>
+        <Text style={styles.label}>التليفون</Text>
+        <Container style={styles.coupon}>
+          <Text>{data?.phone_num1} {data?.phone_num2 ? ` - ${data?.phone_num2}` : ''}</Text>
+        </Container>
+      </Container>
+      {/* <Container style={styles.infoSection}>
         <Text style={styles.label}>كوبون خصم</Text>
         <Container>
           <Container style={styles.coupon}>
@@ -40,7 +47,7 @@ const HeadingInformation: React.FC<HeadingInformationProps> = ({ data }) => {
             <Text isPrimary>5% off for all items</Text>
           </Container>
         </Container>
-      </Container>
+      </Container> */}
     </Card>
   );
 };

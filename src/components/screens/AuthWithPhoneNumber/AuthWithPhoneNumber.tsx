@@ -9,7 +9,7 @@ type AuthWithPhoneNumberProps = {};
 
 const AuthWithPhoneNumber: React.FC<AuthWithPhoneNumberProps> = () => {
   const navigation = useNavigation();
-  const {card} = useThemeColors();
+  const { card } = useThemeColors();
   const [phoneNumber, setPhoneNumber] = React.useState('');
   const [isModalVisible, setIsModalVisible] = React.useState(false);
 
