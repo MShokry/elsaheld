@@ -3,5 +3,7 @@
     <style name="SplashTheme" parent="AppTheme">
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
+    <string name="facebook_app_id">Facebook App ID</string>
+    <string name="facebook_client_token">Facebook Client ID</string>
 </resources>
 
