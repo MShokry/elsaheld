@@ -23,7 +23,9 @@ import AuthProvider, { mainReducer } from '@src/components/common/AuthProvider/A
 import * as DataBase from '@src/utils/AsyncStorage';
 import * as Lang from './src/utils/LangHelper';
 import Geocoder from 'react-native-geocoding';
-Geocoder.init("AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA", {language : "ar"}); // use a valid API key
+//AIzaSyDJeAvHy9Sm9xE7QLVh4D3cg5a8AwOE-zc&amp;sensor=false&amp;libraries=places">
+// Geocoder.init("AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA", {language : "ar"}); // use a valid API key
+Geocoder.init("AIzaSyDJeAvHy9Sm9xE7QLVh4D3cg5a8AwOE-zc", {language : "ar"}); // use a valid API key
 
 Text.defaultProps = Text.defaultProps || {}
 Text.defaultProps.style =  { fontFamily: 'Cairo-Light' }

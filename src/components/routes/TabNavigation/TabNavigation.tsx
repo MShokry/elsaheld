@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HomeStack from '../Stacks/HomeStack';
 import AccountStack from '../Stacks/AccountStack';
@@ -7,6 +7,7 @@ import NotificationStack from '../Stacks/NotificationStack';
 import ActivityHistoryStack from '../Stacks/ActivityHistoryStack';
 import Documentation from '@src/components/screens/Documentation';
 import OrderHistory from '@src/components/screens/OrderHistory';
+import Villa from '@src/components/screens/Villa';
 
 type TabNavigationProps = {};
 type TabBarIconProps = {
@@ -15,11 +16,11 @@ type TabBarIconProps = {
   size: number;
 };
 const Tab = createBottomTabNavigator();
-const { Navigator } = Tab;
+const {Navigator} = Tab;
 
 const renderTabBarIcon = (routeName: string) => {
   return (props: TabBarIconProps) => {
-    const { color } = props;
+    const {color} = props;
     let iconName = 'home';
     switch (routeName) {
       case 'Explore':
@@ -31,9 +32,12 @@ const renderTabBarIcon = (routeName: string) => {
       case 'Notifications':
         iconName = 'bell';
         break;
+      case 'Car':
+        iconName = 'taxi';
+        break;
       case 'MyOrders':
-          iconName = 'shopping-cart';
-          break;
+        iconName = 'shopping-cart';
+        break;
       case 'Account':
         iconName = 'user';
         break;
@@ -51,25 +55,51 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
   return (
     <Navigator
       initialRouteName="Home"
-      screenOptions={(props) => {
+      screenOptions={props => {
         const {
-          route: { name: routeName },
+          route: {name: routeName},
         } = props;
         return {
           tabBarIcon: renderTabBarIcon(routeName),
         };
       }}>
-      <Tab.Screen options={{
-        tabBarLabel: 'القائمة',
-      }} name="Explore" component={HomeStack} />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'القائمة',
+        }}
+        name="Explore"
+        component={HomeStack}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'شالية',
+        }}
+        name="House"
+        component={Villa}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'مشوار',
+        }}
+        name="Car"
+        component={NotificationStack}
+      />
       {/* <Tab.Screen name="Activity" component={ActivityHistoryStack} /> */}
-      <Tab.Screen options={{
-        tabBarLabel: 'طلباتي',
-      }} name="MyOrders" component={OrderHistory} />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'طلباتي',
+        }}
+        name="MyOrders"
+        component={OrderHistory}
+      />
       {/* <Tab.Screen name="Notifications" component={NotificationStack} /> */}
-      <Tab.Screen options={{
-        tabBarLabel: 'الحساب',
-      }} name="Account" component={AccountStack} />
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'الحساب',
+        }}
+        name="Account"
+        component={AccountStack}
+      />
       {/* <Tab.Screen name="Documentation" component={Documentation} /> */}
     </Navigator>
   );

@@ -1,24 +1,17 @@
-import React, { useEffect, useContext } from 'react';
-import {
-  ActivityIndicator,
-  View,
-  Image,
-  Dimensions,
-  I18nManager,
-} from 'react-native';
+import React, {useEffect, useContext} from 'react';
+import {ActivityIndicator, View, Image, Dimensions, I18nManager} from 'react-native';
 
 import api from '@src/utils/APICONST.js';
 import MainContext from '@src/context/auth-context.ts';
 import * as DataBase from '@src/utils/AsyncStorage';
 import LottieView from 'lottie-react-native';
-import { CommonActions } from '@react-navigation/native';
+import {CommonActions} from '@react-navigation/native';
 // import * as Lang from '../utils/LangHelper';
 // import { firebase } from '@react-native-firebase/messaging';
 
+const {width, height} = Dimensions.get('window');
 
-const { width, height } = Dimensions.get('window');
-
-const AuthLoading = ({ navigation }) => {
+const AuthLoading = ({navigation}) => {
   const [contextState, contextDispatch] = useContext(MainContext);
   let fcmToken;
   // Fetch the token from storage then navigate to our appropriate place
@@ -47,38 +40,37 @@ const AuthLoading = ({ navigation }) => {
   //   contextDispatch({ type: 'fcmToken', payload: fcmToken });
   //   _bootstrapAsync();
   // };
-  const _navAuth = (name) => {
+  const _navAuth = name => {
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
-        routes: [
-          { name },
-        ],
-      }));
-  }
+        routes: [{name}],
+      }),
+    );
+  };
   const _bootstrapAsync = async () => {
     let T = '';
     console.log('Loading Storage');
     const langSymbol = (await DataBase.getItem('language')) || 'ar';
     I18nManager.forceRTL(langSymbol === 'ar');
-    contextDispatch({ type: 'SetLang', payload: langSymbol });
+    contextDispatch({type: 'SetLang', payload: langSymbol});
     console.log('langSymbol', langSymbol);
     const walkThrough = await DataBase.getItem('walkThrough');
     if (walkThrough === 'Done') {
-      contextDispatch({ type: 'walkThrough', payload: 0 });
+      contextDispatch({type: 'walkThrough', payload: 0});
     } else {
-      contextDispatch({ type: 'walkThrough', payload: 1 });
+      contextDispatch({type: 'walkThrough', payload: 1});
     }
     const U = await DataBase.getItem('userToken');
     console.log('U', U);
     if (U !== undefined && U !== null) {
       console.log('Finding Token');
       try {
-        const { user } = JSON.parse(U);
+        const {user} = JSON.parse(U);
         T = user;
         if (T) {
           console.log('token', T);
-          contextDispatch({ type: 'LogUser', payload: user });
+          contextDispatch({type: 'LogUser', payload: user});
           api.setHeaders({
             authorization: T ? T : undefined,
             Accept: 'application/json',
@@ -91,10 +83,10 @@ const AuthLoading = ({ navigation }) => {
             fcmToken: fcmToken ? fcmToken : undefined,
           });
           console.log('Auth NAvigate');
-          contextDispatch({ type: 'StopLoading' });
+          contextDispatch({type: 'StopLoading'});
           // navigation.navigate('Main')
           if (user.active == 'no') {
-            navigation.navigate('Auth', { screen: 'AuthVerificationCodeScreen' });
+            navigation.navigate('Auth', {screen: 'AuthVerificationCodeScreen'});
           } else {
             _navAuth('Main');
           }
@@ -115,25 +107,17 @@ const AuthLoading = ({ navigation }) => {
 
   useEffect(() => {
     try {
-      __DEV__ ?
-        setTimeout(_bootstrapAsync, 500) : setTimeout(_bootstrapAsync, 3000);
+      __DEV__ ? setTimeout(_bootstrapAsync, 500) : setTimeout(_bootstrapAsync, 3000);
       // setTimeout(_bootstrapAsync, 500);
     } catch (error) {
-      contextDispatch({ type: 'StopLoading' });
+      contextDispatch({type: 'StopLoading'});
       console.log('Error', error);
     }
   }, []);
   return (
     <>
-      <View
-        style={{ flex: 1, alignItems: 'center', alignContent: 'center' }}
-        colors={['#eadccf', '#526b7d']}
-      >
-        <Image
-          style={{ width: width * .5 }}
-          resizeMode="contain"
-          source={require('@src/assets/app/app_icon.png')}
-        />
+      <View style={{flex: 1, alignItems: 'center', alignContent: 'center'}} colors={['#eadccf', '#526b7d']}>
+        <Image style={{width: width * 0.5}} resizeMode="contain" source={require('@src/assets/app/app_icon.png')} />
         {/* <LottieView
           source={require('@src/assets/animations/elsahel1.json')}
           autoPlay

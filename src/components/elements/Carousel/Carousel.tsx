@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Dimensions, I18nManager, Platform} from 'react-native';
+import { View, Dimensions, I18nManager, Platform } from 'react-native';
 import SnapCarousel, {
   AdditionalParallaxProps,
   Pagination,
@@ -29,6 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({
   itemWidth,
   inactiveSlideOpacity,
   enableSnap,
+  sliderWidth,
 }) => {
   const [activeSlide, setActiveSlide] = React.useState(0);
 
@@ -66,7 +67,7 @@ const Carousel: React.FC<CarouselProps> = ({
           <SnapCarousel
             data={data}
             renderItem={renderCarouselItem}
-            sliderWidth={Dimensions.get('window').width}
+            sliderWidth={sliderWidth ? sliderWidth : Dimensions.get('window').width}
             itemWidth={itemWidth}
             onSnapToItem={onCarouselSnapToItem}
             inactiveSlideOpacity={inactiveSlideOpacity}

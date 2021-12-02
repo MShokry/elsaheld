@@ -1,19 +1,21 @@
 import * as React from 'react';
-import {View, ViewProps} from 'react-native';
-import {useTheme} from '@react-navigation/native';
+import { ActivityIndicator, View, ViewProps } from 'react-native';
+import { useTheme } from '@react-navigation/native';
 
 interface OwnProps {
   children?: React.ReactNode;
+  isLoading?: boolean,
 }
 
 type ContainerProps = OwnProps & ViewProps;
 
-const Container: React.FC<ContainerProps> = ({children, style, ...rest}) => {
+const Container: React.FC<ContainerProps> = ({ children, style, isLoading, ...rest }) => {
   const {
-    colors: {card},
+    colors: { card },
   } = useTheme();
   return (
-    <View style={[{backgroundColor: card}, style]} {...rest}>
+    <View style={[{ backgroundColor: card }, style]} {...rest}>
+      {isLoading && <ActivityIndicator size='large' />}
       {children}
     </View>
   );

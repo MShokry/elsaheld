@@ -1,20 +1,6 @@
 import * as React from 'react';
-import {
-  Container,
-  Icon,
-  Divider,
-  SearchBar,
-  Button,
-  Text,
-} from '@src/components/elements';
-import {
-  ScrollView,
-  Image,
-  View,
-  Alert,
-  AlertButton,
-  I18nManager,
-} from 'react-native';
+import {Container, Icon, Divider, SearchBar, Button, Text} from '@src/components/elements';
+import {ScrollView, Image, View, Alert, AlertButton, I18nManager} from 'react-native';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import {profile} from '@src/data/mock-profile';
 import styles from './styles';
@@ -22,7 +8,7 @@ import {CommonActions, useNavigation} from '@react-navigation/native';
 import AuthContext from '@src/context/auth-context';
 import * as DataBase from '@src/utils/AsyncStorage';
 import api from '@src/utils/APICONST';
-import { translate as T } from '@src/utils/LangHelper';
+import {translate as T} from '@src/utils/LangHelper';
 
 type AccountProps = {};
 
@@ -32,9 +18,9 @@ const Account: React.FC<AccountProps> = () => {
   const [contextState, contextDispatch] = React.useContext(AuthContext);
   const {userToken} = contextState;
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
-  const user = contextState.user?.user||{};
+  const user = contextState.user?.user || {};
   console.log(user);
-  
+
   const _signOutAsync = async () => {
     // await logoutUser(fcmToken, setUser);
     try {
@@ -50,11 +36,10 @@ const Account: React.FC<AccountProps> = () => {
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
-        routes: [
-          { name:'Auth' },
-        ],
-      }));
-    contextDispatch({ type: 'LogOutUser' });
+        routes: [{name: 'Auth'}],
+      }),
+    );
+    contextDispatch({type: 'LogOutUser'});
   };
 
   const alertButtons: AlertButton[] = [
@@ -75,8 +60,8 @@ const Account: React.FC<AccountProps> = () => {
       {/* <Divider /> */}
       <Container>
         <ListRowItem
-          title={`مرحبا ${user?.name?user?.name:'' }`}
-          subTitle={user?.phone?user?.phone:'٠١' }
+          title={`مرحبا ${user?.name ? user?.name : ''}`}
+          subTitle={user?.phone ? user?.phone : '٠١'}
           onPress={() => navigation.navigate('EditProfileScreen')}
           // leftIcon={
           //   <Image source={profile.avatar} style={styles.profileAvatar} />
@@ -96,6 +81,12 @@ const Account: React.FC<AccountProps> = () => {
         <ListRowItem
           title="العناوين"
           onPress={() => navigation.navigate('SavedAddressesScreen')}
+          rightIcon={<Icon name={chevronIconName} />}
+        />
+        <Divider />
+        <ListRowItem
+          title="الطلبات"
+          onPress={() => navigation.navigate('OrderHistoryScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
@@ -120,7 +111,7 @@ const Account: React.FC<AccountProps> = () => {
       <View style={styles.buttonContainer}>
         <Button isFullWidth isTransparent onPress={onLogoutButtonPressed}>
           <Text isBold isPrimary>
-          {T('SideBar.logout')}
+            {T('SideBar.logout')}
           </Text>
         </Button>
       </View>

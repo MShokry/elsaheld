@@ -1,18 +1,17 @@
 import * as React from 'react';
-import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
-import { Text, TextField, Button } from '@src/components/elements';
+import {SafeAreaView, View, ScrollView, Alert} from 'react-native';
+import {Text, TextField, Button} from '@src/components/elements';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import styles from './styles';
 import EmailSentModal from './EmailSentModal';
+import {sendPassword} from '@src/utils/UsersAPI';
 
 type ForgotPasswordProps = {};
 
 const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
-  const { card } = useThemeColors();
+  const {card} = useThemeColors();
   const [email, setEmail] = React.useState('');
-  const [sentEmailModalVisible, setSentEmailModalVisible] = React.useState(
-    false,
-  );
+  const [sentEmailModalVisible, setSentEmailModalVisible] = React.useState(false);
 
   const _onPasswordFieldChange = (value: string) => {
     setEmail(value);
@@ -20,10 +19,10 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
 
   const _onConfirmButtonPressed = () => {
     if (!email) {
-      Alert.alert('Error', 'Please enter your email!');
+      Alert.alert('Error', 'يرجي ادخال رقم الهاتف');
       return;
     }
-    setSentEmailModalVisible(true);
+    sendPassword({username: email}).then(() => setSentEmailModalVisible(true));
   };
 
   return (
@@ -38,22 +37,21 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
           </Text>
           <TextField
             autoFocus
-            style={[{ backgroundColor: card }, styles.emailTextField]}
+            style={[{backgroundColor: card}, styles.emailTextField]}
             value={email}
             onChangeText={_onPasswordFieldChange}
             hasMargin
             placeholder="ادخل رقم الهاتف"
-            keyboardType='number-pad'
+            keyboardType="number-pad"
           />
         </View>
         <Button isFullWidth onPress={_onConfirmButtonPressed}>
-          <Text isBold>Confirm</Text>
+          <Text isWhite isBold>
+            تاكيد
+          </Text>
         </Button>
       </ScrollView>
-      <EmailSentModal
-        isVisible={sentEmailModalVisible}
-        setIsVisble={setSentEmailModalVisible}
-      />
+      <EmailSentModal isVisible={sentEmailModalVisible} setIsVisble={setSentEmailModalVisible} />
     </SafeAreaView>
   );
 };

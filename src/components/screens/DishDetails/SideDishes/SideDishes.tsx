@@ -92,7 +92,7 @@ const SideDishes: React.FC<SideDishesProps> = ({
   // React.useEffect(() => {
   //   onCheckBoxPress(checked, { ...dish, 'Amount': qty }, section?.type == 1 ? section?.OptionsList : [])
   // }, []);
-  // [ ] ToDo default_choice
+  // [x] ToDo default_choice
   return (
     <View>
       {MenuListOptions?.map((section, sectionIndex) => (

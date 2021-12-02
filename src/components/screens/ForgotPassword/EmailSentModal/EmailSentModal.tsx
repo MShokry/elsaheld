@@ -11,10 +11,7 @@ type EmailSentModalProps = {
   setIsVisble: (value: React.SetStateAction<boolean>) => void;
 };
 
-const EmailSentModal: React.FC<EmailSentModalProps> = ({
-  isVisible,
-  setIsVisble,
-}) => {
+const EmailSentModal: React.FC<EmailSentModalProps> = ({isVisible, setIsVisble}) => {
   const navigation = useNavigation();
   const fadeIn = React.useRef(new Animated.Value(0)).current;
   const fadeOut = React.useRef(new Animated.Value(1)).current;
@@ -54,24 +51,20 @@ const EmailSentModal: React.FC<EmailSentModalProps> = ({
             style={styles.lottieView}
           />
           {!isAnimationFinished && (
-            <Animated.View
-              style={[styles.processingOrderContainer, {opacity: fadeOut}]}>
+            <Animated.View style={[styles.processingOrderContainer, {opacity: fadeOut}]}>
               <Text isBold>Sending an email to you...</Text>
             </Animated.View>
           )}
-          <Animated.View
-            style={[styles.successMessageContainer, {opacity: fadeIn}]}>
+          <Animated.View style={[styles.successMessageContainer, {opacity: fadeIn}]}>
             <Text isHeadingTitle isBold isPrimary>
               Check in your email!
             </Text>
             <Text isCenter style={styles.successMessage}>
-              We've just emailed you with the instructions to reset your
-              password.
+              We've just emailed you with the instructions to reset your password.
             </Text>
           </Animated.View>
         </View>
-        <Animated.View
-          style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
+        <Animated.View style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
           <Button isFullWidth onPress={_onBackToLoginButtonPressed}>
             <Text isWhite isBold>
               Back to Login

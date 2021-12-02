@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import api, {PUT, POST, GET} from './APICONST';
 
-const handeResponse = (response) => {
+const handeResponse = response => {
   let error = '';
   let results = [];
   if (response.problem === 'NETWORK_ERROR') {
@@ -77,7 +77,6 @@ export const logUserApple = async ([user, state, setState]) => {
   }
 };
 
-
 export const updateUser = async ([user, state, setState]) => {
   try {
     setState({error: '', results: [], loading: true});
@@ -97,10 +96,13 @@ export const updateUser = async ([user, state, setState]) => {
   }
 };
 
-
 export const logUser = async (user, setState) => {
   POST('siteAPI.php?json=true', user, setState);
 };
+export const sendPassword = async (user, setState) => {
+  POST('siteAPI.php?json=true&do=sendPassword', user, setState);
+};
+
 export const verifyUserPhone = async (user, setState) => {
   return POST('webService.php?do=activation_code', user, setState);
   // return POST('siteAPI.php?json=true&do=activation_code', user, setState);
@@ -115,23 +117,23 @@ export const registerUser = async (user, setState) => {
   POST('siteAPI.php?json=true', user, setState);
 };
 
-export const logoutUser = async (setState) => {
-  POST('/auth/logout',{}, setState);
+export const logoutUser = async setState => {
+  POST('/auth/logout', {}, setState);
 };
 
-export const logMe = async (setState) => {
+export const logMe = async setState => {
   GET('/auth/beldoor', {}, {authData: setState});
 };
 
-export const getTerms = async (setState) => {
-  GET('/sign-up/term-&-condition',{}, setState);
+export const getTerms = async setState => {
+  GET('/sign-up/term-&-condition', {}, setState);
 };
 
 export const confirmOTP = async (user, setState) => {
   POST(`/sign-up/verify-otp?key=${user.key}`, user, setState);
 };
 
-export const forgetPass = async (user,  setState) => {
+export const forgetPass = async (user, setState) => {
   POST('/forget-password/otp', user, setState);
 };
 export const confirmOTPPass = async (user, setState) => {

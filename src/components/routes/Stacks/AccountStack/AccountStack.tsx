@@ -11,22 +11,24 @@ import SupportCenter from '@src/components/screens/SupportCenter';
 import SelectLocationScreen from '@src/components/screens/SelectLocation';
 import {ScreenNavigationProps} from '../types';
 import styles from './styles';
+import AuthContext from '@src/context/auth-context';
 
 type AccountStackProps = {} & ScreenNavigationProps;
 const Stack = createStackNavigator();
 
-const AccountStack: React.FC<AccountStackProps> = (props) => {
+const AccountStack: React.FC<AccountStackProps> = props => {
   const {navigation} = props;
+  const [contextState, contextDispatch] = React.useContext(AuthContext);
+  const isLogin = contextState.user?.user?.id;
+  console.log(contextState);
+
   const _renderAddAddressHeaderRight = () => {
-    return (
-      <Icon
-        name="map"
-        size={18}
-        isPrimary
-        onPress={() => navigation.navigate('SelectLocationScreen')}
-      />
-    );
+    return <Icon name="map" size={18} isPrimary onPress={() => navigation.navigate('SelectLocationScreen')} />;
   };
+
+  if (!isLogin) {
+    // navigation.navigate('Auth');
+  }
 
   return (
     <Stack.Navigator initialRouteName="AccountScreen">

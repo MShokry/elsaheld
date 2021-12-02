@@ -38,7 +38,8 @@ const Basket: React.FC<BasketProps> = () => {
       prevValue + parseFloat(currentValue.subtotalPrice),
     0,
   );
-  const shippingFee = resturant?.ShippingCost || 0;
+  
+  const shippingFee = parseFloat(resturant?.ShippingCost) || 0;
   const _removeIdx = idx => {
     const items = cartItems;
     console.log('itemsb4', items, idx);

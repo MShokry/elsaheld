@@ -5,8 +5,8 @@ import AuthContext from '@src/context/auth-context';
 // export const baseURL = 'https://www.ebda3-eg.com/Elsahel/include/';
 // export const baseImages = 'https://www.ebda3-eg.com/Elsahel/uploads/';
 
-export const baseURL = 'https://www.ebda3-eg.com/arrivo/include/';
-export const baseImages = 'https://www.ebda3-eg.com/arrivo/uploads/';
+export const baseURL = 'https://elsahel.co/include/';
+export const baseImages = 'https://elsahel.co/uploads/';
 
 // 'Content-type': 'application/json',
 export const headers = {
@@ -46,7 +46,7 @@ const handeResponse = response => {
       console.log('string');
       error = response.data;
     } else if ('Errors' in response.data) {
-      error = response.data.Errors;
+      error = response.data?.Errors;
     } else {
       error = 'Some Thing went Wrong';
     }
@@ -55,7 +55,7 @@ const handeResponse = response => {
       error = 'Invalid email or password.';
     }
     if (response.status === 402) {
-      error = response.data.Errors;
+      error = response.data?.Errors;
     }
     console.log('Server Replied with errors', response.data.length);
   } else if (response.status >= 500) {
@@ -68,9 +68,8 @@ export const POST = async (
   url = '',
   body = null,
   setState = () => {},
-  showLoading = false,
+  params = {showLoading: true, usePagination: false, Append: true, isForm: false},
 ) => {
-  // console.log(api.headers);
 
   let data = new FormData();
   try {
@@ -86,14 +85,14 @@ export const POST = async (
     data.append('json_email', api.headers.json_email);
     data.append('json_password', api.headers.json_password);
   }
-  return REQUESTING('POST', url, data, setState, showLoading);
+  return REQUESTING('POST', url, data, setState, params);
 };
 
 export const GET = async (
   url = '',
   body = null,
   setState = () => {},
-  showLoading = false,
+  params = {showLoading: true, usePagination: false, Append: true, isForm: false},
 ) => {
   let data = new FormData();
   if (body) {
@@ -109,7 +108,7 @@ export const GET = async (
   }
   // REQUESTING('GET', url, body, setState, showLoading);
   console.log(api);
-  return REQUESTING('GET', `webService.php?do=${url}`, data, setState, showLoading);
+  return REQUESTING('GET', url, data, setState, params);
 };
 
 export const PUT = async (
@@ -121,8 +120,23 @@ export const PUT = async (
   return REQUESTING('PUT', url, body, setState, showLoading);
 };
 
+export const ConvertToForm = item => {
+  let data = new FormData();
+  try {
+    Object.keys(item).map(function (keyName, keyIndex) {
+      // use keyName to get current key's name
+      // and a[keyName] to get its value
+      data.append(keyName, item[keyName]);
+    });
+    return data;
+  } catch (error) {
+    console.log('Form', error);
+    return item;
+  }
+};
+
 export const REQUESTING = async (method = 'POST', url = '', body = null, setState = () => {}, params) => {
-  const {showLoading, usePagination, Append, forceData} = params;
+  const {showLoading, usePagination, Append, forceData, isForm} = params;
   return new Promise((resolve, reject) => {
     (async () => {
       try {
@@ -132,18 +146,19 @@ export const REQUESTING = async (method = 'POST', url = '', body = null, setStat
           setState(state => ({...state, error: '', loading: false, isRequesting: true, ...forceData}));
         }
         let response;
+        const bodyModified = isForm ? ConvertToForm(body) : body;
         switch (method) {
           case 'POST':
-            response = await api.post(url, body);
+            response = await api.post(url, bodyModified);
             break;
           case 'PUT':
-            response = await api.put(url, body);
+            response = await api.put(url, bodyModified);
             break;
           case 'DELETE':
-            response = await api.delete(url, body);
+            response = await api.delete(url, bodyModified);
             break;
           default:
-            response = await api.get(url, body);
+            response = await api.get(url, bodyModified);
         }
         console.log('URL=======', url, response);
         const [error, results] = handeResponse(response);

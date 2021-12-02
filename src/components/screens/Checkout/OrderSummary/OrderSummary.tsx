@@ -55,18 +55,18 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
             <>
               <View key={cartItemIndex} style={styles.menuContainer}>
                 <View style={styles.menuInfo}>
-                  {photo && <Image style={styles.image} source={{ uri: `${baseImages}${photo}` }} />}
+                  {!!photo && <Image style={styles.image} source={{ uri: `${baseImages}${photo}` }} />}
                   <Text style={styles.quantityText}>x{`${cartItem.qty}`} </Text>
                   <View key={cartItemIndex}>
                     <Text style={styles.mainDishText} isBold>
-                      {cartItem.dish.name}
+                      {cartItem.dish?.name || ' '}
                     </Text>
-                    {cartItem.sideDishes.map((dish, dishIndex) => (
+                    {cartItem.sideDishes?.map((dish, dishIndex) => (
                       <Text
                         isSecondary
                         key={dishIndex}
                         style={styles.sideDishText}>
-                        {dish.Amount}{' '}{dish.name}
+                        {dish?.Amount}{' '}{dish?.name}
                       </Text>
                     ))}
                   </View>

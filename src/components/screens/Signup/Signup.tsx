@@ -26,7 +26,7 @@ const Signup: React.FC<SignupProps> = () => {
   const [User, setUser] = React.useState({ error: '', results: [], loading: false });
   const [contextState, contextDispatch] = React.useContext(AuthContext);
   const [lang, setlang] = React.useState(contextState.Lang);
-  console.log(contextState);
+  // console.log(contextState);
   const myRef = React.useRef(null);
   const phoneInput = React.useRef(null);
 
@@ -46,7 +46,7 @@ const Signup: React.FC<SignupProps> = () => {
     navigation.navigate('LoginScreen');
   };
 
-  console.log(User);
+  // console.log(User);
 
   const loggedUser = async () => {
     const { results } = User;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useTheme} from '@react-navigation/native';
+import { useTheme } from '@react-navigation/native';
 import {
   TouchableOpacity,
   TouchableOpacityProps,
@@ -34,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   const {
-    colors: {primary: baseBackgroundColor},
+    colors: { primary: baseBackgroundColor },
   } = useTheme();
   let buttonBackgroundColor = backgroundColor || baseBackgroundColor;
   let buttonBorderColor = backgroundColor || baseBackgroundColor;
@@ -86,11 +86,8 @@ const Button: React.FC<ButtonProps> = ({
           },
           childrenContainerStyle,
         ]}>
-        {isLoading ? (
-          <ActivityIndicator size="small" color="white" />
-        ) : (
-          children
-        )}
+        {isLoading ? (<ActivityIndicator size="small" color="white" />) : null}
+        {children}
       </View>
     </TouchableOpacity>
   );

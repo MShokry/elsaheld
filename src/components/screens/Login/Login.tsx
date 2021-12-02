@@ -1,21 +1,15 @@
 import * as React from 'react';
-import { SafeAreaView, View, ScrollView, Alert, Image } from 'react-native';
-import {
-  Text,
-  TextField,
-  Button,
-  Touchable,
-  Icon,
-} from '@src/components/elements';
+import {SafeAreaView, View, ScrollView, Alert, Image} from 'react-native';
+import {Text, TextField, Button, Touchable, Icon} from '@src/components/elements';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import styles from './styles';
 import AuthContext from '@src/context/auth-context';
-import { CommonActions, useNavigation } from '@react-navigation/native';
-import { logUser } from '@src/utils/UsersAPI';
+import {CommonActions, useNavigation} from '@react-navigation/native';
+import {logUser} from '@src/utils/UsersAPI';
 import api from '@src/utils/APICONST';
 import * as DataBase from '@src/utils/AsyncStorage';
 import SwitchSelector from 'react-native-switch-selector';
-import { translate as T } from '@src/utils/LangHelper';
+import {translate as T} from '@src/utils/LangHelper';
 // import { log } from 'react-native-reanimated';
 
 type LoginProps = {};
@@ -23,7 +17,7 @@ type LoginProps = {};
 const Login: React.FC<LoginProps> = () => {
   const navigation = useNavigation();
   // const {signIn} = React.useContext(AuthContext);
-  const { card, primary, background } = useThemeColors();
+  const {card, primary, background} = useThemeColors();
   const [show, setShow] = React.useState(true);
   const isDev = __DEV__;
   const [password, setPassword] = React.useState(isDev ? '123456789' : '');
@@ -48,7 +42,7 @@ const Login: React.FC<LoginProps> = () => {
       Alert.alert('Error', 'Please enter your password!');
       return;
     }
-    logUser({ username: phoneNumber, password, do: 'SignIn' }, setUser);
+    logUser({username: phoneNumber, password, do: 'SignIn'}, setUser);
   };
   const _onForgotPasswordButtonPressed = () => {
     navigation.navigate('ForgotPasswordScreen');
@@ -57,12 +51,12 @@ const Login: React.FC<LoginProps> = () => {
     navigation.navigate('SignupScreen');
   };
   const _skip = () => {
-    contextDispatch({ type: 'skipLogUser', payload: 'Test' });
+    contextDispatch({type: 'skipLogUser', payload: 'Test'});
     navigation.navigate('Main');
   };
 
   const loggedUser = async () => {
-    const { results } = User;
+    const {results} = User;
     console.log('User is Logging');
     const fcmToken = null;
     if (results.Status == 1) {
@@ -79,10 +73,10 @@ const Login: React.FC<LoginProps> = () => {
         json_password: results.Result?.password,
         fcmToken: fcmToken ? fcmToken : undefined,
       });
-      const U = { user: results.Result };
+      const U = {user: results.Result};
       DataBase.setItem('userToken', JSON.stringify(U));
       console.log('Welcome USER');
-      await contextDispatch({ type: 'LogUser', payload: results.Result });
+      await contextDispatch({type: 'LogUser', payload: results.Result});
       // navigation.navigate('Main');
       if (results?.Result?.active == 'no') {
         navigation.navigate('AuthVerificationCodeScreen');
@@ -90,7 +84,7 @@ const Login: React.FC<LoginProps> = () => {
         navigation.dispatch(
           CommonActions.reset({
             index: 0,
-            routes: [{ name: 'Main' }],
+            routes: [{name: 'Main'}],
           }),
         );
       }
@@ -109,14 +103,14 @@ const Login: React.FC<LoginProps> = () => {
     console.log('language change', lang);
     const saveLang = async () => {
       await DataBase.setItem('language', lang);
-      contextDispatch({ type: 'SetLang', payload: lang });
+      contextDispatch({type: 'SetLang', payload: lang});
     };
     saveLang();
   }, [lang]);
 
   const options = [
-    { label: 'EN', value: 'en' },
-    { label: 'AR', value: 'ar' },
+    {label: 'EN', value: 'en'},
+    {label: 'AR', value: 'ar'},
   ];
   const pos = options
     .map(e => {
@@ -139,24 +133,17 @@ const Login: React.FC<LoginProps> = () => {
             onPress={value => setlang(value)}
           />
         </View>
-        <Button
-          isTransparent
-          style={{ position: 'absolute', left: 0, top: 0, width: 100 }}
-          onPress={_skip}>
+        <Button isTransparent style={{position: 'absolute', left: 0, top: 0, width: 100}} onPress={_skip}>
           <Text>{T('sliderScreen.skip_button')}</Text>
         </Button>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <View style={styles.appIconContainer}>
-            <Image
-              source={require('@src/assets/app/app_icon.png')}
-              style={styles.appIcon}
-              resizeMode="contain"
-            />
+            <Image source={require('@src/assets/app/app_icon.png')} style={styles.appIcon} resizeMode="contain" />
 
             {/* <Container style={styles.loginMethodContainer}> */}
             <View>
               <TextField
-                style={[{ backgroundColor: card }, styles.phoneNumberTextField]}
+                style={[{backgroundColor: card}, styles.phoneNumberTextField]}
                 value={phoneNumber}
                 onChangeText={(t: string) => setPhoneNumber(t)}
                 hasMargin
@@ -164,13 +151,9 @@ const Login: React.FC<LoginProps> = () => {
                 keyboardType="phone-pad"
                 autoFocus
               />
-              <View style={{ height: 10 }} />
+              <View style={{height: 10}} />
               <TextField
-                style={[
-                  { backgroundColor: card, marginTop: 10 },
-                  styles.passwordTextField,
-                  { width: '90%' },
-                ]}
+                style={[{backgroundColor: card, marginTop: 10}, styles.passwordTextField, {width: '90%'}]}
                 leftIcon={show ? 'eye' : 'eye-slash'}
                 hasMargin
                 leftIconSize={16}
@@ -214,11 +197,7 @@ const Login: React.FC<LoginProps> = () => {
               style={styles.forgotPasswordButton}>
               <Text>{T('loginScreen.forget_password')}</Text>
             </Button>
-            <Button
-              isFullWidth
-              isTransparent
-              onPress={_onSignUpButtonPressed}
-              style={styles.forgotPasswordButton}>
+            <Button isFullWidth isTransparent onPress={_onSignUpButtonPressed} style={styles.forgotPasswordButton}>
               <Text>{T('loginScreen.no_account')}</Text>
             </Button>
           </View>

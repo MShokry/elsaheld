@@ -1,17 +1,12 @@
 import * as React from 'react';
-import { useNavigation } from '@react-navigation/native';
-import {
-  Carousel,
-  Section,
-  Card,
-  LoadingIndicator,
-} from '@src/components/elements';
-import { Dimensions } from 'react-native';
-import { Resturant } from '@src/data/mock-places';
+import {useNavigation} from '@react-navigation/native';
+import {Carousel, Section, Card, LoadingIndicator} from '@src/components/elements';
+import {Dimensions} from 'react-native';
+import {Resturant} from '@src/data/mock-places';
 import PlaceCardInfo from '@src/components/common/PlaceCardInfo';
-import { translate as T } from '@src/utils/LangHelper';
+import {translate as T} from '@src/utils/LangHelper';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
-import { baseImages } from '@src/utils/APICONST';
+import {baseImages} from '@src/utils/APICONST';
 
 // import AuthContext from '@src/context/auth-context';
 // import * as DataBase from '@src/utils/AsyncStorage';
@@ -23,20 +18,20 @@ type CategoriesProps = {
   list?: boolean;
 };
 
-const Categories: React.FC<CategoriesProps> = ({ place, list }) => {
+const Categories: React.FC<CategoriesProps> = ({place, list}) => {
   console.log(place);
 
-  const { card, primary, background } = useThemeColors();
-  const [Places, setPlaces] = React.useState({ error: '', results: place?.Restaurants || [], loading: false });
+  const {card, primary, background} = useThemeColors();
+  const [Places, setPlaces] = React.useState({error: '', results: place?.Restaurants || [], loading: false});
   // const [contextState, contextDispatch] = React.useContext(AuthContext);
 
   const navigation = useNavigation();
 
   const _onButtonActionPressed = () => {
-    navigation.navigate('PlaceListScreen', { title: 'Popular Near You' });
+    navigation.navigate('PlaceListScreen', {title: 'Popular Near You'});
   };
 
-  const _onPlaceItemPressed = (item) => {
+  const _onPlaceItemPressed = item => {
     navigation.navigate('PlaceDetailsScreen', item);
   };
 
@@ -44,24 +39,23 @@ const Categories: React.FC<CategoriesProps> = ({ place, list }) => {
     // getRestaurants(setPlaces);
   }, []);
   if (Places.loading) {
-    return (<LoadingIndicator size="large" hasMargin />)
+    return <LoadingIndicator size="large" hasMargin />;
   }
   return (
     <Section
-      title={place?.Name || "Popular Near You"}
-    // actionButtonText="View more"
-    // onButtonActionPressed={_onButtonActionPressed}
+      title={place?.Name || 'Popular Near You'}
+      // actionButtonText="View more"
+      // onButtonActionPressed={_onButtonActionPressed}
     >
-
       <Carousel
         data={Places.results}
         hasParallaxImages
         itemWidth={Dimensions.get('window').width / 2.1}
         renderContent={(item: Resturant, index, parallaxProps) => {
-          const { photo, name, details } = item;
+          const {photo, name, details} = item;
           return (
             <Card
-              coverImage={{ uri: `${baseImages}${photo}` }}
+              coverImage={{uri: `${baseImages}${photo}`}}
               title={name || ' '}
               subTitle={details || ' '}
               parallaxProps={parallaxProps}
@@ -71,7 +65,6 @@ const Categories: React.FC<CategoriesProps> = ({ place, list }) => {
           );
         }}
       />
-
     </Section>
   );
 };
