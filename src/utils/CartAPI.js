@@ -35,7 +35,7 @@ export const getOffers = async setState => {
 
 export const searchRestaurants = async (rest, setState) => {
   POST(
-    'webService.php?do=getRestaurants&keyword=${rest.word}',
+    `webService.php?do=getRestaurants&keyword=${rest.word}`,
     {Location: `${rest.lat},${rest.long}`, keyword: rest.word},
     setState,
   );
@@ -64,13 +64,21 @@ export const getCoupon = async (Coupon, setState) => {
   await POST('webService.php?do=getCoupon&json=true', {Coupon}, setState);
 };
 export const GetOrders = async (order, setState) => {
-  POST('webService.php?do=GetOrders&json=true&start=0&end=10', order, setState);
+  POST('webService.php?do=GetOrders&json=true&start=0&end=20', order, setState);
 };
+
+export const GetOrdersRide = async (order, setState) => {
+  POST('siteAPI.php?ajax_page=true&json=true&start=0&end=20', {...order, do: 'getMyBookRide'}, setState);
+};
+export const GetOrdersAny = async (order, setState) => {
+  POST('siteAPI.php?ajax_page=true&json=true&start=0&end=20', {...order, do: 'getMyOrders'}, setState);
+};
+
 export const ReOrders = async (OrderID, setState) => {
   POST('webService.php?do=UserEditOrder&json=true', {type: 'reorder', OrderID}, setState);
 };
-export const CancelOrders = async (OrderID, setState) => {
-  POST('webService.php?do=UserCancelOrder&json=true', {OrderID}, setState);
+export const CancelOrders = async (orderID, setState) => {
+  POST('webService.php?do=UserCancelOrder&json=true', {orderID}, setState);
 };
 
 //Adress

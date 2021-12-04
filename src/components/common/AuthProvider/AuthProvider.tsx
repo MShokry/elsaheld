@@ -11,25 +11,24 @@ type AuthState = {
   isSignOut: boolean;
   userToken: string | null;
   locationName: string | null;
-  user: object,
-  updated: any,
+  user: object;
+  updated: any;
   Lang: string | null;
   theme: string | null;
-  walkThrough: boolean | null,
-  loading: boolean | null,
-
+  walkThrough: boolean | null;
+  loading: boolean | null;
 };
 
 type AuthAction =
-  | { type: 'RESTORE_TOKEN'; token: string | null }
-  | { type: 'SIGN_IN'; token: string | null }
-  | { type: 'SIGN_OUT'; token?: null };
+  | {type: 'RESTORE_TOKEN'; token: string | null}
+  | {type: 'SIGN_IN'; token: string | null}
+  | {type: 'SIGN_OUT'; token?: null};
 
 const initialAuthState: AuthState = {
   isLoading: false,
   isSignOut: false,
   userToken: '',
-  user: { error: '', user: {}, loading: false },
+  user: {error: '', user: {}, loading: false},
   updated: 0,
   Lang: '',
   theme: 'dark',
@@ -69,7 +68,7 @@ export const mainReducer = (state: any, action: any) => {
     case 'LogUser':
       return {
         ...state,
-        user: { error: '', user: action.payload, loading: false },
+        user: {error: '', user: action.payload, loading: false},
         userToken: action.payload.token,
       };
     case 'skipLogUser':
@@ -78,19 +77,19 @@ export const mainReducer = (state: any, action: any) => {
         userToken: action.payload,
       };
     case 'StopLoading':
-      return { ...state, loading: false };
+      return {...state, loading: false};
     case 'setLocation':
-      return { ...state, location: action.payload };
+      return {...state, location: action.payload};
     case 'LogOutUser':
-      return { ...state, user: { error: '', user: [], loading: false }, userToken: null };
+      return {...state, user: {error: '', user: [], loading: false}, userToken: null};
     case 'SetLang':
-      return { ...state, Lang: action.payload };
+      return {...state, Lang: action.payload};
     case 'SetCity':
-      return { ...state, City: action.payload };
+      return {...state, City: action.payload};
     case 'SetLocationName':
-      return { ...state, locationName: action.payload };
+      return {...state, locationName: action.payload};
     case 'walkThrough':
-      return { ...state, walkThrough: action.payload };
+      return {...state, walkThrough: action.payload};
     default:
       return state;
   }
@@ -98,7 +97,7 @@ export const mainReducer = (state: any, action: any) => {
 import * as Lang from '@src/utils/LangHelper';
 import api from '@src/utils/APICONST';
 
-const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   const [state, dispatch] = React.useReducer(mainReducer, initialAuthState);
   const [position, setPosition] = React.useState({
     latitude: 0.0,
@@ -111,7 +110,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     const langSymbol = (await DataBase.getItem('language')) || 'ar';
     // dispatch({ type: 'SetLang', payload: langSymbol });
     const city = (await DataBase.getItem('city')) || '';
-    dispatch({ type: 'SetCity', payload: city });
+    dispatch({type: 'SetCity', payload: city});
     console.log('langSymbol', langSymbol, city);
 
     // const token = await DataBase.getItem("accessToken");
@@ -120,7 +119,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     if (U !== undefined && U !== null) {
       console.log('Finding Token');
       try {
-        const { token, user } = JSON.parse(U);
+        const {token, user} = JSON.parse(U);
         T = user.token;
         if (T) {
           console.log('token', T);
@@ -133,14 +132,14 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             Connection: 'keep-alive',
             'Accept-Language': langSymbol,
           });
-          dispatch({ type: 'LogUser', payload: user });
+          dispatch({type: 'LogUser', payload: user});
         }
       } catch (e) {
         console.log('user', e);
       }
     }
     console.log('Auth NAvigate');
-    dispatch({ type: 'StopLoading' });
+    dispatch({type: 'StopLoading'});
   };
 
   // React.useEffect(() => {
@@ -156,7 +155,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   React.useEffect(() => {
     if (state.Lang) {
-      console.log("state.Lang", state.Lang);
+      console.log('state.Lang', state.Lang);
       Lang.setI18nConfig(state.Lang);
     }
     // return () => { }
@@ -169,8 +168,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     //   reqLocation();
     // }
     try {
-      Geolocation.getCurrentPosition(({ coords }) => {
-        console.log(coords);
+      Geolocation.getCurrentPosition(({coords}) => {
+        console.log('coords', coords);
         if (coords) {
           setPosition({
             latitude: coords.latitude,
@@ -178,7 +177,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           });
         }
       });
-    } catch (error) { }
+    } catch (error) {}
     try {
       Geolocation.watchPosition(
         ({coords}) => {
@@ -189,7 +188,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             });
           }
         },
-        (error) => console.log('Location Error', error),
+        error => console.log('Location Error', error),
         {
           enableHighAccuracy: true,
           timeout: 20000,
@@ -198,7 +197,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           useSignificantChanges: true,
         },
       );
-    } catch (error) { }
+    } catch (error) {}
 
     return () => Geolocation.stopObserving();
   }, []);
@@ -206,25 +205,24 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   // Refresh App
   React.useEffect(() => {
     if (position.latitude) {
-      const { latitude, longitude } = position;
+      const {latitude, longitude} = position;
       console.log('setLocation', position);
       if (latitude && longitude) {
-        dispatch({ type: 'setLocation', payload: position });
-        Geocoder.from([latitude, longitude]).then(json => {
-          console.log(json);
-          var addressComponent = json.results[0].address_components[0];
-          console.log(addressComponent);
-          dispatch({ type: 'SetLocationName', payload: addressComponent.short_name });
-        })
-          .catch(error => console.warn(error));;
+        dispatch({type: 'setLocation', payload: position});
+        Geocoder.from([latitude, longitude])
+          .then(json => {
+            console.log('json', json);
+            var addressComponent = json.results[0].formatted_address;
+            console.log('addressComponent', addressComponent);
+            dispatch({type: 'SetLocationName', payload: addressComponent});
+          })
+          .catch(error => console.warn(error));
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position]);
 
-  return (
-    <AuthContext.Provider value={[state, dispatch]}>{children}</AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={[state, dispatch]}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;

@@ -11,7 +11,7 @@ import {
   StyleProp,
 } from 'react-native';
 import Touchable from '../Touchable';
-const WindowWidth = Dimensions.get('window').width;
+const WindowWidth = Dimensions.get('screen').width;
 import styles from './styles';
 
 interface IProps {

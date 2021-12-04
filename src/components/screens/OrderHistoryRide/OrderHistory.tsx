@@ -4,7 +4,7 @@ import styles from './styles';
 import {List, Button, Text, LoadingIndicator} from '@src/components/elements';
 import {orderHistoryList} from '@src/data/mock-order-history';
 import {ListRowItemProps} from '@src/components/elements/List/ListRowItem';
-import {GetOrders, ReOrders, CancelOrders} from '@src/utils/CartAPI';
+import {GetOrders, ReOrders, CancelOrders, GetOrdersRide} from '@src/utils/CartAPI';
 import {useNavigation} from '@react-navigation/core';
 import {baseImages} from '@src/utils/APICONST';
 import SuccessOrderModal from '@src/components/screens/Checkout/PlaceOrder/SuccessOrderModal';
@@ -20,20 +20,15 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
   const navigation = useNavigation();
 
   React.useEffect(() => {
-    GetOrders(
-      {
-        // json_email: "emadelkomy7@gmail.com",
-        // json_password: "d320b3c9217fc14d1ac35557481b8dd919",
-      },
-      setOrders,
-    );
+    GetOrdersRide({}, setOrders);
   }, []);
 
   const onRefresh = () => {
-    GetOrders({}, setOrders);
+    GetOrdersRide({}, setOrders);
   };
+  console.log('Orders', Orders);
 
-  if (Orders.loading && !Orders.results.length) {
+  if (Orders.loading && !Orders.results?.Result?.length) {
     return <LoadingIndicator size="large" hasMargin />;
   }
   console.log(Orders);
@@ -49,23 +44,17 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
   // }, [ROrders])
 
   const data: ListRowItemProps[] =
-    Orders.results?.map(item => {
-      const {ID, net, RestaurantPhoto, RestaurantName, itemsAmount, items, total, History, Cancelled} = item;
+    Orders.results?.Result?.map(item => {
+      const {ID, net, RestaurantPhoto, km, price, items, phone, History, Cancelled} = item || {};
       const lastHistory = History?.length ? History[History.length - 1]?.Title : 'جاري استلام الطلب';
-      const orderItems =
-        items
-          ?.slice(0, 2)
-          .map(e => {
-            return e.ItemName;
-          })
-          .join(' | ') || '';
+      const orderItems = items.price;
       return {
         id: ID,
-        title: `#${ID}, ${RestaurantName}`,
-        subTitle: ` عدد الاصناف: ${itemsAmount}, ${net} EGP, ${orderItems}`,
+        title: `#${ID}, ${km} KM`,
+        subTitle: ` التكلفة : ${price} EGP`,
         note: lastHistory.toString(),
         onPress: () => {
-          setisTrack(item);
+          // setisTrack(item);
         },
         rightContainerStyle: styles.rightItemContainerStyle,
         leftIcon: <Image source={{uri: `${baseImages}${RestaurantPhoto}`}} style={styles.profileAvatar} />,

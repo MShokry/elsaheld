@@ -5,8 +5,8 @@ import AuthContext from '@src/context/auth-context';
 // export const baseURL = 'https://www.ebda3-eg.com/Elsahel/include/';
 // export const baseImages = 'https://www.ebda3-eg.com/Elsahel/uploads/';
 
-export const baseURL = 'https://elsahel.co/include/';
-export const baseImages = 'https://elsahel.co/uploads/';
+export const baseURL = 'https://www.elsahel.co/include/';
+export const baseImages = 'https://www.elsahel.co/uploads/';
 
 // 'Content-type': 'application/json',
 export const headers = {
@@ -30,11 +30,7 @@ const handeResponse = response => {
     error = 'No Internet Connection, Please Check';
   } else if (response.status >= 200 && response.status < 400) {
     results = response.data;
-    if (
-      response.status >= 200 &&
-      response.status < 400 &&
-      response.Status == 1
-    ) {
+    if (response.status >= 200 && response.status < 400 && response.Status == 1) {
       results = response.data.results;
     } else {
       error = results?.Errors;
@@ -70,7 +66,6 @@ export const POST = async (
   setState = () => {},
   params = {showLoading: true, usePagination: false, Append: true, isForm: false},
 ) => {
-
   let data = new FormData();
   try {
     Object.keys(body).map(function (keyName, keyIndex) {
@@ -111,12 +106,7 @@ export const GET = async (
   return REQUESTING('GET', url, data, setState, params);
 };
 
-export const PUT = async (
-  url = '',
-  body = null,
-  setState = () => {},
-  showLoading = false,
-) => {
+export const PUT = async (url = '', body = null, setState = () => {}, showLoading = false) => {
   return REQUESTING('PUT', url, body, setState, showLoading);
 };
 

@@ -9,7 +9,10 @@ import {CommonActions} from '@react-navigation/native';
 // import * as Lang from '../utils/LangHelper';
 // import { firebase } from '@react-native-firebase/messaging';
 
-const {width, height} = Dimensions.get('window');
+import Video from 'react-native-video';
+import VideoPlayer from 'react-native-video-player';
+
+const {width, height} = Dimensions.get('screen');
 
 const AuthLoading = ({navigation}) => {
   const [contextState, contextDispatch] = useContext(MainContext);
@@ -107,7 +110,7 @@ const AuthLoading = ({navigation}) => {
 
   useEffect(() => {
     try {
-      __DEV__ ? setTimeout(_bootstrapAsync, 500) : setTimeout(_bootstrapAsync, 3000);
+      __DEV__ ? setTimeout(_bootstrapAsync, 300) : setTimeout(_bootstrapAsync, 3800);
       // setTimeout(_bootstrapAsync, 500);
     } catch (error) {
       contextDispatch({type: 'StopLoading'});
@@ -117,7 +120,23 @@ const AuthLoading = ({navigation}) => {
   return (
     <>
       <View style={{flex: 1, alignItems: 'center', alignContent: 'center'}} colors={['#eadccf', '#526b7d']}>
-        <Image style={{width: width * 0.5}} resizeMode="contain" source={require('@src/assets/app/app_icon.png')} />
+        {/* <Image style={{width: width * 0.5}} resizeMode="contain" source={require('@src/assets/app/app_icon.png')} />
+        <VideoPlayer
+          video={require('@src/assets/app/load.mp4')}
+          videoWidth={1600}
+          videoHeight={900}
+          thumbnail={{uri: 'https://i.picsum.photos/id/866/1600/900.jpg'}}
+        /> */}
+        <Video
+          source={require('@src/assets/app/load.mp4')}
+          videoWidth={width}
+          videoHeight={height}
+          resizeMode="cover"
+          style={{flex: 1, width, height}}
+          repeat
+          // muted
+        />
+
         {/* <LottieView
           source={require('@src/assets/animations/elsahel1.json')}
           autoPlay

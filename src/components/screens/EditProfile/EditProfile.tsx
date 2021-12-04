@@ -15,7 +15,7 @@ const EditProfile: React.FC<EditProfileProps> = () => {
   console.log(contextState);
   return (
     <ScrollView>
-      <HeadingInformation profile={profile} />
+      {/* <HeadingInformation profile={profile} /> */}
       <ContactInformationForm profile={user} />
       {/* <LinkedAccounts /> */}
     </ScrollView>

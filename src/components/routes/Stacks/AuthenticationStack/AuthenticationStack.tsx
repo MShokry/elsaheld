@@ -11,19 +11,19 @@ import Signup from '@src/components/screens/Signup';
 
 type AuthenticationStackProps = {};
 const Stack = createStackNavigator();
-const options={
+const options = {
   headerTransparent: true,
   headerStatusBarHeight: 0,
   title: '',
   headerBackTitleVisible: false,
   headerShown: false,
-}
+};
 const AuthenticationStack: React.FC<AuthenticationStackProps> = () => {
   const insets = useSafeAreaInsets();
   const {background} = useThemeColors();
   return (
     <Stack.Navigator
-      initialRouteName="LoginScreen"
+      initialRouteName="AuthenticationScreen"
       screenOptions={{
         headerShown: true,
         title: '',
@@ -37,14 +37,8 @@ const AuthenticationStack: React.FC<AuthenticationStackProps> = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen
-        name="AuthWithPhoneNumberScreen"
-        component={AuthWithPhoneNumber}
-      />
-      <Stack.Screen
-        name="AuthVerificationCodeScreen"
-        component={AuthVerificationCode}
-      />
+      <Stack.Screen name="AuthWithPhoneNumberScreen" component={AuthWithPhoneNumber} />
+      <Stack.Screen name="AuthVerificationCodeScreen" component={AuthVerificationCode} />
       <Stack.Screen options={options} name="LoginScreen" component={Login} />
       <Stack.Screen options={options} name="SignupScreen" component={Signup} />
       <Stack.Screen name="ForgotPasswordScreen" component={ForgotPassword} />

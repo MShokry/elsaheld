@@ -30,7 +30,9 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
     return (
       <View style={styles.headerLeftContainer}>
         <Icon name="map-marker-alt" size={18} style={styles.locationIcon} isPrimary />
-        <Text style={styles.headerTitle}>{contextState.locationName || '...'}</Text>
+        <Text numberOfLines={1} style={styles.headerTitle}>
+          {contextState.locationName || '...'}
+        </Text>
       </View>
     );
   };

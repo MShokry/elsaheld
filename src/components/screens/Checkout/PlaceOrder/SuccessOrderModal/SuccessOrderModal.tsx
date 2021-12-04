@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { View, Animated } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { StackActions } from '@react-navigation/native';
+import {View, Animated} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {StackActions} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import { Container, Text, Button, Dialog } from '@src/components/elements';
+import {Container, Text, Button, Dialog} from '@src/components/elements';
 import CartContext from '@src/context/cart-context';
 import styles from './styles';
 
@@ -14,12 +14,7 @@ type OrderSuccessModalProps = {
   data?: any;
 };
 
-const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
-  isVisible,
-  setIsVisble,
-  type,
-  data
-}) => {
+const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({isVisible, setIsVisble, type, data}) => {
   const navigation = useNavigation();
   const fadeIn = React.useRef(new Animated.Value(0)).current;
   const fadeOut = React.useRef(new Animated.Value(1)).current;
@@ -36,7 +31,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
       useNativeDriver: true,
     }).start();
   }, [isAnimationFinished, fadeIn, fadeOut]);
-  const { clearCart } = React.useContext(CartContext);
+  const {clearCart} = React.useContext(CartContext);
 
   const _onAnimationFinish = () => {
     setIsAnimationFinished(true);
@@ -56,6 +51,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
   const _onTrackOrderButtonPressed = () => {
     clearCart();
     setIsVisble(false);
+    navigation.navigate('Account');
     // navigation.dispatch(StackActions.replace('TrackOrderScreen'));
   };
   console.log(data);
@@ -63,8 +59,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
   const renderType = () => {
     if (type === 'trip') {
       return (
-        <Animated.View
-          style={[styles.successMessageContainer, { opacity: fadeIn }]}>
+        <Animated.View style={[styles.successMessageContainer, {opacity: fadeIn}]}>
           <Text isHeadingTitle isBold isPrimary>
             شكرا علي طلبك تم التاكيد
           </Text>
@@ -75,8 +70,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
       );
     }
     return (
-      <Animated.View
-        style={[styles.successMessageContainer, { opacity: fadeIn }]}>
+      <Animated.View style={[styles.successMessageContainer, {opacity: fadeIn}]}>
         <Text isHeadingTitle isBold isPrimary>
           شكرا علي طلبك تم التاكيد
         </Text>
@@ -89,25 +83,25 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
 
   const renderAction = () => {
     if (type === 'trip') {
-      return <Animated.View
-        style={[styles.footerButtonContainer, { opacity: fadeIn }]}>
-        {/* <Button isFullWidth onPress={_onTrackOrderButtonPressed}>
+      return (
+        <Animated.View style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
+          {/* <Button isFullWidth onPress={_onTrackOrderButtonPressed}>
           <Text isWhite isBold>
             تتبع الطلب
           </Text>
         </Button> */}
-        <Button
-          isFullWidth
-          isTransparent
-          style={styles.orderSomethingButton}
-          onPress={_onOrderSomethingElseButtonPressed}>
-          <Text>اطلب شئ اخر</Text>
-        </Button>
-      </Animated.View>
+          <Button
+            isFullWidth
+            isTransparent
+            style={styles.orderSomethingButton}
+            onPress={_onOrderSomethingElseButtonPressed}>
+            <Text>اطلب شئ اخر</Text>
+          </Button>
+        </Animated.View>
+      );
     }
     return (
-      <Animated.View
-        style={[styles.footerButtonContainer, { opacity: fadeIn }]}>
+      <Animated.View style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
         <Button isFullWidth onPress={_onTrackOrderButtonPressed}>
           <Text isWhite isBold>
             تتبع الطلب
@@ -135,9 +129,8 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
             style={styles.lottieView}
           />
           {!isAnimationFinished && (
-            <Animated.View
-              style={[styles.processingOrderContainer, { opacity: fadeOut }]}>
-              <Text isBold>Processing Your Order...</Text>
+            <Animated.View style={[styles.processingOrderContainer, {opacity: fadeOut}]}>
+              <Text isBold>جاري معالجة الطلب ...</Text>
             </Animated.View>
           )}
           {renderType()}

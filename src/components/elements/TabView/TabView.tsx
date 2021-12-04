@@ -81,7 +81,7 @@ const TabView: React.FC<TabViewProps> = ({
           tabStyle={
             isTabBarFullWidth
               ? {
-                  width: Dimensions.get('window').width / tabData.length,
+                  width: Dimensions.get('screen').width / tabData.length,
                 }
               : styles.tabBar
           }
@@ -93,7 +93,7 @@ const TabView: React.FC<TabViewProps> = ({
       )}
       renderScene={SceneMap(scenes)}
       onIndexChange={onIndexChange}
-      initialLayout={{width: Dimensions.get('window').width, height: 0}}
+      initialLayout={{width: Dimensions.get('screen').width, height: 0}}
     />
   );
 };

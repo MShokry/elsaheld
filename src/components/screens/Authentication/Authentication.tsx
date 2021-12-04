@@ -16,7 +16,7 @@ const Authentication: React.FC<AuthenticationProps> = () => {
   const {userToken} = contextState;
 
   const _onConnectWithPhoneNumberButtonPressed = () => {
-    navigation.navigate('AuthWithPhoneNumberScreen');
+    navigation.navigate('LoginScreen');
   };
   const _onSocialNetworkConnectButtonPressed = () => {
     // signIn();
@@ -32,31 +32,23 @@ const Authentication: React.FC<AuthenticationProps> = () => {
         },
       ]}>
       <View style={styles.appIconContainer}>
-        <Image
-          source={require('../../../assets/app/app_icon.png')}
-          style={styles.appIcon}
-          resizeMode='contain'
-        />
+        <Image source={require('../../../assets/app/app_icon.png')} style={styles.appIcon} resizeMode="contain" />
       </View>
       <Container style={styles.loginMethodContainer}>
         <Text isBold isHeadingTitle>
           Get food you want.
         </Text>
         <Text isSecondary style={styles.introductionText}>
-          Satisfy your cravings by getting the food you love from your favourite
-          restaurants delivered to you fast. Delivery & takeout from the best
-          local restaurants.
+          Satisfy your cravings by getting the food you love from your favourite restaurants delivered to you fast.
+          Delivery & takeout from the best local restaurants.
         </Text>
         <View style={styles.loginMethod}>
-          <Button
-            style={styles.button}
-            isFullWidth
-            onPress={_onConnectWithPhoneNumberButtonPressed}>
+          <Button style={styles.button} isFullWidth onPress={_onConnectWithPhoneNumberButtonPressed}>
             <Text isBold isWhite>
               Connect with Phone Number
             </Text>
           </Button>
-          {/* <Button
+          <Button
             style={styles.button}
             backgroundColor="#4267b2"
             isFullWidth
@@ -64,8 +56,8 @@ const Authentication: React.FC<AuthenticationProps> = () => {
             <Text isBold isWhite>
               Connect with Facebook
             </Text>
-          </Button> */}
-          {/* <Button
+          </Button>
+          <Button
             style={styles.button}
             backgroundColor="#4285F3"
             isFullWidth
@@ -73,7 +65,7 @@ const Authentication: React.FC<AuthenticationProps> = () => {
             <Text isBold isWhite>
               Connect with Google
             </Text>
-          </Button> */}
+          </Button>
         </View>
       </Container>
     </View>

@@ -45,6 +45,7 @@ export default function Search({onLocationSelected, dest, currentLocationLabel, 
       listViewDisplayed={searchFocused}
       fetchDetails
       enablePoweredByContainer={false}
+      
       styles={{
         container: {
           position: 'absolute',

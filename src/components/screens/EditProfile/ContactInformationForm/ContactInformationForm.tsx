@@ -7,9 +7,7 @@ type ContactInformationFormProps = {
   profile: Profile;
 };
 
-const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
-  profile,
-}) => {
+const ContactInformationForm: React.FC<ContactInformationFormProps> = ({profile}) => {
   const [password, setPassword] = React.useState('');
   const [confirmPass, setconfirmPass] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
@@ -17,7 +15,10 @@ const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
   const [email, setemail] = React.useState('');
   return (
     <Container style={styles.container}>
-      <TextField defaultValue={profile.name} textContentType="name" hasMargin 
+      <TextField
+        defaultValue={profile.name}
+        textContentType="name"
+        hasMargin
         onChangeText={(t: string) => setname(t)}
       />
       <TextField
@@ -38,7 +39,7 @@ const ContactInformationForm: React.FC<ContactInformationFormProps> = ({
       </Text> */}
       <Button>
         <Text isWhite isBold>
-          Save
+          حفظ
         </Text>
       </Button>
     </Container>

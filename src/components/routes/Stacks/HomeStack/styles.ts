@@ -13,6 +13,6 @@ export default StyleSheet.create({
   },
   headerTitle: {
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 12,
   },
 });

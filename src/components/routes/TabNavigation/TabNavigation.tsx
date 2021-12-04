@@ -7,7 +7,9 @@ import NotificationStack from '../Stacks/NotificationStack';
 import ActivityHistoryStack from '../Stacks/ActivityHistoryStack';
 import Documentation from '@src/components/screens/Documentation';
 import OrderHistory from '@src/components/screens/OrderHistory';
+import OrderAny from '@src/components/screens/OrderAny';
 import Villa from '@src/components/screens/Villa';
+import AuthContext from '@src/context/auth-context';
 
 type TabNavigationProps = {};
 type TabBarIconProps = {
@@ -52,6 +54,9 @@ const renderTabBarIcon = (routeName: string) => {
 };
 
 const TabNavigation: React.FC<TabNavigationProps> = () => {
+  const [contextState, contextDispatch] = React.useContext(AuthContext);
+  const isLogin = contextState.user?.user?.ID;
+
   return (
     <Navigator
       initialRouteName="Home"
@@ -87,10 +92,10 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
       {/* <Tab.Screen name="Activity" component={ActivityHistoryStack} /> */}
       <Tab.Screen
         options={{
-          tabBarLabel: 'طلباتي',
+          tabBarLabel: 'اطلب',
         }}
         name="MyOrders"
-        component={OrderHistory}
+        component={OrderAny}
       />
       {/* <Tab.Screen name="Notifications" component={NotificationStack} /> */}
       <Tab.Screen
@@ -98,6 +103,13 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
           tabBarLabel: 'الحساب',
         }}
         name="Account"
+        listeners={({navigation, route}) => ({
+          tabPress: e => {
+            if (!isLogin) {
+              navigation.navigate('Auth');
+            }
+          },
+        })}
         component={AccountStack}
       />
       {/* <Tab.Screen name="Documentation" component={Documentation} /> */}

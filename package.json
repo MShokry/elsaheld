@@ -18,6 +18,7 @@
     "@react-native-community/datetimepicker": "^3.0.9",
     "@react-native-community/geolocation": "^2.0.2",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-google-signin/google-signin": "^7.0.1",
     "@react-navigation/bottom-tabs": "^5.11.7",
     "@react-navigation/native": "^5.9.2",
     "@react-navigation/stack": "^5.14.2",
@@ -34,6 +35,7 @@
     "react-native-appearance": "^0.3.4",
     "react-native-confirmation-code-field": "^6.5.1",
     "react-native-countdown-component": "^2.7.1",
+    "react-native-fbsdk-next": "^6.1.1",
     "react-native-geocoding": "^0.5.0",
     "react-native-geolocation-service": "^5.2.0",
     "react-native-gesture-handler": "^1.10.1",
@@ -53,7 +55,9 @@
     "react-native-step-indicator": "^1.0.3",
     "react-native-switch-selector": "^2.1.4",
     "react-native-tab-view": "^2.15.2",
-    "react-native-vector-icons": "^8.0.0"
+    "react-native-vector-icons": "^9.0.0",
+    "react-native-video": "^5.2.0",
+    "react-native-video-player": "^0.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

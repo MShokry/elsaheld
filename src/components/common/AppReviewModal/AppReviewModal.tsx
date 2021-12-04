@@ -96,12 +96,12 @@ const AppReviewModal: React.FC<AppReviewModalProps> = ({
 
   return (
     <Dialog
-      title={'Enjoying Food Star app?'}
+      title={'Enjoying ELSEAHEL app?'}
       isTitleCentered
       isVisible={isShowAppReview}
       footer={_renderFooter()}>
       <Text isCenter>
-        If you enjoy Food Star, please take a moment to rate it in{' '}
+        If you enjoy ELSEAHEL, please take a moment to rate it in{' '}
         {getStoreName()}. Your support is deeply appreciated!
       </Text>
     </Dialog>

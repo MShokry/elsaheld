@@ -1,16 +1,11 @@
 import * as React from 'react';
-import { SafeAreaView, View, ScrollView, Alert } from 'react-native';
-import { Text, Button } from '@src/components/elements';
-import {
-  CodeField,
-  Cursor,
-  useBlurOnFulfill,
-  useClearByFocusCell,
-} from 'react-native-confirmation-code-field';
+import {SafeAreaView, View, ScrollView, Alert} from 'react-native';
+import {Text, Button} from '@src/components/elements';
+import {CodeField, Cursor, useBlurOnFulfill, useClearByFocusCell} from 'react-native-confirmation-code-field';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import styles from './styles';
-import { useNavigation, CommonActions } from '@react-navigation/native';
-import { verifyUserPhone, verifyUserPhoneResend } from '@src/utils/UsersAPI';
+import {useNavigation, CommonActions} from '@react-navigation/native';
+import {verifyUserPhone, verifyUserPhoneResend} from '@src/utils/UsersAPI';
 import CountDown from 'react-native-countdown-component';
 
 import AuthContext from '@src/context/auth-context';
@@ -23,11 +18,11 @@ const CELL_COUNT = 6;
 // [ ] ToDo activate the user in the memory
 const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
   const navigation = useNavigation();
-  const { primary, secondary } = useThemeColors();
+  const {primary, secondary} = useThemeColors();
   const [value, setValue] = React.useState('');
   const [contextState, contextDispatch] = React.useContext(AuthContext);
 
-  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
+  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
@@ -45,16 +40,24 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
       Alert.alert('خطئ', 'يرجي ادخال ال ٦ ارقام من الرسال التي وصلتك');
       return;
     }
-    verifyUserPhone({ activation_code: value, do: 'activation_code', ...contextState?.user?.user, email: contextState?.user?.user?.username }, setUser)
+    verifyUserPhone(
+      {
+        activation_code: value,
+        do: 'activation_code',
+        ...contextState?.user?.user,
+        email: contextState?.user?.user?.username,
+      },
+      setUser,
+    )
       .then(response => {
         if (response.Result === 'Failed') {
-          setUser({ ...User, error: 'فشل تاكيد الرقم' });
+          setUser({...User, error: 'فشل تاكيد الرقم'});
         } else {
-          DataBase.setItem('userToken', JSON.stringify({ ...contextState?.user, active: 'Yes' }));
+          DataBase.setItem('userToken', JSON.stringify({...contextState?.user, active: 'Yes'}));
           navigation.dispatch(
             CommonActions.reset({
               index: 0,
-              routes: [{ name: 'Main' }],
+              routes: [{name: 'Main'}],
             }),
           );
         }
@@ -63,7 +66,10 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
       .catch(e => console.log(e));
   };
   const resend = async () => {
-    verifyUserPhoneResend({ do: 'resendActivationCode', ...contextState?.user?.user, email: contextState?.user?.user?.username }, setUser)
+    verifyUserPhoneResend(
+      {do: 'resendActivationCode', ...contextState?.user?.user, email: contextState?.user?.user?.username},
+      setUser,
+    )
       .then(response => {
         setReadyResend(false);
         setCounterId(`${new Date()}`);
@@ -82,20 +88,20 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
       DataBase.removeItem('language');
       DataBase.removeItem('walkThrough');
       DataBase.removeItem('userToken');
-      DataBase.removeItem('userToken');
     } catch (e) {
       console.log('Error Clearing Sorage', e);
     }
+    api.deleteHeader('json_email');
+    api.deleteHeader('json_password');
     api.setHeaders({});
     // navigation.navigate('Auth');
     navigation.dispatch(
       CommonActions.reset({
         index: 0,
-        routes: [
-          { name: 'Auth' },
-        ],
-      }));
-    contextDispatch({ type: 'LogOutUser' });
+        routes: [{name: 'Auth'}],
+      }),
+    );
+    contextDispatch({type: 'LogOutUser'});
   };
 
   return (
@@ -118,7 +124,7 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
               rootStyle={styles.codeFieldRoot}
               keyboardType="number-pad"
               textContentType="oneTimeCode"
-              renderCell={({ index, symbol, isFocused }) => (
+              renderCell={({index, symbol, isFocused}) => (
                 <View
                   key={index}
                   style={[
@@ -127,10 +133,7 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
                       borderColor: isFocused ? primary : secondary,
                     },
                   ]}>
-                  <Text
-                    key={index}
-                    style={styles.cell}
-                    onLayout={getCellOnLayoutHandler(index)}>
+                  <Text key={index} style={styles.cell} onLayout={getCellOnLayoutHandler(index)}>
                     {symbol || (isFocused ? <Cursor /> : null)}
                   </Text>
                 </View>
@@ -149,7 +152,7 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
           </Button>
         ) : (
           <View style={{}}>
-            <Text style={{ alignSelf: 'center' }}>اعادة ارسال بعد</Text>
+            <Text style={{alignSelf: 'center'}}>اعادة ارسال بعد</Text>
             <View>
               <CountDown
                 id={counterId}
@@ -170,7 +173,7 @@ const AuthVerificationCode: React.FC<AuthVerificationCodeProps> = () => {
             تاكيد
           </Text>
         </Button>
-        <View style={{ marginTop: 10 }} />
+        <View style={{marginTop: 10}} />
         <Button
           isTransparent
           isLoading={User.loading}

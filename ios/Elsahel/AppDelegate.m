@@ -47,7 +47,7 @@ static void InitializeFlipper(UIApplication *application) {
   [self.window setTintColor:[[UIColor alloc] initWithRed:252.0f/255.0f green:106.0f/255.0f blue:87.0f/255.0f alpha:1]];
   [self.window makeKeyAndVisible];
 
-  [GMSServices provideAPIKey:@"AIzaSyD7_x-IaDtLZle9C37GEnizuCkEOSnkkBg"]; // add this line using the api key obtained from Google Console
+  [GMSServices provideAPIKey:@"AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA"]; // add this line using the api key obtained from Google Console
   [[RCTI18nUtil sharedInstance] allowRTL:YES]; // Allow RTL layout for your app
   return YES;
 }

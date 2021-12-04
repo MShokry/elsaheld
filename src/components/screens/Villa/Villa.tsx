@@ -8,6 +8,7 @@ import PlaceCardInfo from '@src/components/common/PlaceCardInfo';
 import {getVilla, sendVillaRequest} from '@src/utils/CartAPI';
 import {baseImages} from '@src/utils/APICONST';
 import {translate as T} from '@src/utils/LangHelper';
+import SuccessOrderModal from '../Checkout/PlaceOrder/SuccessOrderModal';
 
 type RecommendedPlacesProps = {};
 
@@ -28,6 +29,8 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
 
   const [modalView, setmodalView] = React.useState(false);
   const [modalData, setmodalData] = React.useState({error: '', results: [], loading: false});
+
+  const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
 
   const propertyTypes = ['شقة', 'شاليه', 'فيلا', 'استراحة', 'استوديو'];
 
@@ -64,12 +67,12 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
     return Photos;
   };
 
-  console.log(Details, getPhotos(Details));
+  console.log('Details', Details, getPhotos(Details));
 
   return (
     <SafeAreaView>
       <SearchBar placeholder={T('VillaScreen.search')} />
-      <Container style={{backgroundColor: '#aaa', height: '100%'}} isLoading={Places.loading}>
+      <Container style={{backgroundColor: '#28282815', height: '100%'}} isLoading={Places.loading}>
         <FlatList
           data={Places.results?.Result || []}
           showsVerticalScrollIndicator={false}
@@ -188,7 +191,7 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
         <Text isCenter>تاريخ النشر : {Details?.advertiser}</Text>
         <Text isCenter>الشروط : {Details?.add_date}</Text>
         <Button
-          isLoading={modalData.loading}
+          isLoading={VillaReserve.loading}
           onPress={() => {
             //                 const d = {
             //                   id
@@ -202,14 +205,20 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
             // phone
             // name
             //                 }
-            sendVillaRequest({}, setVillaReserve);
+            sendVillaRequest({id: Details.ID}, setVillaReserve).then(e => {
+              setmodalView(false);
+              setTimeout(() => {
+                setIsSuccessOrderModalVisible(true);
+              }, 500);
+            });
           }}>
           <Text isWhite isCenter>
             {' '}
-            تاكيد الحجز{' '}
+            طلب حجز{' '}
           </Text>
         </Button>
       </Dialog>
+      <SuccessOrderModal isVisible={isSuccessOrderModalVisible} setIsVisble={setIsSuccessOrderModalVisible} />
     </SafeAreaView>
   );
 };
@@ -245,7 +254,7 @@ const styles = StyleSheet.create({
   },
   coverImageContainer2: {
     padding: 10,
-    width: '100%',
+    width: 180,
   },
   coverImage2: {
     width: 140,

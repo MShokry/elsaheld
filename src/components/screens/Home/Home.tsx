@@ -1,24 +1,23 @@
 import * as React from 'react';
-import { useFocusEffect, useScrollToTop } from '@react-navigation/native';
-import { ScrollView, SafeAreaView, InteractionManager } from 'react-native';
-import { SearchBar, LoadingIndicator } from '@src/components/elements';
+import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
+import {ScrollView, SafeAreaView, InteractionManager} from 'react-native';
+import {SearchBar, LoadingIndicator} from '@src/components/elements';
 import Categories from './Categories';
 import RecommendedPlaces from './RecommendedPlaces';
 import MerchantCampaigns from './MerchantCampaigns';
 import PopularCategories from './PopularCategories';
 import HotDeals from './HotDeals';
 import RemarkablePlaces from './RemarkablePlaces';
-import { getHome } from '@src/utils/CartAPI';
+import {getHome} from '@src/utils/CartAPI';
 // import AppReviewModal from '@src/components/common/AppReviewModal';
-import { translate as T } from '@src/utils/LangHelper';
+import {translate as T} from '@src/utils/LangHelper';
 import MainContext from '@src/context/auth-context';
-import { baseImages } from '@src/utils/APICONST';
+import {baseImages} from '@src/utils/APICONST';
 
 type HomeProps = {};
 
 const Home: React.FC<HomeProps> = () => {
-  const [isNavigationTransitionFinished, setIsNavigationTransitionFinished] =
-    React.useState(false);
+  const [isNavigationTransitionFinished, setIsNavigationTransitionFinished] = React.useState(false);
   const [Places, setPlaces] = React.useState({
     error: '',
     results: [],
@@ -42,12 +41,8 @@ const Home: React.FC<HomeProps> = () => {
 
   React.useEffect(() => {
     const rest = {
-      lat: contextState.location?.latitude
-        ? contextState.location?.latitude
-        : 0,
-      long: contextState.location?.longitude
-        ? contextState.location?.longitude
-        : 0,
+      lat: contextState.location?.latitude ? contextState.location?.latitude : 30,
+      long: contextState.location?.longitude ? contextState.location?.longitude : 31,
     };
     getHome(rest, setPlaces);
   }, []);
@@ -56,8 +51,8 @@ const Home: React.FC<HomeProps> = () => {
     <SafeAreaView>
       <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
         <SearchBar placeholder={T('HomeScreen.search')} />
-        <PopularCategories />
-        <MerchantCampaigns />
+        <PopularCategories list={false} />
+        <MerchantCampaigns key="MerchantCampaigns" />
 
         {isNavigationTransitionFinished ? (
           <>

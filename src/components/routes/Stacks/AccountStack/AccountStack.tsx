@@ -11,24 +11,18 @@ import SupportCenter from '@src/components/screens/SupportCenter';
 import SelectLocationScreen from '@src/components/screens/SelectLocation';
 import {ScreenNavigationProps} from '../types';
 import styles from './styles';
-import AuthContext from '@src/context/auth-context';
+import OrderHistoryRide from '@src/components/screens/OrderHistoryRide';
+import OrderHistoryAny from '@src/components/screens/OrderHistoryAny';
 
 type AccountStackProps = {} & ScreenNavigationProps;
 const Stack = createStackNavigator();
 
 const AccountStack: React.FC<AccountStackProps> = props => {
   const {navigation} = props;
-  const [contextState, contextDispatch] = React.useContext(AuthContext);
-  const isLogin = contextState.user?.user?.id;
-  console.log(contextState);
 
   const _renderAddAddressHeaderRight = () => {
     return <Icon name="map" size={18} isPrimary onPress={() => navigation.navigate('SelectLocationScreen')} />;
   };
-
-  if (!isLogin) {
-    // navigation.navigate('Auth');
-  }
 
   return (
     <Stack.Navigator initialRouteName="AccountScreen">
@@ -60,16 +54,34 @@ const AccountStack: React.FC<AccountStackProps> = props => {
         component={OrderHistory}
       />
       <Stack.Screen
+        options={() => {
+          return {
+            title: ' طلبات التوصيل',
+          };
+        }}
+        name="OrderHistoryRideScreen"
+        component={OrderHistoryRide}
+      />
+      <Stack.Screen
+        options={() => {
+          return {
+            title: ' طلبات اي شئ',
+          };
+        }}
+        name="OrderHistoryAnyScreen"
+        component={OrderHistoryAny}
+      />
+      <Stack.Screen
         name="SavedAddressesScreen"
         options={{
-          headerTitle: 'عناويني',
+          headerTitle: 'العناوين',
         }}
         component={SavedAddresses}
       />
       <Stack.Screen
         name="AddAddressScreen"
         options={{
-          headerTitle: 'Add An Address',
+          headerTitle: 'اضافة عنوان',
           headerRight: _renderAddAddressHeaderRight,
           headerRightContainerStyle: styles.headerRightContainer,
         }}

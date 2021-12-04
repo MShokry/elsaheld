@@ -67,7 +67,7 @@ const Carousel: React.FC<CarouselProps> = ({
           <SnapCarousel
             data={data}
             renderItem={renderCarouselItem}
-            sliderWidth={sliderWidth ? sliderWidth : Dimensions.get('window').width}
+            sliderWidth={sliderWidth ? sliderWidth : Dimensions.get('screen').width}
             itemWidth={itemWidth}
             onSnapToItem={onCarouselSnapToItem}
             inactiveSlideOpacity={inactiveSlideOpacity}
@@ -89,7 +89,7 @@ const Carousel: React.FC<CarouselProps> = ({
 };
 
 Carousel.defaultProps = {
-  itemWidth: Dimensions.get('window').width,
+  itemWidth: Dimensions.get('screen').width,
   inactiveSlideOpacity: 1,
   enableSnap: false,
 };

@@ -52,22 +52,22 @@ const EmailSentModal: React.FC<EmailSentModalProps> = ({isVisible, setIsVisble})
           />
           {!isAnimationFinished && (
             <Animated.View style={[styles.processingOrderContainer, {opacity: fadeOut}]}>
-              <Text isBold>Sending an email to you...</Text>
+              <Text isBold>جاري ارسال رسالة لك ...</Text>
             </Animated.View>
           )}
           <Animated.View style={[styles.successMessageContainer, {opacity: fadeIn}]}>
             <Text isHeadingTitle isBold isPrimary>
-              Check in your email!
+              يرجي مراجعه الجوال الخاص بك
             </Text>
             <Text isCenter style={styles.successMessage}>
-              We've just emailed you with the instructions to reset your password.
+              تم ارسال رسالة بها كلمة المرور المؤقته
             </Text>
           </Animated.View>
         </View>
         <Animated.View style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
           <Button isFullWidth onPress={_onBackToLoginButtonPressed}>
             <Text isWhite isBold>
-              Back to Login
+              العودة لتسجيل الدخول
             </Text>
           </Button>
         </Animated.View>

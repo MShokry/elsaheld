@@ -73,29 +73,41 @@ const Account: React.FC<AccountProps> = () => {
         <Divider />
         <Divider />
         <ListRowItem
-          title="اورداتي"
+          title="طلباتي"
           onPress={() => navigation.navigate('OrderHistoryScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
+        <ListRowItem
+          title=" طلبات التوصيل"
+          onPress={() => navigation.navigate('OrderHistoryRideScreen')}
+          rightIcon={<Icon name={chevronIconName} />}
+        />
+        <Divider />
+        {/* <ListRowItem
+          title=" طلبات اي شئ"
+          onPress={() => navigation.navigate('OrderHistoryAnyScreen')}
+          rightIcon={<Icon name={chevronIconName} />}
+        /> */}
+        {/* <Divider /> */}
         <ListRowItem
           title="العناوين"
           onPress={() => navigation.navigate('SavedAddressesScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
-        <Divider />
+        {/* <Divider />
         <ListRowItem
           title="الطلبات"
           onPress={() => navigation.navigate('OrderHistoryScreen')}
           rightIcon={<Icon name={chevronIconName} />}
-        />
+        /> */}
         <Divider />
-        <ListRowItem
+        {/* <ListRowItem
           title="الاعدادات"
           // onPress={() => navigation.navigate('SettingsScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
-        <Divider />
+        <Divider /> */}
 
         <ListRowItem
           title="تواصل معنا"

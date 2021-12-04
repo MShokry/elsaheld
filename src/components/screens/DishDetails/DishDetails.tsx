@@ -1,43 +1,32 @@
 import * as React from 'react';
-import {
-  Animated,
-  SafeAreaView,
-  View,
-  KeyboardAvoidingView,
-  Platform,
-  Alert,
-} from 'react-native';
-import { useTheme, useNavigation } from '@react-navigation/native';
-import { Text, Button } from '@src/components/elements';
-import { mockDishDetails, Dish } from '@src/data/mock-places';
+import {Animated, SafeAreaView, View, KeyboardAvoidingView, Platform, Alert} from 'react-native';
+import {useTheme, useNavigation} from '@react-navigation/native';
+import {Text, Button} from '@src/components/elements';
+import {mockDishDetails, Dish} from '@src/data/mock-places';
 import CartContext from '@src/context/cart-context';
 import HeadingInformation from './HeadingInformation';
 import SideDishes from './SideDishes';
 import AddToBasketForm from './AddToBasketForm';
-import { formatCurrency } from '@src/utils/number-formatter';
+import {formatCurrency} from '@src/utils/number-formatter';
 import styles from './styles';
-import { baseImages } from '@src/utils/APICONST';
+import {baseImages} from '@src/utils/APICONST';
 
 type DishDetailsProps = {};
 
-export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
-  const DishData = route.params
+export const DishDetails: React.FC<DishDetailsProps> = ({route}) => {
+  const DishData = route.params;
   // console.log(DishData,resturant);
 
-  const [totalPrice, setTotalPrice] = React.useState(
-    parseFloat(DishData?.price),
-  );
-  const [selectedSideDishes, setSelectedSideDishes] = React.useState<Dish[]>(
-    [],
-  );
+  const [totalPrice, setTotalPrice] = React.useState(parseFloat(DishData?.price));
+  const [selectedSideDishes, setSelectedSideDishes] = React.useState<Dish[]>([]);
   const [totalAmount, setTotalAmount] = React.useState(1);
   const [message, setMessage] = React.useState('');
   const [scrollY] = React.useState(new Animated.Value(0));
   const {
-    colors: { background },
+    colors: {background},
   } = useTheme();
-  const { goBack } = useNavigation();
-  const { updateCartItems, cartItems, resturant } = React.useContext(CartContext);
+  const {goBack} = useNavigation();
+  const {updateCartItems, cartItems, resturant} = React.useContext(CartContext);
   console.log('cartItems', cartItems);
 
   const addSideDishToBasket = React.useCallback(
@@ -65,10 +54,9 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
   //   [selectedSideDishes, totalPrice],
   // );
 
-
   React.useEffect(() => {
     updateTotalDishAmount(totalAmount);
-  }, [selectedSideDishes])
+  }, [selectedSideDishes]);
 
   const updateTotalDishAmount = React.useCallback(
     (amount: number) => {
@@ -76,13 +64,11 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
         (prevValue, currentValue) => prevValue + parseFloat(currentValue.price) * (currentValue.Amount || 1),
         0,
       );
-      console.log("selectedSideDishes==", selectedSideDishes, 'DishData', DishData);
+      console.log('selectedSideDishes==', selectedSideDishes, 'DishData', DishData);
       if (DishData.DefaultPrice === 1) {
         setTotalPrice(parseFloat(totalSelectedDishPrice) * amount);
       } else {
-        setTotalPrice(
-          parseFloat(DishData.price) * amount + parseFloat(totalSelectedDishPrice) * amount,
-        );
+        setTotalPrice(parseFloat(DishData.price) * amount + parseFloat(totalSelectedDishPrice) * amount);
       }
     },
     [selectedSideDishes],
@@ -92,9 +78,9 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
     (prevValue, currentValue) => prevValue + parseFloat(currentValue.subtotalPrice),
     0,
   );
-  console.log("totalCart", totalCart);
+  console.log('totalCart', totalCart);
 
-  console.log("cartItems", cartItems);
+  console.log('cartItems', cartItems);
   const onAddToBasketButtonPressed = () => {
     console.log(resturant);
     if (resturant?.ID && DishData.Resturant?.ID !== resturant.ID && cartItems.length) {
@@ -169,7 +155,7 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
                 },
               ]}>
               <Animated.Image
-                source={DishData.photo ? { uri: `${baseImages}${DishData.photo}` } : {}}
+                source={DishData.photo ? {uri: `${baseImages}${DishData.photo}`} : {}}
                 style={[
                   styles.coverPhoto,
                   {
@@ -183,25 +169,19 @@ export const DishDetails: React.FC<DishDetailsProps> = ({ route }) => {
               />
             </Animated.View>
             <HeadingInformation data={DishData} />
-            <SideDishes
-              data={DishData}
-              addSideDishToBasket={addSideDishToBasket}
-            />
+            <SideDishes data={DishData} addSideDishToBasket={addSideDishToBasket} />
             <AddToBasketForm
               message={message}
               setMessage={setMessage}
               totalAmount={totalAmount}
               setTotalAmount={setTotalAmount}
-              updateTotalDishAmount={updateTotalDishAmount} />
+              updateTotalDishAmount={updateTotalDishAmount}
+            />
           </Animated.ScrollView>
         </KeyboardAvoidingView>
         <View style={styles.addToBasketButtonContainer}>
-          <Button
-            childrenContainerStyle={styles.addToBasketButton}
-            onPress={onAddToBasketButtonPressed}>
-            <Text style={styles.addToBasketButtonText}>
-              اضف للسلة - {formatCurrency(totalPrice)}
-            </Text>
+          <Button childrenContainerStyle={styles.addToBasketButton} onPress={onAddToBasketButtonPressed}>
+            <Text style={styles.addToBasketButtonText}>اضف للسلة - {formatCurrency(totalPrice)}</Text>
           </Button>
         </View>
         <Animated.View

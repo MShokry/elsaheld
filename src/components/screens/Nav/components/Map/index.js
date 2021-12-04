@@ -32,7 +32,6 @@ import { isRTL_Selected } from '@src/utils/LangHelper';
 import { transform } from '@babel/core';
 
 // Geocoder.init('AIzaSyAGs6J8iZJ7mZeP6de9SyenOcA6MwFrwJc');
-// Geocoder.init("AIzaSyDJeAvHy9Sm9xE7QLVh4D3cg5a8AwOE-zc", {language : "ar"}); // use a valid API key
 
 export default class Map extends Component {
   state = {

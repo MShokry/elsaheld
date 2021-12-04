@@ -7,7 +7,7 @@ export default StyleSheet.create({
   categoryItem: {
     flexDirection: 'column',
     alignItems: 'center',
-    width: Dimensions.get('window').width / 4,
+    width: Dimensions.get('screen').width / 4,
     padding: 10,
     borderWidth: 0.3,
   },

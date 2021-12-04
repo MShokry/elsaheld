@@ -94,7 +94,7 @@ const Login: React.FC<LoginProps> = () => {
   };
 
   React.useEffect(() => {
-    if (User.results) {
+    if (!!User.results) {
       loggedUser();
     }
   }, [User.results]);

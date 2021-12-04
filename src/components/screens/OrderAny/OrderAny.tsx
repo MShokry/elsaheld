@@ -1,7 +1,15 @@
 import React, {Fragment} from 'react';
-import {I18nManager, PermissionsAndroid, Platform, ScrollView, View} from 'react-native';
+import {
+  I18nManager,
+  Keyboard,
+  KeyboardAvoidingView,
+  PermissionsAndroid,
+  Platform,
+  ScrollView,
+  View,
+} from 'react-native';
 import {useScrollToTop} from '@react-navigation/native';
-import {Icon, Divider, Dialog, Text, Button} from '@src/components/elements';
+import {Icon, Divider, Dialog, Text, Button, TextField, Container} from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import {notifications, Notification} from '@src/data/mock-notification';
@@ -49,6 +57,8 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
   const [TripPrice, setTripPrice] = React.useState({error: '', results: [], loading: false});
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
   const [modalData, setmodalData] = React.useState({error: '', results: [], loading: false});
+  const [requestD, setrequestD] = React.useState('');
+
   const [currentViewR, setcurrentViewR] = React.useState({
     latitude: contextState.location?.latitude ? contextState.location?.latitude : 30.0444,
     longitude: contextState.location?.longitude ? contextState.location?.longitude : 31.2357,
@@ -226,6 +236,7 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
         showsScale
         showsCompass
         showsUserLocation={!!!region}
+        userLocationPriority="balanced"
         onLongPress={_onMarkerDragEd}
         onRegionChange={_setCurretnView}
         // showsUserLocation
@@ -310,7 +321,7 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
                 destinationName: `${state.destination.title}`,
                 distance_in_kilo: `${state.distance}`,
                 duration_text: `${state.duration}+min`,
-                type: 'Ride',
+                type: 'Order',
               };
               setRide(data, setTripPrice).then(r => {
                 console.log(r);
@@ -318,30 +329,51 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
                 setmodalView(true);
               });
             }}>
-            <Text isWhite> حجز الرحلة </Text>
+            <Text isWhite> بدء الطلب </Text>
           </Button>
         </View>
       )}
       <Dialog style={{bottom: 0}} onBackdropPress={() => setmodalView(false)} isVisible={modalView}>
-        <Text isCenter> وقت الرحلة: {state.duration}</Text>
-        <Text isCenter> المسافة بالكيلو: {state.distance}</Text>
-        <Text isCenter> التكلفة: {state.const}</Text>
-        <Button
-          isLoading={modalData.loading}
-          onPress={() => {
-            const d = {type: 'Ride'};
-            bookRide(d, setmodalData).then(r => {
-              setmodalView(false);
-              setTimeout(() => {
-                setIsSuccessOrderModalVisible(true);
-              }, 400);
-            });
-          }}>
-          <Text isWhite isCenter>
-            {' '}
-            طلب حجز{' '}
-          </Text>
-        </Button>
+        <Container style={styles.container}>
+          <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps="handled">
+            <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+              <TextField
+                // style={[{backgroundColor: card}, styles.phoneNumberTextField]}
+                containerStyle={{height: 140}}
+                style={{height: 130}}
+                underlineColorAndroid="transparent"
+                value={requestD}
+                onChangeText={t => setrequestD(t)}
+                hasMargin
+                placeholder="ادخل طلبك"
+                autoFocus
+                multiline
+                numberOfLines={10}
+
+              />
+              <Text isCenter> وقت الرحلة: {state.duration}</Text>
+              <Text isCenter> المسافة بالكيلو: {state.distance}</Text>
+              <Text isCenter> التكلفة للتوصيل: {state.const}</Text>
+              <Button
+                isLoading={modalData.loading}
+                style={{marginTop: 20}}
+                onPress={() => {
+                  const d = {items: requestD, type: 'Order'};
+                  bookRide(d, setmodalData).then(r => {
+                    setmodalView(false);
+                    setTimeout(() => {
+                      setIsSuccessOrderModalVisible(true);
+                    }, 400);
+                  });
+                }}>
+                <Text isWhite isCenter>
+                  {' '}
+                  تاكيد الطلب{' '}
+                </Text>
+              </Button>
+            </KeyboardAvoidingView>
+          </ScrollView>
+        </Container>
       </Dialog>
       <SuccessOrderModal
         isVisible={isSuccessOrderModalVisible}

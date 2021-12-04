@@ -17,7 +17,7 @@ storiesOf('Card', module)
   ))
   .add('Card with cover images', () => (
     <View
-      style={{width: Dimensions.get('window').width / 2, flexDirection: 'row'}}>
+      style={{width: Dimensions.get('screen').width / 2, flexDirection: 'row'}}>
       <Card
         coverImage={require('@src/assets/dish-details/cover-photo.jpg')}
         title="What is Lorem Ipsum?"
