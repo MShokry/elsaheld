@@ -1,23 +1,20 @@
-import * as React from 'react';
-import {ScrollView, View, Animated, Alert, Image} from 'react-native';
-import DeliveryTime from './DeliveryTime';
-import DeliveryStep from './DeliveryStep';
-import DriverInformation from './DriverInformation';
-import {Divider, Container, Button, Text, Dialog} from '@src/components/elements';
 import {useNavigation} from '@react-navigation/native';
-import styles from './styles';
-import DeliveryMapView from './DeliveryMapView';
+import {Button, Container, Dialog, Divider, Text} from '@src/components/elements';
 import CartContext from '@src/context/cart-context';
-import {GetOrders, ReOrders, CancelOrders} from '@src/utils/CartAPI';
 import {baseImages} from '@src/utils/APICONST';
+import {CancelOrders, ReOrders} from '@src/utils/CartAPI';
+import * as React from 'react';
+import {Alert, Animated, Image, ScrollView, View} from 'react-native';
+import styles from './styles';
 
 type TrackOrderModalProps = {
   isVisible: boolean;
   setIsVisble: (value: React.SetStateAction<boolean>) => void;
+  reload?: () => void;
   Order: Object;
 };
 
-const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setIsVisble}) => {
+const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setIsVisble, reload = () => {}}) => {
   const navigation = useNavigation();
   const [isMapViewVisible, setIsMapViewVisible] = React.useState(false);
   const fadeIn = React.useRef(new Animated.Value(0)).current;
@@ -62,7 +59,10 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
         text: 'تاكيد',
         style: 'cancel',
         onPress: () => {
-          CancelOrders(id, setROrders);
+          CancelOrders({id, do: 'cancelOrder'}, setROrders).then(e => {
+            setIsVisble(false);
+            reload();
+          });
         },
       },
       {text: 'عودة'},

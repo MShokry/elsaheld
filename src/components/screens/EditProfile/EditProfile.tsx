@@ -12,7 +12,6 @@ type EditProfileProps = {};
 const EditProfile: React.FC<EditProfileProps> = () => {
   const [contextState, contextDispatch] = React.useContext(AuthContext);
   const user = contextState.user?.user;
-  console.log(contextState);
   return (
     <ScrollView>
       {/* <HeadingInformation profile={profile} /> */}

@@ -21,6 +21,7 @@ type HomeStackParamList = {
 };
 const Stack = createStackNavigator<HomeStackParamList>();
 import MainContext from '@src/context/auth-context';
+import {GET, POST} from '@src/utils/APICONST';
 
 const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
   const {updateCartItems, cartItems} = React.useContext(cartContext);
@@ -36,7 +37,16 @@ const HomeStack: React.FC<HomeStackProps> = ({navigation}) => {
       </View>
     );
   };
-  console.log('HomeStack cartItems', cartItems.length, cartItems);
+
+  // console.log('contextState', contextState?.user?.user);
+
+  React.useEffect(() => {
+    POST('siteAPI.php?do=verifyAccount&ajax_page=true&json=true', {
+      do: 'verifyAccount',
+    }).then(e => {
+      contextDispatch({type: 'setIsPhoneActive', payload: e?.Status});
+    });
+  }, []);
 
   const _renderExploreHeaderRight = () => {
     return (

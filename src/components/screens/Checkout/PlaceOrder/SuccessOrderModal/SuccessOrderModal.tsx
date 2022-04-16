@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Animated} from 'react-native';
+import {View, Animated, Linking} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {StackActions} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
@@ -14,7 +14,7 @@ type OrderSuccessModalProps = {
   data?: any;
 };
 
-const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({isVisible, setIsVisble, type, data}) => {
+const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({isVisible, setIsVisble, type, data, pay}) => {
   const navigation = useNavigation();
   const fadeIn = React.useRef(new Animated.Value(0)).current;
   const fadeOut = React.useRef(new Animated.Value(1)).current;
@@ -36,6 +36,7 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({isVisible, setIsVi
   const _onAnimationFinish = () => {
     setIsAnimationFinished(true);
   };
+  console.log(data);
 
   const _onBackdropPress = () => {
     setIsVisble(false);
@@ -53,6 +54,9 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({isVisible, setIsVi
     setIsVisble(false);
     navigation.navigate('Account');
     // navigation.dispatch(StackActions.replace('TrackOrderScreen'));
+  };
+  const _onPay = () => {
+    Linking.openURL('https://www.elsahel.co/pay/index.php?orderID=' + data.OrderID).catch();
   };
   console.log(data);
 
@@ -102,8 +106,15 @@ const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({isVisible, setIsVi
     }
     return (
       <Animated.View style={[styles.footerButtonContainer, {opacity: fadeIn}]}>
-        <Button isFullWidth onPress={_onTrackOrderButtonPressed}>
-          <Text isWhite isBold>
+        {pay && (
+          <Button isFullWidth onPress={_onPay} style={{marginBottom: 10}}>
+            <Text isWhite isBold>
+              ادفع الطلب
+            </Text>
+          </Button>
+        )}
+        <Button isTransparent={pay ? true : false} isFullWidth onPress={_onTrackOrderButtonPressed}>
+          <Text isWhite={pay ? false : true} isBold>
             تتبع الطلب
           </Text>
         </Button>

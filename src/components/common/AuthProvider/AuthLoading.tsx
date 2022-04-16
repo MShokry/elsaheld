@@ -81,7 +81,7 @@ const AuthLoading = ({navigation}) => {
             'Cache-Control': 'no-cache',
             Connection: 'keep-alive',
             'Accept-Language': langSymbol,
-            json_email: user?.phone,
+            json_email: user?.username,
             json_password: user?.password,
             fcmToken: fcmToken ? fcmToken : undefined,
           });
@@ -110,7 +110,7 @@ const AuthLoading = ({navigation}) => {
 
   useEffect(() => {
     try {
-      __DEV__ ? setTimeout(_bootstrapAsync, 300) : setTimeout(_bootstrapAsync, 3800);
+      __DEV__ ? setTimeout(_bootstrapAsync, 100) : setTimeout(_bootstrapAsync, 3500);
       // setTimeout(_bootstrapAsync, 500);
     } catch (error) {
       contextDispatch({type: 'StopLoading'});

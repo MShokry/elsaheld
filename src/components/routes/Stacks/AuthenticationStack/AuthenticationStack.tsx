@@ -23,7 +23,7 @@ const AuthenticationStack: React.FC<AuthenticationStackProps> = () => {
   const {background} = useThemeColors();
   return (
     <Stack.Navigator
-      initialRouteName="AuthenticationScreen"
+      initialRouteName="LoginScreen"
       screenOptions={{
         headerShown: true,
         title: '',

@@ -19,7 +19,7 @@ const Account: React.FC<AccountProps> = () => {
   const {userToken} = contextState;
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
   const user = contextState.user?.user || {};
-  console.log(user);
+
 
   const _signOutAsync = async () => {
     // await logoutUser(fcmToken, setUser);
@@ -84,12 +84,12 @@ const Account: React.FC<AccountProps> = () => {
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
-        {/* <ListRowItem
-          title=" طلبات اي شئ"
-          onPress={() => navigation.navigate('OrderHistoryAnyScreen')}
+        <ListRowItem
+          title="طلبات الشاليهات"
+          onPress={() => navigation.navigate('OrderHistoryVillaScreen')}
           rightIcon={<Icon name={chevronIconName} />}
-        /> */}
-        {/* <Divider /> */}
+        />
+        <Divider />
         <ListRowItem
           title="العناوين"
           onPress={() => navigation.navigate('SavedAddressesScreen')}

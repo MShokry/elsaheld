@@ -17,11 +17,14 @@ import ThemeContext from '@src/context/theme-context';
 import TabNavigation from '@src/components/routes/TabNavigation';
 import DishDetails from '@src/components/screens/DishDetails';
 import SearchRest from '@src/components/screens/SearchRest';
-import AuthenticationStack from '@src/components/routes/Stacks/AuthenticationStack';
 import {lightTheme, darkTheme} from '@src/styles/theme';
 import AuthContext from '@src/context/auth-context';
 import AuthLoading from '../common/AuthProvider/AuthLoading';
 import CartContext from '@src/context/cart-context';
+
+import VillaDetails from '@src/components/screens/Villa/VillaDetails';
+import AuthenticationStack from './Stacks/AuthenticationStack';
+import AuthVerificationCode from '../screens/AuthVerificationCode';
 
 const RootStack = createStackNavigator();
 
@@ -41,9 +44,6 @@ const RootNavigation = () => {
       : {
           ...TransitionPresets.FadeFromBottomAndroid,
         };
-  {
-    /* {userToken ? ( */
-  }
 
   return (
     <NavigationContainer theme={theme === 'light' ? lightTheme : darkTheme}>
@@ -85,6 +85,27 @@ const RootNavigation = () => {
             }}
             component={TabNavigation}
           />
+          {/* <RootStack.Screen
+            name="VillaDetails"
+            options={{
+              headerShown: false,
+              headerTitleStyle: {
+                fontFamily: 'Cairo-Light',
+                fontWeight: '200',
+              },
+            }}
+            component={VillaDetails}
+          /> */}
+
+          <RootStack.Screen
+            title="تفاصيل"
+            options={{
+              label: 'تفاصيل',
+            }}
+            name="VillaDetails"
+            component={VillaDetails}
+          />
+          <RootStack.Screen name="OTP" component={AuthVerificationCode} />
 
           <RootStack.Screen
             options={{

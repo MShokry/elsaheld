@@ -33,10 +33,15 @@ export const getOffers = async setState => {
   POST('/webService.php?do=getOffers', {}, setState);
 };
 
-export const searchRestaurants = async (rest, setState) => {
+export const searchRestaurants = async (res, setState) => {
+  // GET(
+  //   `siteAPI.php?ajax_page=true&json=true&do=searchRestaurant&word=${res.word}`,
+  //   {Location: `${res.lat},${res.long}`, fastest: true, preparation: true, word: res.word, storeType: res.word},
+  //   setState,
+  // );
   POST(
-    `webService.php?do=getRestaurants&keyword=${rest.word}`,
-    {Location: `${rest.lat},${rest.long}`, keyword: rest.word},
+    `webService.php?do=getRestaurants&keyword=${res.word}`,
+    {Location: `${res.lat},${res.long}`, keyword: res.word},
     setState,
   );
 };
@@ -73,17 +78,20 @@ export const GetOrdersRide = async (order, setState) => {
 export const GetOrdersAny = async (order, setState) => {
   POST('siteAPI.php?ajax_page=true&json=true&start=0&end=20', {...order, do: 'getMyOrders'}, setState);
 };
+export const GetOrdersVilla = async (order, setState) => {
+  POST('webService.php?ajax_page=true&json=true&start=0&end=20&do=getChaletRequests', {...order, do: 'getChaletRequests'}, setState);
+};
 
 export const ReOrders = async (OrderID, setState) => {
   POST('webService.php?do=UserEditOrder&json=true', {type: 'reorder', OrderID}, setState);
 };
 export const CancelOrders = async (orderID, setState) => {
-  POST('webService.php?do=UserCancelOrder&json=true', {orderID}, setState);
+  POST('webService.php?do=cancelOrder&json=true', {...orderID}, setState);
 };
 
 //Adress
 export const getAddresses = async setState => {
-  POST('siteAPI.php?json=true', {do: 'getAddresses'}, setState);
+  POST('siteAPI.php?json=true&do=getAddresses', {do: 'getAddresses'}, setState);
 };
 export const addAddresses = async (adress, setState) => {
   POST('siteAPI.php?json=true', {...adress, do: 'addAddress'}, setState);

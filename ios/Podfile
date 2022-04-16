@@ -1,15 +1,15 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-platform :ios, '10.3'
+platform :ios, '11.0'
 
 
 
-target 'Elsahel' do
+target 'ELSAHEL' do
   
   config = use_native_modules!
   use_react_native!(:path => config["reactNativePath"])
 
-  target 'ElsahelTests' do
+  target 'ELSAHELTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -25,16 +25,17 @@ target 'Elsahel' do
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
   # you should disable these next few lines.
-  use_flipper!({ 'Flipper' => '0.91.0' })
+  # use_flipper!({ 'Flipper' => '0.95.0' })
   post_install do |installer|
-    flipper_post_install(installer)
+    react_native_post_install(installer)
+    __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 end
 
-target 'Elsahel-tvOS' do
-  # Pods for Elsahel-tvOS
+target 'ELSAHEL-tvOS' do
+  # Pods for ELSAHEL-tvOS
 
-  target 'Elsahel-tvOSTests' do
+  target 'ELSAHEL-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

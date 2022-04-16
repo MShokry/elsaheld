@@ -19,7 +19,6 @@ type CategoriesProps = {
 };
 
 const Categories: React.FC<CategoriesProps> = ({place, list}) => {
-  console.log(place);
 
   const {card, primary, background} = useThemeColors();
   const [Places, setPlaces] = React.useState({error: '', results: place?.Restaurants || [], loading: false});

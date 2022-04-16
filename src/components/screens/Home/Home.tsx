@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useFocusEffect, useScrollToTop} from '@react-navigation/native';
-import {ScrollView, SafeAreaView, InteractionManager} from 'react-native';
+import {ScrollView, SafeAreaView, InteractionManager, TouchableWithoutFeedback} from 'react-native';
 import {SearchBar, LoadingIndicator} from '@src/components/elements';
 import Categories from './Categories';
 import RecommendedPlaces from './RecommendedPlaces';
@@ -16,7 +16,7 @@ import {baseImages} from '@src/utils/APICONST';
 
 type HomeProps = {};
 
-const Home: React.FC<HomeProps> = () => {
+const Home: React.FC<HomeProps> = ({navigation}) => {
   const [isNavigationTransitionFinished, setIsNavigationTransitionFinished] = React.useState(false);
   const [Places, setPlaces] = React.useState({
     error: '',
@@ -28,7 +28,6 @@ const Home: React.FC<HomeProps> = () => {
   const scrollViewRef = React.useRef(null);
 
   useScrollToTop(scrollViewRef);
-  console.log(contextState);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -50,7 +49,11 @@ const Home: React.FC<HomeProps> = () => {
   return (
     <SafeAreaView>
       <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
-        <SearchBar placeholder={T('HomeScreen.search')} />
+        <SearchBar
+          navgate={true}
+          onSearch={() => navigation.navigate('SearchRestModal')}
+          placeholder={T('HomeScreen.search')}
+        />
         <PopularCategories list={false} />
         <MerchantCampaigns key="MerchantCampaigns" />
 

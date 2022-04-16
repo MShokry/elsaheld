@@ -1,14 +1,16 @@
 import * as React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {Carousel, Section, Card, SearchBar, Container, Text, Button, Dialog} from '@src/components/elements';
-import {Dimensions, FlatList, Image, Platform, SafeAreaView, StyleSheet, View} from 'react-native';
-import {mockPlaces, Place} from '@src/data/mock-places';
-import PlaceCardInfo from '@src/components/common/PlaceCardInfo';
+import {useNavigation, useTheme} from '@react-navigation/native';
+import {Carousel, Section, Container, Text, Button, Dialog, TextField, RadioButton} from '@src/components/elements';
+import {FlatList, Image, Platform, SafeAreaView, StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 
 import {getVilla, sendVillaRequest} from '@src/utils/CartAPI';
 import {baseImages} from '@src/utils/APICONST';
-import {translate as T} from '@src/utils/LangHelper';
 import SuccessOrderModal from '../Checkout/PlaceOrder/SuccessOrderModal';
+
+import moment from 'moment';
+import DateTimePickerModal from 'react-native-modal-datetime-picker';
+
+import {FloatingAction} from 'react-native-floating-action';
 
 type RecommendedPlacesProps = {};
 
@@ -19,12 +21,28 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
     results: [],
     loading: false,
   });
-  const [CheckIn, setCheckIn] = React.useState('');
-  const [CheckOut, setCheckOut] = React.useState('');
+
+  const {
+    colors: {text, background},
+  } = useTheme();
+
+  const [resView, setresView] = React.useState(false);
+  const Today = moment(new Date()).format('YYYY-MM-DD');
+
+  const [CheckIn, setCheckIn] = React.useState(Today);
+  const [isArrive, setisArrive] = React.useState(false);
+
+  const [CheckOut, setCheckOut] = React.useState(Today);
+  const [isLeav, setisLeav] = React.useState(false);
+  console.log('CheckIn', CheckIn);
+
+  const [area, setarea] = React.useState('');
   const [adults, setadults] = React.useState('');
   const [children, setchildren] = React.useState('');
   const [rooms, setrooms] = React.useState('');
-  const [propertyType, setpropertyType] = React.useState('');
+  const propertyTypes = ['شقة', 'شاليه', 'فيلا', 'استراحة', 'استوديو'];
+
+  const [propertyType, setpropertyType] = React.useState('شقة');
   const [VillaReserve, setVillaReserve] = React.useState({error: '', results: [], loading: false});
 
   const [modalView, setmodalView] = React.useState(false);
@@ -32,8 +50,7 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
 
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
 
-  const propertyTypes = ['شقة', 'شاليه', 'فيلا', 'استراحة', 'استوديو'];
-
+  const PT = propertyTypes.map(i => ({value: i, label: i}));
   const _onButtonActionPressed = () => {
     navigation.navigate('PlaceListScreen', {title: 'Recommended'});
   };
@@ -41,18 +58,37 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
   const _onPlaceItemPressed = () => {
     navigation.navigate('PlaceDetailsScreen');
   };
+  const clear = () => {
+    setCheckIn(Today);
+    setCheckOut(Today);
+    setadults('');
+    setchildren('');
+    setrooms('');
+    setpropertyType(null);
+    setarea('');
+  };
+  const reload = clear => {
+    const d = !!clear
+      ? {
+          do: 'getPropertyList',
+          CheckIn: Today,
+          CheckOut: Today,
+        }
+      : {
+          do: 'getPropertyList',
+          CheckIn: CheckIn ? moment(CheckIn).format('YYYY-MM-DD') : Today,
+          CheckOut: CheckOut ? moment(CheckOut).format('YYYY-MM-DD') : Today,
+          adults,
+          children,
+          rooms,
+          propertyType,
+          area,
+        };
+    getVilla(d, setPlaces);
+  };
 
   React.useEffect(() => {
-    const d = {
-      do: 'getPropertyList',
-      CheckIn,
-      CheckOut,
-      adults,
-      children,
-      rooms,
-      propertyType,
-    };
-    getVilla(d, setPlaces);
+    reload();
   }, []);
   const Details = modalView ? Places.results?.Result?.[modalView - 1] : {};
 
@@ -69,9 +105,23 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
 
   console.log('Details', Details, getPhotos(Details));
 
+  const actions = [
+    {
+      text: 'بحث',
+      icon: require('@src/assets/filter.png'),
+      name: 'Search',
+      position: 1,
+    },
+    {
+      text: 'مسح',
+      icon: require('@src/assets/cross.png'),
+      name: 'clear',
+      position: 2,
+    },
+  ];
   return (
     <SafeAreaView>
-      <SearchBar placeholder={T('VillaScreen.search')} />
+      {/* <SearchBar placeholder={T('VillaScreen.search')} /> */}
       <Container style={{backgroundColor: '#28282815', height: '100%'}} isLoading={Places.loading}>
         <FlatList
           data={Places.results?.Result || []}
@@ -140,16 +190,31 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
                       style={styles.buttonPlus}
                       isTransparent
                       onPress={() => {
-                        setmodalView(index + 1);
+                        // setmodalView(index + 1);
+                        navigation.navigate('VillaDetails', {...item});
                       }}>
                       <Text isBold isPrimary numberOfLines={1}>
-                        احجز الان
+                        التفاصيل
                       </Text>
                     </Button>
                   </Container>
                 </Container>
               </Container>
             );
+          }}
+        />
+        <FloatingAction
+          actions={actions}
+          onPressItem={name => {
+            if (name === 'Search') {
+              setresView(true);
+            } else {
+              clear();
+              setTimeout(() => {
+                reload(true);
+              }, 100);
+            }
+            console.log(`selected button: ${name}`);
           }}
         />
       </Container>
@@ -193,18 +258,6 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
         <Button
           isLoading={VillaReserve.loading}
           onPress={() => {
-            //                 const d = {
-            //                   id
-            // CheckIn
-            // CheckOut
-            // adults
-            // children
-            // rooms
-            // propertyType
-            // commnet
-            // phone
-            // name
-            //                 }
             sendVillaRequest({id: Details.ID}, setVillaReserve).then(e => {
               setmodalView(false);
               setTimeout(() => {
@@ -217,6 +270,134 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
             طلب حجز{' '}
           </Text>
         </Button>
+      </Dialog>
+
+      <Dialog style={{bottom: 0}} onBackdropPress={() => setresView(false)} isVisible={!!resView}>
+        <>
+          <DateTimePickerModal
+            isVisible={isArrive}
+            mode="date"
+            date={CheckIn ? new Date(CheckIn) : new Date()}
+            minimumDate={new Date()}
+            onConfirm={v => {
+              setisArrive(false);
+              setCheckIn(v);
+            }}
+            onCancel={() => setisArrive(false)}
+          />
+          <DateTimePickerModal
+            isVisible={isLeav}
+            mode="date"
+            date={CheckOut ? new Date(CheckOut) : new Date()}
+            minimumDate={CheckIn ? new Date(CheckIn) : new Date()}
+            onConfirm={v => {
+              setisLeav(false);
+              setCheckOut(v);
+            }}
+            onCancel={() => setisLeav(false)}
+          />
+
+          <TouchableWithoutFeedback onPress={() => setisArrive(true)}>
+            <View style={{marginBottom: 10}}>
+              <View
+                style={{
+                  padding: 12,
+                  borderRadius: 15,
+                  height: 45,
+                  backgroundColor: background,
+                  fontFamily: 'Cairo-Light',
+                }}>
+                <Text>{moment(CheckIn).format('DD-MMMM-YYYY')} </Text>
+              </View>
+              {CheckIn ? (
+                <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
+                  ميعاد الوصول
+                </Text>
+              ) : null}
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => setisLeav(true)}>
+            <View style={{marginBottom: 10}}>
+              <View
+                style={{
+                  padding: 12,
+                  borderRadius: 15,
+                  height: 45,
+                  backgroundColor: background,
+                  fontFamily: 'Cairo-Light',
+                }}>
+                <Text>{moment(CheckOut).format('DD-MMMM-YYYY')} </Text>
+              </View>
+              {CheckOut ? (
+                <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
+                  ميعاد المغادرة
+                </Text>
+              ) : null}
+            </View>
+          </TouchableWithoutFeedback>
+          <View>
+            <TextField value={area} hasMargin placeholder="اسم القرية" onChangeText={(t: string) => setarea(t)} />
+            {area ? (
+              <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
+                اسم القرية
+              </Text>
+            ) : null}
+          </View>
+          <View>
+            <TextField
+              value={adults}
+              hasMargin
+              placeholder=" عدد الاشخاص "
+              keyboardType="number-pad"
+              onChangeText={(t: string) => setadults(t)}
+            />
+            {adults ? (
+              <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
+                عدد الاشخاص
+              </Text>
+            ) : null}
+          </View>
+          <View>
+            <TextField
+              value={children}
+              hasMargin
+              placeholder=" عدد الاطفال "
+              keyboardType="number-pad"
+              onChangeText={(t: string) => setchildren(t)}
+            />
+            {children ? (
+              <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
+                عدد الاطفال
+              </Text>
+            ) : null}
+          </View>
+          <View>
+            <TextField
+              value={rooms}
+              hasMargin
+              placeholder=" عدد الغرف "
+              keyboardType="number-pad"
+              onChangeText={(t: string) => setrooms(t)}
+            />
+            {rooms ? (
+              <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
+                عدد الغرف
+              </Text>
+            ) : null}
+          </View>
+          <Section title="اختر نوع العقار">
+            <RadioButton defaultValue={propertyType} data={PT} onItemPressed={e => setpropertyType(e)} />
+          </Section>
+          <Button
+            onPress={() => {
+              setresView(false);
+              reload();
+            }}>
+            <Text isWhite isCenter>
+              بحث
+            </Text>
+          </Button>
+        </>
       </Dialog>
       <SuccessOrderModal isVisible={isSuccessOrderModalVisible} setIsVisble={setIsSuccessOrderModalVisible} />
     </SafeAreaView>

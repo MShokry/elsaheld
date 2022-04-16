@@ -20,13 +20,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
   const navigation = useNavigation();
 
   React.useEffect(() => {
-    GetOrders(
-      {
-        // json_email: "emadelkomy7@gmail.com",
-        // json_password: "d320b3c9217fc14d1ac35557481b8dd919",
-      },
-      setOrders,
-    );
+    GetOrders({}, setOrders);
   }, []);
 
   const onRefresh = () => {
@@ -106,6 +100,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
         setIsVisble={bool => {
           setisTrack(bool);
         }}
+        reload={() => onRefresh()}
       />
     </View>
   );

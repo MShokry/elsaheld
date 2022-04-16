@@ -17,6 +17,7 @@ type AuthState = {
   theme: string | null;
   walkThrough: boolean | null;
   loading: boolean | null;
+  isPhoneActive: boolean | null;
 };
 
 type AuthAction =
@@ -78,6 +79,8 @@ export const mainReducer = (state: any, action: any) => {
       };
     case 'StopLoading':
       return {...state, loading: false};
+    case 'setWord':
+      return {...state, word: action.payload};
     case 'setLocation':
       return {...state, location: action.payload};
     case 'LogOutUser':
@@ -90,6 +93,9 @@ export const mainReducer = (state: any, action: any) => {
       return {...state, locationName: action.payload};
     case 'walkThrough':
       return {...state, walkThrough: action.payload};
+    case 'setIsPhoneActive':
+      return {...state, isPhoneActive: action.payload};
+
     default:
       return state;
   }
@@ -206,14 +212,14 @@ const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   React.useEffect(() => {
     if (position.latitude) {
       const {latitude, longitude} = position;
-      console.log('setLocation', position);
+      // console.log('setLocation', position);
       if (latitude && longitude) {
         dispatch({type: 'setLocation', payload: position});
         Geocoder.from([latitude, longitude])
           .then(json => {
-            console.log('json', json);
+            // console.log('json', json);
             var addressComponent = json.results[0].formatted_address;
-            console.log('addressComponent', addressComponent);
+            // console.log('addressComponent', addressComponent);
             dispatch({type: 'SetLocationName', payload: addressComponent});
           })
           .catch(error => console.warn(error));

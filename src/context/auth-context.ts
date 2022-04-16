@@ -8,6 +8,7 @@ type AuthState = {
   theme: string | null;
   walkThrough: boolean | null,
   loading: boolean | null,
+  word: string | null;
   signIn: () => void;
   signOut: () => void;
   signUp: () => void;
@@ -21,6 +22,7 @@ const initialAutthState: AuthState = {
   theme: 'dark',
   walkThrough: true,
   loading: true,
+  word: '',
   signIn: () => { },
   signOut: () => { },
   signUp: () => { },

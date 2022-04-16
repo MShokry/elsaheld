@@ -15,7 +15,6 @@ import { baseImages } from '@src/utils/APICONST';
 type PopularPlacesProps = {};
 
 const PopularPlaces: React.FC<PopularPlacesProps> = ({place}) => {
-  console.log(place);
   
   const { card, primary, background } = useThemeColors();
   const [Places, setPlaces] = React.useState({ error: '', results: place?.Restaurants||[], loading: false });

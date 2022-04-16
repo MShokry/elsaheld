@@ -18,11 +18,7 @@ type RadioButtonProps = {
   onItemPressed: (option: RadioOption) => void;
 };
 
-const RadioButton: React.FC<RadioButtonProps> = ({
-  data,
-  onItemPressed,
-  defaultValue,
-}) => {
+const RadioButton: React.FC<RadioButtonProps> = ({data, onItemPressed, defaultValue}) => {
   const {
     colors: {primary, border, text},
   } = useTheme();
@@ -36,18 +32,15 @@ const RadioButton: React.FC<RadioButtonProps> = ({
 
   return (
     <>
-      {data.map((item) => {
-        console.log(item);
-        
+      {data.map(item => {
+        // console.log(item);
         const {value, label, rightElement} = item;
         let isChecked = value === defaultValue;
         if (selectedValue) {
           isChecked = value === selectedValue;
         }
         return (
-          <Container
-            key={value}
-            style={[styles.container, {borderBottomColor: border}]}>
+          <Container key={value} style={[styles.container, {borderBottomColor: border}]}>
             <TouchableOpacity style={styles.button} onPress={_onPress(item)}>
               <Container style={styles.checkBoxContainer}>
                 <View>
@@ -69,11 +62,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
                   <Text>{label}</Text>
                 </View>
               </Container>
-              {rightElement && (
-                <Container style={styles.rightElementContainer}>
-                  {rightElement}
-                </Container>
-              )}
+              {rightElement && <Container style={styles.rightElementContainer}>{rightElement}</Container>}
             </TouchableOpacity>
           </Container>
         );

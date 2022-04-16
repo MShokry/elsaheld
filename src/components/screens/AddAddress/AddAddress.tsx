@@ -10,7 +10,7 @@ import {useTheme} from '@react-navigation/native';
 
 type AddAddressProps = {};
 
-const AddAddress: React.FC<AddAddressProps> = () => {
+const AddAddress: React.FC<AddAddressProps> = ({navigation}) => {
   const [form, setform] = React.useState([]);
   const [Adrress, setAdrress] = React.useState({error: '', results: [], loading: false});
   const route = useRoute();
@@ -114,9 +114,7 @@ const AddAddress: React.FC<AddAddressProps> = () => {
       type: 'notes',
     },
   ];
-  console.log(form);
   React.useEffect(() => {
-    console.log('route', route);
     setform(route?.params || {});
   }, []);
 
@@ -150,7 +148,11 @@ const AddAddress: React.FC<AddAddressProps> = () => {
         isFullWidth
         disabled={form.length < 5}
         onPress={() => {
-          route?.params?.ID ? updateAddresses(form, setAdrress) : addAddresses(form, setAdrress);
+          if (route?.params?.ID) {
+            updateAddresses(form, setAdrress);
+          } else {
+            addAddresses(form, setAdrress).then(res => navigation.goBack());
+          }
         }}
         isLoading={AddAddress.loading}>
         <Text isBold isWhite>

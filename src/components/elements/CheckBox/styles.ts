@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   button: {
@@ -17,9 +17,13 @@ export default StyleSheet.create({
   checkBoxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    flex: 1,
+    width: '100%',
+    flexGrow: 1,
   },
   rightElementContainer: {
     alignItems: 'flex-end',
+    flex: 0.3,
   },
   buttonGroupSection: {
     alignItems: 'center',
@@ -31,6 +35,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
+    flex: 0.5,
   },
   buttonPlus: {
     width: 34,

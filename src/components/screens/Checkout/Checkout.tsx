@@ -1,30 +1,25 @@
-import { useNavigation } from '@react-navigation/core';
-import { Button, Text, TextField } from '@src/components/elements';
+import {useNavigation} from '@react-navigation/core';
+import {Button, Text, TextField} from '@src/components/elements';
 import CartContext from '@src/context/cart-context';
-import { getCoupon } from '@src/utils/CartAPI';
+import {getCoupon} from '@src/utils/CartAPI';
 import * as React from 'react';
-import { ScrollView, View } from 'react-native';
-import {
-  KeyboardAvoidingView,
-  TextInput,
-  StyleSheet,
-  Platform,
-  TouchableWithoutFeedback,
-  Keyboard,
-} from 'react-native';
+import {ScrollView, View} from 'react-native';
+import {KeyboardAvoidingView, TextInput, StyleSheet, Platform, TouchableWithoutFeedback, Keyboard} from 'react-native';
 
 import DeliveryInformation from './DeliveryInformation';
 import OrderSummary from './OrderSummary';
 import PlaceOrder from './PlaceOrder';
 import styles from './styles';
 
+import PaymentMethod from '@src/components/screens/PaymentMethod';
+
 type BasketProps = {};
 
 // [x] ToDo show empty
 const Basket: React.FC<BasketProps> = () => {
-  const { cartItems, clearCart, updateCartItems, resturant } =
-    React.useContext(CartContext);
+  const {cartItems, clearCart, updateCartItems, resturant} = React.useContext(CartContext);
   const [Promo, setPromo] = React.useState('');
+  const [card, setcard] = React.useState('');
   const [PromoCode, setPromoCode] = React.useState({
     error: '',
     results: [],
@@ -34,11 +29,10 @@ const Basket: React.FC<BasketProps> = () => {
 
   const navigation = useNavigation();
   const totalCart = cartItems.reduce(
-    (prevValue, currentValue) =>
-      prevValue + parseFloat(currentValue.subtotalPrice),
+    (prevValue, currentValue) => prevValue + parseFloat(currentValue.subtotalPrice),
     0,
   );
-  
+
   const shippingFee = parseFloat(resturant?.ShippingCost) || 0;
   const _removeIdx = idx => {
     const items = cartItems;
@@ -56,10 +50,13 @@ const Basket: React.FC<BasketProps> = () => {
     }
   }, [cartItems]);
 
+  const payment = it => {
+    console.log('selected', it);
+    setcard(it);
+  };
+
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.rootContainer}>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.rootContainer}>
       {/* <View style={styles.rootContainer}> */}
       <ScrollView
         contentInset={{
@@ -74,7 +71,7 @@ const Basket: React.FC<BasketProps> = () => {
           shippingFee={shippingFee}
         />
         {/* <DishesAlsoOrdered /> */}
-        {/* <PaymentMethod /> */}
+        <PaymentMethod payment={payment} />
       </ScrollView>
       <View
         style={{
@@ -85,38 +82,36 @@ const Basket: React.FC<BasketProps> = () => {
         <TextField
           value={Promo}
           editable={!PromoCode.results.percentage}
-          containerStyle={{ width: '78%', backgroundColor: '#fff' }}
+          containerStyle={{width: '78%', backgroundColor: '#fff'}}
           onChangeText={(t: string) => setPromo(t)}
           placeholder="برومو كود"
         />
         <Button
           disabled={cartItems.length == 0}
-          style={{ width: '20%', marginLeft: 10, height: 45, padding: 0, }}
+          style={{width: '20%', marginLeft: 10, height: 45, padding: 0}}
           isLoading={PromoCode.loading}
           onPress={() => {
             if (PromoCode.results?.percentage) {
-              setPromoCode({ error: '', results: [], loading: false });
+              setPromoCode({error: '', results: [], loading: false});
               setPromo('');
             } else {
               getCoupon(Promo, setPromoCode);
             }
           }}>
           {PromoCode.results?.percentage ? (
-            <Text isWhite isBold>حذف</Text>
+            <Text isWhite isBold>
+              حذف
+            </Text>
           ) : (
-            <Text isWhite isBold>تاكيد</Text>
+            <Text isWhite isBold>
+              تاكيد
+            </Text>
           )}
         </Button>
       </View>
-      {PromoCode.results?.error ? (
-        <Text isPrimary>{PromoCode.results?.error}</Text>
-      ) : null}
+      {PromoCode.results?.error ? <Text isPrimary>{PromoCode.results?.error}</Text> : null}
 
-      <PlaceOrder
-        discount={PromoCode.results}
-        totalPrice={totalCart}
-        shippingFee={shippingFee}
-      />
+      <PlaceOrder discount={PromoCode.results} totalPrice={totalCart} shippingFee={shippingFee} />
       {/* </View > */}
     </KeyboardAvoidingView>
   );

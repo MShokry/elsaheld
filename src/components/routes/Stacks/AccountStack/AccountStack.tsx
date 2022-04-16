@@ -12,7 +12,7 @@ import SelectLocationScreen from '@src/components/screens/SelectLocation';
 import {ScreenNavigationProps} from '../types';
 import styles from './styles';
 import OrderHistoryRide from '@src/components/screens/OrderHistoryRide';
-import OrderHistoryAny from '@src/components/screens/OrderHistoryAny';
+import OrderHistoryVilla from '@src/components/screens/OrderHistoryVilla';
 
 type AccountStackProps = {} & ScreenNavigationProps;
 const Stack = createStackNavigator();
@@ -65,11 +65,11 @@ const AccountStack: React.FC<AccountStackProps> = props => {
       <Stack.Screen
         options={() => {
           return {
-            title: ' طلبات اي شئ',
+            title: ' طلبات الشاليهات',
           };
         }}
-        name="OrderHistoryAnyScreen"
-        component={OrderHistoryAny}
+        name="OrderHistoryVillaScreen"
+        component={OrderHistoryVilla}
       />
       <Stack.Screen
         name="SavedAddressesScreen"
@@ -82,7 +82,7 @@ const AccountStack: React.FC<AccountStackProps> = props => {
         name="AddAddressScreen"
         options={{
           headerTitle: 'اضافة عنوان',
-          headerRight: _renderAddAddressHeaderRight,
+          // headerRight: _renderAddAddressHeaderRight,
           headerRightContainerStyle: styles.headerRightContainer,
         }}
         component={AddAddress}

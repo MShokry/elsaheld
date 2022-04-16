@@ -10,36 +10,39 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import { AppState, AppStateStatus, I18nManager, Text } from 'react-native';
-import {
-  AppearanceProvider,
-  useColorScheme,
-  ColorSchemeName,
-} from 'react-native-appearance';
+import {AppState, AppStateStatus, View, Text} from 'react-native';
+import {AppearanceProvider, useColorScheme, ColorSchemeName} from 'react-native-appearance';
 import RootNavigation from '@src/components/routes/RootNavigation';
 import CartProvider from '@src/components/common/CartProvider';
 import ThemeContext from '@src/context/theme-context';
-import AuthProvider, { mainReducer } from '@src/components/common/AuthProvider/AuthProvider';
+import AuthProvider, {mainReducer} from '@src/components/common/AuthProvider/AuthProvider';
 import * as DataBase from '@src/utils/AsyncStorage';
 import * as Lang from './src/utils/LangHelper';
 import Geocoder from 'react-native-geocoding';
+
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://df91a3bf0f1f4c3fb3ac76ae3a38fd73@o1088944.ingest.sentry.io/6103808',
+  // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+  // We recommend adjusting this value in production.
+  tracesSampleRate: 1.0,
+});
 // GOOGLE CODE AIzaSyDJeAvHy9Sm9xE7QLVh4D3cg5a8AwOE-zc&amp;sensor=false&amp;libraries=places">
 // Geocoder.init("AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA", {language : "ar"}); // use a valid API key
-Geocoder.init("AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA", {language : "ar"}); // use a valid API key
+Geocoder.init('AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA', {language: 'ar'}); // use a valid API key
 
-Text.defaultProps = Text.defaultProps || {}
-Text.defaultProps.style =  { fontFamily: 'Cairo-Light' }
+Text.defaultProps = Text.defaultProps || {};
+Text.defaultProps.style = {fontFamily: 'Cairo-Light'};
 
-import { AppReviewConfig } from '@src/constants';
+import {AppReviewConfig} from '@src/constants';
 
-const { USES_UNTIL_SHOW } = AppReviewConfig;
+const {USES_UNTIL_SHOW} = AppReviewConfig;
 
 const App = () => {
   // const [contextState, contextDispatch] = React.useContext(AuthContext);
   const appState = React.useRef(AppState.currentState);
-  const [appStateVisible, setAppStateVisible] = React.useState(
-    appState.current,
-  );
+  const [appStateVisible, setAppStateVisible] = React.useState(appState.current);
   const scheme = useColorScheme();
   const [currentTheme, setCurrentTheme] = React.useState('light');
   const [useSystemTheme, setUseSystemTheme] = React.useState(false);
@@ -62,9 +65,7 @@ const App = () => {
       return;
     }
     const handleGetUsesUntilShowAppReview = async () => {
-      const usesUntilShowAppReview = await DataBase.getItem(
-        USES_UNTIL_SHOW,
-      );
+      const usesUntilShowAppReview = await DataBase.getItem(USES_UNTIL_SHOW);
       if (!usesUntilShowAppReview) {
         DataBase.setItem(USES_UNTIL_SHOW, '1');
         return;
@@ -105,4 +106,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Sentry.wrap(App);

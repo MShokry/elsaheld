@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Container, Icon, List, SearchBar} from '@src/components/elements';
+import {Button, Container, Icon, List, LoadingIndicator, SearchBar} from '@src/components/elements';
 import {mockPlaceList} from '@src/data/mock-places';
 import {getRestaurants, searchRestaurants} from '@src/utils/CartAPI';
 
@@ -11,8 +11,8 @@ import {SafeAreaView, View} from 'react-native';
 
 type PlaceListProps = {};
 
-const PlaceList: React.FC<PlaceListProps> = () => {
-  const [Places, setPlaces] = React.useState({error: '', results: [], loading: false});
+const PlaceList: React.FC<PlaceListProps> = ({navigation}) => {
+  const [Places, setPlaces] = React.useState({error: '', results: [], loading: true});
   const route = useRoute();
   const [contextState, contextDispatch] = React.useContext(MainContext);
 
@@ -23,7 +23,7 @@ const PlaceList: React.FC<PlaceListProps> = () => {
       long: contextState.location?.longitude ? contextState.location?.longitude : 0,
     };
     searchRestaurants(rest, setPlaces);
-  }, []);
+  }, [contextState.word]);
 
   return (
     <Container style={styles.root}>
@@ -31,7 +31,11 @@ const PlaceList: React.FC<PlaceListProps> = () => {
 
       <Container style={styles.searchBarContainer}>
         <View style={styles.closeIconContainer}>
-          <Button isTransparent onPress={() => {}}>
+          <Button
+            isTransparent
+            onPress={() => {
+              navigation.goBack();
+            }}>
             <Icon useIonicons name="close" size={20} />
           </Button>
         </View>
@@ -39,8 +43,10 @@ const PlaceList: React.FC<PlaceListProps> = () => {
           <SearchBar placeholder="ابحث عن طبق" />
         </View>
       </Container>
+      {Places.loading && <LoadingIndicator size="large" hasMargin />}
       <List
         data={Places.results}
+        refreshing={Places.loading}
         renderItem={({item}) => {
           return <PlaceListItem key={item.id} data={item} />;
         }}

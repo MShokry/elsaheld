@@ -9,6 +9,7 @@ import cartContext from '@src/context/cart-context';
 import {translate as T} from '@src/utils/LangHelper';
 import AuthContext from '@src/context/auth-context';
 import {useNavigation} from '@react-navigation/core';
+import EnterPhone from '@src/components/elements/enterPhone';
 
 type PlaceOrderProps = {
   totalPrice: number;
@@ -29,13 +30,16 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({discount, totalPrice, shippingFe
   const isLogin = contextState.user?.user?.ID;
   // console.log('isLogin', isLogin, contextState);
   console.log('cartItems', cartItems);
+  const [isPhone, setisPhone] = React.useState(false);
 
   const _onPlaceOrderButtonPressed = () => {
     if (!isLogin) {
       navigation.navigate('Auth');
+    } else if (!contextState.isPhoneActive) {
+      setisPhone(true);
+      //show modal to enter the phone
     } else {
       let o = '';
-
       // { "8": [["3", 0,
       // "{ \"ID\":\"9\" , \"Name\":\"ÙƒØ¨ÙŠØ±\" , \"Price\":\"220\" }", "{ \"ID\":\"12\" ,
       //  \"Name\":\"Ø³Ù„Ø·Ø©\" , \"Price\":\"10\" }", "{ \"ID\":\"13\" , \"Name\":\"Ø·Ø­ÙŠÙ†Ø©\" , \"Price\":\"8\" }",
@@ -77,8 +81,6 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({discount, totalPrice, shippingFe
       const order = {
         RestaurantID: cartItems?.[0]?.dish?.Resturant?.ID,
         confirm: true,
-        // json_email: "emadelkomy7@gmail.com",
-        // json_password: "d320b3c9217fc14d1ac35557481b8dd919",
         notes: '',
         CouponID: discount?.ID || undefined,
         orders: JSON.stringify(g),
@@ -119,7 +121,14 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({discount, totalPrice, shippingFe
           {T('Cart.PlaceOrder')}
         </Text>
       </Button>
-      <SuccessOrderModal isVisible={isSuccessOrderModalVisible} setIsVisble={setIsSuccessOrderModalVisible} />
+      <EnterPhone isVisible={isPhone} hide={() => setisPhone(false)} />
+
+      <SuccessOrderModal
+        data={Order.results}
+        pay
+        isVisible={isSuccessOrderModalVisible}
+        setIsVisble={setIsSuccessOrderModalVisible}
+      />
     </Container>
   );
 };

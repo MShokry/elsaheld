@@ -12,13 +12,7 @@ type DialogProps = {
   footer?: React.ReactNode;
 } & Partial<ModalProps>;
 
-const Dialog: React.FC<DialogProps> = ({
-  title,
-  isTitleCentered,
-  footer,
-  children,
-  ...rest
-}) => {
+const Dialog: React.FC<DialogProps> = ({title, isTitleCentered, footer, children, ...rest}) => {
   return (
     <Modal
       {...rest}
@@ -30,12 +24,7 @@ const Dialog: React.FC<DialogProps> = ({
       <Container style={styles.container}>
         {title && (
           <>
-            <Text
-              isBold
-              isHeadingTitle
-              isPrimary
-              isCenter={isTitleCentered}
-              style={styles.title}>
+            <Text isBold isHeadingTitle isPrimary isCenter={isTitleCentered} style={styles.title}>
               {title}
             </Text>
             <Divider />

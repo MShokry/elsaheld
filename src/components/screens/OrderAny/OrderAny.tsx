@@ -25,6 +25,7 @@ import SuccessOrderModal from '../Checkout/PlaceOrder/SuccessOrderModal';
 import Geocoder from 'react-native-geocoding';
 
 import MainContext from '@src/context/auth-context';
+import EnterPhone from '@src/components/elements/enterPhone';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA';
 const GooglePlacesInput = () => {
@@ -46,7 +47,7 @@ const GooglePlacesInput = () => {
 
 type NotificationScreenProps = {};
 
-const NotificationScreen: React.FC<NotificationScreenProps> = () => {
+const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => {
   const [contextState, contextDispatch] = React.useContext(MainContext);
 
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
@@ -58,6 +59,10 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
   const [modalData, setmodalData] = React.useState({error: '', results: [], loading: false});
   const [requestD, setrequestD] = React.useState('');
+
+  const [isPhone, setisPhone] = React.useState(false);
+
+  const isLogin = contextState.user?.user?.ID;
 
   const [currentViewR, setcurrentViewR] = React.useState({
     latitude: contextState.location?.latitude ? contextState.location?.latitude : 30.0444,
@@ -175,6 +180,16 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
       setstate({...state, markerLocation});
     }
   };
+  const _onsetMerk = () => {
+    const markerLocation = {
+      ...state.reagon,
+    };
+    console.log(state.reagon);
+
+    if (!!!region || !!!destination) {
+      setstate({...state, markerLocation});
+    }
+  };
 
   const _setCurretnView = e => {
     setcurrentViewR(e.nativeEvent?.coordinate);
@@ -216,8 +231,10 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
       <Search
         currentLocationLabel={region?.title || ''}
         dest
+        withIcon
         onLocationSelected={handleLocationSelectedSource}
         clear={handleLocationSelectedSourceClear}
+        onPressIcon={_onsetMerk}
       />
       <Search
         currentLocationLabel={destination?.title || ''}
@@ -314,20 +331,29 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
           <Button
             isLoading={TripPrice.loading}
             onPress={() => {
-              const data = {
-                origin: `${state.region.latitude},${state.region.longitude}`,
-                destination: `${state.destination.latitude},${state.destination.longitude}`,
-                originName: `${state.region.title}`,
-                destinationName: `${state.destination.title}`,
-                distance_in_kilo: `${state.distance}`,
-                duration_text: `${state.duration}+min`,
-                type: 'Order',
-              };
-              setRide(data, setTripPrice).then(r => {
-                console.log(r);
-                setstate({...state, const: r.cost});
-                setmodalView(true);
-              });
+              if (isLogin) {
+                if (!contextState.isPhoneActive) {
+                  setisPhone(true);
+                  //show modal to enter the phone
+                } else {
+                  const data = {
+                    origin: `${state.region.latitude},${state.region.longitude}`,
+                    destination: `${state.destination.latitude},${state.destination.longitude}`,
+                    originName: `${state.region.title}`,
+                    destinationName: `${state.destination.title}`,
+                    distance_in_kilo: `${state.distance}`,
+                    duration_text: `${state.duration}+min`,
+                    type: 'Order',
+                  };
+                  setRide(data, setTripPrice).then(r => {
+                    console.log(r);
+                    setstate({...state, const: r.cost});
+                    setmodalView(true);
+                  });
+                }
+              } else {
+                navigation.navigate('Auth');
+              }
             }}>
             <Text isWhite> بدء الطلب </Text>
           </Button>
@@ -349,7 +375,6 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
                 autoFocus
                 multiline
                 numberOfLines={10}
-
               />
               <Text isCenter> وقت الرحلة: {state.duration}</Text>
               <Text isCenter> المسافة بالكيلو: {state.distance}</Text>
@@ -375,6 +400,8 @@ const NotificationScreen: React.FC<NotificationScreenProps> = () => {
           </ScrollView>
         </Container>
       </Dialog>
+      <EnterPhone isVisible={isPhone} hide={() => setisPhone(false)} />
+
       <SuccessOrderModal
         isVisible={isSuccessOrderModalVisible}
         type="trip"

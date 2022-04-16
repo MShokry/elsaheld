@@ -1,14 +1,11 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 export default StyleSheet.create({
   root: {
-    flex: 1,
     height: '100%',
     marginTop: 20,
   },
   contentContainer: {
     padding: 15,
-    flex: 1,
-    height: '100%',
   },
   row: {
     width: 100,
@@ -33,14 +30,15 @@ export default StyleSheet.create({
   },
   appIcon: {
     width: '50%',
-    height: '50%',
+    height: 280,
   },
   passwordTextField: {
-    marginTop: 10,
     marginBottom: 30,
+    marginHorizontal: 20,
   },
   phoneNumberTextField: {
     // marginTop: 30,
+    marginHorizontal: 20,
   },
   modalContainer: {
     padding: 20,

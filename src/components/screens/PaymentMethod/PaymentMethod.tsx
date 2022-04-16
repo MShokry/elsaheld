@@ -6,8 +6,8 @@ import {paymentMethods} from '@src/data/mock-payment-method';
 
 type PaymentMethodProps = {};
 
-const PaymentMethod: React.FC<PaymentMethodProps> = () => {
-  const data: RadioOption[] = paymentMethods.map((item) => {
+const PaymentMethod: React.FC<PaymentMethodProps> = ({payment}) => {
+  const data: RadioOption[] = paymentMethods.map(item => {
     const {id, name, icon} = item;
     return {
       label: name,
@@ -18,13 +18,14 @@ const PaymentMethod: React.FC<PaymentMethodProps> = () => {
 
   const _onItemPressed = (item: RadioOption) => {
     return () => {
-      console.log(item);
+      console.log('Selecet item', item);
+      payment(item);
     };
   };
 
   return (
     <ScrollView>
-      <Section title="Choose a payment method">
+      <Section title="اختر طريقة الدفع">
         <RadioButton data={data} onItemPressed={_onItemPressed} />
       </Section>
     </ScrollView>
