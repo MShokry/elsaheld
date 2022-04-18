@@ -10,7 +10,7 @@ export default StyleSheet.create({
     height: 10,
     borderRadius: 5,
     marginHorizontal: 2,
-    backgroundColor: '#022873',
+    backgroundColor: 'red',
     marginTop: 0,
     marginBottom: 0,
   },

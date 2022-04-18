@@ -5,11 +5,12 @@ import {
   KeyboardAvoidingView,
   PermissionsAndroid,
   Platform,
+  SafeAreaView,
   ScrollView,
   View,
 } from 'react-native';
 import {useScrollToTop} from '@react-navigation/native';
-import {Icon, Divider, Dialog, Text, Button, TextField, Container} from '@src/components/elements';
+import {Icon, Divider, Dialog, Text, Button, TextField, Container, SearchBar} from '@src/components/elements';
 import ListRowItem from '@src/components/elements/List/ListRowItem';
 import useThemeColors from '@src/custom-hooks/useThemeColors';
 import {notifications, Notification} from '@src/data/mock-notification';
@@ -25,7 +26,6 @@ import SuccessOrderModal from '../Checkout/PlaceOrder/SuccessOrderModal';
 import Geocoder from 'react-native-geocoding';
 
 import MainContext from '@src/context/auth-context';
-import EnterPhone from '@src/components/elements/enterPhone';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA';
 const GooglePlacesInput = () => {
@@ -59,8 +59,6 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
   const [modalData, setmodalData] = React.useState({error: '', results: [], loading: false});
   const [requestD, setrequestD] = React.useState('');
-
-  const [isPhone, setisPhone] = React.useState(false);
 
   const isLogin = contextState.user?.user?.ID;
 
@@ -228,19 +226,22 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
   return (
     // <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps={'handled'} ref={scrollViewRef}>
     <View style={{flex: 1}} ref={scrollViewRef}>
-      <Search
+      <SafeAreaView />
+
+      <SearchBar />
+      {/* <Search
         currentLocationLabel={region?.title || ''}
         dest
         withIcon
         onLocationSelected={handleLocationSelectedSource}
         clear={handleLocationSelectedSourceClear}
         onPressIcon={_onsetMerk}
-      />
-      <Search
+      /> */}
+      {/* <Search
         currentLocationLabel={destination?.title || ''}
         onLocationSelected={handleLocationSelected}
         clear={handleLocationSelectedClear}
-      />
+      /> */}
       <Divider />
       <MapView
         loadingEnabled
@@ -332,25 +333,20 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
             isLoading={TripPrice.loading}
             onPress={() => {
               if (isLogin) {
-                if (!contextState.isPhoneActive) {
-                  setisPhone(true);
-                  //show modal to enter the phone
-                } else {
-                  const data = {
-                    origin: `${state.region.latitude},${state.region.longitude}`,
-                    destination: `${state.destination.latitude},${state.destination.longitude}`,
-                    originName: `${state.region.title}`,
-                    destinationName: `${state.destination.title}`,
-                    distance_in_kilo: `${state.distance}`,
-                    duration_text: `${state.duration}+min`,
-                    type: 'Order',
-                  };
-                  setRide(data, setTripPrice).then(r => {
-                    console.log(r);
-                    setstate({...state, const: r.cost});
-                    setmodalView(true);
-                  });
-                }
+                const data = {
+                  origin: `${state.region.latitude},${state.region.longitude}`,
+                  destination: `${state.destination.latitude},${state.destination.longitude}`,
+                  originName: `${state.region.title}`,
+                  destinationName: `${state.destination.title}`,
+                  distance_in_kilo: `${state.distance}`,
+                  duration_text: `${state.duration}+min`,
+                  type: 'Order',
+                };
+                setRide(data, setTripPrice).then(r => {
+                  console.log(r);
+                  setstate({...state, const: r.cost});
+                  setmodalView(true);
+                });
               } else {
                 navigation.navigate('Auth');
               }
@@ -400,8 +396,6 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
           </ScrollView>
         </Container>
       </Dialog>
-      <EnterPhone isVisible={isPhone} hide={() => setisPhone(false)} />
-
       <SuccessOrderModal
         isVisible={isSuccessOrderModalVisible}
         type="trip"

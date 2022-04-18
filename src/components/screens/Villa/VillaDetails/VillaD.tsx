@@ -12,7 +12,6 @@ import AuthContext from '@src/context/auth-context';
 
 import moment from 'moment';
 import {TouchableHighlight} from 'react-native-gesture-handler';
-import EnterPhone from '@src/components/elements/enterPhone';
 
 type VillaDetailsProps = {};
 
@@ -31,12 +30,10 @@ const VillaDetails: React.FC<VillaDetailsProps> = ({route}) => {
     results: [],
     loading: false,
   });
-  const Today = moment(new Date()).format('YYYY-MM-DD');
-
-  const [CheckIn, setCheckIn] = React.useState(Today);
+  const [CheckIn, setCheckIn] = React.useState(Date());
   const [isArrive, setisArrive] = React.useState(false);
 
-  const [CheckOut, setCheckOut] = React.useState(Today);
+  const [CheckOut, setCheckOut] = React.useState(Date());
   const [isLeav, setisLeav] = React.useState(false);
 
   const [adults, setadults] = React.useState('');
@@ -54,7 +51,6 @@ const VillaDetails: React.FC<VillaDetailsProps> = ({route}) => {
   const [modalData, setmodalData] = React.useState({error: '', results: [], loading: false});
 
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
-  const [isPhone, setisPhone] = React.useState(false);
 
   const propertyTypes = ['شقة', 'شاليه', 'فيلا', 'استراحة', 'استوديو'];
 
@@ -83,7 +79,7 @@ const VillaDetails: React.FC<VillaDetailsProps> = ({route}) => {
   // console.log('Details', Details, getPhotos(Details));
   const id = Details.ID;
 
-  const diffDays = moment(CheckOut).diff(moment(CheckIn), 'days') || 1;
+  const diffDays = moment(CheckOut).diff(moment(CheckIn), 'days');
   const DaysAll = diffDays > 0 ? diffDays : 0;
   const DayPrice = parseInt(Details.pricePerNight);
   return (
@@ -280,13 +276,7 @@ const VillaDetails: React.FC<VillaDetailsProps> = ({route}) => {
             ) : null}
           </View>
           <View>
-            <TextField
-              value={phone}
-              hasMargin
-              keyboardType="number-pad"
-              placeholder=" رقم الهاتف  "
-              onChangeText={(t: string) => setphone(t)}
-            />
+            <TextField value={phone} hasMargin placeholder=" رقم الهاتف  " onChangeText={(t: string) => setphone(t)} />
             {phone ? (
               <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
                 رقم الهاتف
@@ -309,28 +299,23 @@ const VillaDetails: React.FC<VillaDetailsProps> = ({route}) => {
           <Button
             isLoading={VillaReserve.loading}
             onPress={() => {
-              if (!contextState.isPhoneActive) {
-                setisPhone(true);
-                //show modal to enter the phone
-              } else {
-                const d = {
-                  id,
-                  CheckIn: moment(CheckIn).format('YYYY-MM-DD'),
-                  CheckOut: moment(CheckOut).format('YYYY-MM-DD'),
-                  adults,
-                  children,
-                  propertyType,
-                  commnet,
-                  phone,
-                  name,
-                };
-                sendVillaRequest({id: Details.ID, ...d}, setVillaReserve).then(e => {
-                  setresView(false);
-                  setTimeout(() => {
-                    setIsSuccessOrderModalVisible(true);
-                  }, 500);
-                });
-              }
+              const d = {
+                id,
+                CheckIn: moment(CheckIn).format('YYYY-mm-ddd'),
+                CheckOut: moment(CheckOut).format('YYYY-mm-ddd'),
+                adults,
+                children,
+                propertyType,
+                commnet,
+                phone,
+                name,
+              };
+              sendVillaRequest({id: Details.ID, ...d}, setVillaReserve).then(e => {
+                setresView(false);
+                setTimeout(() => {
+                  setIsSuccessOrderModalVisible(true);
+                }, 500);
+              });
             }}>
             <Text isWhite isCenter>
               ارسل الطلب
@@ -338,7 +323,7 @@ const VillaDetails: React.FC<VillaDetailsProps> = ({route}) => {
           </Button>
         </>
       </Dialog>
-      <EnterPhone isVisible={isPhone} hide={() => setisPhone(false)} />
+
       <SuccessOrderModal
         type="Villa"
         isVisible={isSuccessOrderModalVisible}

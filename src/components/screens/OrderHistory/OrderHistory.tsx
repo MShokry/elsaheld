@@ -20,7 +20,13 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
   const navigation = useNavigation();
 
   React.useEffect(() => {
-    GetOrders({}, setOrders);
+    GetOrders(
+      {
+        // json_email: "emadelkomy7@gmail.com",
+        // json_password: "d320b3c9217fc14d1ac35557481b8dd919",
+      },
+      setOrders,
+    );
   }, []);
 
   const onRefresh = () => {
@@ -43,19 +49,18 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
   // }, [ROrders])
 
   const data: ListRowItemProps[] =
-    Orders.results?.map(item => {
-      const {ID, net, RestaurantPhoto, RestaurantName, itemsAmount, items, total, History, Cancelled} = item;
+    Orders.results?.Result?.map(item => {
+      const {ID, net, RestaurantPhoto, RestaurantName, itemsAmount, items, Status, History, Cancelled} = item;
       const lastHistory = History?.length ? History[History.length - 1]?.Title : 'جاري استلام الطلب';
       const orderItems =
         items
-          ?.slice(0, 2)
-          .map(e => {
+          ?.map(e => {
             return e.ItemName;
           })
           .join(' | ') || '';
       return {
         id: ID,
-        title: `#${ID}, ${RestaurantName}`,
+        title: `#${ID}, ${item.name}`,
         subTitle: ` عدد الاصناف: ${itemsAmount}, ${net} EGP, ${orderItems}`,
         note: lastHistory.toString(),
         onPress: () => {

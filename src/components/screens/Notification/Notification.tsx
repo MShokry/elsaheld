@@ -17,7 +17,6 @@ import SuccessOrderModal from '../Checkout/PlaceOrder/SuccessOrderModal';
 import Geocoder from 'react-native-geocoding';
 
 import MainContext from '@src/context/auth-context';
-import EnterPhone from '@src/components/elements/enterPhone';
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCz1ikkHhlXK2JoCtkLZ6dE8JMVzlcUbsA';
 const GooglePlacesInput = () => {
@@ -50,7 +49,6 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
   const [TripPrice, setTripPrice] = React.useState({error: '', results: [], loading: false});
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
   const [modalData, setmodalData] = React.useState({error: '', results: [], loading: false});
-  const [isPhone, setisPhone] = React.useState(false);
 
   const isLogin = contextState.user?.user?.ID;
 
@@ -320,25 +318,20 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
             isLoading={TripPrice.loading}
             onPress={() => {
               if (isLogin) {
-                if (!contextState.isPhoneActive) {
-                  setisPhone(true);
-                  //show modal to enter the phone
-                } else {
-                  const data = {
-                    origin: `${state.region.latitude},${state.region.longitude}`,
-                    destination: `${state.destination.latitude},${state.destination.longitude}`,
-                    originName: `${state.region.title}`,
-                    destinationName: `${state.destination.title}`,
-                    distance_in_kilo: `${state.distance}`,
-                    duration_text: `${state.duration}+min`,
-                    type: 'Ride',
-                  };
-                  setRide(data, setTripPrice).then(r => {
-                    console.log(r);
-                    setstate({...state, const: r.cost});
-                    setmodalView(true);
-                  });
-                }
+                const data = {
+                  origin: `${state.region.latitude},${state.region.longitude}`,
+                  destination: `${state.destination.latitude},${state.destination.longitude}`,
+                  originName: `${state.region.title}`,
+                  destinationName: `${state.destination.title}`,
+                  distance_in_kilo: `${state.distance}`,
+                  duration_text: `${state.duration}+min`,
+                  type: 'Ride',
+                };
+                setRide(data, setTripPrice).then(r => {
+                  console.log(r);
+                  setstate({...state, const: r.cost});
+                  setmodalView(true);
+                });
               } else {
                 navigation.navigate('Auth');
               }
@@ -368,8 +361,6 @@ const NotificationScreen: React.FC<NotificationScreenProps> = ({navigation}) => 
           </Text>
         </Button>
       </Dialog>
-      <EnterPhone isVisible={isPhone} hide={() => setisPhone(false)} />
-
       <SuccessOrderModal
         isVisible={isSuccessOrderModalVisible}
         type="trip"

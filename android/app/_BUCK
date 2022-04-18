@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.ebda3eg.elsahel",
+    package = "com.ebda3eg.elsaheld",
 )
 
 android_resource(
     name = "res",
-    package = "com.ebda3eg.elsahel",
+    package = "com.ebda3eg.elsaheld",
     res = "src/main/res",
 )
 

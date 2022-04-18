@@ -17,7 +17,6 @@ type AuthState = {
   theme: string | null;
   walkThrough: boolean | null;
   loading: boolean | null;
-  isPhoneActive: boolean | null;
 };
 
 type AuthAction =
@@ -93,9 +92,6 @@ export const mainReducer = (state: any, action: any) => {
       return {...state, locationName: action.payload};
     case 'walkThrough':
       return {...state, walkThrough: action.payload};
-    case 'setIsPhoneActive':
-      return {...state, isPhoneActive: action.payload};
-
     default:
       return state;
   }

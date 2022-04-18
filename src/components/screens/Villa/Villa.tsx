@@ -1,16 +1,38 @@
 import * as React from 'react';
 import {useNavigation, useTheme} from '@react-navigation/native';
-import {Carousel, Section, Container, Text, Button, Dialog, TextField, RadioButton} from '@src/components/elements';
-import {FlatList, Image, Platform, SafeAreaView, StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
+import {
+  Carousel,
+  Section,
+  Card,
+  SearchBar,
+  Container,
+  Text,
+  Button,
+  Dialog,
+  TextField,
+  RadioButton,
+} from '@src/components/elements';
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import {mockPlaces, Place} from '@src/data/mock-places';
+import PlaceCardInfo from '@src/components/common/PlaceCardInfo';
 
 import {getVilla, sendVillaRequest} from '@src/utils/CartAPI';
 import {baseImages} from '@src/utils/APICONST';
+import {translate as T} from '@src/utils/LangHelper';
 import SuccessOrderModal from '../Checkout/PlaceOrder/SuccessOrderModal';
 
 import moment from 'moment';
+import {TouchableHighlight} from 'react-native-gesture-handler';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
-
-import {FloatingAction} from 'react-native-floating-action';
 
 type RecommendedPlacesProps = {};
 
@@ -26,23 +48,18 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
     colors: {text, background},
   } = useTheme();
 
-  const [resView, setresView] = React.useState(false);
-  const Today = moment(new Date()).format('YYYY-MM-DD');
+  const [resView, setresView] = React.useState(true);
 
-  const [CheckIn, setCheckIn] = React.useState(Today);
+  const [CheckIn, setCheckIn] = React.useState(Date());
   const [isArrive, setisArrive] = React.useState(false);
 
-  const [CheckOut, setCheckOut] = React.useState(Today);
+  const [CheckOut, setCheckOut] = React.useState(Date());
   const [isLeav, setisLeav] = React.useState(false);
-  console.log('CheckIn', CheckIn);
 
-  const [area, setarea] = React.useState('');
   const [adults, setadults] = React.useState('');
   const [children, setchildren] = React.useState('');
   const [rooms, setrooms] = React.useState('');
-  const propertyTypes = ['شقة', 'شاليه', 'فيلا', 'استراحة', 'استوديو'];
-
-  const [propertyType, setpropertyType] = React.useState('شقة');
+  const [propertyType, setpropertyType] = React.useState('');
   const [VillaReserve, setVillaReserve] = React.useState({error: '', results: [], loading: false});
 
   const [modalView, setmodalView] = React.useState(false);
@@ -50,6 +67,7 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
 
   const [isSuccessOrderModalVisible, setIsSuccessOrderModalVisible] = React.useState(false);
 
+  const propertyTypes = ['شقة', 'شاليه', 'فيلا', 'استراحة', 'استوديو'];
   const PT = propertyTypes.map(i => ({value: i, label: i}));
   const _onButtonActionPressed = () => {
     navigation.navigate('PlaceListScreen', {title: 'Recommended'});
@@ -59,31 +77,23 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
     navigation.navigate('PlaceDetailsScreen');
   };
   const clear = () => {
-    setCheckIn(Today);
-    setCheckOut(Today);
+    setCheckIn(null);
+    setCheckOut(null);
     setadults('');
     setchildren('');
     setrooms('');
     setpropertyType(null);
-    setarea('');
   };
-  const reload = clear => {
-    const d = !!clear
-      ? {
-          do: 'getPropertyList',
-          CheckIn: Today,
-          CheckOut: Today,
-        }
-      : {
-          do: 'getPropertyList',
-          CheckIn: CheckIn ? moment(CheckIn).format('YYYY-MM-DD') : Today,
-          CheckOut: CheckOut ? moment(CheckOut).format('YYYY-MM-DD') : Today,
-          adults,
-          children,
-          rooms,
-          propertyType,
-          area,
-        };
+  const reload = () => {
+    const d = {
+      do: 'getPropertyList',
+      CheckIn: CheckIn ? moment(CheckIn).format('YYYY-mm-ddd') : undefined,
+      CheckOut: CheckOut ? moment(CheckOut).format('YYYY-mm-ddd') : undefined,
+      adults,
+      children,
+      rooms,
+      propertyType,
+    };
     getVilla(d, setPlaces);
   };
 
@@ -105,20 +115,6 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
 
   console.log('Details', Details, getPhotos(Details));
 
-  const actions = [
-    {
-      text: 'بحث',
-      icon: require('@src/assets/filter.png'),
-      name: 'Search',
-      position: 1,
-    },
-    {
-      text: 'مسح',
-      icon: require('@src/assets/cross.png'),
-      name: 'clear',
-      position: 2,
-    },
-  ];
   return (
     <SafeAreaView>
       {/* <SearchBar placeholder={T('VillaScreen.search')} /> */}
@@ -201,20 +197,6 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
                 </Container>
               </Container>
             );
-          }}
-        />
-        <FloatingAction
-          actions={actions}
-          onPressItem={name => {
-            if (name === 'Search') {
-              setresView(true);
-            } else {
-              clear();
-              setTimeout(() => {
-                reload(true);
-              }, 100);
-            }
-            console.log(`selected button: ${name}`);
           }}
         />
       </Container>
@@ -336,14 +318,6 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
             </View>
           </TouchableWithoutFeedback>
           <View>
-            <TextField value={area} hasMargin placeholder="اسم القرية" onChangeText={(t: string) => setarea(t)} />
-            {area ? (
-              <Text isSecondary style={{alignSelf: 'flex-start', position: 'absolute', top: -5, left: 10}}>
-                اسم القرية
-              </Text>
-            ) : null}
-          </View>
-          <View>
             <TextField
               value={adults}
               hasMargin
@@ -386,7 +360,7 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
             ) : null}
           </View>
           <Section title="اختر نوع العقار">
-            <RadioButton defaultValue={propertyType} data={PT} onItemPressed={e => setpropertyType(e)} />
+            <RadioButton data={PT} onItemPressed={e => setpropertyType(e)} />
           </Section>
           <Button
             onPress={() => {
@@ -394,7 +368,7 @@ const RecommendedPlaces: React.FC<RecommendedPlacesProps> = () => {
               reload();
             }}>
             <Text isWhite isCenter>
-              بحث
+              فلترة
             </Text>
           </Button>
         </>

@@ -1,13 +1,14 @@
-import {useNavigation} from '@react-navigation/core';
-import {Button, Icon, List, LoadingIndicator, Text} from '@src/components/elements';
-import {ListRowItemProps} from '@src/components/elements/List/ListRowItem';
-import SuccessOrderModal from '@src/components/screens/Checkout/PlaceOrder/SuccessOrderModal';
-import {baseImages, POST} from '@src/utils/APICONST';
-import {GetOrdersVilla, ReOrders} from '@src/utils/CartAPI';
 import * as React from 'react';
-import {Alert, Image, RefreshControl, SafeAreaView, View} from 'react-native';
-import TrackOrderModal from '../TrackOrder/TrackOrderModal';
+import {View, Image, Alert, SafeAreaView, RefreshControl} from 'react-native';
 import styles from './styles';
+import {List, Button, Text, LoadingIndicator} from '@src/components/elements';
+import {orderHistoryList} from '@src/data/mock-order-history';
+import {ListRowItemProps} from '@src/components/elements/List/ListRowItem';
+import {GetOrders, ReOrders, CancelOrders, GetOrdersAny, GetOrdersVilla} from '@src/utils/CartAPI';
+import {useNavigation} from '@react-navigation/core';
+import {baseImages} from '@src/utils/APICONST';
+import SuccessOrderModal from '@src/components/screens/Checkout/PlaceOrder/SuccessOrderModal';
+import TrackOrderModal from '../TrackOrder/TrackOrderModal';
 
 type OrderHistoryProps = {};
 
@@ -43,8 +44,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
 
   const data: ListRowItemProps[] =
     Orders.results?.map(item => {
-      const {ID, flat, CheckIn, CheckOut, RestaurantPhoto, totalCost, price, items, photo, History, Cancelled} =
-        item || {};
+      const {ID, CheckIn, CheckOut, RestaurantPhoto, totalCost, price, items, photo, History, Cancelled} = item || {};
       const lastHistory = History?.length ? History[History.length - 1]?.Title : 'جاري استلام الطلب';
       return {
         id: ID,
@@ -53,27 +53,9 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
         note: lastHistory.toString(),
         onPress: () => {
           // setisTrack(item);
-          Alert.alert('حذف الحجز', 'هل تريد حذف هذا الطلب ؟', [
-            {
-              text: 'تاكيد',
-              style: 'cancel',
-              onPress: () => {
-                POST('ebService.php?json=true&do=cancelBooking', {id: ID}).then(e => {
-                  onRefresh();
-                });
-              },
-            },
-            {text: 'عودة'},
-          ]);
         },
         rightContainerStyle: styles.rightItemContainerStyle,
-        rightIcon: <Icon color="#fff" name="trash-alt" />,
-        leftIcon: (
-          <Image
-            source={flat?.small_pic ? {uri: `${baseImages}${flat.small_pic}`} : {uri: `${baseImages}${flat?.photo}`}}
-            style={styles.profileAvatar}
-          />
-        ),
+        leftIcon: <Image source={{uri: `${baseImages}${photo}`}} style={styles.profileAvatar} />,
       };
     }) || [];
 

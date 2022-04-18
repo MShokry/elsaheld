@@ -5,8 +5,8 @@ import AuthContext from '@src/context/auth-context';
 // export const baseURL = 'https://www.ebda3-eg.com/Elsahel/include/';
 // export const baseImages = 'https://www.ebda3-eg.com/Elsahel/uploads/';
 
-export const baseURL = 'https://www.elsahel.co/include/';
-export const baseImages = 'https://www.elsahel.co/uploads/';
+export const baseURL = 'https://www.elsahel.co/driverAPI/';
+export const baseImages = 'https://www.elsahel.co/driverAPI/uploads/';
 
 // 'Content-type': 'application/json',
 export const headers = {

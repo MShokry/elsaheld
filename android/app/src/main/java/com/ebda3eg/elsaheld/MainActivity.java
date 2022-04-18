@@ -1,4 +1,4 @@
-package com.ebda3eg.elsahel;
+package com.ebda3eg.elsaheld;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -24,6 +24,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "ELSAHEL";
+    return "elsahelDriver";
   }
 }

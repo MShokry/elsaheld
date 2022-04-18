@@ -71,11 +71,12 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
       <Tab.Screen
         options={{
           tabBarLabel: 'القائمة',
+          // tabBarVisible: false,
         }}
         name="Explore"
-        component={HomeStack}
+        component={OrderAny}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         options={{
           tabBarLabel: 'شالية',
         }}
@@ -88,15 +89,15 @@ const TabNavigation: React.FC<TabNavigationProps> = () => {
         }}
         name="Car"
         component={NotificationStack}
-      />
+      /> */}
       {/* <Tab.Screen name="Activity" component={ActivityHistoryStack} /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         options={{
           tabBarLabel: 'اطلب',
         }}
         name="MyOrders"
         component={OrderAny}
-      />
+      /> */}
       {/* <Tab.Screen name="Notifications" component={NotificationStack} /> */}
       <Tab.Screen
         options={{

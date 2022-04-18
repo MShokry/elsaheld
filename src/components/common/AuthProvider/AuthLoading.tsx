@@ -110,7 +110,7 @@ const AuthLoading = ({navigation}) => {
 
   useEffect(() => {
     try {
-      __DEV__ ? setTimeout(_bootstrapAsync, 100) : setTimeout(_bootstrapAsync, 3500);
+      __DEV__ ? setTimeout(_bootstrapAsync, 600) : setTimeout(_bootstrapAsync, 2800);
       // setTimeout(_bootstrapAsync, 500);
     } catch (error) {
       contextDispatch({type: 'StopLoading'});

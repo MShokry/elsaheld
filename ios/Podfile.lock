@@ -292,6 +292,8 @@ PODS:
     - react-native-video/Video (= 5.2.0)
   - react-native-video/Video (5.2.0):
     - React-Core
+  - react-native-webview (11.18.1):
+    - React-Core
   - React-perflogger (0.66.2)
   - React-RCTActionSheet (0.66.2):
     - React-Core/RCTActionSheetHeaders (= 0.66.2)
@@ -421,6 +423,7 @@ DEPENDENCIES:
   - react-native-restart (from `../node_modules/react-native-restart`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-video (from `../node_modules/react-native-video`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -520,6 +523,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-video:
     :path: "../node_modules/react-native-video"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -612,6 +617,7 @@ SPEC CHECKSUMS:
   react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
+  react-native-webview: 0b7bd2bffced115aefd393e1841babd9b9a557b1
   React-perflogger: 5ab487cacfe6ec19bfe3d3f8072bf71eb07d63da
   React-RCTActionSheet: 03f25695e095fb5aa003828620943c74cc281fec
   React-RCTAnimation: eaf82da39f0c36fb0ef2a28df797c5f73a2a98ea
@@ -641,4 +647,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f2d9ba755b6db7da9d9328524d95bc01b447d0fa
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

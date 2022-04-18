@@ -24,7 +24,7 @@ import CartContext from '@src/context/cart-context';
 
 import VillaDetails from '@src/components/screens/Villa/VillaDetails';
 import AuthenticationStack from './Stacks/AuthenticationStack';
-import AuthVerificationCode from '../screens/AuthVerificationCode';
+import Reports from '../screens/Reports';
 
 const RootStack = createStackNavigator();
 
@@ -100,12 +100,22 @@ const RootNavigation = () => {
           <RootStack.Screen
             title="تفاصيل"
             options={{
-              label: 'تفاصيل',
+              title: 'تفاصيل',
+              headerBackTitleVisible: false,
             }}
             name="VillaDetails"
             component={VillaDetails}
           />
-          <RootStack.Screen name="OTP" component={AuthVerificationCode} />
+
+          <RootStack.Screen
+            title="تفاصيل"
+            options={{
+              title: 'تقارير',
+              headerBackTitleVisible: false,
+            }}
+            name="ReportsHistor"
+            component={Reports}
+          />
 
           <RootStack.Screen
             options={{

@@ -49,11 +49,7 @@ const Home: React.FC<HomeProps> = ({navigation}) => {
   return (
     <SafeAreaView>
       <ScrollView ref={scrollViewRef} stickyHeaderIndices={[0]}>
-        <SearchBar
-          navgate={true}
-          onSearch={() => navigation.navigate('SearchRestModal')}
-          placeholder={T('HomeScreen.search')}
-        />
+        <SearchBar onSearch={() => navigation.navigate('SearchRestModal')} placeholder={T('HomeScreen.search')} />
         <PopularCategories list={false} />
         <MerchantCampaigns key="MerchantCampaigns" />
 

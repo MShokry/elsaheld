@@ -97,7 +97,7 @@ export const updateUser = async ([user, state, setState]) => {
 };
 
 export const logUser = async (user, setState) => {
-  POST('siteAPI.php?json=true', user, setState);
+  POST('', user, setState);
 };
 export const sendPassword = async (user, setState) => {
   POST('siteAPI.php?json=true&do=sendPassword', user, setState);

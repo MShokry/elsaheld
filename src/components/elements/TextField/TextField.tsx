@@ -12,7 +12,6 @@ interface OwnProps {
   rightIconSize?: number;
   containerStyle?: StyleProp<ViewStyle>;
   hasMargin?: boolean;
-  disabled?: boolean;
   error?: boolean;
   onButtonPressed?: () => {};
 }
@@ -28,7 +27,6 @@ const TextField: React.FC<TextFieldProps> = ({
   containerStyle,
   hasMargin,
   error,
-  disabled = false,
   onButtonPressed = () => {},
   ...rest
 }) => {
@@ -66,7 +64,6 @@ const TextField: React.FC<TextFieldProps> = ({
           style,
         ]}
         placeholderTextColor={text}
-        disabled={disabled}
         underlineColorAndroid="transparent"
         {...rest}
       />

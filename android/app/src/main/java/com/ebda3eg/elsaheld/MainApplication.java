@@ -1,4 +1,4 @@
-package com.ebda3eg.elsahel;
+package com.ebda3eg.elsaheld;
 
 import android.app.Application;
 import android.content.Context;
@@ -63,7 +63,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
          We use reflection here to pick up the class that initializes Flipper,
         since Flipper library is not available in release mode
         */
-        Class<?> aClass = Class.forName("com.ebda3eg.elsahel.ReactNativeFlipper");
+        Class<?> aClass = Class.forName("com.ebda3eg.elsaheld.ReactNativeFlipper");
         aClass
             .getMethod("initializeFlipper", Context.class, ReactInstanceManager.class)
             .invoke(null, context, reactInstanceManager);

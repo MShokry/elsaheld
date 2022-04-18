@@ -1,65 +1,52 @@
 import * as React from 'react';
-import {TouchableOpacity, View} from 'react-native';
+import {View} from 'react-native';
 import Container from '../Container';
 import TextField from '../TextField';
 import styles from './styles';
 import {useTheme} from '@react-navigation/native';
 import {searchRestaurants} from '@src/utils/CartAPI';
 import MainContext from '@src/context/auth-context';
-import Text from '../Text';
+
+import SwitchSelector from 'react-native-switch-selector';
+import {POST} from '@src/utils/APICONST';
 
 type SearchBarProps = {
   leftIconName?: string;
   placeholder?: string;
   onSearch?: () => {};
-  navgate?: boolean;
 };
-
+const options = [
+  {label: 'Offline', activeColor: 'red', value: 0},
+  {label: 'Online', activeColor: 'green', value: 1},
+];
 const SearchBar: React.FC<SearchBarProps> = ({
   leftIconName = 'search',
   onSearch = () => {},
   placeholder = 'Search',
-  navgate = false,
 }) => {
   const {
-    colors: {card, background},
+    colors: {card, primary, background},
   } = useTheme();
   const [contextState, contextDispatch] = React.useContext(MainContext);
-  // const [word, setword] = useState('');
+  const [OnlineBut, setOnlineBut] = React.useState(0);
 
   return (
     <View>
       <Container style={[styles.searchContainer, {backgroundColor: card}]}>
-        {navgate ? (
-          <TouchableOpacity
-            style={{
-              backgroundColor: background,
-              borderRadius: 15,
-              justifyContent: 'center',
-              marginTop: 5,
-              marginBottom: 5,
-              paddingHorizontal: 10,
-              height: 48,
-            }}
-            onPress={onSearch}>
-            <Text>{placeholder}</Text>
-            {/* <TextField
-              onBlur={() => onSearch()}
-              leftIcon={leftIconName}
-              placeholder={placeholder}
-              disabled={true}
-              onButtonPressed={onSearch}
-            /> */}
-          </TouchableOpacity>
-        ) : (
-          <TextField
-            value={contextState.word}
-            onChangeText={(t: string) => contextDispatch({type: 'setWord', payload: t})}
-            leftIcon={leftIconName}
-            placeholder={placeholder}
-            onButtonPressed={onSearch}
-          />
-        )}
+        <SwitchSelector
+          options={options}
+          value={OnlineBut}
+          initial={0}
+          height={32}
+          borderRadius={15}
+          buttonColor="#bb00cc"
+          backgroundColor="#ccc"
+          onPress={value => {
+            console.log('value', value);
+            setOnlineBut(value);
+            POST('?json=true', {status: value, do: 'changeStatus'});
+          }}
+        />
       </Container>
     </View>
   );

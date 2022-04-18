@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {Button, Container, Dialog, Divider, Text} from '@src/components/elements';
 import CartContext from '@src/context/cart-context';
-import {baseImages} from '@src/utils/APICONST';
+import {baseImages, POST} from '@src/utils/APICONST';
 import {CancelOrders, ReOrders} from '@src/utils/CartAPI';
 import * as React from 'react';
 import {Alert, Animated, Image, ScrollView, View} from 'react-native';
@@ -10,7 +10,7 @@ import styles from './styles';
 type TrackOrderModalProps = {
   isVisible: boolean;
   setIsVisble: (value: React.SetStateAction<boolean>) => void;
-  reload?: () => void;
+  reload: () => void;
   Order: Object;
 };
 
@@ -20,7 +20,7 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
   const fadeIn = React.useRef(new Animated.Value(0)).current;
   const fadeOut = React.useRef(new Animated.Value(1)).current;
   const [isAnimationFinished, setIsAnimationFinished] = React.useState(false);
-  const [ROrders, setROrders] = React.useState({error: '', results: {}, loading: true});
+  const [ROrders, setROrders] = React.useState({error: '', results: {}, loading: false});
 
   React.useEffect(() => {
     Animated.timing(fadeIn, {
@@ -69,9 +69,11 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
     ]);
   };
 
-  const _ReOrder = id => {
-    ReOrders(id, setROrders);
-    // otherModal(true);
+  const ChangeOrderState = St => {
+    POST('?json=true', {do: 'changeOrderStatus', status: St, ID}, setROrders).then(e => {
+      setIsVisble(false);
+      reload();
+    });
   };
 
   const {ID, status, RestaurantName, itemsAmount, items, total, History, Cancelled} = Order;
@@ -84,58 +86,57 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
           <DriverInformation />
         </Container> */}
         {/* {isMapViewVisible ? <DeliveryMapView /> : <DeliveryStep />} */}
-        {!isMapViewVisible
-          ? items?.map((cartItem, cartItemIndex) => (
-              <>
-                <View key={cartItemIndex.toString()} style={styles.menuContainer}>
-                  <Image
-                    source={{uri: `${baseImages}${cartItem.MainItemPhoto}`}}
-                    style={{
-                      width: 60,
-                      height: 60,
-                    }}
-                  />
-                  <View style={styles.menuInfo}>
-                    <Text style={styles.quantityText}>{`${cartItem.Amount}`}</Text>
-                    <View key={cartItemIndex}>
-                      <Text style={styles.mainDishText} isBold>
-                        {cartItem.ItemName}
-                      </Text>
-                      <Text isSecondary style={styles.sideDishText}>
-                        {cartItem.SubItemsNames}
-                      </Text>
-                    </View>
-                  </View>
-                  <Text isBold>{cartItem.subtotalPrice}</Text>
-                </View>
+
+        <>
+          <View style={styles.menuContainer}>
+            {/* <Image
+              source={{uri: `${baseImages}${cartItem.MainItemPhoto}`}}
+              style={{
+                width: 60,
+                height: 60,
+              }}
+            /> */}
+            <View style={styles.menuInfo}>
+              <Text style={styles.quantityText}>{`${Order.cost}`}جم</Text>
+              <View>
+                <Text isSecondary style={styles.sideDishText}>
+                  {Order.add_date}
+                </Text>
+                <Text style={styles.mainDishText} isBold>
+                  اسم العميل {Order.name}
+                </Text>
+                <Text style={styles.mainDishText} isBold>
+                  رقم التليفون {Order.phone}
+                </Text>
+                <Text style={styles.mainDishText} isBold>
+                  العنوان {Order.address}
+                </Text>
+                <Text isSecondary style={styles.sideDishText}>
+                  الاجمالي {Order.net} - الخصم {Order.Discount}
+                </Text>
+                <Text isSecondary style={styles.sideDishText}>
+                  التوصيل {Order.shippingCost}
+                </Text>
                 <Divider />
-              </>
-            ))
-          : History?.map((cartItem, cartItemIndex) => (
-              <>
-                <View key={cartItemIndex} style={styles.menuContainer}>
-                  <View style={styles.menuInfo}>
-                    <View key={cartItemIndex}>
-                      <Text style={styles.mainDishText} isBold>
-                        {cartItem.Title}
-                      </Text>
-                      <Text isSecondary style={styles.sideDishText}>
-                        {cartItem.AddDate}
-                      </Text>
-                    </View>
-                  </View>
-                  <Text isBold>{cartItem.subtotalPrice}</Text>
-                </View>
+                <Text isSecondary style={styles.sideDishText}>
+                  المستحق {Order.cost}
+                </Text>
                 <Divider />
-              </>
-            ))}
+                <Text isSecondary style={styles.sideDishText}>
+                  نوع الطلب {Order.TYPE}
+                </Text>
+              </View>
+            </View>
+            <Text isBold>#{Order.ID}</Text>
+          </View>
+        </>
       </ScrollView>
       <Container style={styles.footerButtonContainer}>
-        <Button isFullWidth onPress={_onMapViewButtonPressed}>
+        {/* <Button isFullWidth onPress={_onMapViewButtonPressed}>
           <Text isWhite isBold style={styles.mapViewText}>
             {isMapViewVisible ? 'محتويات الطلب' : 'حالة الطلب'}
           </Text>
-        </Button>
+        </Button> */}
         {/* <Button
           isFullWidth
           isTransparent
@@ -143,16 +144,24 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
           style={styles.cancelOrderButton}>
           <Text>Cancel your order</Text>
         </Button> */}
-        {status == 1 && Cancelled == 0 ? (
-          <Button isTransparent onPress={() => _CancelOrder(ID)}>
-            <Text isBold isPrimary>
-              الغاء الطلب
-            </Text>
-          </Button>
+
+        {status <= 2 ? (
+          <View>
+            <Button isLoading={ROrders.loading} isFullWidth onPress={() => ChangeOrderState('2')}>
+              <Text isWhite isBold style={styles.mapViewText}>
+                تاكيد الطلب
+              </Text>
+            </Button>
+            <Button isTransparent onPress={() => ChangeOrderState('3')}>
+              <Text isBold isPrimary>
+                رفض الطلب
+              </Text>
+            </Button>
+          </View>
         ) : (
-          <Button isTransparent onPress={() => _ReOrder(ID)}>
+          <Button isLoading={ROrders.loading} isTransparent onPress={() => ChangeOrderState('6')}>
             <Text isBold isSecondary>
-              اعادة الطلب
+              توصيل الطلب
             </Text>
           </Button>
         )}

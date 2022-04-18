@@ -20,7 +20,6 @@ const Account: React.FC<AccountProps> = () => {
   const chevronIconName = I18nManager.isRTL ? 'chevron-left' : 'chevron-right';
   const user = contextState.user?.user || {};
 
-
   const _signOutAsync = async () => {
     // await logoutUser(fcmToken, setUser);
     try {
@@ -73,28 +72,40 @@ const Account: React.FC<AccountProps> = () => {
         <Divider />
         <Divider />
         <ListRowItem
-          title="طلباتي"
+          title="طلبات حالية"
           onPress={() => navigation.navigate('OrderHistoryScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
-          title=" طلبات التوصيل"
+          title=" طلبات قديمة"
           onPress={() => navigation.navigate('OrderHistoryRideScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
-          title="طلبات الشاليهات"
-          onPress={() => navigation.navigate('OrderHistoryVillaScreen')}
+          title="المدفوعات"
+          onPress={() => navigation.navigate('ReportsHistor', {type: 'payment'})}
           rightIcon={<Icon name={chevronIconName} />}
         />
         <Divider />
         <ListRowItem
+          title="الارباح"
+          onPress={() => navigation.navigate('ReportsHistor', {type: 'profit'})}
+          rightIcon={<Icon name={chevronIconName} />}
+        />
+        <Divider />
+        <ListRowItem
+          title="مدفوعات الاوردرات"
+          onPress={() => navigation.navigate('ReportsHistor', {type: 'orders'})}
+          rightIcon={<Icon name={chevronIconName} />}
+        />
+        {/* <Divider />
+        <ListRowItem
           title="العناوين"
           onPress={() => navigation.navigate('SavedAddressesScreen')}
           rightIcon={<Icon name={chevronIconName} />}
-        />
+        /> */}
         {/* <Divider />
         <ListRowItem
           title="الطلبات"
@@ -109,12 +120,12 @@ const Account: React.FC<AccountProps> = () => {
         />
         <Divider /> */}
 
-        <ListRowItem
+        {/* <ListRowItem
           title="تواصل معنا"
           // onPress={() => navigation.navigate('SupportCenterScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
-        <Divider />
+        <Divider /> */}
         {/* <ListRowItem
           title="تواصل معنا"
           rightIcon={<Icon name={chevronIconName} />}

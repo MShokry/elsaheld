@@ -69,7 +69,7 @@ export const getCoupon = async (Coupon, setState) => {
   await POST('webService.php?do=getCoupon&json=true', {Coupon}, setState);
 };
 export const GetOrders = async (order, setState) => {
-  POST('webService.php?do=GetOrders&json=true&start=0&end=20', order, setState);
+  POST('?do=myOrders&json=true', {do: 'myOrders', DataType: 'newOrders', ...order}, setState);
 };
 
 export const GetOrdersRide = async (order, setState) => {
@@ -79,7 +79,11 @@ export const GetOrdersAny = async (order, setState) => {
   POST('siteAPI.php?ajax_page=true&json=true&start=0&end=20', {...order, do: 'getMyOrders'}, setState);
 };
 export const GetOrdersVilla = async (order, setState) => {
-  POST('webService.php?ajax_page=true&json=true&start=0&end=20&do=getChaletRequests', {...order, do: 'getChaletRequests'}, setState);
+  POST(
+    'webService.php?ajax_page=true&json=true&start=0&end=20&do=getChaletRequests',
+    {...order, do: 'getChaletRequests'},
+    setState,
+  );
 };
 
 export const ReOrders = async (OrderID, setState) => {
