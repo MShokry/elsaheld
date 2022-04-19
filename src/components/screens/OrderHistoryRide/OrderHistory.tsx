@@ -4,7 +4,7 @@ import styles from './styles';
 import {List, Button, Text, LoadingIndicator} from '@src/components/elements';
 import {orderHistoryList} from '@src/data/mock-order-history';
 import {ListRowItemProps} from '@src/components/elements/List/ListRowItem';
-import {GetOrders, ReOrders, CancelOrders, GetOrdersRide} from '@src/utils/CartAPI';
+import {GetOrders, ReOrders, CancelOrders} from '@src/utils/CartAPI';
 import {useNavigation} from '@react-navigation/core';
 import {baseImages} from '@src/utils/APICONST';
 import SuccessOrderModal from '@src/components/screens/Checkout/PlaceOrder/SuccessOrderModal';
@@ -20,15 +20,21 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
   const navigation = useNavigation();
 
   React.useEffect(() => {
-    GetOrdersRide({}, setOrders);
+    GetOrders(
+      {
+        DataType: 'oldOrders',
+        // json_email: "emadelkomy7@gmail.com",
+        // json_password: "d320b3c9217fc14d1ac35557481b8dd919",
+      },
+      setOrders,
+    );
   }, []);
 
   const onRefresh = () => {
-    GetOrdersRide({}, setOrders);
+    GetOrders({DataType: 'oldOrders'}, setOrders);
   };
-  console.log('Orders', Orders);
 
-  if (Orders.loading && !Orders.results?.Result?.length) {
+  if (Orders.loading && !Orders.results.length) {
     return <LoadingIndicator size="large" hasMargin />;
   }
   console.log(Orders);
@@ -45,16 +51,21 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
 
   const data: ListRowItemProps[] =
     Orders.results?.Result?.map(item => {
-      const {ID, net, RestaurantPhoto, km, price, items, phone, History, Cancelled} = item || {};
+      const {ID, net, RestaurantPhoto, RestaurantName, itemsAmount, items, Status, History, Cancelled} = item;
       const lastHistory = History?.length ? History[History.length - 1]?.Title : 'جاري استلام الطلب';
-      const orderItems = items.price;
+      const orderItems =
+        items
+          ?.map(e => {
+            return e.ItemName;
+          })
+          .join(' | ') || '';
       return {
         id: ID,
-        title: `#${ID}, ${km} KM`,
-        subTitle: ` التكلفة : ${price} EGP`,
+        title: `#${ID}, ${item.name}`,
+        subTitle: ` عدد الاصناف: ${itemsAmount}, ${net} EGP, ${orderItems}`,
         note: lastHistory.toString(),
         onPress: () => {
-          // setisTrack(item);
+          setisTrack(item);
         },
         rightContainerStyle: styles.rightItemContainerStyle,
         leftIcon: <Image source={{uri: `${baseImages}${RestaurantPhoto}`}} style={styles.profileAvatar} />,
@@ -95,6 +106,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
         setIsVisble={bool => {
           setisTrack(bool);
         }}
+        reload={() => onRefresh()}
       />
     </View>
   );

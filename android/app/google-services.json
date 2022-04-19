@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:113395012750:android:f890eb7500d6c69e8da5df",
         "android_client_info": {
-          "package_name": "com.ebda3eg.elsahel"
+          "package_name": "com.ebda3eg.elsaheld"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "113395012750-ncjcbc6q4bfrfbk35t1bmbnb7qna4eh0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.ebda3eg.elsahel"
+                "bundle_id": "com.ebda3eg.elsaheld"
               }
             }
           ]

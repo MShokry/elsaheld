@@ -58,16 +58,18 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
             return e.ItemName;
           })
           .join(' | ') || '';
+      console.log(`${baseImages}${item?.storeInfo?.photo}`);
+
       return {
         id: ID,
-        title: `#${ID}, ${item.name}`,
+        title: `#${ID}, ${item.name}` + ' ' + item?.storeInfo?.name,
         subTitle: ` عدد الاصناف: ${itemsAmount}, ${net} EGP, ${orderItems}`,
         note: lastHistory.toString(),
         onPress: () => {
           setisTrack(item);
         },
         rightContainerStyle: styles.rightItemContainerStyle,
-        leftIcon: <Image source={{uri: `${baseImages}${RestaurantPhoto}`}} style={styles.profileAvatar} />,
+        leftIcon: <Image source={{uri: `${baseImages}${item?.storeInfo?.photo}`}} style={styles.profileAvatar} />,
       };
     }) || [];
 

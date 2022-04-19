@@ -4,7 +4,7 @@ import CartContext from '@src/context/cart-context';
 import {baseImages, POST} from '@src/utils/APICONST';
 import {CancelOrders, ReOrders} from '@src/utils/CartAPI';
 import * as React from 'react';
-import {Alert, Animated, Image, ScrollView, View} from 'react-native';
+import {Alert, Animated, Image, Linking, Platform, ScrollView, View} from 'react-native';
 import styles from './styles';
 
 type TrackOrderModalProps = {
@@ -45,13 +45,33 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
     setIsAnimationFinished(false);
   };
 
-  const _onOrderSomethingElseButtonPressed = () => {
-    navigation.navigate('HomeScreen');
+  const _OnCallrest = phone => {
+    const socialURL = `tel:${phone}`;
+    try {
+      Linking.canOpenURL(socialURL).then(supported => {
+        if (supported) {
+          Linking.openURL(socialURL);
+        } else {
+        }
+      });
+    } catch (error) {}
   };
 
-  const _onMapViewButtonPressed = () => {
-    setIsMapViewVisible(!isMapViewVisible);
+  const _onMapViewButtonPressed = label => {
+    let scheme = Platform.OS === 'ios' ? 'maps:' : 'geo:';
+    const urls = scheme + label;
+    console.log('Goto', urls);
+
+    try {
+      Linking.canOpenURL(urls).then(supported => {
+        if (supported) {
+          Linking.openURL(urls);
+        } else {
+        }
+      });
+    } catch (error) {}
   };
+
   console.log(Order);
   const _CancelOrder = id => {
     Alert.alert('الغاء الطلب', 'هل تريد الغاء الطلب ؟', [
@@ -132,11 +152,52 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
         </>
       </ScrollView>
       <Container style={styles.footerButtonContainer}>
-        {/* <Button isFullWidth onPress={_onMapViewButtonPressed}>
-          <Text isWhite isBold style={styles.mapViewText}>
-            {isMapViewVisible ? 'محتويات الطلب' : 'حالة الطلب'}
-          </Text>
-        </Button> */}
+        {Order?.driver_status > 1 ? (
+          <>
+            <View style={{alignItems: 'center', marginBottom: 30}}>
+              <Text isSecondary style={styles.sideDishText}>
+                {Order?.storeInfo?.name}
+                {' | '}
+                {Order?.storeInfo?.address}
+                {'\n'}
+              </Text>
+              <View style={{flexDirection: 'row'}}>
+                <Button
+                  style={{marginHorizontal: 10}}
+                  onPress={() => _onMapViewButtonPressed(Order?.storeInfo?.location)}>
+                  <Text isWhite isBold style={styles.mapViewText}>
+                    الذهاب الي المطعم{' '}
+                  </Text>
+                </Button>
+                <Button style={{marginHorizontal: 10}} onPress={() => _OnCallrest(Order?.storeInfo?.phone_num1)}>
+                  <Text isWhite isBold style={styles.mapViewText}>
+                    مكالمة الي المطعم{' '}
+                  </Text>
+                </Button>
+              </View>
+            </View>
+            <View style={{alignItems: 'center', marginBottom: 30}}>
+              <Text isSecondary style={styles.sideDishText}>
+                {Order?.name}
+                {' | '}
+                {Order?.address}
+                {'\n'}
+              </Text>
+              <View style={{flexDirection: 'row'}}>
+                <Button style={{marginHorizontal: 10}} onPress={() => _onMapViewButtonPressed(Order?.Location)}>
+                  <Text isWhite isBold style={styles.mapViewText}>
+                    الذهاب الي العميل{' '}
+                  </Text>
+                </Button>
+                <Button style={{marginHorizontal: 10}} onPress={() => _OnCallrest(Order?.phone)}>
+                  <Text isWhite isBold style={styles.mapViewText}>
+                    مكالمة الي العميل{' '}
+                  </Text>
+                </Button>
+              </View>
+            </View>
+          </>
+        ) : null}
         {/* <Button
           isFullWidth
           isTransparent
@@ -145,11 +206,11 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
           <Text>Cancel your order</Text>
         </Button> */}
 
-        {status <= 2 ? (
+        {Order?.driver_status < 2 ? (
           <View>
             <Button isLoading={ROrders.loading} isFullWidth onPress={() => ChangeOrderState('2')}>
               <Text isWhite isBold style={styles.mapViewText}>
-                تاكيد الطلب
+                قبول الطلب
               </Text>
             </Button>
             <Button isTransparent onPress={() => ChangeOrderState('3')}>
@@ -159,11 +220,18 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
             </Button>
           </View>
         ) : (
-          <Button isLoading={ROrders.loading} isTransparent onPress={() => ChangeOrderState('6')}>
-            <Text isBold isSecondary>
-              توصيل الطلب
-            </Text>
-          </Button>
+          <View>
+            <Button isLoading={ROrders.loading} onPress={() => ChangeOrderState('6')}>
+              <Text isWhite isBold isSecondary>
+                تم توصيل الطلب
+              </Text>
+            </Button>
+            <Button isTransparent onPress={() => ChangeOrderState('7')}>
+              <Text isBold isPrimary>
+                رفض الاستلام
+              </Text>
+            </Button>
+          </View>
         )}
       </Container>
     </Dialog>

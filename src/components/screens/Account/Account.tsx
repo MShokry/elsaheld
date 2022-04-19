@@ -78,7 +78,7 @@ const Account: React.FC<AccountProps> = () => {
         />
         <Divider />
         <ListRowItem
-          title=" طلبات قديمة"
+          title=" طلبات سابقة"
           onPress={() => navigation.navigate('OrderHistoryRideScreen')}
           rightIcon={<Icon name={chevronIconName} />}
         />
