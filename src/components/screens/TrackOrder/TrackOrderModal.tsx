@@ -98,15 +98,8 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
 
   const {ID, status, RestaurantName, itemsAmount, items, total, History, Cancelled} = Order;
   return (
-    <Dialog isVisible={isVisible} onBackdropPress={_onBackdropPress}>
+    <Dialog style={{maxHeight: '60%', marginTop: 80}} isVisible={isVisible} onBackdropPress={_onBackdropPress}>
       <ScrollView contentContainerStyle={styles.scrollViewContentContainerStyle}>
-        {/* <Container>
-          <DeliveryTime />
-          <Divider />
-          <DriverInformation />
-        </Container> */}
-        {/* {isMapViewVisible ? <DeliveryMapView /> : <DeliveryStep />} */}
-
         <>
           <View style={styles.menuContainer}>
             {/* <Image
@@ -163,15 +156,15 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
               </Text>
               <View style={{flexDirection: 'row'}}>
                 <Button
-                  style={{marginHorizontal: 10}}
+                  style={{marginHorizontal: 5}}
                   onPress={() => _onMapViewButtonPressed(Order?.storeInfo?.location)}>
                   <Text isWhite isBold style={styles.mapViewText}>
-                    الذهاب الي المطعم{' '}
+                    🚗 المطعم
                   </Text>
                 </Button>
                 <Button style={{marginHorizontal: 10}} onPress={() => _OnCallrest(Order?.storeInfo?.phone_num1)}>
                   <Text isWhite isBold style={styles.mapViewText}>
-                    مكالمة الي المطعم{' '}
+                    ☎️ المطعم
                   </Text>
                 </Button>
               </View>
@@ -186,12 +179,12 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
               <View style={{flexDirection: 'row'}}>
                 <Button style={{marginHorizontal: 10}} onPress={() => _onMapViewButtonPressed(Order?.Location)}>
                   <Text isWhite isBold style={styles.mapViewText}>
-                    الذهاب الي العميل{' '}
+                    🚗 العميل
                   </Text>
                 </Button>
                 <Button style={{marginHorizontal: 10}} onPress={() => _OnCallrest(Order?.phone)}>
                   <Text isWhite isBold style={styles.mapViewText}>
-                    مكالمة الي العميل{' '}
+                    ☎️ العميل
                   </Text>
                 </Button>
               </View>
@@ -219,7 +212,7 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
               </Text>
             </Button>
           </View>
-        ) : (
+        ) : Order?.driver_status < 3 ? (
           <View>
             <Button isLoading={ROrders.loading} onPress={() => ChangeOrderState('6')}>
               <Text isWhite isBold isSecondary>
@@ -232,7 +225,7 @@ const TrackOrderModal: React.FC<TrackOrderModalProps> = ({isVisible, Order, setI
               </Text>
             </Button>
           </View>
-        )}
+        ) : null}
       </Container>
     </Dialog>
   );

@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   scrollViewContentContainerStyle: {
-    flexGrow: 1,
+    // flexGrow: 1,
     paddingBottom: 50,
   },
   deliveryTimeContainer: {

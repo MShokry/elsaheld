@@ -27,7 +27,7 @@ const DishItem: React.FC<DishItemProps> = ({ data }) => {
             <Text style={styles.placeTitle}>{`${name}`}</Text>
             <Text style={styles.placeSubTitle}>{`${description}`}</Text>
             <Text isPrimary isBold>
-              {`${price}`} EGP
+            {`${price}`} ج.م
             </Text>
           </View>
         </View>

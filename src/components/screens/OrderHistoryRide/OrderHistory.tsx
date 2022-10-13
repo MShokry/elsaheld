@@ -93,6 +93,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = () => {
       )}
       <SuccessOrderModal
         isVisible={isSuccessOrderModalVisible}
+        isHistory
         setIsVisble={bool => {
           setIsSuccessOrderModalVisible(bool);
           if (!bool) {

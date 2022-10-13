@@ -120,14 +120,14 @@ const AuthLoading = ({navigation}) => {
   return (
     <>
       <View style={{flex: 1, alignItems: 'center', alignContent: 'center'}} colors={['#eadccf', '#526b7d']}>
-        {/* <Image style={{width: width * 0.5}} resizeMode="contain" source={require('@src/assets/app/app_icon.png')} />
-        <VideoPlayer
+        <Image style={{width: width * 0.5}} resizeMode="contain" source={require('@src/assets/app/app_icon.png')} />
+        {/*<VideoPlayer
           video={require('@src/assets/app/load.mp4')}
           videoWidth={1600}
           videoHeight={900}
           thumbnail={{uri: 'https://i.picsum.photos/id/866/1600/900.jpg'}}
         /> */}
-        <Video
+        {/* <Video
           source={require('@src/assets/app/load.mp4')}
           videoWidth={width}
           videoHeight={height}
@@ -135,7 +135,7 @@ const AuthLoading = ({navigation}) => {
           style={{flex: 1, width, height}}
           repeat
           // muted
-        />
+        /> */}
 
         {/* <LottieView
           source={require('@src/assets/animations/elsahel1.json')}

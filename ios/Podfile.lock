@@ -277,12 +277,12 @@ PODS:
     - React
   - react-native-geolocation-service (5.2.0):
     - React
-  - react-native-google-maps (0.27.1):
+  - react-native-google-maps (0.29.4):
     - Google-Maps-iOS-Utils (= 2.1.0)
     - GoogleMaps (= 3.5.0)
-    - React
-  - react-native-maps (0.27.1):
-    - React
+    - React-Core
+  - react-native-maps (0.29.4):
+    - React-Core
   - react-native-restart (0.0.22):
     - React-Core
   - react-native-safe-area-context (3.3.2):
@@ -612,8 +612,8 @@ SPEC CHECKSUMS:
   react-native-fbsdk-next: 50b2ce0e56ef9b68cb0fd7f19072364296896c20
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-geolocation-service: 7c9436da6dfdecd9526c62eac62ea2bc3f0cc8ea
-  react-native-google-maps: 0a989abda71059db2caa98b9dacca7a8f38a47d0
-  react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
+  react-native-google-maps: 34517207071d54f3bc23c68752bbec0217bfc79e
+  react-native-maps: a421fe6aeb74279597c4ea9598f25796108e2d89
   react-native-restart: 733a51ad137f15b0f8dc34c4082e55af7da00979
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
   react-native-video: a4c2635d0802f983594b7057e1bce8f442f0ad28
@@ -645,6 +645,6 @@ SPEC CHECKSUMS:
   Sentry: 5c5dd4005f3b7b9765d5a8871232cddbd0d888b7
   Yoga: 9a08effa851c1d8cc1647691895540bc168ea65f
 
-PODFILE CHECKSUM: f2d9ba755b6db7da9d9328524d95bc01b447d0fa
+PODFILE CHECKSUM: 05259cf5e7194ab97f99b7782308a29c119ea20f
 
 COCOAPODS: 1.11.3
